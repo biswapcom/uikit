@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PanelBody from "./PanelBody";
 import PanelFooter from "./PanelFooter";
+import Logo2 from "./Logo2";
 import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../config";
 import { PanelProps, PushedProps } from "../types";
 
@@ -12,7 +13,7 @@ interface Props extends PanelProps, PushedProps {
 
 const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   position: fixed;
-  padding-top: ${({ showMenu }) => (showMenu ? "80px" : 0)};
+  padding-top: ${({ showMenu }) => (showMenu ? "32px" : 0)};
   top: 0;
   left: 0;
   display: flex;
@@ -24,7 +25,7 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   height: 100vh;
   transition: padding-top 0.2s, width 0.2s;
   border-right: ${({ isPushed }) => (isPushed ? "2px solid rgba(133, 133, 133, 0.1)" : 0)};
-  z-index: 11;
+  z-index: 30;
   overflow: ${({ isPushed }) => (isPushed ? "initial" : "hidden")};
   transform: translate3d(0, 0, 0);
 
@@ -35,9 +36,10 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
 `;
 
 const Panel: React.FC<Props> = (props) => {
-  const { isPushed, showMenu } = props;
+  const { isPushed, showMenu, isDark } = props;
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
+      <Logo2 isPushed={isPushed} isDark={isDark} href="http" />
       <PanelBody {...props} />
       <PanelFooter {...props} />
     </StyledPanel>

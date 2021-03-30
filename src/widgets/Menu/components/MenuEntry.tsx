@@ -8,20 +8,24 @@ export interface Props {
   theme: DefaultTheme;
 }
 
-const rainbowAnimation = keyframes`
-  0%,
-  100% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 100% 0;
-  }
-`;
+// const rainbowAnimation = keyframes`
+//   0%,
+//   100% {
+//     background-position: 0 0;
+//   }
+//   50% {
+//     background-position: 100% 0;
+//   }
+// `;
 
 const LinkLabel = styled.div<{ isPushed: boolean }>`
-  color: ${({ isPushed, theme }) => (isPushed ? theme.colors.textSubtle : "transparent")};
+  color: ${({ isPushed }) => (isPushed ? "inherit" : "transparent")};
   transition: color 0.4s;
   flex-grow: 1;
+
+  &:hover {
+    color: ${({ isPushed, theme }) => (isPushed ? theme.colors.textSubtle : "transparent")};
+  }
 `;
 
 const MenuEntry = styled.div<Props>`
@@ -29,11 +33,12 @@ const MenuEntry = styled.div<Props>`
   display: flex;
   align-items: center;
   height: ${MENU_ENTRY_HEIGHT}px;
-  padding: ${({ secondary }) => (secondary ? "0 32px" : "0 16px")};
-  font-size: ${({ secondary }) => (secondary ? "14px" : "16px")};
-  background-color: ${({ secondary, theme }) => (secondary ? theme.colors.background : "transparent")};
-  color: ${({ theme }) => theme.colors.textSubtle};
-  box-shadow: ${({ isActive, theme }) => (isActive ? `inset 4px 0px 0px ${theme.colors.primary}` : "none")};
+  padding: ${({ secondary }) => (secondary ? "0 24px 0 44px" : "0 12px")};
+  font-size: ${({ secondary }) => (secondary ? "12px" : "14px")};
+  background-color: transparent;
+  color: ${({ theme }) => theme.colors.contrast};
+  border-radius: 8px;
+  // box-shadow: ${({ isActive, theme }) => (isActive ? `inset 4px 0px 0px ${theme.colors.primary}` : "none")};
 
   a {
     display: flex;
@@ -43,11 +48,16 @@ const MenuEntry = styled.div<Props>`
   }
 
   svg {
-    fill: ${({ theme }) => theme.colors.textSubtle};
+    fill: ${({ theme }) => theme.colors.contrast};
+    transition: fill 0.4s;
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.tertiary};
+    color: ${({ theme }) => theme.colors.textSubtle};
+
+    svg {
+      fill: ${({ theme }) => theme.colors.textSubtle};
+    }
   }
 
   // Safari fix
@@ -55,8 +65,7 @@ const MenuEntry = styled.div<Props>`
 
   &.rainbow {
     background-clip: text;
-    animation: ${rainbowAnimation} 3s ease-in-out infinite;
-    background: ${({ theme }) => theme.colors.gradients.bubblegum};
+    background: ${({ theme }) => theme.colors.dropDown};
     background-size: 400% 100%;
   }
 `;
@@ -67,5 +76,5 @@ MenuEntry.defaultProps = {
 };
 
 const LinkLabelMemo = React.memo(LinkLabel, (prev, next) => prev.isPushed === next.isPushed);
-
+console.log(LinkLabelMemo);
 export { MenuEntry, LinkLabelMemo as LinkLabel };
