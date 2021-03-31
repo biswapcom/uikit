@@ -4,7 +4,7 @@ import throttle from "lodash/throttle";
 import Overlay from "../../components/Overlay/Overlay";
 import Flex from "../../components/Box/Flex";
 import { useMatchBreakpoints } from "../../hooks";
-import Logo from "./components/Logo";
+import TogglePanel from "./components/TogglePanel";
 import Panel from "./components/Panel";
 import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
@@ -118,7 +118,7 @@ const Menu: React.FC<NavProps> = ({
     <Wrapper>
       <BodyWrapper>
         <StyledNav showMenu={showMenu} isPushed={isPushed}>
-          <Logo
+          <TogglePanel
             isPushed={isPushed}
             togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
             isDark={isDark}

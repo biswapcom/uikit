@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PanelBody from "./PanelBody";
 import PanelFooter from "./PanelFooter";
-import Logo2 from "./Logo2";
+import Logo from "./Logo";
 import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../config";
 import { PanelProps, PushedProps } from "../types";
 
@@ -39,7 +39,7 @@ const Panel: React.FC<Props> = (props) => {
   const { isPushed, showMenu, isDark } = props;
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
-      <Logo2 isPushed={isPushed} isDark={isDark} href="http" />
+      <Logo isPushed={isPushed} isDark={isDark} href="http" />
       <PanelBody {...props} />
       <PanelFooter {...props} />
     </StyledPanel>

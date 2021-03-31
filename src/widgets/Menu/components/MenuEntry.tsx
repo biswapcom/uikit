@@ -64,7 +64,6 @@ const MenuEntry = styled.div<Props>`
   flex-shrink: 0;
 
   &.rainbow {
-    background-clip: text;
     background: ${({ theme }) => theme.colors.dropDown};
     background-size: 400% 100%;
   }
@@ -76,5 +75,4 @@ MenuEntry.defaultProps = {
 };
 
 const LinkLabelMemo = React.memo(LinkLabel, (prev, next) => prev.isPushed === next.isPushed);
-console.log(LinkLabelMemo);
 export { MenuEntry, LinkLabelMemo as LinkLabel };
