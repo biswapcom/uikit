@@ -2,17 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import PanelBody from "./PanelBody";
 import PanelFooter from "./PanelFooter";
+import PanelFooter2 from "./PanelFooter2";
+import Logo from "./Logo";
 import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../config";
 import { PanelProps, PushedProps } from "../types";
 
 interface Props extends PanelProps, PushedProps {
   showMenu: boolean;
   isMobile: boolean;
+  href: string;
 }
 
 const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   position: fixed;
-  padding-top: ${({ showMenu }) => (showMenu ? "80px" : 0)};
+  padding-top: ${({ showMenu }) => (showMenu ? "32px" : 0)};
   top: 0;
   left: 0;
   display: flex;
@@ -24,7 +27,7 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   height: 100vh;
   transition: padding-top 0.2s, width 0.2s;
   border-right: ${({ isPushed }) => (isPushed ? "2px solid rgba(133, 133, 133, 0.1)" : 0)};
-  z-index: 11;
+  z-index: 30;
   overflow: ${({ isPushed }) => (isPushed ? "initial" : "hidden")};
   transform: translate3d(0, 0, 0);
 
@@ -35,11 +38,14 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
 `;
 
 const Panel: React.FC<Props> = (props) => {
-  const { isPushed, showMenu } = props;
+  // Find the home link if provided
+  const { isPushed, showMenu, isDark, href } = props;
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
+      <Logo isPushed={isPushed} isDark={isDark} href={href} />
       <PanelBody {...props} />
       <PanelFooter {...props} />
+      {/*<PanelFooter2 />*/}
     </StyledPanel>
   );
 };

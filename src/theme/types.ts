@@ -29,6 +29,7 @@ export type Shadows = {
 
 export type Gradients = {
   bubblegum: string;
+  cardHeader: string;
 };
 
 export type Colors = {
@@ -36,6 +37,7 @@ export type Colors = {
   primaryBright: string;
   primaryDark: string;
   secondary: string;
+  header: string;
   tertiary: string;
   success: string;
   failure: string;
@@ -51,6 +53,8 @@ export type Colors = {
   textSubtle: string;
   borderColor: string;
   card: string;
+  dropDown: string;
+  footer: string;
 
   // Gradients
   gradients: Gradients;
