@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PanelBody from "./PanelBody";
 import PanelFooter from "./PanelFooter";
+import PanelFooter2 from "./PanelFooter2";
 import Logo from "./Logo";
 import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../config";
 import { PanelProps, PushedProps } from "../types";
@@ -14,6 +15,8 @@ interface Props extends PanelProps, PushedProps {
 const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   position: fixed;
   padding-top: ${({ showMenu }) => (showMenu ? "32px" : 0)};
+  padding-left: ${({ isPushed }) => (isPushed ? "16px" : "12px")};
+  padding-right: ${({ isPushed }) => (isPushed ? "16px" : "12px")};
   top: 0;
   left: 0;
   display: flex;
@@ -42,6 +45,7 @@ const Panel: React.FC<Props> = (props) => {
       <Logo isPushed={isPushed} isDark={isDark} href="http" />
       <PanelBody {...props} />
       <PanelFooter {...props} />
+      {/*<PanelFooter2 />*/}
     </StyledPanel>
   );
 };
