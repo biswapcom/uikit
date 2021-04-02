@@ -11,7 +11,6 @@ interface Props {
 }
 
 const Logo: React.FC<Props> = ({ isPushed, togglePush }) => {
-
   return (
     <Flex>
       <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">

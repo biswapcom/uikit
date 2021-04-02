@@ -6,14 +6,18 @@ import Flex from "../../components/Box/Flex";
 import { useMatchBreakpoints } from "../../hooks";
 import TogglePanel from "./components/TogglePanel";
 import Panel from "./components/Panel";
+import Footer from "./components/Footer";
 import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 import Avatar from "./components/Avatar";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 
 const Wrapper = styled.div`
+  display: grid;
   position: relative;
   width: 100%;
+  height: calc(100vh - 2rem);
+  grid-template-rows: 1fr 136px;
 `;
 
 const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean }>`
@@ -147,6 +151,7 @@ const Menu: React.FC<NavProps> = ({
         </Inner>
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
       </BodyWrapper>
+      <Footer isPushed={isPushed} />
     </Wrapper>
   );
 };
