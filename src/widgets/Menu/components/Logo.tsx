@@ -10,6 +10,10 @@ interface Props {
   href: string;
 }
 
+const Wrapper = styled.div<Props>`
+  padding: ${({ isPushed }) => (isPushed ? "16px" : "12px")};
+`;
+
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
@@ -46,7 +50,7 @@ const Logo: React.FC<Props> = ({ isPushed, isDark, href }) => {
   );
 
   return (
-    <div>
+    <Wrapper isPushed={isPushed} isDark={isDark} href={href}>
       {isAbsoluteUrl ? (
         <StyledLink as="a" href={href} aria-label="Pancake home page">
           {innerLogo}
@@ -56,7 +60,7 @@ const Logo: React.FC<Props> = ({ isPushed, isDark, href }) => {
           {innerLogo}
         </StyledLink>
       )}
-    </div>
+    </Wrapper>
   );
 };
 

@@ -10,13 +10,12 @@ import { PanelProps, PushedProps } from "../types";
 interface Props extends PanelProps, PushedProps {
   showMenu: boolean;
   isMobile: boolean;
+  href: string;
 }
 
 const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   position: fixed;
   padding-top: ${({ showMenu }) => (showMenu ? "32px" : 0)};
-  padding-left: ${({ isPushed }) => (isPushed ? "16px" : "12px")};
-  padding-right: ${({ isPushed }) => (isPushed ? "16px" : "12px")};
   top: 0;
   left: 0;
   display: flex;
@@ -39,10 +38,11 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
 `;
 
 const Panel: React.FC<Props> = (props) => {
-  const { isPushed, showMenu, isDark } = props;
+  // Find the home link if provided
+  const { isPushed, showMenu, isDark, href } = props;
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
-      <Logo isPushed={isPushed} isDark={isDark} href="http" />
+      <Logo isPushed={isPushed} isDark={isDark} href={href} />
       <PanelBody {...props} />
       <PanelFooter {...props} />
       {/*<PanelFooter2 />*/}
