@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Wrapper = styled.div<Props>`
-  padding: ${({ isPushed }) => (isPushed ? "16px" : "12px")};
+  padding: ${({ isPushed }) => (isPushed ? "0 16px" : "0 12px")};
 `;
 
 const StyledLink = styled(Link)`

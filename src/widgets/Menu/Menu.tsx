@@ -6,7 +6,6 @@ import Flex from "../../components/Box/Flex";
 import { useMatchBreakpoints } from "../../hooks";
 import TogglePanel from "./components/TogglePanel";
 import Panel from "./components/Panel";
-// import Footer from "./components/Footer";
 import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 import Avatar from "./components/Avatar";
@@ -93,6 +92,8 @@ const Menu: React.FC<NavProps> = ({
   profile,
   children,
   childrenFooter,
+  footerTitle,
+  deals
 }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
@@ -159,6 +160,8 @@ const Menu: React.FC<NavProps> = ({
           pushNav={setIsPushed}
           links={links}
           href={homeLink?.href ?? "/"}
+          footerTitle={footerTitle}
+          deals={deals}
         />
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}
