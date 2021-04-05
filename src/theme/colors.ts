@@ -35,6 +35,7 @@ export const lightColors: Colors = {
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #E6FDFF 0%, #F3EFFF 100%)",
     cardHeader: "linear-gradient(180deg, #071C3C 0%, #002B6F 100%)",
+    cardBlue: "linear-gradient(235deg, #336FF5 4.05%, rgba(17, 81, 225, 0.32) 103.52%)",
   },
 };
 
@@ -61,5 +62,6 @@ export const darkColors: Colors = {
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)",
     cardHeader: "linear-gradient(180deg, #071C3C 0%, #002B6F 100%)",
+    cardBlue: "linear-gradient(235deg, #336FF5 4.05%, rgba(17, 81, 225, 0.32) 103.52%)",
   },
 };
