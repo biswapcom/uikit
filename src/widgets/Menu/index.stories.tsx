@@ -102,6 +102,8 @@ export const NotConnected: React.FC = () => {
         setLang={noop}
         currentLang="EN"
         links={links}
+        footerTitle={footerTitle}
+        deals={deals}
       >
         <div>
           <h1>Page body</h1>
@@ -138,6 +140,8 @@ export const WithNoProfile: React.FC = () => {
           profileLink: "/profile",
           noProfileLink: "/no-profile",
         }}
+        footerTitle={footerTitle}
+        deals={deals}
       >
         <div>
           <Heading as="h1" mb="8px">
@@ -182,6 +186,8 @@ export const WithProfile: React.FC = () => {
           profileLink: "/profile",
           noProfileLink: "/no-profile",
         }}
+        footerTitle={footerTitle}
+        deals={deals}
       >
         <div>
           <Heading as="h1" mb="8px">
@@ -236,6 +242,8 @@ export const WithSubmenuSelected: React.FC = () => {
           profileLink: "/profile",
           noProfileLink: "/no-profile",
         }}
+        footerTitle={footerTitle}
+        deals={deals}
       >
         <div>
           <Heading as="h1" mb="8px">
