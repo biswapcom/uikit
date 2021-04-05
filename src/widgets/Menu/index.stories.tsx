@@ -7,7 +7,7 @@ import Text from "../../components/Text/Text";
 import { MenuEntry } from "./components/MenuEntry";
 import Menu from "./Menu";
 import { LangType } from "./types";
-import { links } from "./config";
+import { links, footerTitle, deals } from "./config";
 
 export default {
   title: "Widgets/Menu",
@@ -31,6 +31,8 @@ const useProps = () => {
     cakePriceUsd: 0.023158668932877668,
     links,
     profile: null,
+    footerTitle,
+    deals,
   });
 
   useEffect(() => {
@@ -47,6 +49,8 @@ const useProps = () => {
         cakePriceUsd: 0.023158668932877668,
         links,
         profile: null,
+        footerTitle,
+        deals,
       });
     }, 2000);
     return () => {

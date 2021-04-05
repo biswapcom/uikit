@@ -48,9 +48,25 @@ export interface PanelProps {
   links: Array<MenuEntry>;
 }
 
+export interface DealsEntry {
+  dealName: string;
+  dealDate: string;
+  coupleFirst: string;
+  coupleLast: string;
+  dealValue: number;
+}
+
+export interface PanelFooterProps {
+  footerTitle: string;
+  deals: Array<DealsEntry>
+}
+
 export interface NavProps extends PanelProps {
   account?: string;
   login: Login;
   profile?: Profile;
   logout: () => void;
+  childrenFooter: React.ReactElement | React.ReactElement[];
+  footerTitle: string;
+  deals: Array<DealsEntry>
 }

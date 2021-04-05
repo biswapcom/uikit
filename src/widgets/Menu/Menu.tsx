@@ -6,18 +6,14 @@ import Flex from "../../components/Box/Flex";
 import { useMatchBreakpoints } from "../../hooks";
 import TogglePanel from "./components/TogglePanel";
 import Panel from "./components/Panel";
-import Footer from "./components/Footer";
 import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 import Avatar from "./components/Avatar";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 
 const Wrapper = styled.div`
-  display: grid;
   position: relative;
   width: 100%;
-  height: calc(100vh - 2rem);
-  grid-template-rows: 1fr 136px;
 `;
 
 const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean }>`
@@ -28,7 +24,6 @@ const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL + 8 : SIDEBAR_WIDTH_REDUCED + 8}px`};
   padding-right: 16px;
   width: 100%;
   height: ${MENU_HEIGHT}px;
@@ -36,12 +31,18 @@ const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean }>`
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
   z-index: 20;
   transform: translate3d(0, 0, 0);
+
+  ${({ theme }) => theme.mediaQueries.nav} {
+    padding-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL + 8 : SIDEBAR_WIDTH_REDUCED + 8}px`};
+  }
 `;
 
 const BodyWrapper = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
   z-index: 30;
+  min-height: calc(100vh - 2rem);
 `;
 
 const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
@@ -66,6 +67,17 @@ const MobileOnlyOverlay = styled(Overlay)`
   }
 `;
 
+const Footer = styled.footer<{ isPushed: boolean }>`
+  display: flex;
+  color: #fff;
+  background: ${({ theme }) => theme.colors.footer};
+  padding: 32px 0;
+  
+  ${({ theme }) => theme.mediaQueries.nav} {
+    padding-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
+  }
+`;
+
 const Menu: React.FC<NavProps> = ({
   account,
   login,
@@ -79,6 +91,9 @@ const Menu: React.FC<NavProps> = ({
   links,
   profile,
   children,
+  childrenFooter,
+  footerTitle,
+  deals
 }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
@@ -126,7 +141,6 @@ const Menu: React.FC<NavProps> = ({
             isPushed={isPushed}
             togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
             isDark={isDark}
-            href={homeLink?.href ?? "/"}
           />
           <Flex>
             <UserBlock account={account} login={login} logout={logout} />
@@ -145,13 +159,18 @@ const Menu: React.FC<NavProps> = ({
           cakePriceUsd={cakePriceUsd}
           pushNav={setIsPushed}
           links={links}
+          href={homeLink?.href ?? "/"}
+          footerTitle={footerTitle}
+          deals={deals}
         />
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}
         </Inner>
+        <Footer isPushed={isPushed}>
+          {childrenFooter}
+        </Footer>
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
       </BodyWrapper>
-      <Footer isPushed={isPushed} />
     </Wrapper>
   );
 };

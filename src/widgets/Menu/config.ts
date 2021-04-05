@@ -179,6 +179,25 @@ export const socials = [
   },
 ];
 
+export const footerTitle = 'Last top deals';
+
+export const deals = [
+  {
+    dealName: "Swap",
+    dealDate: "18:34:00",
+    coupleFirst: "BSW",
+    coupleLast: "BNB",
+    dealValue: 100987.77,
+  },
+  {
+    dealName: "Liquidity",
+    dealDate: "18:34:00",
+    coupleFirst: "BSW",
+    coupleLast: "BNB",
+    dealValue: 100987.77,
+  }
+];
+
 export const MENU_HEIGHT = 64;
 export const MENU_ENTRY_HEIGHT = 48;
 export const SIDEBAR_WIDTH_FULL = 224;

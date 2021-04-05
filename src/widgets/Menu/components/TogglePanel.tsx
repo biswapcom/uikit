@@ -7,7 +7,6 @@ interface Props {
   isPushed: boolean;
   isDark: boolean;
   togglePush: () => void;
-  href: string;
 }
 
 const Logo: React.FC<Props> = ({ isPushed, togglePush }) => {
