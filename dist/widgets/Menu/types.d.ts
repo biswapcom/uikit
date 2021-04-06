@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { Login } from "../WalletModal/types";
 export interface LangType {
     code: string;
