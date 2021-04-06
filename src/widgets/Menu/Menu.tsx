@@ -72,7 +72,7 @@ const Footer = styled.footer<{ isPushed: boolean }>`
   color: #fff;
   background: ${({ theme }) => theme.colors.footer};
   padding: 32px 0;
-  
+
   ${({ theme }) => theme.mediaQueries.nav} {
     padding-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
   }
@@ -93,7 +93,7 @@ const Menu: React.FC<NavProps> = ({
   children,
   childrenFooter,
   footerTitle,
-  deals
+  deals,
 }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
@@ -166,9 +166,7 @@ const Menu: React.FC<NavProps> = ({
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}
         </Inner>
-        <Footer isPushed={isPushed}>
-          {childrenFooter}
-        </Footer>
+        <Footer isPushed={isPushed}>{childrenFooter}</Footer>
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
       </BodyWrapper>
     </Wrapper>

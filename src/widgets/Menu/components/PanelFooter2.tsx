@@ -25,7 +25,9 @@ const PanelFooter2: React.FC<Props> = (props) => {
   return (
     <Wrapper isPushed={isPushed} footerTitle={footerTitle} isDark={isDark} deals={deals}>
       <Inner>
-        <Text color="contrast" small mb="12px">{footerTitle}</Text>
+        <Text color="contrast" small mb="12px">
+          {footerTitle}
+        </Text>
 
         {deals.map((item) => {
           return (
@@ -37,11 +39,11 @@ const PanelFooter2: React.FC<Props> = (props) => {
               coupleLast={item.coupleLast}
               dealValue={item.dealValue}
             />
-          )
+          );
         })}
       </Inner>
     </Wrapper>
-  )
+  );
 };
 
 export default PanelFooter2;

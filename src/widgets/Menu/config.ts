@@ -179,7 +179,7 @@ export const socials = [
   },
 ];
 
-export const footerTitle = 'Last top deals';
+export const footerTitle = "Last top deals";
 
 export const deals = [
   {
@@ -195,7 +195,7 @@ export const deals = [
     coupleFirst: "BSW",
     coupleLast: "BNB",
     dealValue: 100987.77,
-  }
+  },
 ];
 
 export const MENU_HEIGHT = 64;
