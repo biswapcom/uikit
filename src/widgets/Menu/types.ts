@@ -58,7 +58,7 @@ export interface DealsEntry {
 
 export interface PanelFooterProps {
   footerTitle: string;
-  deals: Array<DealsEntry>
+  deals: Array<DealsEntry>;
 }
 
 export interface NavProps extends PanelProps {
@@ -68,5 +68,5 @@ export interface NavProps extends PanelProps {
   logout: () => void;
   childrenFooter: React.ReactElement | React.ReactElement[];
   footerTitle: string;
-  deals: Array<DealsEntry>
+  deals: Array<DealsEntry>;
 }

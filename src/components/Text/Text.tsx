@@ -19,7 +19,7 @@ const Text = styled.div<TextProps>`
   color: ${getColor};
   font-size: ${getFontSize};
   font-weight: ${({ bold }) => (bold ? 600 : 400)};
-  line-height: ${({ lineHeight }) => (lineHeight || "1.5")};
+  line-height: ${({ lineHeight }) => lineHeight || "1.5"};
   ${({ textTransform }) => textTransform && `text-transform: ${textTransform};`}
   ${space}
   ${typography}

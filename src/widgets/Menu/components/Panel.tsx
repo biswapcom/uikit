@@ -3,7 +3,7 @@ import styled from "styled-components";
 import PanelBody from "./PanelBody";
 import PanelFooter2 from "./PanelFooter2";
 import Logo from "./Logo";
-import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL} from "../config";
+import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../config";
 import { PanelProps, PushedProps, PanelFooterProps } from "../types";
 
 interface Props extends PanelProps, PushedProps, PanelFooterProps {

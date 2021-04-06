@@ -4,7 +4,7 @@ import SwapArrow from "../icons/SwapArrow";
 import Text from "../../../components/Text/Text";
 
 interface Props {
-  isDark: boolean,
+  isDark: boolean;
   dealName: string;
   dealDate: string;
   coupleFirst: string;
@@ -15,7 +15,7 @@ interface Props {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  
+
   & + div {
     margin-top: 16px;
   }
@@ -30,7 +30,7 @@ const Icon = styled.div`
   margin-right: 8px;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.success};
-  
+
   .swapArrow {
     width: 12px;
     height: auto;
@@ -52,22 +52,34 @@ const DealItem: React.FC<Props> = (props) => {
   return (
     <Wrapper>
       <Icon>
-        <SwapArrow className="swapArrow"/>
+        <SwapArrow className="swapArrow" />
       </Icon>
       <Info>
-        <Text color="contrast" fontSize="10px" bold>{dealName}</Text>
-        <Text color="textSubtle" fontSize="8px">{dealDate}</Text>
+        <Text color="contrast" fontSize="10px" bold>
+          {dealName}
+        </Text>
+        <Text color="textSubtle" fontSize="8px">
+          {dealDate}
+        </Text>
       </Info>
       <div>
         <CoupleWrap>
-          <Text color="contrast" fontSize="8px" lineHeight="1" textTransform="uppercase">{coupleFirst}</Text>
-          <Text color="contrast" fontSize="8px" lineHeight="1" textTransform="uppercase">/</Text>
-          <Text color="textSubtle" fontSize="8px" lineHeight="1" textTransform="uppercase">{coupleLast}</Text>
+          <Text color="contrast" fontSize="8px" lineHeight="1" textTransform="uppercase">
+            {coupleFirst}
+          </Text>
+          <Text color="contrast" fontSize="8px" lineHeight="1" textTransform="uppercase">
+            /
+          </Text>
+          <Text color="textSubtle" fontSize="8px" lineHeight="1" textTransform="uppercase">
+            {coupleLast}
+          </Text>
         </CoupleWrap>
-        <Text color="success" fontSize="12px">${dealValue}</Text>
+        <Text color="success" fontSize="12px">
+          ${dealValue}
+        </Text>
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
 export default DealItem;
