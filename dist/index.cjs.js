@@ -2707,9 +2707,12 @@ var DealItem = function (props) {
 };
 var templateObject_1$a, templateObject_2$5, templateObject_3$1, templateObject_4$1;
 
-var Wrapper$2 = styled__default['default'].div(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  padding: ", ";\n"], ["\n  padding: ", ";\n"])), function (_a) {
+var Wrapper$2 = styled__default['default'].div(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  padding: ", ";\n  display: ", ";\n"], ["\n  padding: ", ";\n  display: ", ";\n"])), function (_a) {
     var isPushed = _a.isPushed;
     return (isPushed ? "0 16px 32px" : "0 12px 32px");
+}, function (_a) {
+    var isPushed = _a.isPushed;
+    return (isPushed ? "block" : "none");
 });
 var Inner$1 = styled__default['default'].div(templateObject_2$4 || (templateObject_2$4 = __makeTemplateObject(["\n  padding: 16px;\n  border-radius: 16px;\n  background-color: ", ";\n"], ["\n  padding: 16px;\n  border-radius: 16px;\n  background-color: ", ";\n"])), function (_a) {
     var theme = _a.theme;
