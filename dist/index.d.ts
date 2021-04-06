@@ -1,4 +1,5 @@
 export * from "./components/Alert";
+export * from "./components/Banner";
 export * from "./components/Box";
 export * from "./components/Breadcrumbs";
 export * from "./components/Button";
