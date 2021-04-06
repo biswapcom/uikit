@@ -124,7 +124,7 @@ var Text = styled__default['default'].div(templateObject_1$O || (templateObject_
     return (bold ? 600 : 400);
 }, function (_a) {
     var lineHeight = _a.lineHeight;
-    return (lineHeight || "1.5");
+    return lineHeight || "1.5";
 }, function (_a) {
     var textTransform = _a.textTransform;
     return textTransform && "text-transform: " + textTransform + ";";
@@ -2681,8 +2681,8 @@ var SwapArrow = function (_a) {
 };
 var SwapArrow$1 = React__default['default'].memo(SwapArrow);
 
-var Wrapper$3 = styled__default['default'].div(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  \n  & + div {\n    margin-top: 16px;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  \n  & + div {\n    margin-top: 16px;\n  }\n"])));
-var Icon$7 = styled__default['default'].div(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  height: 24px;\n  margin-right: 8px;\n  border-radius: 8px;\n  background-color: ", ";\n  \n  .swapArrow {\n    width: 12px;\n    height: auto;\n  }\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  height: 24px;\n  margin-right: 8px;\n  border-radius: 8px;\n  background-color: ", ";\n  \n  .swapArrow {\n    width: 12px;\n    height: auto;\n  }\n"])), function (_a) {
+var Wrapper$3 = styled__default['default'].div(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n\n  & + div {\n    margin-top: 16px;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n\n  & + div {\n    margin-top: 16px;\n  }\n"])));
+var Icon$7 = styled__default['default'].div(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  height: 24px;\n  margin-right: 8px;\n  border-radius: 8px;\n  background-color: ", ";\n\n  .swapArrow {\n    width: 12px;\n    height: auto;\n  }\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  height: 24px;\n  margin-right: 8px;\n  border-radius: 8px;\n  background-color: ", ";\n\n  .swapArrow {\n    width: 12px;\n    height: auto;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.success;
 });
@@ -3056,7 +3056,7 @@ var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_5 || 
     var theme = _a.theme;
     return theme.mediaQueries.nav;
 });
-var Footer = styled__default['default'].footer(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  display: flex;\n  color: #fff;\n  background: ", ";\n  padding: 32px 0;\n  \n  ", " {\n    padding-left: ", ";\n  }\n"], ["\n  display: flex;\n  color: #fff;\n  background: ", ";\n  padding: 32px 0;\n  \n  ", " {\n    padding-left: ", ";\n  }\n"])), function (_a) {
+var Footer = styled__default['default'].footer(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  display: flex;\n  color: #fff;\n  background: ", ";\n  padding: 32px 0;\n\n  ", " {\n    padding-left: ", ";\n  }\n"], ["\n  display: flex;\n  color: #fff;\n  background: ", ";\n  padding: 32px 0;\n\n  ", " {\n    padding-left: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.footer;
 }, function (_a) {
