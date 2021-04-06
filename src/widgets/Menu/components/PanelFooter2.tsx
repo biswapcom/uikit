@@ -10,7 +10,7 @@ interface Props extends PanelFooterProps {
 }
 
 const Wrapper = styled.div<Props>`
-  padding: ${({ isPushed }) => (isPushed ? "0 16px 32px" : "0 12px 32px")};
+  padding: ${({ isPushed }) => (isPushed ? "32px 16px" : "32px 12px")};
   display: ${({ isPushed }) => (isPushed ? "block" : "none")};
 `;
 
