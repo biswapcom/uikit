@@ -22,6 +22,10 @@ export default {
   },
 } as Meta;
 
+const Slider: React.FC = () => {
+  return <div>Slider</div>;
+};
+
 export const Default: React.FC = ({ data, ...args }) => {
   return (
     <>
@@ -41,7 +45,7 @@ export const Default: React.FC = ({ data, ...args }) => {
           <Button variant="danger" scale="sm">
             Start farming
           </Button>
-          <div>Slider</div>
+          <Slider />
         </Banner>
       </div>
     </>

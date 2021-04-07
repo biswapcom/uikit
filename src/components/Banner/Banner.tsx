@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 interface BannerProps {
   large?: boolean;
-  children: Array<React.ReactNode>;
+  children: Array<React.ReactElement>;
 }
 
 const StyledBanner = styled.div`
@@ -38,6 +38,31 @@ const Banner: React.FC<BannerProps> = ({ large, children }) => {
       </StyledBannerBoby>
 
       {children[3] && <StyledBannerLeft>{children[3]}</StyledBannerLeft>}
+    </StyledBanner>
+  );
+};
+
+Banner.defaultProps = {
+  large: false,
+};
+
+const StyledBannerLeft = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Banner: React.FC<BannerProps> = ({ large, children }) => {
+  return (
+    <StyledBanner>
+      <StyledBannerBoby large={large}>
+        {children[0]}
+        {children[1]}
+        {children[2]}
+      </StyledBannerBoby>
+
+      {children[3] && <StyledBannerLeft>{children[3]}]</StyledBannerLeft>}
     </StyledBanner>
   );
 };
