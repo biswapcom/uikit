@@ -24,6 +24,7 @@ export * from "./components/Spinner";
 export * from "./components/Skeleton";
 export * from "./components/Toggle";
 export * from "./components/Table";
+export * from './referral/Banner';
 export * from "./hooks";
 export * from "./widgets/Modal";
 export * from "./widgets/Menu";

@@ -1,7 +1,7 @@
 import React from "react";
 /* eslint-disable import/no-unresolved */
 import { Meta } from "@storybook/react/types-6-0";
-import styled from "styled-components";
+// import styled from "styled-components";
 import { Button } from "../Button";
 
 import Banner from "./Banner";
@@ -14,7 +14,7 @@ export default {
   argTypes: {
     title: {
       control: { type: "text" },
-      defaultValue: "3 types Referral rewards earn from:",
+      defaultValue: "3 types referral rewards earn from:",
     },
     body: {
       control: { type: "text" },

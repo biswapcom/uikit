@@ -26,6 +26,9 @@ export * from "./components/Skeleton";
 export * from "./components/Toggle";
 export * from "./components/Table";
 
+// referral
+export * from './referral/Banner'
+
 // Hooks
 export * from "./hooks";
 
