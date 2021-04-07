@@ -19,6 +19,32 @@ const StyledBannerBoby = styled.div<BannerProps>`
   display: flex;
   flex-direction: column;
 `;
+º;
+
+const StyledBannerLeft = styled.div<BannerProps>`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Banner: React.FC<BannerProps> = ({ large, children }) => {
+  return (
+    <StyledBanner>
+      <StyledBannerBoby large={large}>
+        {children[0]}
+        {children[1]}
+        {children[2]}
+      </StyledBannerBoby>
+
+      {children[3] && <StyledBannerLeft>{children[3]}</StyledBannerLeft>}
+    </StyledBanner>
+  );
+};
+
+Banner.defaultProps = {
+  large: false,
+};
 
 const StyledBannerLeft = styled.div`
   width: 50%;
