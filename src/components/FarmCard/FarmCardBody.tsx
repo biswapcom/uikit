@@ -30,7 +30,7 @@ const StyledFarmCardBody = styled.div`
 `;
 
 const FarmCardBody: React.FC<FarmCardBodyProps> = ({ children }) => {
-  return <StyledFarmCardBody isDark={true}>{children}</StyledFarmCardBody>;
+  return <StyledFarmCardBody>{children}</StyledFarmCardBody>;
 };
 
 export default FarmCardBody;
