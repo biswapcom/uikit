@@ -1956,7 +1956,7 @@ var useTable = function (columns, data, options) {
     };
 };
 
-var ReferralBanner = styled.div(templateObject_1$B || (templateObject_1$B = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-between;\n  padding-top: 24px;\n  padding-left: 24px;\n  border-radius: 16px;\n"], ["\n  display: flex;\n  justify-content: space-between;\n  padding-top: 24px;\n  padding-left: 24px;\n  border-radius: 16px;\n"])));
+var ReferralBanner = styled.div(templateObject_1$B || (templateObject_1$B = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-between;\n  background-color: #fff;\n  width: 352px;\n  padding-top: 24px;\n  padding-left: 24px;\n  border-radius: 16px;\n"], ["\n  display: flex;\n  justify-content: space-between;\n  background-color: #fff;\n  width: 352px;\n  padding-top: 24px;\n  padding-left: 24px;\n  border-radius: 16px;\n"])));
 var templateObject_1$B;
 
 var baseColors = {
@@ -1967,6 +1967,7 @@ var baseColors = {
     secondary: "#7645D9",
     success: "#1DC872",
     warning: "#FFDB1C",
+    white: '#FFF',
 };
 var brandColors = {
     binance: "#F0B90B",
