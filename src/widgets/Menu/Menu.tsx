@@ -159,7 +159,13 @@ const Menu: React.FC<NavProps> = ({
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}
         </Inner>
-        <Footer BSWPriceLabel={BSWPriceLabel} BSWPriceValue={BSWPriceValue} supply={supply} total={total} isPushed={isPushed} />
+        <Footer
+          BSWPriceLabel={BSWPriceLabel}
+          BSWPriceValue={BSWPriceValue}
+          supply={supply}
+          total={total}
+          isPushed={isPushed}
+        />
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
       </BodyWrapper>
     </Wrapper>

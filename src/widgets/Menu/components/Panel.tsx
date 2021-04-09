@@ -44,9 +44,9 @@ const Panel: React.FC<Props> = (props) => {
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
       <Logo isPushed={isPushed} isDark={isDark} href={href} />
       <PanelBody {...props} />
-      {deals?.length && footerTitle &&
+      {deals?.length && footerTitle && (
         <PanelFooter2 isPushed={isPushed} footerTitle={footerTitle} isDark={isDark} deals={deals} />
-      }
+      )}
     </StyledPanel>
   );
 };

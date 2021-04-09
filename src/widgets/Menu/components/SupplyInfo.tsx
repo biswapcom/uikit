@@ -12,7 +12,6 @@ const Row = styled.div`
 `;
 
 const SupplyInfo: React.FC<FooterSupplyProps> = ({ supply }) => {
-
   return (
     <Wrapper>
       {supply.map((item) => {
@@ -25,10 +24,10 @@ const SupplyInfo: React.FC<FooterSupplyProps> = ({ supply }) => {
               {item.value} BSW
             </Text>
           </Row>
-        )
+        );
       })}
     </Wrapper>
-  )
-}
+  );
+};
 
 export default SupplyInfo;

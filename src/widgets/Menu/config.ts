@@ -202,14 +202,14 @@ export const BSWPriceLabel = "Price BSW";
 export const BSWPriceValue = 1234.947;
 
 export const supply = [
-    {
-      label: "Total supply:",
-      value: 10000000,
-    },
-    {
-      label: "Max supply:",
-      value: 500000000,
-    }
+  {
+    label: "Total supply:",
+    value: 10000000,
+  },
+  {
+    label: "Max supply:",
+    value: 500000000,
+  },
 ];
 
 export const total = [
@@ -224,7 +224,7 @@ export const total = [
   {
     label: "Total Fees",
     value: 999739000,
-  }
+  },
 ];
 
 export const MENU_HEIGHT = 64;

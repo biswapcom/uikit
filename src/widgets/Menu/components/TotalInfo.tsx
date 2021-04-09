@@ -21,7 +21,7 @@ const Item = styled.div`
 `;
 
 const TotalInfo: React.FC<Props> = (props) => {
-  const {total} = props;
+  const { total } = props;
 
   return (
     <Wrapper>
@@ -35,10 +35,10 @@ const TotalInfo: React.FC<Props> = (props) => {
               ${item.value}
             </Text>
           </Item>
-        )
+        );
       })}
     </Wrapper>
-  )
-}
+  );
+};
 
 export default TotalInfo;

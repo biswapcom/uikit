@@ -7,17 +7,17 @@ import { BSWPriceProps } from "../types";
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 38px;
-  grid-template-areas: 
+  grid-template-areas:
     "logo bsw-title"
     "logo bsw-value";
-  
+
   .logo {
     width: 38px;
     grid-area: logo;
   }
 `;
 
-const BSWPrice: React.FC<BSWPriceProps> = ({BSWPriceLabel, BSWPriceValue}) => {
+const BSWPrice: React.FC<BSWPriceProps> = ({ BSWPriceLabel, BSWPriceValue }) => {
   return (
     <Wrapper>
       <LogoIcon className="logo" />
@@ -28,7 +28,7 @@ const BSWPrice: React.FC<BSWPriceProps> = ({BSWPriceLabel, BSWPriceValue}) => {
         ${BSWPriceValue}
       </Text>
     </Wrapper>
-  )
-}
+  );
+};
 
 export default BSWPrice;

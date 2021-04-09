@@ -21,12 +21,12 @@ const ConnectMetamask: React.FC<Props> = (props) => {
 
   return (
     <Wrapper>
-      <MetamaskIcon width="24px" mx="7px"/>
+      <MetamaskIcon width="24px" mx="7px" />
       <StyledLink ml={16} as="a" color="primary" href={href} aria-label="Add to Metamask">
         Add to Metamask
       </StyledLink>
     </Wrapper>
-  )
-}
+  );
+};
 
 export default ConnectMetamask;

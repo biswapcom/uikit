@@ -91,4 +91,3 @@ export interface FooterSupplyProps {
 export interface FooterTotalProps {
   total: Array<TotalInfo>;
 }
-
