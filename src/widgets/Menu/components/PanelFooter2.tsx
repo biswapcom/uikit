@@ -29,7 +29,7 @@ const PanelFooter2: React.FC<Props> = (props) => {
           {footerTitle}
         </Text>
 
-        {deals.map((item) => {
+        {deals && deals.map((item) => {
           return (
             <DealItem
               isDark={isDark}

@@ -9,6 +9,7 @@ import Panel from "./components/Panel";
 import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 import Avatar from "./components/Avatar";
+import Footer from "./components/Footer";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 
 const Wrapper = styled.div`
@@ -67,17 +68,6 @@ const MobileOnlyOverlay = styled(Overlay)`
   }
 `;
 
-const Footer = styled.footer<{ isPushed: boolean }>`
-  display: flex;
-  color: #fff;
-  background: ${({ theme }) => theme.colors.footer};
-  padding: 32px 0;
-
-  ${({ theme }) => theme.mediaQueries.nav} {
-    padding-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
-  }
-`;
-
 const Menu: React.FC<NavProps> = ({
   account,
   login,
@@ -91,9 +81,12 @@ const Menu: React.FC<NavProps> = ({
   links,
   profile,
   children,
-  childrenFooter,
   footerTitle,
   deals,
+  BSWPriceLabel,
+  BSWPriceValue,
+  supply,
+  total,
 }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
@@ -166,7 +159,7 @@ const Menu: React.FC<NavProps> = ({
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}
         </Inner>
-        <Footer isPushed={isPushed}>{childrenFooter}</Footer>
+        <Footer BSWPriceLabel={BSWPriceLabel} BSWPriceValue={BSWPriceValue} supply={supply} total={total} isPushed={isPushed} />
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
       </BodyWrapper>
     </Wrapper>

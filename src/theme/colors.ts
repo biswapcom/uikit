@@ -31,7 +31,7 @@ export const lightColors: Colors = {
   borderColor: "#E9EAEB",
   card: "#FFFFFF",
   dropDown: "#F6F6F6",
-  footer: "#0C1F3C",
+  footer: "#FFFFFF",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #E6FDFF 0%, #F3EFFF 100%)",
     cardHeader: "linear-gradient(180deg, #071C3C 0%, #002B6F 100%)",

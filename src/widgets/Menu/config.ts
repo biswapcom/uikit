@@ -198,6 +198,35 @@ export const deals = [
   },
 ];
 
+export const BSWPriceLabel = "Price BSW";
+export const BSWPriceValue = 1234.947;
+
+export const supply = [
+    {
+      label: "Total supply:",
+      value: 10000000,
+    },
+    {
+      label: "Max supply:",
+      value: 500000000,
+    }
+];
+
+export const total = [
+  {
+    label: "Total Value Locked (TVL)",
+    value: 10243739000,
+  },
+  {
+    label: "Total Value",
+    value: 1243739000,
+  },
+  {
+    label: "Total Fees",
+    value: 999739000,
+  }
+];
+
 export const MENU_HEIGHT = 64;
 export const MENU_ENTRY_HEIGHT = 48;
 export const SIDEBAR_WIDTH_FULL = 224;
