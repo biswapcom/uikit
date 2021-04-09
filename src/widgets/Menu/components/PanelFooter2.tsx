@@ -29,18 +29,19 @@ const PanelFooter2: React.FC<Props> = (props) => {
           {footerTitle}
         </Text>
 
-        {deals.map((item) => {
-          return (
-            <DealItem
-              isDark={isDark}
-              dealName={item.dealName}
-              dealDate={item.dealDate}
-              coupleFirst={item.coupleFirst}
-              coupleLast={item.coupleLast}
-              dealValue={item.dealValue}
-            />
-          );
-        })}
+        {deals &&
+          deals.map((item) => {
+            return (
+              <DealItem
+                isDark={isDark}
+                dealName={item.dealName}
+                dealDate={item.dealDate}
+                coupleFirst={item.coupleFirst}
+                coupleLast={item.coupleLast}
+                dealValue={item.dealValue}
+              />
+            );
+          })}
       </Inner>
     </Wrapper>
   );
