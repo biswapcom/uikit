@@ -1974,8 +1974,6 @@ var RevertTime = function (props) {
         React__default['default'].createElement("path", { xmlns: "http://www.w3.org/2000/svg", d: "M12 0C7.03 0 3 4.03 3 9H1.20711C0.761654 9 0.538571 9.53857 0.853553 9.85355L3.54604 12.546C3.73751 12.7375 4.04662 12.7418 4.24329 12.5556L7.08805 9.86314C7.4164 9.55236 7.19646 9 6.74435 9H5C5 5.13 8.13 2 12 2C15.87 2 19 5.13 19 9C19 12.87 15.87 16 12 16C10.4314 16 8.98175 15.4782 7.81739 14.601C7.37411 14.267 6.74104 14.259 6.3486 14.6514C5.95725 15.0428 5.95413 15.6823 6.38598 16.0284C7.92448 17.2615 9.87084 18 12 18C16.97 18 21 13.97 21 9C21 4.03 16.97 0 12 0ZM11 5V10L15.28 12.54L16 11.33L12.5 9.25V5H11Z", fill: "#1263F1" })));
 };
 
-var RevertLogo = "d8e09b2b46a6fb60.png";
-
 var baseColors = {
     failure: "#F93B5D",
     primary: "#1263F1",
@@ -2123,7 +2121,7 @@ var ReferralBannerText = styled__default['default'].span(templateObject_4$4 || (
 var ReferralBannerTextAmount = styled__default['default'].h2(templateObject_5$3 || (templateObject_5$3 = __makeTemplateObject(["\n  color: ", ";\n  margin-bottom: 16px;\n  font-size: 24px;\n"], ["\n  color: ", ";\n  margin-bottom: 16px;\n  font-size: 24px;\n"])), function () { return darkColors.background; });
 var ReferralBannerTitle = styled__default['default'].h2(templateObject_6$1 || (templateObject_6$1 = __makeTemplateObject(["\n  color: ", ";\n  line-height: 19px;\n  margin-bottom: 6px;\n  font-size: 16px;\n"], ["\n  color: ", ";\n  line-height: 19px;\n  margin-bottom: 6px;\n  font-size: 16px;\n"])), function () { return darkColors.text; });
 var Banner$1 = function (_a) {
-    var title = _a.title, text = _a.text, buttonText = _a.buttonText, history = _a.history;
+    var title = _a.title, text = _a.text, buttonText = _a.buttonText, history = _a.history, imageSource = _a.imageSource;
     return (React__default['default'].createElement(ReferralBannerStyled, null,
         React__default['default'].createElement(ReferralLeftContent, null,
             React__default['default'].createElement(ReferralBannerTitle, null, title),
@@ -2135,7 +2133,7 @@ var Banner$1 = function (_a) {
                     React__default['default'].createElement(RevertTime, null)),
                 React__default['default'].createElement(ReferralBannerText, null, history)),
             React__default['default'].createElement("div", null,
-                React__default['default'].createElement("img", { src: RevertLogo, style: { width: 136, borderRadius: 16 }, alt: "" })))));
+                React__default['default'].createElement("img", { src: imageSource, style: { width: 136, borderRadius: 16 }, alt: "" })))));
 };
 Banner$1.defaultProps = {
     title: 'Referral Swap',

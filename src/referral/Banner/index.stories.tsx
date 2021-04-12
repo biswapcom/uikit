@@ -1,27 +1,30 @@
 /* eslint-disable-next-line */
 // @ts-ignore
-import React,{FC} from "react";
+import React, { FC } from "react";
 
-// import Logo from '../../assets/RevertLogo.png'
+/* eslint-disable-next-line */
+// @ts-ignore
+import RevertLogo from "../../assets/RevertLogo.png";
 
 // components
-import ReferralBanner from './Banner'
+import ReferralBanner from "./Banner";
 
 // types
-import {data} from './exampleData'
+import { data } from "./exampleData";
 
 export default {
-  title: 'Referral/Banner',
+  title: "Referral/Banner",
   component: ReferralBanner,
-  argTypes: {}
+  argTypes: {},
 };
 
 export const Default: FC = (): JSX.Element => {
   return (
-    <div style={{width: 352}}>
-      {data.map(item=>(
-        <div key={item.id} style={{marginTop: 10}}>
+    <div style={{ width: 352 }}>
+      {data.map((item) => (
+        <div key={item.id} style={{ marginTop: 10 }}>
           <ReferralBanner
+            imageSource={RevertLogo}
             title={item.title}
             text={item.text}
             history={item.history}
@@ -30,6 +33,5 @@ export const Default: FC = (): JSX.Element => {
         </div>
       ))}
     </div>
-  )
-}
-
+  );
+};
