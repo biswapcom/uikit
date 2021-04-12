@@ -1,7 +1,13 @@
 import React,{FC} from "react";
 import styled from "styled-components";
+
 import { Button } from "../../components/Button";
 import RevertTime from "../../components/Svg/Icons/RevertTime";
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import RevertLogo from '../../assets/RevertLogo.png'
+
 import { darkColors } from "../../theme";
 import {BannerProps} from './types'
 
@@ -40,7 +46,7 @@ const ReferralBannerTitle = styled.h2`
   font-size: 16px;
 `
 
-const Banner:FC<BannerProps> = ({ title, text, buttonText,history }):JSX.Element => {
+const Banner:FC<BannerProps> = ({ title, text, buttonText,history}):JSX.Element => {
   return (
     <ReferralBannerStyled>
       <ReferralLeftContent>
@@ -56,7 +62,7 @@ const Banner:FC<BannerProps> = ({ title, text, buttonText,history }):JSX.Element
           <ReferralBannerText>{history}</ReferralBannerText>
         </div>
         <div>
-          <img src={require('../../assets/RevertLogo.png')} style={{width: 136, borderRadius: 16}} alt="" />
+          <img src={RevertLogo} style={{width: 136, borderRadius: 16}} alt="" />
         </div>
       </ReferralBannerRightContent>
     </ReferralBannerStyled>

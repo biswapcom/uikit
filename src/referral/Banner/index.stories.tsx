@@ -2,6 +2,8 @@
 // @ts-ignore
 import React,{FC} from "react";
 
+// import Logo from '../../assets/RevertLogo.png'
+
 // components
 import ReferralBanner from './Banner'
 
