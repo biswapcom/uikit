@@ -1,2 +1,2 @@
-export { default as StyledLinkCard } from './StyledLinkCard';
-export { default as LinkCard } from './LinkCard';
+export { default as StyledLinkCard } from "./StyledLinkCard";
+export { default as LinkCard } from "./LinkCard";

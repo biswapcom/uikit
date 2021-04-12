@@ -1,1 +1,1 @@
-export { default as ReferralBanner } from './Banner';
+export { default as ReferralBanner } from "./Banner";

@@ -11,6 +11,7 @@ import { InviterField } from "../../components/InviterField";
 interface IDashboardProps {
   data: Array<IDashboardItem>;
   totalData: Array<IDashboardItem>;
+  imageSource: string
 }
 
 const MainDashboardBlock = styled.div`
@@ -68,7 +69,7 @@ const DashboardInfoContainer = styled.div`
   margin-left: 64px;
 `;
 
-const Dashboard = ({ data, totalData }: IDashboardProps): JSX.Element => {
+const Dashboard = ({ data, totalData,imageSource }: IDashboardProps): JSX.Element => {
   return (
     <StyledDashboard>
       <HeaderRow>
@@ -80,7 +81,7 @@ const Dashboard = ({ data, totalData }: IDashboardProps): JSX.Element => {
       <DashboardWrapper>
         <MainDashboardBlock>
           <MainDashboardBlockRow>
-            <img src={require("../../assets/Friends.png")} style={{ width: 40, height: 40, marginTop: 8 }} alt="" />
+            <img src={imageSource} style={{ width: 40, height: 40, marginTop: 8 }} alt="" />
             <div>
               <Text fontSize="12px" fontWeight="700" color="#749BD8" ml={16}>
                 {totalData[0].title}

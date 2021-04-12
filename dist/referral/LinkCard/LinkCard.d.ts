@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { LinkPercentItem } from './types';
+import { LinkPercentItem } from "./types";
 declare type LinkCardProps = {
     data: Array<LinkPercentItem>;
     ReferralLink: string;

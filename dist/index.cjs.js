@@ -2254,7 +2254,7 @@ var DashboardWrapper = styled__default['default'].div(templateObject_4$6 || (tem
 var DashboardInfoRow = styled__default['default'].div(templateObject_5$5 || (templateObject_5$5 = __makeTemplateObject(["\n  &:nth-child(2n) {\n    margin-top: 20px;\n    //margin-top: 20px;\n  }\n  &:nth-child(3)::after,\n  &:nth-child(5)::after {\n    content: \" \";\n    display: block;\n    position: absolute;\n    height: 103px;\n    width: 2px;\n    background: #708db7;\n    top: calc(23% - 2px);\n    margin-left: -40px;\n    opacity: 0.08;\n  }\n"], ["\n  &:nth-child(2n) {\n    margin-top: 20px;\n    //margin-top: 20px;\n  }\n  &:nth-child(3)::after,\n  &:nth-child(5)::after {\n    content: \" \";\n    display: block;\n    position: absolute;\n    height: 103px;\n    width: 2px;\n    background: #708db7;\n    top: calc(23% - 2px);\n    margin-left: -40px;\n    opacity: 0.08;\n  }\n"])));
 var DashboardInfoContainer = styled__default['default'].div(templateObject_6$3 || (templateObject_6$3 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  width: 100%;\n  flex-wrap: wrap;\n  height: 140px;\n  margin-left: 64px;\n"], ["\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  width: 100%;\n  flex-wrap: wrap;\n  height: 140px;\n  margin-left: 64px;\n"])));
 var Dashboard = function (_a) {
-    var data = _a.data, totalData = _a.totalData;
+    var data = _a.data, totalData = _a.totalData, imageSource = _a.imageSource;
     return (React__default['default'].createElement(StyledDashboard, null,
         React__default['default'].createElement(HeaderRow$1, null,
             React__default['default'].createElement(Text, { fontSize: "24px", color: "#fff" }, "Dashboard"),
@@ -2262,7 +2262,7 @@ var Dashboard = function (_a) {
         React__default['default'].createElement(DashboardWrapper, null,
             React__default['default'].createElement(MainDashboardBlock, null,
                 React__default['default'].createElement(MainDashboardBlockRow, null,
-                    React__default['default'].createElement("img", { src: require("../../assets/Friends.png"), style: { width: 40, height: 40, marginTop: 8 }, alt: "" }),
+                    React__default['default'].createElement("img", { src: imageSource, style: { width: 40, height: 40, marginTop: 8 }, alt: "" }),
                     React__default['default'].createElement("div", null,
                         React__default['default'].createElement(Text, { fontSize: "12px", fontWeight: "700", color: "#749BD8", ml: 16 }, totalData[0].title),
                         React__default['default'].createElement(Text, { fontSize: "24px", color: "#fff", ml: 16 }, totalData[0].value))),
