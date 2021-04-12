@@ -1,16 +1,16 @@
-import React,{FC} from "react";
+import React, { FC } from "react";
 import Badge from "./Badge";
 
 export default {
-  title: 'components/Badge',
+  title: "components/Badge",
   component: Badge,
-  argTypes: {}
-}
+  argTypes: {},
+};
 
-export const Default:FC = () => {
+export const Default: FC = () => {
   return (
-    <div style={{width: 100}}>
-      <Badge/>
+    <div style={{ width: 100 }}>
+      <Badge />
     </div>
-  )
-}
+  );
+};

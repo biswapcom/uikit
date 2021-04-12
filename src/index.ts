@@ -27,7 +27,10 @@ export * from "./components/Toggle";
 export * from "./components/Table";
 
 // referral
-export * from './referral/Banner'
+export * from "./referral/Banner";
+export * from "./referral/LinkCard";
+export * from "./referral/CopyToClipboard";
+export * from "./referral/Dashboard";
 
 // Hooks
 export * from "./hooks";

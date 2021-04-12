@@ -8,7 +8,7 @@ export const baseColors = {
   secondary: "#7645D9",
   success: "#1DC872",
   warning: "#FFDB1C",
-  white: '#FFF',
+  white: "#FFF",
 };
 
 export const brandColors = {
