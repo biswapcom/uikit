@@ -5,6 +5,7 @@ export declare type MediaQueries = {
     md: string;
     lg: string;
     xl: string;
+    xxl: string;
     nav: string;
 };
 export declare type Spacing = number[];
