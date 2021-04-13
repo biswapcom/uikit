@@ -71,10 +71,6 @@ const MobileOnlyOverlay = styled(Overlay)`
   }
 `;
 
-const PageContent = styled.div`
-  
-`
-
 const Menu: React.FC<NavProps> = ({
   account,
   login,
@@ -164,7 +160,7 @@ const Menu: React.FC<NavProps> = ({
           deals={deals}
         />
         <Inner isPushed={isPushed} showMenu={showMenu}>
-          <div className="page-content">
+          <div>
             {children}
           </div>
 
