@@ -5,6 +5,7 @@ export declare const scaleVariants: {
     };
     sm: {
         height: string;
+        fontSize: string;
         padding: string;
     };
     xs: {
