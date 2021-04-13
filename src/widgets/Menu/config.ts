@@ -177,6 +177,11 @@ export const socials = [
     icon: "TwitterIcon",
     href: "https://twitter.com/pancakeswap",
   },
+  {
+    label: "Reddit",
+    icon: "RedditIcon",
+    href: "https://www.reddit.com/",
+  },
 ];
 
 export const footerTitle = "Last top deals";

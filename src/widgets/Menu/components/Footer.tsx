@@ -14,7 +14,7 @@ interface Props extends BSWPriceProps, FooterSupplyProps, FooterTotalProps {
 const Wrapper = styled.footer<{ isPushed: boolean }>`
   color: #fff;
   background: ${({ theme }) => theme.colors.footer};
-  padding: 32px 0;
+  padding: 32px 16px;
   transition: padding-left 0.2s;
 
   ${({ theme }) => theme.mediaQueries.nav} {
@@ -26,7 +26,7 @@ const GridRow = styled.div`
   display: grid;
   grid-template-columns: 
     minmax(150px, 1fr)
-    minmax(150px, 1fr);;
+    minmax(150px, 1fr);
   grid-row-gap: 8px;
 
   ${({ theme }) => theme.mediaQueries.lg} {

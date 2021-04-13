@@ -2,6 +2,7 @@ import React from "react";
 import Flex from "../../../components/Box/Flex";
 import { HamburgerIcon, HamburgerCloseIcon } from "../icons";
 import MenuButton from "./MenuButton";
+import NavSocial from "./NavSocial";
 
 interface Props {
   isPushed: boolean;
@@ -19,6 +20,8 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush }) => {
           <HamburgerIcon width="24px" color="textSubtle" />
         )}
       </MenuButton>
+
+      <NavSocial />
     </Flex>
   );
 };
