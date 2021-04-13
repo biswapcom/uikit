@@ -5,6 +5,23 @@ import { FooterSupplyProps } from "../types";
 
 const Wrapper = styled.div`
   display: block;
+  margin-bottom: 18px;
+  position: relative;
+  
+  &:after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: ${({ theme }) => theme.colors.dropDown};
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+
+    ${({ theme }) => theme.mediaQueries.lg} {
+      display: none;
+    }
+  }
 `;
 
 const Row = styled.div`

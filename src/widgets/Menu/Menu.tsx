@@ -47,6 +47,9 @@ const BodyWrapper = styled.div`
 `;
 
 const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex-grow: 1;
   margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
   transition: margin-top 0.4s;
@@ -157,15 +160,18 @@ const Menu: React.FC<NavProps> = ({
           deals={deals}
         />
         <Inner isPushed={isPushed} showMenu={showMenu}>
-          {children}
+          <div>
+            {children}
+          </div>
+
+          <Footer
+            BSWPriceLabel={BSWPriceLabel}
+            BSWPriceValue={BSWPriceValue}
+            supply={supply}
+            total={total}
+            isPushed={isPushed}
+          />
         </Inner>
-        <Footer
-          BSWPriceLabel={BSWPriceLabel}
-          BSWPriceValue={BSWPriceValue}
-          supply={supply}
-          total={total}
-          isPushed={isPushed}
-        />
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
       </BodyWrapper>
     </Wrapper>
