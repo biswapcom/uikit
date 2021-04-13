@@ -24,7 +24,7 @@ const Wrapper = styled.footer<{ isPushed: boolean }>`
 
 const GridRow = styled.div`
   display: grid;
-  grid-template-columns: 
+  grid-template-columns:
     minmax(150px, 1fr)
     minmax(150px, 1fr);
   grid-row-gap: 8px;
@@ -35,9 +35,9 @@ const GridRow = styled.div`
       minmax(200px, 1fr)
       minmax(160px, 1fr);
   }
-  
+
   @media screen and (min-width: 1400px) {
-    grid-template-columns: 
+    grid-template-columns:
       minmax(200px, 1fr)
       minmax(200px, 1fr)
       minmax(160px, 1fr)

@@ -2708,12 +2708,11 @@ var SIDEBAR_WIDTH_REDUCED = 74;
 
 var Icons$1 = IconModule;
 var Wrapper$8 = styled__default['default'].div(templateObject_1$j || (templateObject_1$j = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n"], ["\n  display: flex;\n  align-items: center;\n"])));
-var ItemWrapper = styled__default['default'].div(templateObject_2$b || (templateObject_2$b = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 40px;\n  height: 40px;\n  background-color: transparent;\n  border-radius: 8px;\n  transition: all .2s;\n  \n  &:hover {\n    background-color: ", ";\n  }\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 40px;\n  height: 40px;\n  background-color: transparent;\n  border-radius: 8px;\n  transition: all .2s;\n  \n  &:hover {\n    background-color: ", ";\n  }\n"])), function (_a) {
+var ItemWrapper = styled__default['default'].div(templateObject_2$b || (templateObject_2$b = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 40px;\n  height: 40px;\n  background-color: transparent;\n  border-radius: 8px;\n  transition: all 0.2s;\n\n  &:hover {\n    background-color: ", ";\n  }\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 40px;\n  height: 40px;\n  background-color: transparent;\n  border-radius: 8px;\n  transition: all 0.2s;\n\n  &:hover {\n    background-color: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.dropDown;
 });
 var NavSocial = function () { return (React__default['default'].createElement(Wrapper$8, null, socials.map(function (social) {
-    console.log(social);
     var Icon = Icons$1[social.icon];
     var iconProps = { width: "18px", color: "textSubtle", style: { cursor: "pointer" } };
     return (React__default['default'].createElement(ItemWrapper, null,
@@ -2903,7 +2902,7 @@ var PanelFooter2 = function (props) {
 };
 var templateObject_1$e, templateObject_2$7;
 
-var Wrapper$5 = styled__default['default'].div(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  padding: ", ";\n  transition: padding .2s;\n"], ["\n  padding: ", ";\n  transition: padding .2s;\n"])), function (_a) {
+var Wrapper$5 = styled__default['default'].div(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  padding: ", ";\n  transition: padding 0.2s;\n"], ["\n  padding: ", ";\n  transition: padding 0.2s;\n"])), function (_a) {
     var isPushed = _a.isPushed;
     return (isPushed ? "0 12px" : "0 18px");
 });
@@ -3208,7 +3207,7 @@ var ConnectMetamask = function (props) {
 };
 var templateObject_1$8, templateObject_2$3;
 
-var Wrapper$3 = styled__default['default'].div(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 18px;\n  padding-right: 24px;\n  position: relative;\n\n  ", " {\n    padding-right: 0;\n  }\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n  \n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n  \n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"], ["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 18px;\n  padding-right: 24px;\n  position: relative;\n\n  ", " {\n    padding-right: 0;\n  }\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n  \n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n  \n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"])), function (_a) {
+var Wrapper$3 = styled__default['default'].div(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 18px;\n  padding-right: 24px;\n  position: relative;\n\n  ", " {\n    padding-right: 0;\n  }\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"], ["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 18px;\n  padding-right: 24px;\n  position: relative;\n\n  ", " {\n    padding-right: 0;\n  }\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
 }, function (_a) {
@@ -3235,7 +3234,7 @@ var BSWPrice = function (_a) {
 };
 var templateObject_1$7;
 
-var Wrapper$2 = styled__default['default'].div(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  display: block;\n  margin-bottom: 18px;\n  position: relative;\n  \n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n"], ["\n  display: block;\n  margin-bottom: 18px;\n  position: relative;\n  \n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n"])), function (_a) {
+var Wrapper$2 = styled__default['default'].div(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  display: block;\n  margin-bottom: 18px;\n  position: relative;\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n"], ["\n  display: block;\n  margin-bottom: 18px;\n  position: relative;\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.dropDown;
 }, function (_a) {
@@ -3278,7 +3277,7 @@ var Wrapper$1 = styled__default['default'].footer(templateObject_1$4 || (templat
     var isPushed = _a.isPushed;
     return (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px";
 });
-var GridRow = styled__default['default'].div(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns: \n    minmax(150px, 1fr)\n    minmax(150px, 1fr);\n  grid-row-gap: 8px;\n\n  ", " {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr);\n  }\n  \n  @media screen and (min-width: 1400px) {\n    grid-template-columns: \n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr)\n      minmax(150px, 1fr)\n      minmax(150px, 1fr);\n    grid-row-gap: 20px;\n  }\n"], ["\n  display: grid;\n  grid-template-columns: \n    minmax(150px, 1fr)\n    minmax(150px, 1fr);\n  grid-row-gap: 8px;\n\n  ", " {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr);\n  }\n  \n  @media screen and (min-width: 1400px) {\n    grid-template-columns: \n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr)\n      minmax(150px, 1fr)\n      minmax(150px, 1fr);\n    grid-row-gap: 20px;\n  }\n"])), function (_a) {
+var GridRow = styled__default['default'].div(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns:\n    minmax(150px, 1fr)\n    minmax(150px, 1fr);\n  grid-row-gap: 8px;\n\n  ", " {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr);\n  }\n\n  @media screen and (min-width: 1400px) {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr)\n      minmax(150px, 1fr)\n      minmax(150px, 1fr);\n    grid-row-gap: 20px;\n  }\n"], ["\n  display: grid;\n  grid-template-columns:\n    minmax(150px, 1fr)\n    minmax(150px, 1fr);\n  grid-row-gap: 8px;\n\n  ", " {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr);\n  }\n\n  @media screen and (min-width: 1400px) {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr)\n      minmax(150px, 1fr)\n      minmax(150px, 1fr);\n    grid-row-gap: 20px;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
 });
@@ -3294,10 +3293,13 @@ var Footer = function (_a) {
 var templateObject_1$4, templateObject_2$1;
 
 var Wrapper = styled__default['default'].div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
-var StyledNav = styled__default['default'].nav(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.4s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: transparent;\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.4s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: transparent;\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n"])), function (_a) {
+var StyledNav = styled__default['default'].nav(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.4s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.4s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? 0 : "-" + MENU_HEIGHT + "px");
 }, MENU_HEIGHT, function (_a) {
+    var theme = _a.theme, menuBg = _a.menuBg;
+    return (menuBg ? "transparent" : theme.colors.background);
+}, function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.nav;
 }, function (_a) {
@@ -3307,7 +3309,7 @@ var StyledNav = styled__default['default'].nav(templateObject_2 || (templateObje
 var BodyWrapper = styled__default['default'].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  z-index: 30;\n  min-height: calc(100vh - 2rem);\n"], ["\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  z-index: 30;\n  min-height: calc(100vh - 2rem);\n"])));
 var Inner = styled__default['default'].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.4s;\n  transform: translate3d(0, 0, 0);\n  max-width: 100%;\n\n  ", " {\n    margin-left: ", ";\n    max-width: ", ";\n  }\n"], ["\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.4s;\n  transform: translate3d(0, 0, 0);\n  max-width: 100%;\n\n  ", " {\n    margin-left: ", ";\n    max-width: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
-    return (showMenu ? MENU_HEIGHT + "px" : 0);
+    return (showMenu ? 0 : "-" + MENU_HEIGHT + "px");
 }, function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.nav;
@@ -3329,6 +3331,7 @@ var Menu = function (_a) {
     var isMobile = isXl === false;
     var _c = React.useState(!isMobile), isPushed = _c[0], setIsPushed = _c[1];
     var _d = React.useState(true), showMenu = _d[0], setShowMenu = _d[1];
+    var _e = React.useState(true), menuBg = _e[0], setMenuBg = _e[1];
     var refPrevOffset = React.useRef(window.pageYOffset);
     React.useEffect(function () {
         var handleScroll = function () {
@@ -3338,12 +3341,14 @@ var Menu = function (_a) {
             // Always show the menu when user reach the top
             if (isTopOfPage) {
                 setShowMenu(true);
+                setMenuBg(true);
             }
             // Avoid triggering anything at the bottom because of layout shift
             else if (!isBottomOfPage) {
                 if (currentOffset < refPrevOffset.current) {
                     // Has scroll up
                     setShowMenu(true);
+                    setMenuBg(false);
                 }
                 else {
                     // Has scroll down
@@ -3362,7 +3367,7 @@ var Menu = function (_a) {
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     return (React__default['default'].createElement(Wrapper, null,
         React__default['default'].createElement(BodyWrapper, null,
-            React__default['default'].createElement(StyledNav, { showMenu: showMenu, isPushed: isPushed },
+            React__default['default'].createElement(StyledNav, { showMenu: showMenu, isPushed: isPushed, menuBg: menuBg },
                 React__default['default'].createElement(TogglePanel, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark }),
                 React__default['default'].createElement(Flex, null,
                     React__default['default'].createElement(UserBlock$1, { account: account, login: login, logout: logout }),
