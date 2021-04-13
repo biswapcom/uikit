@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   display: block;
   margin-bottom: 18px;
   position: relative;
-  
+
   &:after {
     display: block;
     content: "";

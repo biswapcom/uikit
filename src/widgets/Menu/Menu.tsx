@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean }>`
+const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean; menuBg: boolean }>`
   position: fixed;
   top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   left: 0;
@@ -28,7 +28,7 @@ const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean }>`
   padding-right: 16px;
   width: 100%;
   height: ${MENU_HEIGHT}px;
-  background-color: transparent;
+  background-color: ${({ theme, menuBg }) => (menuBg ? "transparent" : theme.colors.background)};
   z-index: 20;
   transform: translate3d(0, 0, 0);
 
@@ -50,7 +50,7 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
-  margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
+  margin-top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   transition: margin-top 0.4s;
   transform: translate3d(0, 0, 0);
   max-width: 100%;
@@ -94,6 +94,7 @@ const Menu: React.FC<NavProps> = ({
   const isMobile = isXl === false;
   const [isPushed, setIsPushed] = useState(!isMobile);
   const [showMenu, setShowMenu] = useState(true);
+  const [menuBg, setMenuBg] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
 
   useEffect(() => {
@@ -104,12 +105,14 @@ const Menu: React.FC<NavProps> = ({
       // Always show the menu when user reach the top
       if (isTopOfPage) {
         setShowMenu(true);
+        setMenuBg(true);
       }
       // Avoid triggering anything at the bottom because of layout shift
       else if (!isBottomOfPage) {
         if (currentOffset < refPrevOffset.current) {
           // Has scroll up
           setShowMenu(true);
+          setMenuBg(false);
         } else {
           // Has scroll down
           setShowMenu(false);
@@ -131,7 +134,7 @@ const Menu: React.FC<NavProps> = ({
   return (
     <Wrapper>
       <BodyWrapper>
-        <StyledNav showMenu={showMenu} isPushed={isPushed}>
+        <StyledNav showMenu={showMenu} isPushed={isPushed} menuBg={menuBg}>
           <TogglePanel
             isPushed={isPushed}
             togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
@@ -159,9 +162,7 @@ const Menu: React.FC<NavProps> = ({
           deals={deals}
         />
         <Inner isPushed={isPushed} showMenu={showMenu}>
-          <div>
-            {children}
-          </div>
+          <div>{children}</div>
 
           <Footer
             BSWPriceLabel={BSWPriceLabel}

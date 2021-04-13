@@ -32,7 +32,7 @@ const Wrapper = styled.div`
       display: none;
     }
   }
-  
+
   &:after {
     display: block;
     content: "";
@@ -47,7 +47,7 @@ const Wrapper = styled.div`
       display: none;
     }
   }
-  
+
   .logo {
     width: 38px;
     grid-area: logo;

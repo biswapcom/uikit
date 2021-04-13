@@ -20,8 +20,8 @@ const ItemWrapper = styled.div`
   height: 40px;
   background-color: transparent;
   border-radius: 8px;
-  transition: all .2s;
-  
+  transition: all 0.2s;
+
   &:hover {
     background-color: ${({ theme }) => theme.colors.dropDown};
   }
@@ -30,7 +30,6 @@ const ItemWrapper = styled.div`
 const NavSocial: React.FC = () => (
   <Wrapper>
     {socials.map((social) => {
-      console.log(social);
       const Icon = Icons[social.icon];
       const iconProps = { width: "18px", color: "textSubtle", style: { cursor: "pointer" } };
 
