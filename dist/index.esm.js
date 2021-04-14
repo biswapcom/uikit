@@ -814,9 +814,9 @@ var templateObject_1$R, templateObject_2$m;
 
 var getBackgroundColor = function (_a) {
     var theme = _a.theme, variant = _a.variant;
-    return theme.colors[variant === variants$3.SUBTLE ? "input" : "tertiary"];
+    return theme.colors[variant === variants$3.SUBTLE ? "tertiary" : "card"];
 };
-var StyledButtonMenu = styled.div(templateObject_1$Q || (templateObject_1$Q = __makeTemplateObject(["\n  background-color: ", ";\n  border-radius: 16px;\n  display: inline-flex;\n\n  & > button + button,\n  & > a + a {\n    margin-left: 2px; // To avoid focus shadow overlap\n  }\n"], ["\n  background-color: ", ";\n  border-radius: 16px;\n  display: inline-flex;\n\n  & > button + button,\n  & > a + a {\n    margin-left: 2px; // To avoid focus shadow overlap\n  }\n"])), getBackgroundColor);
+var StyledButtonMenu = styled.div(templateObject_1$Q || (templateObject_1$Q = __makeTemplateObject(["\n  background-color: ", ";\n  border-radius: 8px;\n  display: inline-flex;\n\n  & > button + button,\n  & > a + a {\n    margin-left: 2px; // To avoid focus shadow overlap\n  }\n"], ["\n  background-color: ", ";\n  border-radius: 8px;\n  display: inline-flex;\n\n  & > button + button,\n  & > a + a {\n    margin-left: 2px; // To avoid focus shadow overlap\n  }\n"])), getBackgroundColor);
 var templateObject_1$Q;
 
 var ButtonMenu = function (_a) {
@@ -838,7 +838,7 @@ var InactiveButton = styled(Button)(templateObject_1$P || (templateObject_1$P = 
 var ButtonMenuItem = function (_a) {
     var _b = _a.isActive, isActive = _b === void 0 ? false : _b, _c = _a.variant, variant = _c === void 0 ? variants$3.PRIMARY : _c, as = _a.as, props = __rest(_a, ["isActive", "variant", "as"]);
     if (!isActive) {
-        return (React.createElement(InactiveButton, __assign({ forwardedAs: as, variant: "tertiary", colorKey: variant === variants$3.PRIMARY ? "primary" : "textSubtle" }, props)));
+        return (React.createElement(InactiveButton, __assign({ forwardedAs: as, variant: "tertiary", colorKey: variant === variants$3.PRIMARY ? "text" : "primary" }, props)));
     }
     return React.createElement(Button, __assign({ as: as, variant: variant }, props));
 };
@@ -3471,7 +3471,7 @@ var lightColors = __assign(__assign(__assign({}, baseColors), brandColors), { ba
         cardHeader: "linear-gradient(180deg, #071C3C 0%, #002B6F 100%)",
         cardBlue: "linear-gradient(235deg, #336FF5 4.05%, rgba(17, 81, 225, 0.32) 103.52%)",
     } });
-var darkColors = __assign(__assign(__assign({}, baseColors), brandColors), { secondary: "#9A6AFF", header: "#071C3C", background: "#07162D", backgroundDisabled: "#1C3254", contrast: "#FFFFFF", invertedContrast: "#191326", input: "#021127", inputSecondary: "#66578D", primaryDark: "#0098A1", tertiary: "#353547", text: "#708DB7", textDisabled: "#708DB7", textSubtle: "#749BD8", borderColor: "#524B63", card: "#102648", dropDown: "#1C3254", footer: "#0C1F3C", gradients: {
+var darkColors = __assign(__assign(__assign({}, baseColors), brandColors), { secondary: "#9A6AFF", header: "#071C3C", background: "#07162D", backgroundDisabled: "#1C3254", contrast: "#FFFFFF", invertedContrast: "#191326", input: "#021127", inputSecondary: "#66578D", primaryDark: "#0098A1", tertiary: "#E5EAF2", text: "#708DB7", textDisabled: "#708DB7", textSubtle: "#749BD8", borderColor: "#524B63", card: "#102648", dropDown: "#1C3254", footer: "#0C1F3C", gradients: {
         bubblegum: "linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)",
         cardHeader: "linear-gradient(180deg, #071C3C 0%, #002B6F 100%)",
         cardBlue: "linear-gradient(235deg, #336FF5 4.05%, rgba(17, 81, 225, 0.32) 103.52%)",
