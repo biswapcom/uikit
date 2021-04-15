@@ -1237,12 +1237,15 @@ var getHeight = function (_a) {
             return "40px";
     }
 };
-var Input$1 = styled__default['default'].input(templateObject_1$A || (templateObject_1$A = __makeTemplateObject(["\n  background-color: ", ";\n  border: 0;\n  border-radius: 16px;\n  box-shadow: ", ";\n  color: ", ";\n  display: block;\n  font-size: 16px;\n  height: ", ";\n  outline: 0;\n  padding: 0 16px;\n  width: 100%;\n\n  &::placeholder {\n    color: ", ";\n  }\n\n  &:disabled {\n    background-color: ", ";\n    box-shadow: none;\n    color: ", ";\n    cursor: not-allowed;\n  }\n\n  &:focus:not(:disabled) {\n    box-shadow: ", ";\n  }\n"], ["\n  background-color: ", ";\n  border: 0;\n  border-radius: 16px;\n  box-shadow: ", ";\n  color: ", ";\n  display: block;\n  font-size: 16px;\n  height: ", ";\n  outline: 0;\n  padding: 0 16px;\n  width: 100%;\n\n  &::placeholder {\n    color: ", ";\n  }\n\n  &:disabled {\n    background-color: ", ";\n    box-shadow: none;\n    color: ", ";\n    cursor: not-allowed;\n  }\n\n  &:focus:not(:disabled) {\n    box-shadow: ", ";\n  }\n"])), function (_a) {
+var Input$1 = styled__default['default'].input(templateObject_1$A || (templateObject_1$A = __makeTemplateObject(["\n  background-color: ", ";\n  border-radius: 8px;\n  box-shadow: ", ";\n  color: ", ";\n  border-width: 1px;\n  border-style: solid;\n  border-color: ", ";\n  display: block;\n  font-size: 12px;\n  height: ", ";\n  outline: 0;\n  padding: 0 16px;\n  width: 100%;\n\n  &::placeholder {\n    color: ", ";\n  }\n\n  &:disabled {\n    background-color: ", ";\n    box-shadow: none;\n    color: ", ";\n    cursor: not-allowed;\n  }\n"], ["\n  background-color: ", ";\n  border-radius: 8px;\n  box-shadow: ", ";\n  color: ", ";\n  border-width: 1px;\n  border-style: solid;\n  border-color: ", ";\n  display: block;\n  font-size: 12px;\n  height: ", ";\n  outline: 0;\n  padding: 0 16px;\n  width: 100%;\n\n  &::placeholder {\n    color: ", ";\n  }\n\n  &:disabled {\n    background-color: ", ";\n    box-shadow: none;\n    color: ", ";\n    cursor: not-allowed;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.input;
 }, getBoxShadow, function (_a) {
     var theme = _a.theme;
     return theme.colors.text;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.colors.inputBorder;
 }, getHeight, function (_a) {
     var theme = _a.theme;
     return theme.colors.textSubtle;
@@ -1252,9 +1255,6 @@ var Input$1 = styled__default['default'].input(templateObject_1$A || (templateOb
 }, function (_a) {
     var theme = _a.theme;
     return theme.colors.textDisabled;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.shadows.focus;
 });
 Input$1.defaultProps = {
     scale: scales$3.MD,
@@ -1646,20 +1646,20 @@ var scaleKeyValues = {
     sm: {
         handleHeight: "16px",
         handleWidth: "16px",
-        handleLeft: "2px",
-        handleTop: "2px",
-        checkedLeft: "calc(100% - 18px)",
-        toggleHeight: "20px",
-        toggleWidth: "36px",
+        handleLeft: "0",
+        handleTop: "-3px",
+        checkedLeft: "calc(100% - 16px)",
+        toggleHeight: "10px",
+        toggleWidth: "32px",
     },
     md: {
-        handleHeight: "32px",
-        handleWidth: "32px",
-        handleLeft: "4px",
-        handleTop: "4px",
-        checkedLeft: "calc(100% - 36px)",
-        toggleHeight: "40px",
-        toggleWidth: "72px",
+        handleHeight: "24px",
+        handleWidth: "24px",
+        handleLeft: "0",
+        handleTop: "-4px",
+        checkedLeft: "calc(100% - 24px)",
+        toggleHeight: "16px",
+        toggleWidth: "40px",
     },
 };
 var getScale = function (property) { return function (_a) {
@@ -1667,19 +1667,16 @@ var getScale = function (property) { return function (_a) {
     return scaleKeyValues[scale][property];
 }; };
 var Handle = styled__default['default'].div(templateObject_1$o || (templateObject_1$o = __makeTemplateObject(["\n  background-color: ", ";\n  border-radius: 50%;\n  cursor: pointer;\n  height: ", ";\n  left: ", ";\n  position: absolute;\n  top: ", ";\n  transition: left 200ms ease-in;\n  width: ", ";\n  z-index: 1;\n"], ["\n  background-color: ", ";\n  border-radius: 50%;\n  cursor: pointer;\n  height: ", ";\n  left: ", ";\n  position: absolute;\n  top: ", ";\n  transition: left 200ms ease-in;\n  width: ", ";\n  z-index: 1;\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.toggle.handleBackground;
+    var theme = _a.theme, checked = _a.checked;
+    return checked ? theme.colors.success : theme.toggle.handleBackground;
 }, getScale("handleHeight"), getScale("handleLeft"), getScale("handleTop"), getScale("handleWidth"));
-var Input = styled__default['default'].input(templateObject_2$d || (templateObject_2$d = __makeTemplateObject(["\n  cursor: pointer;\n  opacity: 0;\n  height: 100%;\n  position: absolute;\n  width: 100%;\n  z-index: 3;\n\n  &:checked + ", " {\n    left: ", ";\n  }\n\n  &:focus + ", " {\n    box-shadow: ", ";\n  }\n\n  &:hover + ", ":not(:disabled):not(:checked) {\n    box-shadow: ", ";\n  }\n"], ["\n  cursor: pointer;\n  opacity: 0;\n  height: 100%;\n  position: absolute;\n  width: 100%;\n  z-index: 3;\n\n  &:checked + ", " {\n    left: ", ";\n  }\n\n  &:focus + ", " {\n    box-shadow: ", ";\n  }\n\n  &:hover + ", ":not(:disabled):not(:checked) {\n    box-shadow: ", ";\n  }\n"])), Handle, getScale("checkedLeft"), Handle, function (_a) {
-    var theme = _a.theme;
-    return theme.shadows.focus;
-}, Handle, function (_a) {
-    var theme = _a.theme;
-    return theme.shadows.focus;
-});
-var StyledToggle = styled__default['default'].div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  align-items: center;\n  background-color: ", ";\n  border-radius: 24px;\n  box-shadow: ", ";\n  cursor: pointer;\n  display: inline-flex;\n  height: ", ";\n  position: relative;\n  transition: background-color 200ms;\n  width: ", ";\n"], ["\n  align-items: center;\n  background-color: ", ";\n  border-radius: 24px;\n  box-shadow: ", ";\n  cursor: pointer;\n  display: inline-flex;\n  height: ", ";\n  position: relative;\n  transition: background-color 200ms;\n  width: ", ";\n"])), function (_a) {
+var Input = styled__default['default'].input(templateObject_2$d || (templateObject_2$d = __makeTemplateObject(["\n  cursor: pointer;\n  opacity: 0;\n  height: 100%;\n  position: absolute;\n  width: 100%;\n  z-index: 3;\n\n  &:checked + ", " {\n    left: ", ";\n  }\n"], ["\n  cursor: pointer;\n  opacity: 0;\n  height: 100%;\n  position: absolute;\n  width: 100%;\n  z-index: 3;\n\n  &:checked + ", " {\n    left: ", ";\n  }\n"])), Handle, getScale("checkedLeft"));
+var StyledToggle = styled__default['default'].div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  align-items: center;\n  //background-color: ", ";\n  background-color: ", ";\n  border-radius: 24px;\n  box-shadow: ", ";\n  cursor: pointer;\n  display: inline-flex;\n  height: ", ";\n  position: relative;\n  transition: background-color 200ms;\n  width: ", ";\n"], ["\n  align-items: center;\n  //background-color: ", ";\n  background-color: ", ";\n  border-radius: 24px;\n  box-shadow: ", ";\n  cursor: pointer;\n  display: inline-flex;\n  height: ", ";\n  position: relative;\n  transition: background-color 200ms;\n  width: ", ";\n"])), function (_a) {
     var theme = _a.theme, checked = _a.checked;
     return theme.colors[checked ? "success" : "input"];
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.colors.dropDown;
 }, function (_a) {
     var theme = _a.theme;
     return theme.shadows.inset;
@@ -1696,7 +1693,7 @@ var Toggle = function (_a) {
     var isChecked = !!checked;
     return (React__default['default'].createElement(StyledToggle, { checked: isChecked, scale: scale },
         React__default['default'].createElement(Input, __assign({ checked: checked, scale: scale }, props, { type: "checkbox" })),
-        React__default['default'].createElement(Handle, { scale: scale })));
+        React__default['default'].createElement(Handle, { checked: checked, scale: scale })));
 };
 Toggle.defaultProps = {
     scale: scales.MD,
@@ -3479,12 +3476,12 @@ var baseColors = {
 var brandColors = {
     binance: "#F0B90B",
 };
-var lightColors = __assign(__assign(__assign({}, baseColors), brandColors), { background: "#FAF9FA", backgroundDisabled: "#E9EAEB", header: "#071C3C", contrast: "#191326", invertedContrast: "#FFFFFF", input: "#eeeaf4", inputSecondary: "#d7caec", tertiary: "#EFF4F5", text: "#452A7A", textDisabled: "#BDC2C4", textSubtle: "#8f80ba", borderColor: "#E9EAEB", card: "#FFFFFF", dropDown: "#F6F6F6", footer: "#FFFFFF", gradients: {
+var lightColors = __assign(__assign(__assign({}, baseColors), brandColors), { background: "#FAF9FA", backgroundDisabled: "#E9EAEB", header: "#071C3C", contrast: "#191326", invertedContrast: "#FFFFFF", input: "#eeeaf4", inputBorder: "#E5EAF2", inputSecondary: "#d7caec", tertiary: "#EFF4F5", text: "#452A7A", textDisabled: "#BDC2C4", textSubtle: "#8f80ba", borderColor: "#E9EAEB", card: "#FFFFFF", dropDown: "#F6F6F6", footer: "#FFFFFF", gradients: {
         bubblegum: "linear-gradient(139.73deg, #E6FDFF 0%, #F3EFFF 100%)",
         cardHeader: "linear-gradient(180deg, #071C3C 0%, #002B6F 100%)",
         cardBlue: "linear-gradient(235deg, #336FF5 4.05%, rgba(17, 81, 225, 0.32) 103.52%)",
     } });
-var darkColors = __assign(__assign(__assign({}, baseColors), brandColors), { secondary: "#9A6AFF", header: "#071C3C", background: "#07162D", backgroundDisabled: "#1C3254", contrast: "#FFFFFF", invertedContrast: "#191326", input: "#021127", inputSecondary: "#66578D", primaryDark: "#0098A1", tertiary: "#E5EAF2", text: "#708DB7", textDisabled: "#708DB7", textSubtle: "#749BD8", borderColor: "#524B63", card: "#102648", dropDown: "#1C3254", footer: "#0C1F3C", gradients: {
+var darkColors = __assign(__assign(__assign({}, baseColors), brandColors), { secondary: "#9A6AFF", header: "#071C3C", background: "#07162D", backgroundDisabled: "#1C3254", contrast: "#FFFFFF", invertedContrast: "#191326", input: "#021127", inputBorder: "#1C3254", inputSecondary: "#66578D", primaryDark: "#0098A1", tertiary: "#E5EAF2", text: "#708DB7", textDisabled: "#708DB7", textSubtle: "#749BD8", borderColor: "#524B63", card: "#102648", dropDown: "#1C3254", footer: "#0C1F3C", gradients: {
         bubblegum: "linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)",
         cardHeader: "linear-gradient(180deg, #071C3C 0%, #002B6F 100%)",
         cardBlue: "linear-gradient(235deg, #336FF5 4.05%, rgba(17, 81, 225, 0.32) 103.52%)",
@@ -3524,10 +3521,10 @@ var dark$4 = {
 };
 
 var light$3 = {
-    handleBackground: lightColors.card,
+    handleBackground: lightColors.text,
 };
 var dark$3 = {
-    handleBackground: darkColors.card,
+    handleBackground: darkColors.text,
 };
 
 var light$2 = {
