@@ -1,25 +1,25 @@
 import styled from "styled-components";
 import { scales } from "../Checkbox/types";
-import { ToggleProps, HandleProps, InputProps, ScaleKeys } from "./types";
+import { ToggleProps, InputProps, ScaleKeys } from "./types";
 
 const scaleKeyValues = {
   sm: {
     handleHeight: "16px",
     handleWidth: "16px",
-    handleLeft: "2px",
-    handleTop: "2px",
-    checkedLeft: "calc(100% - 18px)",
-    toggleHeight: "20px",
-    toggleWidth: "36px",
+    handleLeft: "0",
+    handleTop: "-3px",
+    checkedLeft: "calc(100% - 16px)",
+    toggleHeight: "10px",
+    toggleWidth: "32px",
   },
   md: {
-    handleHeight: "32px",
-    handleWidth: "32px",
-    handleLeft: "4px",
-    handleTop: "4px",
-    checkedLeft: "calc(100% - 36px)",
-    toggleHeight: "40px",
-    toggleWidth: "72px",
+    handleHeight: "24px",
+    handleWidth: "24px",
+    handleLeft: "0",
+    handleTop: "-4px",
+    checkedLeft: "calc(100% - 24px)",
+    toggleHeight: "16px",
+    toggleWidth: "40px",
   },
 };
 
@@ -27,8 +27,8 @@ const getScale = (property: ScaleKeys) => ({ scale = scales.MD }: ToggleProps) =
   return scaleKeyValues[scale][property];
 };
 
-export const Handle = styled.div<HandleProps>`
-  background-color: ${({ theme }) => theme.toggle.handleBackground};
+export const Handle = styled.div<ToggleProps>`
+  background-color: ${({ theme, checked }) => checked ? theme.colors.success : theme.toggle.handleBackground};
   border-radius: 50%;
   cursor: pointer;
   height: ${getScale("handleHeight")};
@@ -51,19 +51,12 @@ export const Input = styled.input<InputProps>`
   &:checked + ${Handle} {
     left: ${getScale("checkedLeft")};
   }
-
-  &:focus + ${Handle} {
-    box-shadow: ${({ theme }) => theme.shadows.focus};
-  }
-
-  &:hover + ${Handle}:not(:disabled):not(:checked) {
-    box-shadow: ${({ theme }) => theme.shadows.focus};
-  }
 `;
 
 const StyledToggle = styled.div<ToggleProps>`
   align-items: center;
-  background-color: ${({ theme, checked }) => theme.colors[checked ? "success" : "input"]};
+  //background-color: ${({ theme, checked }) => theme.colors[checked ? "success" : "input"]};
+  background-color: ${({ theme }) => theme.colors.dropDown};
   border-radius: 24px;
   box-shadow: ${({ theme }) => theme.shadows.inset};
   cursor: pointer;

@@ -16,7 +16,7 @@ export interface ToggleProps extends InputHTMLAttributes<HTMLInputElement> {
   checked?: boolean;
 }
 
-export interface HandleProps {
+export interface HandleProps extends ToggleProps {
   scale: Scales;
 }
 
