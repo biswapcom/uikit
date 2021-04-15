@@ -5,6 +5,7 @@ export declare type MediaQueries = {
     md: string;
     lg: string;
     xl: string;
+    xxl: string;
     nav: string;
 };
 export declare type Spacing = number[];
@@ -25,6 +26,7 @@ export declare type Shadows = {
 export declare type Gradients = {
     bubblegum: string;
     cardHeader: string;
+    cardBlue: string;
 };
 export declare type Colors = {
     primary: string;
@@ -39,6 +41,7 @@ export declare type Colors = {
     contrast: string;
     invertedContrast: string;
     input: string;
+    inputBorder: string;
     inputSecondary: string;
     background: string;
     backgroundDisabled: string;

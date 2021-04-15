@@ -8,7 +8,7 @@ const Toggle: React.FC<ToggleProps> = ({ checked, scale = scales.MD, ...props })
   return (
     <StyledToggle checked={isChecked} scale={scale}>
       <Input checked={checked} scale={scale} {...props} type="checkbox" />
-      <Handle scale={scale} />
+      <Handle checked={checked} scale={scale} />
     </StyledToggle>
   );
 };

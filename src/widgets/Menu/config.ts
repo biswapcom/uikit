@@ -177,6 +177,59 @@ export const socials = [
     icon: "TwitterIcon",
     href: "https://twitter.com/pancakeswap",
   },
+  {
+    label: "Reddit",
+    icon: "RedditIcon",
+    href: "https://www.reddit.com/",
+  },
+];
+
+export const footerTitle = "Last top deals";
+
+export const deals = [
+  {
+    dealName: "Swap",
+    dealDate: "18:34:00",
+    coupleFirst: "BSW",
+    coupleLast: "BNB",
+    dealValue: 100987.77,
+  },
+  {
+    dealName: "Liquidity",
+    dealDate: "18:34:00",
+    coupleFirst: "BSW",
+    coupleLast: "BNB",
+    dealValue: 100987.77,
+  },
+];
+
+export const BSWPriceLabel = "Price BSW";
+export const BSWPriceValue = 1234.947;
+
+export const supply = [
+  {
+    label: "Total supply:",
+    value: 10000000,
+  },
+  {
+    label: "Max supply:",
+    value: 500000000,
+  },
+];
+
+export const total = [
+  {
+    label: "Total Value Locked (TVL)",
+    value: 10243739000,
+  },
+  {
+    label: "Total Value",
+    value: 1243739000,
+  },
+  {
+    label: "Total Fees",
+    value: 999739000,
+  },
 ];
 
 export const MENU_HEIGHT = 64;

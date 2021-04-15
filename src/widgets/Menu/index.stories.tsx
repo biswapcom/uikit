@@ -7,7 +7,7 @@ import Text from "../../components/Text/Text";
 import { MenuEntry } from "./components/MenuEntry";
 import Menu from "./Menu";
 import { LangType } from "./types";
-import { links } from "./config";
+import { links, footerTitle, deals, BSWPriceLabel, BSWPriceValue, supply, total } from "./config";
 
 export default {
   title: "Widgets/Menu",
@@ -31,6 +31,12 @@ const useProps = () => {
     cakePriceUsd: 0.023158668932877668,
     links,
     profile: null,
+    footerTitle,
+    deals,
+    BSWPriceLabel,
+    BSWPriceValue,
+    supply,
+    total,
   });
 
   useEffect(() => {
@@ -47,6 +53,12 @@ const useProps = () => {
         cakePriceUsd: 0.023158668932877668,
         links,
         profile: null,
+        footerTitle,
+        deals,
+        BSWPriceLabel,
+        BSWPriceValue,
+        supply,
+        total,
       });
     }, 2000);
     return () => {
@@ -98,6 +110,12 @@ export const NotConnected: React.FC = () => {
         setLang={noop}
         currentLang="EN"
         links={links}
+        footerTitle={footerTitle}
+        deals={deals}
+        BSWPriceLabel={BSWPriceLabel}
+        BSWPriceValue={BSWPriceValue}
+        supply={supply}
+        total={total}
       >
         <div>
           <h1>Page body</h1>
@@ -134,6 +152,12 @@ export const WithNoProfile: React.FC = () => {
           profileLink: "/profile",
           noProfileLink: "/no-profile",
         }}
+        footerTitle={footerTitle}
+        deals={deals}
+        BSWPriceLabel={BSWPriceLabel}
+        BSWPriceValue={BSWPriceValue}
+        supply={supply}
+        total={total}
       >
         <div>
           <Heading as="h1" mb="8px">
@@ -178,6 +202,12 @@ export const WithProfile: React.FC = () => {
           profileLink: "/profile",
           noProfileLink: "/no-profile",
         }}
+        footerTitle={footerTitle}
+        deals={deals}
+        BSWPriceLabel={BSWPriceLabel}
+        BSWPriceValue={BSWPriceValue}
+        supply={supply}
+        total={total}
       >
         <div>
           <Heading as="h1" mb="8px">
@@ -232,6 +262,12 @@ export const WithSubmenuSelected: React.FC = () => {
           profileLink: "/profile",
           noProfileLink: "/no-profile",
         }}
+        footerTitle={footerTitle}
+        deals={deals}
+        BSWPriceLabel={BSWPriceLabel}
+        BSWPriceValue={BSWPriceValue}
+        supply={supply}
+        total={total}
       >
         <div>
           <Heading as="h1" mb="8px">

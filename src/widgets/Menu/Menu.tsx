@@ -6,10 +6,10 @@ import Flex from "../../components/Box/Flex";
 import { useMatchBreakpoints } from "../../hooks";
 import TogglePanel from "./components/TogglePanel";
 import Panel from "./components/Panel";
-// import Footer from "./components/Footer";
 import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 import Avatar from "./components/Avatar";
+import Footer from "./components/Footer";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 
 const Wrapper = styled.div`
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean }>`
+const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean; menuBg: boolean }>`
   position: fixed;
   top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   left: 0;
@@ -28,8 +28,7 @@ const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean }>`
   padding-right: 16px;
   width: 100%;
   height: ${MENU_HEIGHT}px;
-  background-color: ${({ theme }) => theme.nav.background};
-  border-bottom: solid 2px rgba(133, 133, 133, 0.1);
+  background-color: ${({ theme, menuBg }) => (menuBg ? "transparent" : theme.colors.background)};
   z-index: 20;
   transform: translate3d(0, 0, 0);
 
@@ -47,8 +46,11 @@ const BodyWrapper = styled.div`
 `;
 
 const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex-grow: 1;
-  margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
+  margin-top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   transition: margin-top 0.4s;
   transform: translate3d(0, 0, 0);
   max-width: 100%;
@@ -68,17 +70,6 @@ const MobileOnlyOverlay = styled(Overlay)`
   }
 `;
 
-const Footer = styled.footer<{ isPushed: boolean }>`
-  display: flex;
-  color: #fff;
-  background: ${({ theme }) => theme.colors.footer};
-  padding: 32px 0;
-  
-  ${({ theme }) => theme.mediaQueries.nav} {
-    padding-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
-  }
-`;
-
 const Menu: React.FC<NavProps> = ({
   account,
   login,
@@ -92,12 +83,18 @@ const Menu: React.FC<NavProps> = ({
   links,
   profile,
   children,
-  childrenFooter,
+  footerTitle,
+  deals,
+  BSWPriceLabel,
+  BSWPriceValue,
+  supply,
+  total,
 }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
   const [isPushed, setIsPushed] = useState(!isMobile);
   const [showMenu, setShowMenu] = useState(true);
+  const [menuBg, setMenuBg] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
 
   useEffect(() => {
@@ -108,12 +105,14 @@ const Menu: React.FC<NavProps> = ({
       // Always show the menu when user reach the top
       if (isTopOfPage) {
         setShowMenu(true);
+        setMenuBg(true);
       }
       // Avoid triggering anything at the bottom because of layout shift
       else if (!isBottomOfPage) {
         if (currentOffset < refPrevOffset.current) {
           // Has scroll up
           setShowMenu(true);
+          setMenuBg(false);
         } else {
           // Has scroll down
           setShowMenu(false);
@@ -135,7 +134,7 @@ const Menu: React.FC<NavProps> = ({
   return (
     <Wrapper>
       <BodyWrapper>
-        <StyledNav showMenu={showMenu} isPushed={isPushed}>
+        <StyledNav showMenu={showMenu} isPushed={isPushed} menuBg={menuBg}>
           <TogglePanel
             isPushed={isPushed}
             togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
@@ -159,13 +158,20 @@ const Menu: React.FC<NavProps> = ({
           pushNav={setIsPushed}
           links={links}
           href={homeLink?.href ?? "/"}
+          footerTitle={footerTitle}
+          deals={deals}
         />
         <Inner isPushed={isPushed} showMenu={showMenu}>
-          {children}
+          <div>{children}</div>
+
+          <Footer
+            BSWPriceLabel={BSWPriceLabel}
+            BSWPriceValue={BSWPriceValue}
+            supply={supply}
+            total={total}
+            isPushed={isPushed}
+          />
         </Inner>
-        <Footer isPushed={isPushed}>
-          {childrenFooter}
-        </Footer>
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
       </BodyWrapper>
     </Wrapper>

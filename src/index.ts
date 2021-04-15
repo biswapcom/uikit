@@ -1,5 +1,6 @@
 // Components
 export * from "./components/Alert";
+export * from "./components/Banner";
 export * from "./components/Box";
 export * from "./components/Breadcrumbs";
 export * from "./components/Button";
@@ -8,6 +9,7 @@ export * from "./components/Card";
 export * from "./components/Checkbox";
 export * from "./components/Dropdown";
 export * from "./components/FallingBunnies";
+export * from "./components/FarmCard";
 export * from "./components/Heading";
 export * from "./components/Image";
 export * from "./components/Input";

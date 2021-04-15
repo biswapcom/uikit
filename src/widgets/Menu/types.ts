@@ -48,10 +48,46 @@ export interface PanelProps {
   links: Array<MenuEntry>;
 }
 
-export interface NavProps extends PanelProps {
+export interface DealsEntry {
+  dealName: string;
+  dealDate: string;
+  coupleFirst: string;
+  coupleLast: string;
+  dealValue: number;
+}
+
+export interface PanelFooterProps {
+  footerTitle?: string;
+  deals?: Array<DealsEntry>;
+}
+
+export interface NavProps extends PanelProps, PanelFooterProps, BSWPriceProps, FooterSupplyProps, FooterTotalProps {
   account?: string;
   login: Login;
   profile?: Profile;
   logout: () => void;
   childrenFooter: React.ReactElement | React.ReactElement[];
+}
+
+export interface BSWPriceProps {
+  BSWPriceLabel: string;
+  BSWPriceValue: number;
+}
+
+export interface SupplyInfo {
+  label: string;
+  value: number;
+}
+
+export interface TotalInfo {
+  label: string;
+  value: number;
+}
+
+export interface FooterSupplyProps {
+  supply: Array<SupplyInfo>;
+}
+
+export interface FooterTotalProps {
+  total: Array<TotalInfo>;
 }
