@@ -30,21 +30,55 @@ export default {
 
 export const Default: React.FC = ({ data, ...args }) => {
   return (
-    <div style={{ padding: "32px", width: "400px" }}>
-      <FarmCard>
-        <FarmCardHead>
-          <LogoIcon />
-          <BinanceIcon />
-          <p>{args.title}</p>
-          <span>{args.subtitle}</span>
-        </FarmCardHead>
-        <FarmCardBody>
-          <p>{args.body}</p>
-          <Button variant="primary" scale="sm">
-            Farm
-          </Button>
-        </FarmCardBody>
-      </FarmCard>
-    </div>
+    <>
+      <div style={{ padding: "16px", width: "400px" }}>
+        <FarmCard isSoon>
+          <FarmCardHead>
+            <LogoIcon />
+            <BinanceIcon />
+            <p>{args.title}</p>
+            <span>{args.subtitle}</span>
+          </FarmCardHead>
+          <FarmCardBody>
+            <p>{args.body}</p>
+            <Button variant="primary" scale="sm">
+              Farm
+            </Button>
+          </FarmCardBody>
+        </FarmCard>
+      </div>
+      <div style={{ padding: "16px", width: "400px" }}>
+        <FarmCard isNew>
+          <FarmCardHead>
+            <LogoIcon />
+            <BinanceIcon />
+            <p>{args.title}</p>
+            <span>{args.subtitle}</span>
+          </FarmCardHead>
+          <FarmCardBody>
+            <p>{args.body}</p>
+            <Button variant="primary" scale="sm">
+              Farm
+            </Button>
+          </FarmCardBody>
+        </FarmCard>
+      </div>
+      <div style={{ padding: "16px", width: "400px" }}>
+        <FarmCard>
+          <FarmCardHead>
+            <LogoIcon />
+            <BinanceIcon />
+            <p>{args.title}</p>
+            <span>{args.subtitle}</span>
+          </FarmCardHead>
+          <FarmCardBody>
+            <p>{args.body}</p>
+            <Button variant="primary" scale="sm">
+              Farm
+            </Button>
+          </FarmCardBody>
+        </FarmCard>
+      </div>
+    </>
   );
 };

@@ -36,7 +36,7 @@ const StyledFarmCardHead = styled.div`
     grid-column: 2 / 3;
     font-weight: 600;
     font-size: 18px;
-    color: ${({ theme }) => theme.colors.contrast};
+    color: ${({ theme }) => theme.colors.invertedContrast};
 
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -48,7 +48,7 @@ const StyledFarmCardHead = styled.div`
     align-self: center;
     grid-column: 2 / 3;
     font-size: 12px;
-    color: ${({ theme }) => theme.colors.contrast};
+    color: ${({ theme }) => theme.colors.textSubtle};
 
     display: -webkit-box;
     -webkit-line-clamp: 1;

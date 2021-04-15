@@ -7,12 +7,6 @@ interface FarmCardBodyProps {
 }
 
 const StyledFarmCardBody = styled.div`
-  /* padding: 32px; */
-  /* border-radius: 24px; */
-  /* background-color: ${({ theme }) => theme.colors.contrast}; */
-  /* background-color: #fff; */
-  /* display: flex; */
-
   display: flex;
   align-items: center;
 
