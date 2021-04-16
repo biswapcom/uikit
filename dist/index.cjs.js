@@ -2897,8 +2897,8 @@ var PanelFooter2 = function (props) {
         React__default['default'].createElement(Inner$1, null,
             React__default['default'].createElement(Text, { color: "contrast", small: true, mb: "12px" }, footerTitle),
             deals &&
-                deals.map(function (item) {
-                    return (React__default['default'].createElement(DealItem, { isDark: isDark, dealName: item.dealName, dealDate: item.dealDate, coupleFirst: item.coupleFirst, coupleLast: item.coupleLast, dealValue: item.dealValue }));
+                deals.map(function (item, index) {
+                    return (React__default['default'].createElement(DealItem, { key: index.toString(), isDark: isDark, dealName: item.dealName, dealDate: item.dealDate, coupleFirst: item.coupleFirst, coupleLast: item.coupleLast, dealValue: item.dealValue }));
                 }))));
 };
 var templateObject_1$e, templateObject_2$7;
@@ -3245,8 +3245,8 @@ var Wrapper$2 = styled__default['default'].div(templateObject_1$6 || (templateOb
 var Row = styled__default['default'].div(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["\n  display: flex;\n"], ["\n  display: flex;\n"])));
 var SupplyInfo = function (_a) {
     var supply = _a.supply;
-    return (React__default['default'].createElement(Wrapper$2, null, supply.map(function (item) {
-        return (React__default['default'].createElement(Row, null,
+    return (React__default['default'].createElement(Wrapper$2, null, supply.map(function (item, index) {
+        return (React__default['default'].createElement(Row, { key: index.toString() },
             React__default['default'].createElement(Text, { color: "text", fontSize: "12px", lineHeight: "18px" }, item.label),
             React__default['default'].createElement(Text, { color: "contrast", fontSize: "12px", lineHeight: "18px", ml: "8px" },
                 item.value,
@@ -3258,8 +3258,8 @@ var templateObject_1$6, templateObject_2$2;
 var Item = styled__default['default'].div(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n  position: relative;\n"], ["\n  position: relative;\n"])));
 var TotalInfo = function (props) {
     var total = props.total;
-    return (React__default['default'].createElement(React__default['default'].Fragment, null, total.map(function (item) {
-        return (React__default['default'].createElement(Item, null,
+    return (React__default['default'].createElement(React__default['default'].Fragment, null, total.map(function (item, index) {
+        return (React__default['default'].createElement(Item, { key: index.toString() },
             React__default['default'].createElement(Text, { color: "text", fontSize: "12px", lineHeight: "18px" }, item.label),
             React__default['default'].createElement(Text, { color: "contrast", fontSize: "16px", lineHeight: "18px", bold: true },
                 "$",

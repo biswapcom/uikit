@@ -30,9 +30,10 @@ const PanelFooter2: React.FC<Props> = (props) => {
         </Text>
 
         {deals &&
-          deals.map((item) => {
+          deals.map((item, index) => {
             return (
               <DealItem
+                key={index.toString()}
                 isDark={isDark}
                 dealName={item.dealName}
                 dealDate={item.dealDate}

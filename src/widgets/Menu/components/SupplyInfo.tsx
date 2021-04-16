@@ -31,9 +31,9 @@ const Row = styled.div`
 const SupplyInfo: React.FC<FooterSupplyProps> = ({ supply }) => {
   return (
     <Wrapper>
-      {supply.map((item) => {
+      {supply.map((item, index) => {
         return (
-          <Row>
+          <Row key={index.toString()}>
             <Text color="text" fontSize="12px" lineHeight="18px">
               {item.label}
             </Text>

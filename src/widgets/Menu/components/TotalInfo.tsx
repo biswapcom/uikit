@@ -20,9 +20,9 @@ const TotalInfo: React.FC<Props> = (props) => {
 
   return (
     <>
-      {total.map((item) => {
+      {total.map((item, index) => {
         return (
-          <Item>
+          <Item key={index.toString()}>
             <Text color="text" fontSize="12px" lineHeight="18px">
               {item.label}
             </Text>
