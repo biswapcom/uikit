@@ -860,7 +860,7 @@ var templateObject_1$P;
 /**
  * Priority: Warning --> Success --> Active
  */
-var getBoxShadow$1 = function (_a) {
+var getBoxShadow = function (_a) {
     var isActive = _a.isActive, isSuccess = _a.isSuccess, isWarning = _a.isWarning, theme = _a.theme;
     if (isWarning) {
         return theme.card.boxShadowWarning;
@@ -879,7 +879,7 @@ var StyledCard = styled__default['default'].div(templateObject_1$O || (templateO
 }, function (_a) {
     var theme = _a.theme;
     return theme.card.boxShadow;
-}, getBoxShadow$1, function (_a) {
+}, getBoxShadow, function (_a) {
     var theme = _a.theme, isDisabled = _a.isDisabled;
     return theme.colors[isDisabled ? "textDisabled" : "text"];
 }, styledSystem.space);
@@ -1218,15 +1218,15 @@ var scales$3 = {
 /**
  * Priority: Warning --> Success
  */
-var getBoxShadow = function (_a) {
+var getBorderColor = function (_a) {
     var _b = _a.isSuccess, isSuccess = _b === void 0 ? false : _b, _c = _a.isWarning, isWarning = _c === void 0 ? false : _c, theme = _a.theme;
     if (isWarning) {
-        return theme.shadows.warning;
+        return theme.colors.failure;
     }
     if (isSuccess) {
-        return theme.shadows.success;
+        return theme.colors.success;
     }
-    return theme.shadows.inset;
+    return theme.colors.inputBorder;
 };
 var getHeight = function (_a) {
     var _b = _a.scale, scale = _b === void 0 ? scales$3.MD : _b;
@@ -1240,15 +1240,12 @@ var getHeight = function (_a) {
             return "40px";
     }
 };
-var Input$1 = styled__default['default'].input(templateObject_1$A || (templateObject_1$A = __makeTemplateObject(["\n  background-color: ", ";\n  border-radius: 8px;\n  box-shadow: ", ";\n  color: ", ";\n  border-width: 1px;\n  border-style: solid;\n  border-color: ", ";\n  display: block;\n  font-size: 12px;\n  height: ", ";\n  outline: 0;\n  padding: 0 16px;\n  width: 100%;\n\n  &::placeholder {\n    color: ", ";\n  }\n\n  &:disabled {\n    background-color: ", ";\n    box-shadow: none;\n    color: ", ";\n    cursor: not-allowed;\n  }\n"], ["\n  background-color: ", ";\n  border-radius: 8px;\n  box-shadow: ", ";\n  color: ", ";\n  border-width: 1px;\n  border-style: solid;\n  border-color: ", ";\n  display: block;\n  font-size: 12px;\n  height: ", ";\n  outline: 0;\n  padding: 0 16px;\n  width: 100%;\n\n  &::placeholder {\n    color: ", ";\n  }\n\n  &:disabled {\n    background-color: ", ";\n    box-shadow: none;\n    color: ", ";\n    cursor: not-allowed;\n  }\n"])), function (_a) {
+var Input$1 = styled__default['default'].input(templateObject_1$A || (templateObject_1$A = __makeTemplateObject(["\n  background-color: ", ";\n  border-radius: 8px;\n  border-color: ", ";\n  color: ", ";\n  border-width: 1px;\n  border-style: solid;\n  display: block;\n  font-size: 12px;\n  height: ", ";\n  outline: 0;\n  padding: 0 16px;\n  width: 100%;\n\n  &::placeholder {\n    color: ", ";\n  }\n\n  &:disabled {\n    background-color: ", ";\n    box-shadow: none;\n    color: ", ";\n    cursor: not-allowed;\n  }\n\n  &:focus:not(:disabled) {\n    border-color: ", ";\n  }\n"], ["\n  background-color: ", ";\n  border-radius: 8px;\n  border-color: ", ";\n  color: ", ";\n  border-width: 1px;\n  border-style: solid;\n  display: block;\n  font-size: 12px;\n  height: ", ";\n  outline: 0;\n  padding: 0 16px;\n  width: 100%;\n\n  &::placeholder {\n    color: ", ";\n  }\n\n  &:disabled {\n    background-color: ", ";\n    box-shadow: none;\n    color: ", ";\n    cursor: not-allowed;\n  }\n\n  &:focus:not(:disabled) {\n    border-color: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.input;
-}, getBoxShadow, function (_a) {
+}, getBorderColor, function (_a) {
     var theme = _a.theme;
     return theme.colors.text;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.colors.inputBorder;
 }, getHeight, function (_a) {
     var theme = _a.theme;
     return theme.colors.textSubtle;
@@ -1258,6 +1255,9 @@ var Input$1 = styled__default['default'].input(templateObject_1$A || (templateOb
 }, function (_a) {
     var theme = _a.theme;
     return theme.colors.textDisabled;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.colors.primary;
 });
 Input$1.defaultProps = {
     scale: scales$3.MD,
