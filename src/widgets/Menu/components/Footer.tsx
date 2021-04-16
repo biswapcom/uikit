@@ -28,6 +28,8 @@ const GridRow = styled.div`
     minmax(150px, 1fr)
     minmax(150px, 1fr);
   grid-row-gap: 8px;
+  max-width: 1152px;
+  margin: 0 auto;
 
   ${({ theme }) => theme.mediaQueries.lg} {
     grid-template-columns:

@@ -34,7 +34,7 @@ const Radio = styled.input.attrs({ type: "radio" })<RadioProps>`
   transition: background-color 0.2s ease-in-out;
   border: 0;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.input};
+  background-color: ${({ theme }) => theme.colors.tertiary};
   box-shadow: ${({ theme }) => theme.shadows.inset};
 
   &:after {
@@ -47,19 +47,19 @@ const Radio = styled.input.attrs({ type: "radio" })<RadioProps>`
     width: ${getCheckedScale};
   }
 
-  &:hover:not(:disabled):not(:checked) {
-    box-shadow: ${({ theme }) => theme.shadows.focus};
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: ${({ theme }) => theme.shadows.focus};
-  }
+  // &:hover:not(:disabled):not(:checked) {
+  //   box-shadow: ${({ theme }) => theme.shadows.focus};
+  // }
+  //
+  // &:focus {
+  //   outline: none;
+  //   box-shadow: ${({ theme }) => theme.shadows.focus};
+  // }
 
   &:checked {
     background-color: ${({ theme }) => theme.colors.success};
     &:after {
-      background-color: ${({ theme }) => theme.radio.handleBackground};
+      background-color: ${({ theme }) => theme.colors.card};
     }
   }
 

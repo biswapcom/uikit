@@ -23,7 +23,7 @@ const Checkbox = styled.input.attrs({ type: "checkbox" })<CheckboxProps>`
   transition: background-color 0.2s ease-in-out;
   border: 0;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.input};
+  background-color: ${({ theme }) => theme.colors.tertiary};
   box-shadow: ${({ theme }) => theme.shadows.inset};
 
   &:after {
@@ -42,19 +42,19 @@ const Checkbox = styled.input.attrs({ type: "checkbox" })<CheckboxProps>`
     transition: border-color 0.2s ease-in-out;
   }
 
-  &:hover:not(:disabled):not(:checked) {
-    box-shadow: ${({ theme }) => theme.shadows.focus};
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: ${({ theme }) => theme.shadows.focus};
-  }
+  // &:hover:not(:disabled):not(:checked) {
+  //   box-shadow: ${({ theme }) => theme.shadows.focus};
+  // }
+  //
+  // &:focus {
+  //   outline: none;
+  //   box-shadow: ${({ theme }) => theme.shadows.focus};
+  // }
 
   &:checked {
     background-color: ${({ theme }) => theme.colors.success};
     &:after {
-      border-color: white;
+      border-color: ${({ theme }) => theme.colors.card};
     }
   }
 
