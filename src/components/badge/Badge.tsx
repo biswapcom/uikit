@@ -13,7 +13,7 @@ const getBadgeBg = ({ badgeType = "light", theme }: StyledBadgeProps) => {
   }
 
   if (badgeType === "dark") {
-    return theme.colors.dropDown
+    return theme.colors.dropDown;
   }
 
   if (badgeType === "new") {
@@ -51,7 +51,6 @@ const getBadgeColor = ({ badgeType = "light", theme }: StyledBadgeProps) => {
   return theme.colors.inputBorder;
 };
 
-
 const Wrapper = styled.div<BadgeProps>`
   display: inline-flex;
   padding: 4px 12px;
@@ -60,12 +59,14 @@ const Wrapper = styled.div<BadgeProps>`
   border-radius: 16px;
 `;
 
-const Badge:FC<BadgeProps> = ({children, badgeType}) => {
+const Badge: FC<BadgeProps> = ({ children, badgeType }) => {
   return (
     <Wrapper badgeType={badgeType}>
-      <Text fontSize="10px" color="inherit" bold>{children}</Text>
+      <Text fontSize="10px" color="inherit" bold>
+        {children}
+      </Text>
     </Wrapper>
-  )
-}
+  );
+};
 
 export default Badge;
