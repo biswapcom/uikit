@@ -3585,12 +3585,12 @@ var dark$1 = {
 };
 
 var light = {
-    background: darkColors.card,
+    background: lightColors.card,
     text: darkColors.text,
     boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.2), 0px 4px 12px -8px rgba(14, 14, 44, 0.1)",
 };
 var dark = {
-    background: lightColors.card,
+    background: darkColors.card,
     text: lightColors.text,
     boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.2), 0px 4px 12px -8px rgba(14, 14, 44, 0.1)",
 };
