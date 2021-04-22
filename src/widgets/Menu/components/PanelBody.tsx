@@ -22,6 +22,10 @@ const Container = styled.div<{ isPushed: boolean }>`
   height: 100%;
   padding: ${({ isPushed }) => (isPushed ? "0 16px" : "0 12px")};
   transition: padding-left 0.4s, padding-right 0.4s;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
