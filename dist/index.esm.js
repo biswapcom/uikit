@@ -2844,7 +2844,7 @@ var MenuLink = function (_a) {
 };
 
 var Icons = IconModule;
-var Container = styled.div(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n  padding: ", ";\n  transition: padding-left 0.4s, padding-right 0.4s;\n"], ["\n  display: flex;\n  flex-direction: column;\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n  padding: ", ";\n  transition: padding-left 0.4s, padding-right 0.4s;\n"])), function (_a) {
+var Container = styled.div(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n  padding: ", ";\n  transition: padding-left 0.4s, padding-right 0.4s;\n  \n  &::-webkit-scrollbar {\n    width: 0;\n  }\n"], ["\n  display: flex;\n  flex-direction: column;\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n  padding: ", ";\n  transition: padding-left 0.4s, padding-right 0.4s;\n  \n  &::-webkit-scrollbar {\n    width: 0;\n  }\n"])), function (_a) {
     var isPushed = _a.isPushed;
     return (isPushed ? "0 16px" : "0 12px");
 });
