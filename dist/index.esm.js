@@ -2055,6 +2055,7 @@ var breakpointMap = {
     md: 852,
     lg: 968,
     xl: 1080,
+    xll: 1200,
     xxl: 1400,
 };
 var breakpoints = Object.values(breakpointMap).map(function (breakpoint) { return breakpoint + "px"; });

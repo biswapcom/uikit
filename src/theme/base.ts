@@ -6,6 +6,7 @@ export const breakpointMap: { [key: string]: number } = {
   md: 852,
   lg: 968,
   xl: 1080,
+  xll: 1200,
   xxl: 1400,
 };
 
