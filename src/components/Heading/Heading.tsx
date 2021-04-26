@@ -23,7 +23,7 @@ const style = {
 
 const Heading = styled(Text).attrs({ bold: true })<HeadingProps>`
   font-size: ${({ size }) => style[size || sizes.MD].fontSize};
-  font-weight: 600;
+  font-weight: ${({ normal }) => normal ? 400 : 600};
   line-height: 1.1;
 
   ${({ theme }) => theme.mediaQueries.lg} {
@@ -33,6 +33,7 @@ const Heading = styled(Text).attrs({ bold: true })<HeadingProps>`
 
 Heading.defaultProps = {
   as: tags.H2,
+  normal: false,
 };
 
 export default Heading;
