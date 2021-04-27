@@ -20,9 +20,7 @@ export const Default: React.FC = () => {
   return (
     <div style={{ padding: "32px", width: "400px" }}>
       <Row>
-        <Alert title="Info">
-          <Text as="p">This is a description</Text>
-        </Alert>
+        <Alert title="Info">This is a description</Alert>
       </Row>
       <Row>
         <Alert title="Success" variant="success">
