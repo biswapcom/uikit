@@ -14,6 +14,7 @@ export declare const variants: {
     readonly DANGER: "danger";
     readonly SUBTLE: "subtle";
     readonly SUCCESS: "success";
+    readonly DARK: "dark";
 };
 export declare type Scale = typeof scales[keyof typeof scales];
 export declare type Variant = typeof variants[keyof typeof variants];
