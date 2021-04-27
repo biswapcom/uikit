@@ -34,7 +34,7 @@ const StyledFarmCardHead = styled.div`
   & > p {
     align-self: center;
     grid-column: 2 / 3;
-    font-weight: 600;
+    font-weight: 900;
     font-size: 18px;
     color: ${({ theme }) => theme.colors.invertedContrast};
 
