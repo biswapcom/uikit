@@ -18,6 +18,7 @@ const getFontSize = ({ fontSize, small }: TextProps) => {
 const Text = styled.div<TextProps>`
   color: ${getColor};
   font-size: ${getFontSize};
+  vertical-align: middle;
   font-weight: ${({ bold }) => (bold ? 600 : 400)};
   line-height: ${({ lineHeight }) => lineHeight || "1.5"};
   ${({ textTransform }) => textTransform && `text-transform: ${textTransform};`}

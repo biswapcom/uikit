@@ -14,7 +14,7 @@ const StyledFarmCardBody = styled.div`
     flex: 1 1;
     color: ${({ theme }) => theme.colors.primary};
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 900;
 
     display: -webkit-box;
     -webkit-line-clamp: 1;

@@ -8,7 +8,7 @@ interface BannerBodyProps {
 const BannerBody = styled.p<BannerBodyProps>`
   color: ${({ theme }) => theme.colors.warning};
   margin-bottom: 24px;
-  font-weight: 600;
+  font-weight: 900;
   min-height: 64px;
   font-size: 32px;
   display: -webkit-box;
