@@ -22,6 +22,7 @@ export const links = [
     label: "Farms",
     icon: "FarmIcon",
     href: "/farms",
+    calloutClass: "warning",
   },
   {
     label: "Pools",
