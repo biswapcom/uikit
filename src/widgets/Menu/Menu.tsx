@@ -146,6 +146,7 @@ const Menu: React.FC<NavProps> = ({
           </Flex>
         </StyledNav>
         <Panel
+          togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
           isPushed={isPushed}
           isMobile={isMobile}
           showMenu={showMenu}
