@@ -20,7 +20,7 @@ const WalletWrap = styled.div`
   border-radius: 8px;
 `
 
-const CurrencyVallue = styled.div`
+const CurrencyValue = styled.div`
   padding: 0 16px;
 `
 
@@ -32,9 +32,9 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
     <div>
       {account ? (
         <WalletWrap>
-          <CurrencyVallue>
+          <CurrencyValue>
             <Text fontSize="14px" color="text">12.34 BNB</Text>
-          </CurrencyVallue>
+          </CurrencyValue>
           <Button
             scale="sm"
             onClick={() => {
