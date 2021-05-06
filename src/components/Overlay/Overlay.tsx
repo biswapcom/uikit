@@ -3,13 +3,13 @@ import { OverlayProps } from "./types";
 
 const Overlay = styled.div.attrs({ role: "presentation" })<OverlayProps>`
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: #1263f1;
+  background-color: #6B7D98;
   transition: opacity 0.4s;
-  opacity: ${({ show }) => (show ? 0.4 : 0)};
+  opacity: ${({ show }) => (show ? 0.7 : 0)};
   z-index: ${({ zIndex }) => zIndex};
   pointer-events: ${({ show }) => (show ? "initial" : "none")};
 `;
