@@ -51,4 +51,9 @@ export declare const styleVariants: {
         color: string;
         boxShadow: string;
     };
+    dark: {
+        backgroundColor: string;
+        color: string;
+        boxShadow: string;
+    };
 };

@@ -12,4 +12,5 @@ export declare type Variant = typeof variant[keyof typeof variant];
 export interface SkeletonProps extends SpaceProps, LayoutProps {
     animation?: Animation;
     variant?: Variant;
+    isDark?: boolean;
 }

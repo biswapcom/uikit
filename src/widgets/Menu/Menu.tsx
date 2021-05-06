@@ -21,7 +21,7 @@ const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean; menuBg: boo
   position: fixed;
   top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   left: 0;
-  transition: top 0.4s, padding-left 0.4s;
+  transition: top 0.4s, padding-left 0.2s;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -142,10 +142,11 @@ const Menu: React.FC<NavProps> = ({
           />
           <Flex>
             <UserBlock account={account} login={login} logout={logout} />
-            {profile && <Avatar profile={profile} />}
+            {/* {profile && <Avatar profile={profile} />} */}
           </Flex>
         </StyledNav>
         <Panel
+          togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
           isPushed={isPushed}
           isMobile={isMobile}
           showMenu={showMenu}

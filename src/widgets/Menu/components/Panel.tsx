@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PanelBody from "./PanelBody";
 import PanelFooter2 from "./PanelFooter2";
 import Logo from "./Logo";
+import { ArrowSidebar } from "../icons";
 import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../config";
 import { PanelProps, PushedProps, PanelFooterProps } from "../types";
 
@@ -10,11 +11,12 @@ interface Props extends PanelProps, PushedProps, PanelFooterProps {
   showMenu: boolean;
   isMobile: boolean;
   href: string;
+  togglePush: () => void;
 }
 
 const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   position: fixed;
-  padding-top: ${({ showMenu }) => (showMenu ? "32px" : 0)};
+  padding-top: 34px;
   top: 0;
   left: 0;
   display: flex;
@@ -26,22 +28,48 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   height: 100vh;
   transition: padding-top 0.2s, width 0.2s;
   border-right: ${({ isPushed }) => (isPushed ? "2px solid rgba(133, 133, 133, 0.1)" : 0)};
-  z-index: 30;
   overflow: ${({ isPushed }) => (isPushed ? "initial" : "hidden")};
+  z-index: 30;
   transform: translate3d(0, 0, 0);
 
   ${({ theme }) => theme.mediaQueries.nav} {
     border-right: 2px solid rgba(133, 133, 133, 0.1);
     width: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
   }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    overflow: visible;
+  }
+`;
+
+const MenuBtnDesktop = styled.div<{ isPushed: boolean }>`
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.dropDown};
+  cursor: pointer;
+  position: absolute;
+  top: 40px;
+  right: -12px;
+  transform: ${({ isPushed }) => (isPushed ? "scale(1, 1)" : "scale(-1, 1)")};
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    display: flex;
+  }
 `;
 
 const Panel: React.FC<Props> = (props) => {
   // Find the home link if provided
-  const { isPushed, showMenu, isDark, href, footerTitle, deals } = props;
+  const { isPushed, showMenu, isDark, href, footerTitle, deals, togglePush } = props;
 
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
+      <MenuBtnDesktop isPushed={isPushed} onClick={togglePush}>
+        <ArrowSidebar width="16px" color="contrast" />
+      </MenuBtnDesktop>
       <Logo isPushed={isPushed} isDark={isDark} href={href} />
       <PanelBody {...props} />
       {deals?.length && footerTitle && (

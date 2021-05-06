@@ -17,4 +17,5 @@ export declare type Sizes = typeof sizes[keyof typeof sizes];
 export interface HeadingProps {
     as?: Tags;
     size?: Sizes;
+    normal?: boolean;
 }

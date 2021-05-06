@@ -56,7 +56,6 @@ export interface NavProps extends PanelProps, PanelFooterProps, BSWPriceProps, F
     login: Login;
     profile?: Profile;
     logout: () => void;
-    childrenFooter: React.ReactElement | React.ReactElement[];
 }
 export interface BSWPriceProps {
     BSWPriceLabel: string;
