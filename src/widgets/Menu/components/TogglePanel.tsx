@@ -1,6 +1,6 @@
 import React from "react";
-import Flex from "../../../components/Box/Flex";
-import { HamburgerIcon, HamburgerCloseIcon } from "../icons";
+import styled from "styled-components";
+import { ArrowSidebar, HamburgerIcon, HamburgerCloseIcon } from "../icons";
 import MenuButton from "./MenuButton";
 import NavSocial from "./NavSocial";
 
@@ -10,19 +10,25 @@ interface Props {
   togglePush: () => void;
 }
 
+const Wrapper = styled.div`
+  display: flex;
+  position: relative;
+  padding-left: 40px;
+`
+
 const Logo: React.FC<Props> = ({ isPushed, togglePush }) => {
   return (
-    <Flex>
+    <Wrapper>
       <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
         {isPushed ? (
           <HamburgerCloseIcon width="24px" color="textSubtle" />
         ) : (
-          <HamburgerIcon width="24px" color="textSubtle" />
+          <ArrowSidebar width="16px" color="contrast"/>
         )}
       </MenuButton>
 
       <NavSocial />
-    </Flex>
+    </Wrapper>
   );
 };
 

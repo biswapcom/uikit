@@ -21,7 +21,7 @@ const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean; menuBg: boo
   position: fixed;
   top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   left: 0;
-  transition: top 0.4s, padding-left 0.4s;
+  transition: top 0.4s, padding-left 0.2s;
   display: flex;
   justify-content: space-between;
   align-items: center;
