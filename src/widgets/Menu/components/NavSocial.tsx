@@ -9,8 +9,12 @@ import { SvgProps } from "../../../components/Svg";
 const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
 
 const Wrapper = styled.div`
-  display: flex;
+  display: none;
   align-items: center;
+  
+  ${({ theme }) => theme.mediaQueries.lg} {
+    display: flex;
+  }
 `;
 
 const DropDownWrap = styled.div`
