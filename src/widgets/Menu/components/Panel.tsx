@@ -36,9 +36,9 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
     border-right: 2px solid rgba(133, 133, 133, 0.1);
     width: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
   }
-  
+
   ${({ theme }) => theme.mediaQueries.lg} {
-      overflow: visible;
+    overflow: visible;
   }
 `;
 
@@ -54,12 +54,12 @@ const MenuBtnDesktop = styled.div<{ isPushed: boolean }>`
   position: absolute;
   top: 40px;
   right: -12px;
-  transform: ${({ isPushed }) => isPushed ? 'scale(1, 1)' : 'scale(-1, 1)'};
-  
+  transform: ${({ isPushed }) => (isPushed ? "scale(1, 1)" : "scale(-1, 1)")};
+
   ${({ theme }) => theme.mediaQueries.lg} {
     display: flex;
   }
-`
+`;
 
 const Panel: React.FC<Props> = (props) => {
   // Find the home link if provided

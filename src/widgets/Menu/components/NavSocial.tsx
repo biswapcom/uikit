@@ -11,7 +11,7 @@ const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
 const Wrapper = styled.div`
   display: none;
   align-items: center;
-  
+
   ${({ theme }) => theme.mediaQueries.lg} {
     display: flex;
   }
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 
 const DropDownWrap = styled.div`
   position: relative;
-`
+`;
 
 const DropDown = styled.div`
   display: none;
@@ -30,7 +30,7 @@ const DropDown = styled.div`
   top: 52px;
   left: 50%;
   transform: translateX(-50%);
-  
+
   &:before {
     display: block;
     content: "";
@@ -42,11 +42,11 @@ const DropDown = styled.div`
     transform: translateX(-50%) rotate(45deg);
     background-color: ${({ theme }) => theme.colors.dropDown};
   }
-  
+
   &.active {
     display: block;
   }
-`
+`;
 
 const DropDownLink = styled.a`
   display: flex;
@@ -59,17 +59,17 @@ const DropDownLink = styled.a`
   color: ${({ theme }) => theme.colors.text};
   border-radius: 4px;
   user-select: none;
-  transition: all .4s ease;
-  
+  transition: all 0.4s ease;
+
   &:hover {
     background: ${({ theme }) => theme.colors.textDisabled};
     color: ${({ theme }) => theme.colors.contrast};
   }
-  
+
   &:not(:last-child) {
     margin-bottom: 6px;
   }
-`
+`;
 
 const ItemWrapper = styled.div`
   display: flex;
@@ -92,10 +92,10 @@ const NavSocial: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const openDropdown = () => {
     setIsOpen(() => !isOpen);
-  }
+  };
   const closeDropdown = () => {
     setIsOpen(false);
-  }
+  };
   const ref = useDetectClickOutside({ onTriggered: closeDropdown });
 
   return (
@@ -104,25 +104,25 @@ const NavSocial: React.FC = () => {
         const Icon = Icons[social.icon];
         const iconProps = { width: "24px", color: "textSubtle", style: { cursor: "pointer" } };
 
-        if(social.items) {
+        if (social.items) {
           return (
             <DropDownWrap ref={ref}>
-              <ItemWrapper className={`${isOpen && 'active'}`} onClick={openDropdown}>
+              <ItemWrapper className={`${isOpen && "active"}`} onClick={openDropdown}>
                 <Icon {...iconProps} />
               </ItemWrapper>
-              {isOpen &&
-                <DropDown className={`${isOpen && 'active'}`}>
+              {isOpen && (
+                <DropDown className={`${isOpen && "active"}`}>
                   {social.items.map((item) => {
                     return (
                       <DropDownLink key={item.label} href={item.href} aria-label={social.label}>
                         {item.label}
                       </DropDownLink>
-                    )
+                    );
                   })}
                 </DropDown>
-              }
+              )}
             </DropDownWrap>
-          )
+          );
         }
 
         return (
@@ -134,7 +134,7 @@ const NavSocial: React.FC = () => {
         );
       })}
     </Wrapper>
-  )
+  );
 };
 
 export default NavSocial;

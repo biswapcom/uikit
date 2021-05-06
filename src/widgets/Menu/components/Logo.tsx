@@ -21,17 +21,11 @@ const StyledLink = styled(Link)`
   margin-bottom: 32px;
   .mobile-icon {
     width: 38px;
-    // ${({ theme }) => theme.mediaQueries.nav} {
-    //   display: none;
-    // }
   }
   .desktop-icon {
     width: 121px;
     display: block;
     margin-left: 8px;
-    // ${({ theme }) => theme.mediaQueries.nav} {
-    //   display: block;
-    // }
   }
 `;
 

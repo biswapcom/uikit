@@ -27,7 +27,7 @@ const MenuEntry = styled.div<Props>`
   font-size: ${({ secondary }) => (secondary ? "12px" : "14px")};
   color: ${({ theme }) => theme.colors.contrast};
   border-radius: 8px;
-  background: ${({ isActive, theme }) => ( isActive ? theme.colors.dropDown : 'transparent')};
+  background: ${({ isActive, theme }) => (isActive ? theme.colors.dropDown : "transparent")};
 
   a {
     display: flex;
@@ -59,7 +59,7 @@ const MenuEntry = styled.div<Props>`
       fill: ${({ theme }) => theme.colors.warning};
     }
   }
-  
+
   &.rainbow {
     background: ${({ theme }) => theme.colors.dropDown};
     background-size: 400% 100%;
