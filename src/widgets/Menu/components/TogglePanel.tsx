@@ -20,11 +20,13 @@ const Wrapper = styled.div`
   }
 `;
 
-const HeaderMobileLogo = styled.div`
+const HeaderMobileLogo = styled.a`
   align-self: center;
+  overflow: hidden;
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    display: none;
+    width: 0;
+    opacity: 0;
   }
 `;
 
@@ -34,7 +36,7 @@ const Logo: React.FC<Props> = ({ togglePush }) => {
       <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
         <HamburgerIcon width="24px" color="textSubtle" />
       </MenuButton>
-      <HeaderMobileLogo>
+      <HeaderMobileLogo href="/">
         <LogoIcon width="32px" />
       </HeaderMobileLogo>
       <NavSocial />

@@ -16,8 +16,8 @@ interface Props extends PanelProps, PushedProps, PanelFooterProps {
 
 const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   position: fixed;
-  padding-top: 34px;
-  top: 0;
+  padding-top: 16px;
+  top: 64px;
   left: 0;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   flex-shrink: 0;
   background-color: ${({ theme }) => theme.nav.background};
   width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
-  height: 100vh;
+  height: calc(100vh - 64px);
   transition: padding-top 0.2s, width 0.2s;
   border-right: ${({ isPushed }) => (isPushed ? "2px solid rgba(133, 133, 133, 0.1)" : 0)};
   overflow: ${({ isPushed }) => (isPushed ? "initial" : "hidden")};
@@ -38,7 +38,10 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
+    padding-top: 34px;
+    top: 0;
     overflow: visible;
+    height: 100vh;
   }
 `;
 
