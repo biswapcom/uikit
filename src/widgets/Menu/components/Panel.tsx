@@ -43,6 +43,12 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
     overflow: visible;
     height: 100vh;
   }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    &:hover .menuBtnDesktop {
+      opacity: 1;
+    }
+  }
 `;
 
 const MenuBtnDesktop = styled.div<{ isPushed: boolean }>`
@@ -61,6 +67,8 @@ const MenuBtnDesktop = styled.div<{ isPushed: boolean }>`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     display: flex;
+    opacity: 0;
+    transition: opacity .3s ease;
   }
 `;
 
@@ -70,7 +78,7 @@ const Panel: React.FC<Props> = (props) => {
 
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
-      <MenuBtnDesktop isPushed={isPushed} onClick={togglePush}>
+      <MenuBtnDesktop className="menuBtnDesktop" isPushed={isPushed} onClick={togglePush}>
         <ArrowSidebar width="16px" color="contrast" />
       </MenuBtnDesktop>
       <Logo isPushed={isPushed} isDark={isDark} href={href} />
