@@ -3,7 +3,7 @@ import Svg from "../../../components/Svg/Svg";
 import { SvgProps } from "../../../components/Svg/types";
 
 interface LogoProps extends SvgProps {
-  isDark: boolean;
+  isDark?: boolean;
 }
 
 const Logo: React.FC<LogoProps> = ({ isDark, ...props }) => {

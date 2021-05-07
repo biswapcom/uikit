@@ -8,9 +8,8 @@ import TogglePanel from "./components/TogglePanel";
 import Panel from "./components/Panel";
 import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
-import Avatar from "./components/Avatar";
 import Footer from "./components/Footer";
-import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
+import { MENU_HEIGHT, MENU_HEIGHT_MOBILE, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 
 const Wrapper = styled.div`
   position: relative;
@@ -19,7 +18,7 @@ const Wrapper = styled.div`
 
 const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean; menuBg: boolean }>`
   position: fixed;
-  top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
+  top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT_MOBILE}px`)};
   left: 0;
   transition: top 0.4s, padding-left 0.2s;
   display: flex;
@@ -27,13 +26,18 @@ const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean; menuBg: boo
   align-items: center;
   padding-right: 16px;
   width: 100%;
-  height: ${MENU_HEIGHT}px;
+  height: ${MENU_HEIGHT_MOBILE}px;
   background-color: ${({ theme, menuBg }) => (menuBg ? "transparent" : theme.colors.background)};
   z-index: 20;
   transform: translate3d(0, 0, 0);
 
   ${({ theme }) => theme.mediaQueries.nav} {
     padding-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL + 8 : SIDEBAR_WIDTH_REDUCED + 8}px`};
+  }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    height: ${MENU_HEIGHT}px;
+    top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   }
 `;
 
@@ -63,10 +67,16 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
 
 const MobileOnlyOverlay = styled(Overlay)`
   position: fixed;
-  height: 100%;
+  height: calc(100% - 64px);
+  top: 64px;
 
   ${({ theme }) => theme.mediaQueries.nav} {
     display: none;
+  }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    height: 100%;
+    top: 0;
   }
 `;
 

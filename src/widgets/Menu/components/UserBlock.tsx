@@ -6,7 +6,6 @@ import Wallet from "../icons/Wallet";
 import { useWalletModal } from "../../WalletModal";
 import { Login } from "../../WalletModal/types";
 
-
 interface Props {
   account?: string;
   login: Login;
@@ -18,11 +17,11 @@ const WalletWrap = styled.div`
   align-items: center;
   background: ${({ theme }) => theme.colors.card};
   border-radius: 8px;
-`
+`;
 
 const CurrencyValue = styled.div`
   padding: 0 16px;
-`
+`;
 
 const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
   const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account);
@@ -33,7 +32,9 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
       {account ? (
         <WalletWrap>
           <CurrencyValue>
-            <Text fontSize="14px" color="text">12.34 BNB</Text>
+            <Text fontSize="14px" color="text">
+              12.34 BNB
+            </Text>
           </CurrencyValue>
           <Button
             scale="sm"
