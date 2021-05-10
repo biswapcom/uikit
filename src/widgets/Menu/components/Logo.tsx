@@ -11,8 +11,13 @@ interface Props {
 }
 
 const Wrapper = styled.div<Props>`
+  display: none;
   padding: ${({ isPushed }) => (isPushed ? "0 12px" : "0 18px")};
   transition: padding 0.2s;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    display: block;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -21,17 +26,11 @@ const StyledLink = styled(Link)`
   margin-bottom: 32px;
   .mobile-icon {
     width: 38px;
-    // ${({ theme }) => theme.mediaQueries.nav} {
-    //   display: none;
-    // }
   }
   .desktop-icon {
     width: 121px;
     display: block;
     margin-left: 8px;
-    // ${({ theme }) => theme.mediaQueries.nav} {
-    //   display: block;
-    // }
   }
 `;
 
