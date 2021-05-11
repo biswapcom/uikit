@@ -2362,9 +2362,9 @@ var Modal = function (_a) {
 };
 var templateObject_1$F, templateObject_2$d, templateObject_3$7;
 
-var Overlay = styled__default['default'].div.attrs({ role: "presentation" })(templateObject_1$G || (templateObject_1$G = __makeTemplateObject(["\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #6b7d98;\n  transition: opacity 0.4s;\n  opacity: ", ";\n  z-index: ", ";\n  pointer-events: ", ";\n"], ["\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #6b7d98;\n  transition: opacity 0.4s;\n  opacity: ", ";\n  z-index: ", ";\n  pointer-events: ", ";\n"])), function (_a) {
+var Overlay = styled__default['default'].div.attrs({ role: "presentation" })(templateObject_1$G || (templateObject_1$G = __makeTemplateObject(["\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(2, 17, 39, 0.2);\n  transition: opacity 0.4s;\n  opacity: ", ";\n  z-index: ", ";\n  pointer-events: ", ";\n"], ["\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(2, 17, 39, 0.2);\n  transition: opacity 0.4s;\n  opacity: ", ";\n  z-index: ", ";\n  pointer-events: ", ";\n"])), function (_a) {
     var show = _a.show;
-    return (show ? 0.7 : 0);
+    return (show ? 0.4 : 0);
 }, function (_a) {
     var zIndex = _a.zIndex;
     return zIndex;
@@ -3048,7 +3048,7 @@ var StyledPanel = styled__default['default'].div(templateObject_1$R || (template
     var theme = _a.theme;
     return theme.mediaQueries.lg;
 });
-var MenuBtnDesktop = styled__default['default'].div(templateObject_2$l || (templateObject_2$l = __makeTemplateObject(["\n  display: none;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background-color: ", ";\n  cursor: pointer;\n  position: absolute;\n  top: 40px;\n  right: -12px;\n  transform: ", ";\n\n  ", " {\n    display: flex;\n    opacity: 0;\n    transition: opacity .3s ease;\n  }\n"], ["\n  display: none;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background-color: ", ";\n  cursor: pointer;\n  position: absolute;\n  top: 40px;\n  right: -12px;\n  transform: ", ";\n\n  ", " {\n    display: flex;\n    opacity: 0;\n    transition: opacity .3s ease;\n  }\n"])), function (_a) {
+var MenuBtnDesktop = styled__default['default'].div(templateObject_2$l || (templateObject_2$l = __makeTemplateObject(["\n  display: none;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background-color: ", ";\n  cursor: pointer;\n  position: absolute;\n  top: 40px;\n  right: -12px;\n  transform: ", ";\n\n  ", " {\n    display: flex;\n    opacity: 0;\n    transition: opacity 0.3s ease;\n  }\n"], ["\n  display: none;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background-color: ", ";\n  cursor: pointer;\n  position: absolute;\n  top: 40px;\n  right: -12px;\n  transform: ", ";\n\n  ", " {\n    display: flex;\n    opacity: 0;\n    transition: opacity 0.3s ease;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.dropDown;
 }, function (_a) {
