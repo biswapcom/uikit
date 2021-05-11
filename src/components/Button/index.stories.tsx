@@ -52,6 +52,11 @@ export const Default: React.FC = () => {
           Disabled
         </Button>
       </Box>
+      <Box>
+        <Button className="hover-disabled" mr="8px">
+          test
+        </Button>
+      </Box>
     </>
   );
 };

@@ -59,11 +59,11 @@ const StyledButton = styled.button<BaseButtonProps>`
   outline: 0;
   transition: background-color 0.2s, opacity 0.2s;
 
-  &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active) {
+  &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active):not(.hover-disabled) {
     opacity: 0.65;
   }
 
-  &:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled) {
+  &:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(.hover-disabled) {
     opacity: 0.85;
   }
 
