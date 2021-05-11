@@ -2349,7 +2349,7 @@ var StyledModal = styled__default['default'].div(templateObject_1$F || (template
 var ModalHeader = styled__default['default'].div(templateObject_2$d || (templateObject_2$d = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  padding: 32px 32px 24px;\n  \n  .closeModal {\n    width: 24px;\n    height: 24px;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  padding: 32px 32px 24px;\n  \n  .closeModal {\n    width: 24px;\n    height: 24px;\n  }\n"])));
 var ModalTitle = styled__default['default'](Flex)(templateObject_3$7 || (templateObject_3$7 = __makeTemplateObject(["\n  align-items: center;\n  flex: 1;\n"], ["\n  align-items: center;\n  flex: 1;\n"])));
 var Modal = function (_a) {
-    var title = _a.title, onDismiss = _a.onDismiss, onBack = _a.onBack, children = _a.children, _b = _a.hideCloseButton, hideCloseButton = _b === void 0 ? false : _b, _c = _a.bodyPadding, bodyPadding = _c === void 0 ? "32px" : _c;
+    var title = _a.title, onDismiss = _a.onDismiss, onBack = _a.onBack, children = _a.children, _b = _a.hideCloseButton, hideCloseButton = _b === void 0 ? false : _b, _c = _a.bodyPadding, bodyPadding = _c === void 0 ? "0 32px 32px" : _c;
     return (React__default['default'].createElement(StyledModal, null,
         React__default['default'].createElement(ModalHeader, null,
             React__default['default'].createElement(ModalTitle, null,
