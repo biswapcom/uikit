@@ -3001,7 +3001,7 @@ var templateObject_1$P, templateObject_2$j;
 
 var Wrapper$6 = styled__default['default'].div(templateObject_1$Q || (templateObject_1$Q = __makeTemplateObject(["\n  display: none;\n  padding: ", ";\n  transition: padding 0.2s;\n\n  ", " {\n    display: block;\n  }\n"], ["\n  display: none;\n  padding: ", ";\n  transition: padding 0.2s;\n\n  ", " {\n    display: block;\n  }\n"])), function (_a) {
     var isPushed = _a.isPushed;
-    return (isPushed ? "0 12px" : "0 18px");
+    return (isPushed ? "0 16px" : "0 18px");
 }, function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
