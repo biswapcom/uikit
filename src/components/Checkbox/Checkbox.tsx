@@ -46,10 +46,10 @@ const Checkbox = styled.input.attrs({ type: "checkbox" })<CheckboxProps>`
   //   box-shadow: ${({ theme }) => theme.shadows.focus};
   // }
   //
-  // &:focus {
-  //   outline: none;
-  //   box-shadow: ${({ theme }) => theme.shadows.focus};
-  // }
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
 
   &:checked {
     background-color: ${({ theme }) => theme.colors.success};
