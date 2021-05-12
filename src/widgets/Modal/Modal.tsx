@@ -10,7 +10,6 @@ interface Props extends InjectedProps {
   title: string;
   hideCloseButton?: boolean;
   onBack?: () => void;
-  bodyPadding?: string;
 }
 
 const StyledModal = styled.div`
@@ -19,9 +18,9 @@ const StyledModal = styled.div`
   width: 100%;
   z-index: ${({ theme }) => theme.zIndices.modal};
   overflow-y: auto;
-  ${({ theme }) => theme.mediaQueries.xs} {
+  ${({ theme }) => theme.mediaQueries.sm} {
     width: auto;
-    min-width: 360px;
+    min-width: 416px;
     max-width: 100%;
   }
 `;
@@ -29,7 +28,11 @@ const StyledModal = styled.div`
 const ModalHeader = styled.div`
   display: flex;
   align-items: center;
-  padding: 32px 32px 24px;
+  padding: 24px 16px;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    padding: 32px 32px 24px;
+  }
   
   .closeModal {
     width: 24px;
@@ -42,13 +45,20 @@ const ModalTitle = styled(Flex)`
   flex: 1;
 `;
 
+const ModalBody = styled.div`
+  padding: 0 16px 24px;
+  
+  ${({ theme }) => theme.mediaQueries.sm} {
+    padding: 0 32px 32px;
+  }
+`
+
 const Modal: React.FC<Props> = ({
   title,
   onDismiss,
   onBack,
   children,
   hideCloseButton = false,
-  bodyPadding = "0 32px 32px",
 }) => (
   <StyledModal>
     <ModalHeader>
@@ -66,9 +76,9 @@ const Modal: React.FC<Props> = ({
         </IconButton>
       )}
     </ModalHeader>
-    <Flex flexDirection="column" p={bodyPadding}>
+    <ModalBody>
       {children}
-    </Flex>
+    </ModalBody>
   </StyledModal>
 );
 
