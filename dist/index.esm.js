@@ -3001,7 +3001,7 @@ var templateObject_1$P, templateObject_2$j;
 
 var Wrapper$6 = styled.div(templateObject_1$Q || (templateObject_1$Q = __makeTemplateObject(["\n  display: none;\n  padding: ", ";\n  transition: padding 0.2s;\n\n  ", " {\n    display: block;\n  }\n"], ["\n  display: none;\n  padding: ", ";\n  transition: padding 0.2s;\n\n  ", " {\n    display: block;\n  }\n"])), function (_a) {
     var isPushed = _a.isPushed;
-    return (isPushed ? "0 16px" : "0 18px");
+    return (isPushed ? "0 22px" : "0 18px");
 }, function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
@@ -3043,7 +3043,7 @@ var StyledPanel = styled.div(templateObject_1$R || (templateObject_1$R = __makeT
     var theme = _a.theme;
     return theme.mediaQueries.lg;
 });
-var MenuBtnDesktop = styled.div(templateObject_2$l || (templateObject_2$l = __makeTemplateObject(["\n  display: none;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background-color: ", ";\n  cursor: pointer;\n  position: absolute;\n  top: 40px;\n  right: -12px;\n  transform: ", ";\n\n  ", " {\n    display: flex;\n    opacity: 0;\n    transition: opacity 0.3s ease;\n  }\n"], ["\n  display: none;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background-color: ", ";\n  cursor: pointer;\n  position: absolute;\n  top: 40px;\n  right: -12px;\n  transform: ", ";\n\n  ", " {\n    display: flex;\n    opacity: 0;\n    transition: opacity 0.3s ease;\n  }\n"])), function (_a) {
+var MenuBtnDesktop = styled.div(templateObject_2$l || (templateObject_2$l = __makeTemplateObject(["\n  display: none;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background-color: ", ";\n  cursor: pointer;\n  position: absolute;\n  top: 40px;\n  right: -12px;\n  transform: ", ";\n\n  ", " {\n    display: flex;\n    opacity: ", ";\n    transition: opacity 0.3s ease;\n  }\n"], ["\n  display: none;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background-color: ", ";\n  cursor: pointer;\n  position: absolute;\n  top: 40px;\n  right: -12px;\n  transform: ", ";\n\n  ", " {\n    display: flex;\n    opacity: ", ";\n    transition: opacity 0.3s ease;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.dropDown;
 }, function (_a) {
@@ -3052,6 +3052,9 @@ var MenuBtnDesktop = styled.div(templateObject_2$l || (templateObject_2$l = __ma
 }, function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
+}, function (_a) {
+    var isPushed = _a.isPushed;
+    return (isPushed ? '0' : '1');
 });
 var Panel = function (props) {
     // Find the home link if provided
@@ -3437,7 +3440,7 @@ var Menu = function (_a) {
     var _b;
     var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links; _a.profile; var children = _a.children, footerTitle = _a.footerTitle, deals = _a.deals, BSWPriceLabel = _a.BSWPriceLabel, BSWPriceValue = _a.BSWPriceValue, supply = _a.supply, total = _a.total;
     var isXl = useMatchBreakpoints().isXl;
-    var isMobile = isXl === false;
+    var isMobile = isXl;
     var _c = useState(!isMobile), isPushed = _c[0], setIsPushed = _c[1];
     var _d = useState(true), showMenu = _d[0], setShowMenu = _d[1];
     var _e = useState(true), menuBg = _e[0], setMenuBg = _e[1];
