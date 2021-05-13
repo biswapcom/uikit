@@ -54,8 +54,8 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
-  margin-top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
-  transition: margin-top 0.4s;
+  padding-top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
+  transition: padding-top 0.4s;
   transform: translate3d(0, 0, 0);
   max-width: 100%;
 
@@ -81,25 +81,25 @@ const MobileOnlyOverlay = styled(Overlay)`
 `;
 
 const Menu: React.FC<NavProps> = ({
-  account,
-  login,
-  logout,
-  isDark,
-  toggleTheme,
-  langs,
-  setLang,
-  currentLang,
-  cakePriceUsd,
-  links,
-  profile,
-  children,
-  footerTitle,
-  deals,
-  BSWPriceLabel,
-  BSWPriceValue,
-  supply,
-  total,
-}) => {
+                                    account,
+                                    login,
+                                    logout,
+                                    isDark,
+                                    toggleTheme,
+                                    langs,
+                                    setLang,
+                                    currentLang,
+                                    cakePriceUsd,
+                                    links,
+                                    profile,
+                                    children,
+                                    footerTitle,
+                                    deals,
+                                    BSWPriceLabel,
+                                    BSWPriceValue,
+                                    supply,
+                                    total
+                                  }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
   const [isPushed, setIsPushed] = useState(!isMobile);
@@ -173,7 +173,75 @@ const Menu: React.FC<NavProps> = ({
           deals={deals}
         />
         <Inner isPushed={isPushed} showMenu={showMenu}>
-          <div>{children}</div>
+          <div>
+            {children}
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet itaque molestias nobis sit?
+            Aliquid, eligendi laborum nemo nihil omnis quis sint tenetur. Accusamus ad asperiores assumenda eaque
+            molestiae soluta.
+          </div>
 
           <Footer
             BSWPriceLabel={BSWPriceLabel}
