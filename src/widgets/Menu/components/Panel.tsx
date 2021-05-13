@@ -67,7 +67,7 @@ const MenuBtnDesktop = styled.div<{ isPushed: boolean }>`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     display: flex;
-    opacity: 0;
+    opacity: ${({ isPushed }) => (isPushed ? '0' : '1')};
     transition: opacity 0.3s ease;
   }
 `;

@@ -101,7 +101,7 @@ const Menu: React.FC<NavProps> = ({
                                     total
                                   }) => {
   const { isXl } = useMatchBreakpoints();
-  const isMobile = isXl === false;
+  const isMobile = isXl;
   const [isPushed, setIsPushed] = useState(!isMobile);
   const [showMenu, setShowMenu] = useState(true);
   const [menuBg, setMenuBg] = useState(true);
