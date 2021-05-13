@@ -1270,7 +1270,7 @@ var Input = styled__default['default'].input(templateObject_1$r || (templateObje
     return (isLight ? theme.colors.textSubtle : theme.colors.text);
 }, function (_a) {
     var isLight = _a.isLight;
-    return (isLight ? '0px' : '0px');
+    return (isLight ? '0px' : '1px');
 }, getHeight, function (_a) {
     var theme = _a.theme;
     return theme.colors.textSubtle;
