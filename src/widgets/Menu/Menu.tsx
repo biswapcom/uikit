@@ -14,6 +14,19 @@ import { MENU_HEIGHT, MENU_HEIGHT_MOBILE, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_F
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
+  
+  
+  &.no-scroll {
+    height: calc(100vh - 2rem);
+    max-height: calc(100vh - 2rem);
+    overflow: hidden;
+    
+    ${({ theme }) => theme.mediaQueries.xl} {
+      height: auto;
+      max-height: none;
+      overflow: initial;
+    }
+  }
 `;
 
 const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean; menuBg: boolean }>`
@@ -102,7 +115,7 @@ const Menu: React.FC<NavProps> = ({
                                   }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl;
-  const [isPushed, setIsPushed] = useState(!isMobile);
+  const [isPushed, setIsPushed] = useState(isMobile);
   const [showMenu, setShowMenu] = useState(true);
   const [menuBg, setMenuBg] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
@@ -142,7 +155,7 @@ const Menu: React.FC<NavProps> = ({
   const homeLink = links.find((link) => link.label === "Home");
 
   return (
-    <Wrapper>
+    <Wrapper className={`${ isPushed ? 'no-scroll' : '' }`}>
       <BodyWrapper>
         <StyledNav showMenu={showMenu} isPushed={isPushed} menuBg={menuBg}>
           <TogglePanel
