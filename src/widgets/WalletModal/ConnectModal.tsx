@@ -19,24 +19,30 @@ const HelpLink = styled(Link)`
   margin-top: 24px;
 `;
 
+const Wrapper = styled.div`
+  max-width: 352px;
+`
+
 const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null }) => (
   <Modal title="Connect to a wallet" onDismiss={onDismiss}>
-    {config.map((entry, index) => (
-      <WalletCard
-        key={entry.title}
-        login={login}
-        walletConfig={entry}
-        onDismiss={onDismiss}
-        mb={index < config.length - 1 ? "8px" : "0"}
-      />
-    ))}
-    <HelpLink
-      href="https://docs.pancakeswap.finance/guides/faq#how-do-i-set-up-my-wallet-on-binance-smart-chain"
-      external
-    >
-      <HelpIcon color="primary" mr="6px" />
-      Learn how to connect
-    </HelpLink>
+    <Wrapper>
+      {config.map((entry, index) => (
+        <WalletCard
+          key={entry.title}
+          login={login}
+          walletConfig={entry}
+          onDismiss={onDismiss}
+          mb={index < config.length - 1 ? "8px" : "0"}
+        />
+      ))}
+      <HelpLink
+        href="https://docs.pancakeswap.finance/guides/faq#how-do-i-set-up-my-wallet-on-binance-smart-chain"
+        external
+      >
+        <HelpIcon color="primary" mr="6px" />
+        Learn how to connect
+      </HelpLink>
+    </Wrapper>
   </Modal>
 );
 
