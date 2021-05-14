@@ -13,7 +13,7 @@ const StyledFarmCardHead = styled.div`
   column-gap: 8px;
   margin-bottom: 24px;
 
-  & > svg {
+  & > img {
     grid-row: 1 / 3;
     grid-column: 1 / 2;
     position: relative;
