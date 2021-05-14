@@ -48,7 +48,7 @@ const getBadgeColor = ({ badgeType = "light", theme }: StyledBadgeProps) => {
     return theme.colors.background;
   }
 
-  return theme.colors.inputBorder;
+  return theme.colors.contrast;
 };
 
 const Wrapper = styled.div<BadgeProps>`
