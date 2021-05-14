@@ -49,5 +49,7 @@ export { default as SyncAltIcon } from "./Icons/SyncAlt";
 export { default as WarningIcon } from "./Icons/Warning";
 export { default as DownloadIcon } from "./Icons/Download";
 export { default as LinkIcon } from "./Icons/Link";
+export { default as TelegramIcon } from "./Icons/Telegram";
+export { default as TwitterIcon } from "./Icons/Twitter";
 export { default as Svg } from "./Svg";
 export type { SvgProps } from "./types";
