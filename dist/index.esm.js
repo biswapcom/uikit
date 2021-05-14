@@ -3211,21 +3211,23 @@ var WalletCard = function (_a) {
 };
 
 var HelpLink = styled(Link)(templateObject_1$S || (templateObject_1$S = __makeTemplateObject(["\n  display: flex;\n  align-self: center;\n  align-items: center;\n  margin-top: 24px;\n"], ["\n  display: flex;\n  align-self: center;\n  align-items: center;\n  margin-top: 24px;\n"])));
+var Wrapper$7 = styled.div(templateObject_2$m || (templateObject_2$m = __makeTemplateObject(["\n  max-width: 352px;\n"], ["\n  max-width: 352px;\n"])));
 var ConnectModal = function (_a) {
     var login = _a.login, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b;
     return (React.createElement(Modal, { title: "Connect to a wallet", onDismiss: onDismiss },
-        connectors.map(function (entry, index) { return (React.createElement(WalletCard, { key: entry.title, login: login, walletConfig: entry, onDismiss: onDismiss, mb: index < connectors.length - 1 ? "8px" : "0" })); }),
-        React.createElement(HelpLink, { href: "https://docs.pancakeswap.finance/guides/faq#how-do-i-set-up-my-wallet-on-binance-smart-chain", external: true },
-            React.createElement(Icon$p, { color: "primary", mr: "6px" }),
-            "Learn how to connect")));
+        React.createElement(Wrapper$7, null,
+            connectors.map(function (entry, index) { return (React.createElement(WalletCard, { key: entry.title, login: login, walletConfig: entry, onDismiss: onDismiss, mb: index < connectors.length - 1 ? "8px" : "0" })); }),
+            React.createElement(HelpLink, { href: "https://docs.pancakeswap.finance/guides/faq#how-do-i-set-up-my-wallet-on-binance-smart-chain", external: true },
+                React.createElement(Icon$p, { color: "primary", mr: "6px" }),
+                "Learn how to connect"))));
 };
-var templateObject_1$S;
+var templateObject_1$S, templateObject_2$m;
 
 var StyleButton = styled(Text).attrs({ role: "button" })(templateObject_1$T || (templateObject_1$T = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n"], ["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.primary;
 });
-var Tooltip = styled.div(templateObject_2$m || (templateObject_2$m = __makeTemplateObject(["\n  display: ", ";\n  position: absolute;\n  bottom: -22px;\n  right: 0;\n  left: 0;\n  text-align: center;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 16px;\n  opacity: 0.7;\n"], ["\n  display: ", ";\n  position: absolute;\n  bottom: -22px;\n  right: 0;\n  left: 0;\n  text-align: center;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 16px;\n  opacity: 0.7;\n"])), function (_a) {
+var Tooltip = styled.div(templateObject_2$n || (templateObject_2$n = __makeTemplateObject(["\n  display: ", ";\n  position: absolute;\n  bottom: -22px;\n  right: 0;\n  left: 0;\n  text-align: center;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 16px;\n  opacity: 0.7;\n"], ["\n  display: ", ";\n  position: absolute;\n  bottom: -22px;\n  right: 0;\n  left: 0;\n  text-align: center;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 16px;\n  opacity: 0.7;\n"])), function (_a) {
     var isTooltipDisplayed = _a.isTooltipDisplayed;
     return (isTooltipDisplayed ? "block" : "none");
 }, function (_a) {
@@ -3251,7 +3253,7 @@ var CopyToClipboard = function (_a) {
         React.createElement(Icon$o, { width: "20px", color: "primary", ml: "4px" }),
         React.createElement(Tooltip, { isTooltipDisplayed: isTooltipDisplayed }, "Copied")));
 };
-var templateObject_1$T, templateObject_2$m;
+var templateObject_1$T, templateObject_2$n;
 
 var AccountModal = function (_a) {
     var account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b;
@@ -3278,7 +3280,7 @@ var WalletWrap = styled.div(templateObject_1$U || (templateObject_1$U = __makeTe
     var theme = _a.theme;
     return theme.colors.card;
 });
-var CurrencyValue = styled.div(templateObject_2$n || (templateObject_2$n = __makeTemplateObject(["\n  padding: 0 16px;\n"], ["\n  padding: 0 16px;\n"])));
+var CurrencyValue = styled.div(templateObject_2$o || (templateObject_2$o = __makeTemplateObject(["\n  padding: 0 16px;\n"], ["\n  padding: 0 16px;\n"])));
 var UserBlock = function (_a) {
     var account = _a.account, login = _a.login, logout = _a.logout;
     var _b = useWalletModal(login, logout, account), onPresentConnectModal = _b.onPresentConnectModal, onPresentAccountModal = _b.onPresentAccountModal;
@@ -3298,19 +3300,19 @@ var UserBlock = function (_a) {
         "Connect wallet"))));
 };
 var UserBlock$1 = React.memo(UserBlock, function (prevProps, nextProps) { return prevProps.account === nextProps.account; });
-var templateObject_1$U, templateObject_2$n;
+var templateObject_1$U, templateObject_2$o;
 
-var Wrapper$7 = styled.div(templateObject_1$V || (templateObject_1$V = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n"], ["\n  display: flex;\n  align-items: center;\n"])));
-var StyledLink$2 = styled(Text)(templateObject_2$o || (templateObject_2$o = __makeTemplateObject(["\n  &:hover {\n    text-decoration: underline;\n  }\n"], ["\n  &:hover {\n    text-decoration: underline;\n  }\n"])));
+var Wrapper$8 = styled.div(templateObject_1$V || (templateObject_1$V = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n"], ["\n  display: flex;\n  align-items: center;\n"])));
+var StyledLink$2 = styled(Text)(templateObject_2$p || (templateObject_2$p = __makeTemplateObject(["\n  &:hover {\n    text-decoration: underline;\n  }\n"], ["\n  &:hover {\n    text-decoration: underline;\n  }\n"])));
 var ConnectMetamask = function (props) {
     var href = props.href;
-    return (React.createElement(Wrapper$7, null,
+    return (React.createElement(Wrapper$8, null,
         React.createElement(Icon$t, { width: "24px", mx: "7px" }),
         React.createElement(StyledLink$2, { ml: 16, as: "a", fontSize: "12px", color: "primary", href: href, "aria-label": "Add to Metamask" }, "Add to Metamask")));
 };
-var templateObject_1$V, templateObject_2$o;
+var templateObject_1$V, templateObject_2$p;
 
-var Wrapper$8 = styled.div(templateObject_1$W || (templateObject_1$W = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 18px;\n  padding-right: 24px;\n  position: relative;\n\n  ", " {\n    padding-right: 0;\n  }\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"], ["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 18px;\n  padding-right: 24px;\n  position: relative;\n\n  ", " {\n    padding-right: 0;\n  }\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"])), function (_a) {
+var Wrapper$9 = styled.div(templateObject_1$W || (templateObject_1$W = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 18px;\n  padding-right: 24px;\n  position: relative;\n\n  ", " {\n    padding-right: 0;\n  }\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"], ["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 18px;\n  padding-right: 24px;\n  position: relative;\n\n  ", " {\n    padding-right: 0;\n  }\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
 }, function (_a) {
@@ -3328,7 +3330,7 @@ var Wrapper$8 = styled.div(templateObject_1$W || (templateObject_1$W = __makeTem
 });
 var BSWPrice = function (_a) {
     var BSWPriceLabel = _a.BSWPriceLabel, BSWPriceValue = _a.BSWPriceValue;
-    return (React.createElement(Wrapper$8, null,
+    return (React.createElement(Wrapper$9, null,
         React.createElement(Icon$r, { className: "logo" }),
         React.createElement(Text, { color: "text", fontSize: "12px", lineHeight: "18px", ml: 16 }, BSWPriceLabel),
         React.createElement(Text, { color: "contrast", fontSize: "16px", lineHeight: "19px", ml: 16, bold: true },
@@ -3337,17 +3339,17 @@ var BSWPrice = function (_a) {
 };
 var templateObject_1$W;
 
-var Wrapper$9 = styled.div(templateObject_1$X || (templateObject_1$X = __makeTemplateObject(["\n  display: block;\n  margin-bottom: 18px;\n  position: relative;\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n"], ["\n  display: block;\n  margin-bottom: 18px;\n  position: relative;\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n"])), function (_a) {
+var Wrapper$a = styled.div(templateObject_1$X || (templateObject_1$X = __makeTemplateObject(["\n  display: block;\n  margin-bottom: 18px;\n  position: relative;\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n"], ["\n  display: block;\n  margin-bottom: 18px;\n  position: relative;\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.dropDown;
 }, function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
 });
-var Row = styled.div(templateObject_2$p || (templateObject_2$p = __makeTemplateObject(["\n  display: flex;\n"], ["\n  display: flex;\n"])));
+var Row = styled.div(templateObject_2$q || (templateObject_2$q = __makeTemplateObject(["\n  display: flex;\n"], ["\n  display: flex;\n"])));
 var SupplyInfo = function (_a) {
     var supply = _a.supply;
-    return (React.createElement(Wrapper$9, null, supply.map(function (item, index) {
+    return (React.createElement(Wrapper$a, null, supply.map(function (item, index) {
         return (React.createElement(Row, { key: index.toString() },
             React.createElement(Text, { color: "text", fontSize: "12px", lineHeight: "18px" }, item.label),
             React.createElement(Text, { color: "contrast", fontSize: "12px", lineHeight: "18px", ml: "8px" },
@@ -3355,7 +3357,7 @@ var SupplyInfo = function (_a) {
                 " BSW")));
     })));
 };
-var templateObject_1$X, templateObject_2$p;
+var templateObject_1$X, templateObject_2$q;
 
 var Item = styled.div(templateObject_1$Y || (templateObject_1$Y = __makeTemplateObject(["\n  position: relative;\n"], ["\n  position: relative;\n"])));
 var TotalInfo = function (props) {
@@ -3370,7 +3372,7 @@ var TotalInfo = function (props) {
 };
 var templateObject_1$Y;
 
-var Wrapper$a = styled.footer(templateObject_1$Z || (templateObject_1$Z = __makeTemplateObject(["\n  color: #fff;\n  background: ", ";\n  padding: 32px 16px;\n  transition: padding-left 0.2s;\n\n  ", " {\n    // padding-left: ", ";\n  }\n"], ["\n  color: #fff;\n  background: ", ";\n  padding: 32px 16px;\n  transition: padding-left 0.2s;\n\n  ", " {\n    // padding-left: ", ";\n  }\n"])), function (_a) {
+var Wrapper$b = styled.footer(templateObject_1$Z || (templateObject_1$Z = __makeTemplateObject(["\n  color: #fff;\n  background: ", ";\n  padding: 32px 16px;\n  transition: padding-left 0.2s;\n\n  ", " {\n    // padding-left: ", ";\n  }\n"], ["\n  color: #fff;\n  background: ", ";\n  padding: 32px 16px;\n  transition: padding-left 0.2s;\n\n  ", " {\n    // padding-left: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.footer;
 }, function (_a) {
@@ -3380,26 +3382,26 @@ var Wrapper$a = styled.footer(templateObject_1$Z || (templateObject_1$Z = __make
     var isPushed = _a.isPushed;
     return (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px";
 });
-var GridRow = styled.div(templateObject_2$q || (templateObject_2$q = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns:\n    minmax(150px, 1fr)\n    minmax(150px, 1fr);\n  grid-row-gap: 8px;\n  max-width: 1152px;\n  margin: 0 auto;\n\n  ", " {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr);\n  }\n\n  @media screen and (min-width: 1400px) {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr)\n      minmax(150px, 1fr)\n      minmax(150px, 1fr);\n    grid-row-gap: 20px;\n  }\n"], ["\n  display: grid;\n  grid-template-columns:\n    minmax(150px, 1fr)\n    minmax(150px, 1fr);\n  grid-row-gap: 8px;\n  max-width: 1152px;\n  margin: 0 auto;\n\n  ", " {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr);\n  }\n\n  @media screen and (min-width: 1400px) {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr)\n      minmax(150px, 1fr)\n      minmax(150px, 1fr);\n    grid-row-gap: 20px;\n  }\n"])), function (_a) {
+var GridRow = styled.div(templateObject_2$r || (templateObject_2$r = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns:\n    minmax(150px, 1fr)\n    minmax(150px, 1fr);\n  grid-row-gap: 8px;\n  max-width: 1152px;\n  margin: 0 auto;\n\n  ", " {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr);\n  }\n\n  @media screen and (min-width: 1400px) {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr)\n      minmax(150px, 1fr)\n      minmax(150px, 1fr);\n    grid-row-gap: 20px;\n  }\n"], ["\n  display: grid;\n  grid-template-columns:\n    minmax(150px, 1fr)\n    minmax(150px, 1fr);\n  grid-row-gap: 8px;\n  max-width: 1152px;\n  margin: 0 auto;\n\n  ", " {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr);\n  }\n\n  @media screen and (min-width: 1400px) {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr)\n      minmax(150px, 1fr)\n      minmax(150px, 1fr);\n    grid-row-gap: 20px;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
 });
 var Footer = function (_a) {
     var isPushed = _a.isPushed, BSWPriceLabel = _a.BSWPriceLabel, BSWPriceValue = _a.BSWPriceValue, supply = _a.supply, total = _a.total;
-    return (React.createElement(Wrapper$a, { isPushed: isPushed },
+    return (React.createElement(Wrapper$b, { isPushed: isPushed },
         React.createElement(GridRow, null,
             React.createElement(BSWPrice, { BSWPriceLabel: BSWPriceLabel, BSWPriceValue: BSWPriceValue }),
             React.createElement(SupplyInfo, { supply: supply }),
             React.createElement(TotalInfo, { total: total }),
             React.createElement(ConnectMetamask, { href: "/" }))));
 };
-var templateObject_1$Z, templateObject_2$q;
+var templateObject_1$Z, templateObject_2$r;
 
-var Wrapper$b = styled.div(templateObject_1$_ || (templateObject_1$_ = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n  \n  \n  &.no-scroll {\n    height: calc(100vh - 2rem);\n    max-height: calc(100vh - 2rem);\n    overflow: hidden;\n    \n    ", " {\n      height: auto;\n      max-height: none;\n      overflow: initial;\n    }\n  }\n"], ["\n  position: relative;\n  width: 100%;\n  \n  \n  &.no-scroll {\n    height: calc(100vh - 2rem);\n    max-height: calc(100vh - 2rem);\n    overflow: hidden;\n    \n    ", " {\n      height: auto;\n      max-height: none;\n      overflow: initial;\n    }\n  }\n"])), function (_a) {
+var Wrapper$c = styled.div(templateObject_1$_ || (templateObject_1$_ = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n  \n  \n  &.no-scroll {\n    height: calc(100vh - 2rem);\n    max-height: calc(100vh - 2rem);\n    overflow: hidden;\n    \n    ", " {\n      height: auto;\n      max-height: none;\n      overflow: initial;\n    }\n  }\n"], ["\n  position: relative;\n  width: 100%;\n  \n  \n  &.no-scroll {\n    height: calc(100vh - 2rem);\n    max-height: calc(100vh - 2rem);\n    overflow: hidden;\n    \n    ", " {\n      height: auto;\n      max-height: none;\n      overflow: initial;\n    }\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.xl;
 });
-var StyledNav = styled.nav(templateObject_2$r || (templateObject_2$r = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n\n  ", " {\n    height: ", "px;\n    top: ", ";\n  }\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n\n  ", " {\n    height: ", "px;\n    top: ", ";\n  }\n"])), function (_a) {
+var StyledNav = styled.nav(templateObject_2$s || (templateObject_2$s = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n\n  ", " {\n    height: ", "px;\n    top: ", ";\n  }\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n\n  ", " {\n    height: ", "px;\n    top: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? 0 : "-" + MENU_HEIGHT_MOBILE + "px");
 }, MENU_HEIGHT_MOBILE, function (_a) {
@@ -3480,7 +3482,7 @@ var Menu = function (_a) {
     }, []);
     // Find the home link if provided
     var homeLink = links.find(function (link) { return link.label === "Home"; });
-    return (React.createElement(Wrapper$b, { className: "" + (isPushed ? 'no-scroll' : '') },
+    return (React.createElement(Wrapper$c, { className: "" + (isPushed ? 'no-scroll' : '') },
         React.createElement(BodyWrapper, null,
             React.createElement(StyledNav, { showMenu: showMenu, isPushed: isPushed, menuBg: menuBg },
                 React.createElement(TogglePanel, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark }),
@@ -3492,7 +3494,7 @@ var Menu = function (_a) {
                 React.createElement(Footer, { BSWPriceLabel: BSWPriceLabel, BSWPriceValue: BSWPriceValue, supply: supply, total: total, isPushed: isPushed })),
             React.createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };
-var templateObject_1$_, templateObject_2$r, templateObject_3$a, templateObject_4$7, templateObject_5$5;
+var templateObject_1$_, templateObject_2$s, templateObject_3$a, templateObject_4$7, templateObject_5$5;
 
 var ToastAction = function (_a) {
     var action = _a.action;
