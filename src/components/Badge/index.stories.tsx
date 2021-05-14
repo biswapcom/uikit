@@ -20,6 +20,7 @@ export const Default: React.FC = () => {
       <Badge badgeType="hot">Hot</Badge>
       <Badge badgeType="warning">Warning</Badge>
       <Badge badgeType="primary">Primary</Badge>
+      <Badge badgeType="any">any</Badge>
     </div>
   );
 };

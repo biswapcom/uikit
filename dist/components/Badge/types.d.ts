@@ -1,3 +1,3 @@
 export interface BadgeProps {
-    badgeType: "new" | "hot" | "light" | "dark" | "primary" | "warning";
+    badgeType: "new" | "hot" | "light" | "dark" | "primary" | "warning" | string;
 }
