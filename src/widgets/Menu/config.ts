@@ -6,7 +6,7 @@ export const links = [
   },
   {
     label: "Trade",
-    icon: "MoreIcon",
+    icon: "TradeIcon",
     items: [
       {
         label: "Exchange",
