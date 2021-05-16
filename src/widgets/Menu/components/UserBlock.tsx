@@ -19,9 +19,9 @@ const WalletWrap = styled.div`
   border-radius: 8px;
 `;
 
-const CurrencyValue = styled.div`
-  padding: 0 16px;
-`;
+// const CurrencyValue = styled.div`
+//   padding: 0 16px;
+// `;
 
 const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
   const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account);
@@ -31,11 +31,11 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
     <div>
       {account ? (
         <WalletWrap>
-          <CurrencyValue>
-            <Text fontSize="14px" color="text">
-              12.34 BNB
-            </Text>
-          </CurrencyValue>
+          {/* <CurrencyValue> */}
+          {/*  <Text fontSize="14px" color="text"> */}
+          {/*    12.34 BNB */}
+          {/*  </Text> */}
+          {/* </CurrencyValue> */}
           <Button
             scale="sm"
             onClick={() => {
