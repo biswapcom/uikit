@@ -2367,7 +2367,7 @@ var Modal = function (_a) {
 };
 var templateObject_1$F, templateObject_2$d, templateObject_3$7, templateObject_4$4;
 
-var Overlay = styled.div.attrs({ role: "presentation" })(templateObject_1$G || (templateObject_1$G = __makeTemplateObject(["\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(2, 17, 39, 0.2);\n  transition: opacity 0.4s;\n  opacity: ", ";\n  z-index: ", ";\n  pointer-events: ", ";\n"], ["\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(2, 17, 39, 0.2);\n  transition: opacity 0.4s;\n  opacity: ", ";\n  z-index: ", ";\n  pointer-events: ", ";\n"])), function (_a) {
+var Overlay = styled.div.attrs({ role: "presentation" })(templateObject_1$G || (templateObject_1$G = __makeTemplateObject(["\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgb(107, 125, 152, 0.7);\n  transition: opacity 0.4s;\n  opacity: ", ";\n  z-index: ", ";\n  pointer-events: ", ";\n"], ["\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgb(107, 125, 152, 0.7);\n  transition: opacity 0.4s;\n  opacity: ", ";\n  z-index: ", ";\n  pointer-events: ", ";\n"])), function (_a) {
     var show = _a.show;
     return (show ? 0.4 : 0);
 }, function (_a) {
@@ -3448,7 +3448,7 @@ var templateObject_1$Z, templateObject_2$r;
 
 var Wrapper$c = styled.div(templateObject_1$_ || (templateObject_1$_ = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n  \n  \n  &.no-scroll {\n    height: calc(100vh - 2rem);\n    max-height: calc(100vh - 2rem);\n    overflow: hidden;\n    \n    ", " {\n      height: auto;\n      max-height: none;\n      overflow: initial;\n    }\n  }\n"], ["\n  position: relative;\n  width: 100%;\n  \n  \n  &.no-scroll {\n    height: calc(100vh - 2rem);\n    max-height: calc(100vh - 2rem);\n    overflow: hidden;\n    \n    ", " {\n      height: auto;\n      max-height: none;\n      overflow: initial;\n    }\n  }\n"])), function (_a) {
     var theme = _a.theme;
-    return theme.mediaQueries.xl;
+    return theme.mediaQueries.lg;
 });
 var StyledNav = styled.nav(templateObject_2$s || (templateObject_2$s = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n\n  ", " {\n    height: ", "px;\n    top: ", ";\n  }\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n\n  ", " {\n    height: ", "px;\n    top: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
@@ -3493,11 +3493,11 @@ var MobileOnlyOverlay = styled(Overlay)(templateObject_5$5 || (templateObject_5$
 var Menu = function (_a) {
     var _b;
     var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links; _a.profile; var children = _a.children, footerTitle = _a.footerTitle, deals = _a.deals, BSWPriceLabel = _a.BSWPriceLabel, BSWPriceValue = _a.BSWPriceValue, supply = _a.supply, total = _a.total;
-    var isXl = useMatchBreakpoints().isXl;
-    var isMobile = isXl;
-    var _c = useState(isMobile), isPushed = _c[0], setIsPushed = _c[1];
-    var _d = useState(true), showMenu = _d[0], setShowMenu = _d[1];
-    var _e = useState(true), menuBg = _e[0], setMenuBg = _e[1];
+    var _c = useMatchBreakpoints(), isLg = _c.isLg, isMd = _c.isMd, isSm = _c.isSm, isXs = _c.isXs;
+    var isMobile = isLg || isMd || isSm || isXs;
+    var _d = useState(!isMobile), isPushed = _d[0], setIsPushed = _d[1];
+    var _e = useState(true), showMenu = _e[0], setShowMenu = _e[1];
+    var _f = useState(true), menuBg = _f[0], setMenuBg = _f[1];
     var refPrevOffset = useRef(window.pageYOffset);
     useEffect(function () {
         var handleScroll = function () {
@@ -3524,11 +3524,12 @@ var Menu = function (_a) {
             refPrevOffset.current = currentOffset;
         };
         var throttledHandleScroll = throttle(handleScroll, 200);
+        setIsPushed(!isMobile);
         window.addEventListener("scroll", throttledHandleScroll);
         return function () {
             window.removeEventListener("scroll", throttledHandleScroll);
         };
-    }, []);
+    }, [isPushed, isMobile]);
     // Find the home link if provided
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     return (React.createElement(Wrapper$c, { className: "" + (isPushed ? 'no-scroll' : '') },
