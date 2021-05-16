@@ -21,7 +21,7 @@ const Wrapper = styled.div`
     max-height: calc(100vh - 2rem);
     overflow: hidden;
     
-    ${({ theme }) => theme.mediaQueries.xl} {
+    ${({ theme }) => theme.mediaQueries.lg} {
       height: auto;
       max-height: none;
       overflow: initial;
@@ -113,9 +113,9 @@ const Menu: React.FC<NavProps> = ({
                                     supply,
                                     total
                                   }) => {
-  const { isXl } = useMatchBreakpoints();
-  const isMobile = isXl;
-  const [isPushed, setIsPushed] = useState(isMobile);
+  const { isLg, isMd, isSm, isXs } = useMatchBreakpoints();
+  const isMobile = isLg || isMd || isSm || isXs;
+  const [isPushed, setIsPushed] = useState(!isMobile);
   const [showMenu, setShowMenu] = useState(true);
   const [menuBg, setMenuBg] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
@@ -144,12 +144,13 @@ const Menu: React.FC<NavProps> = ({
       refPrevOffset.current = currentOffset;
     };
     const throttledHandleScroll = throttle(handleScroll, 200);
-
+    setIsPushed(!isMobile);
     window.addEventListener("scroll", throttledHandleScroll);
+
     return () => {
       window.removeEventListener("scroll", throttledHandleScroll);
     };
-  }, []);
+  }, [isPushed, isMobile]);
 
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");
