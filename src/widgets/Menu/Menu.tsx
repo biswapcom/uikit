@@ -144,13 +144,12 @@ const Menu: React.FC<NavProps> = ({
       refPrevOffset.current = currentOffset;
     };
     const throttledHandleScroll = throttle(handleScroll, 200);
-    setIsPushed(!isMobile);
     window.addEventListener("scroll", throttledHandleScroll);
 
     return () => {
       window.removeEventListener("scroll", throttledHandleScroll);
     };
-  }, [isPushed, isMobile]);
+  }, []);
 
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");

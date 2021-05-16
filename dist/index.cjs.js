@@ -3537,12 +3537,11 @@ var Menu = function (_a) {
             refPrevOffset.current = currentOffset;
         };
         var throttledHandleScroll = throttle__default['default'](handleScroll, 200);
-        setIsPushed(!isMobile);
         window.addEventListener("scroll", throttledHandleScroll);
         return function () {
             window.removeEventListener("scroll", throttledHandleScroll);
         };
-    }, [isPushed, isMobile]);
+    }, []);
     // Find the home link if provided
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     return (React__default['default'].createElement(Wrapper$c, { className: "" + (isPushed ? 'no-scroll' : '') },
