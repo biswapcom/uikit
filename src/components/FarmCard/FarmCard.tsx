@@ -19,20 +19,20 @@ const StyledFarmCard = styled.div<StyledFarmCardProps>`
   display: flex;
   flex-direction: column;
 
-  &:before {
-    content: "New";
-    display: ${({ isNew }) => (isNew ? "block" : "none")};
-    color: #fff;
-    background-color: #1dc872;
-    border-radius: 16px;
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    font-size: 10px;
-    padding: 5px 10px;
-    text-align: center;
-    min-width: 45px;
-  }
+  // &:before {
+  //   content: "New";
+  //   display: ${({ isNew }) => (isNew ? "block" : "none")};
+  //   color: #fff;
+  //   background-color: #1dc872;
+  //   border-radius: 16px;
+  //   position: absolute;
+  //   top: 12px;
+  //   right: 12px;
+  //   font-size: 10px;
+  //   padding: 5px 10px;
+  //   text-align: center;
+  //   min-width: 45px;
+  // }
 `;
 
 const FarmCard: React.FC<FarmCardProps> = ({ isSoon, isNew, children }) => {

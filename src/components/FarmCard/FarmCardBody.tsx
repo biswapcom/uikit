@@ -21,6 +21,12 @@ const StyledFarmCardBody = styled.div`
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  & > div {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+  }
 `;
 
 const FarmCardBody: React.FC<FarmCardBodyProps> = ({ children }) => {

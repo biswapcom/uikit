@@ -8,6 +8,7 @@ import FarmCardBody from "./FarmCardBody";
 import BinanceIcon from "../Svg/Icons/Binance";
 import LogoIcon from "../Svg/Icons/Logo";
 import { Button } from "../Button";
+import { Badge } from "../Badge";
 
 export default {
   title: "Components/FarmCard",
@@ -44,6 +45,7 @@ export const Default: React.FC = ({ data, ...args }) => {
             <Button variant="primary" scale="sm">
               Farm
             </Button>
+            <Badge badgeType="hot">Hot</Badge>
           </FarmCardBody>
         </FarmCard>
       </div>
@@ -60,6 +62,7 @@ export const Default: React.FC = ({ data, ...args }) => {
             <Button variant="primary" scale="sm">
               Farm
             </Button>
+            <Badge badgeType="new">New</Badge>
           </FarmCardBody>
         </FarmCard>
       </div>
