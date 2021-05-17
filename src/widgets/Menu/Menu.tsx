@@ -69,7 +69,6 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   flex-grow: 1;
   padding-top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   transition: padding-top 0.4s;
-  transform: translate3d(0, 0, 0);
   max-width: 100%;
 
   ${({ theme }) => theme.mediaQueries.nav} {
