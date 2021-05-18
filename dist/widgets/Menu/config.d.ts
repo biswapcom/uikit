@@ -7,10 +7,15 @@ export declare const links: ({
 } | {
     label: string;
     icon: string;
-    items: {
+    items: ({
         label: string;
         href: string;
-    }[];
+        ico: string;
+    } | {
+        label: string;
+        href: string;
+        ico?: undefined;
+    })[];
     href?: undefined;
     calloutClass?: undefined;
 } | {

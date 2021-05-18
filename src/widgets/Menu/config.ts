@@ -11,6 +11,7 @@ export const links = [
       {
         label: "Exchange",
         href: "https://exchange.pancakeswap.finance",
+        ico: "FarmIcon"
       },
       {
         label: "Liquidity",

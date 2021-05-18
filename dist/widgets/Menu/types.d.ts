@@ -22,6 +22,7 @@ export interface MenuSubEntry {
     label: string;
     href: string;
     calloutClass?: string;
+    ico?: string;
 }
 export interface MenuEntry {
     label: string;
