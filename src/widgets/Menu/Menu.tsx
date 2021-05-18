@@ -62,7 +62,7 @@ const BodyWrapper = styled.div`
   min-height: calc(100vh - 2rem);
 `;
 
-const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
+const Inner = styled.div<{ isPushed: boolean; showMenu: boolean; }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
