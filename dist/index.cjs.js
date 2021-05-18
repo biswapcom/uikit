@@ -2677,6 +2677,7 @@ var links = [
             {
                 label: "Exchange",
                 href: "https://exchange.pancakeswap.finance",
+                ico: "FarmIcon"
             },
             {
                 label: "Liquidity",
@@ -2986,15 +2987,14 @@ var PanelBody = function (_a) {
     return (React__default['default'].createElement(Container$3, { isPushed: isPushed }, links.map(function (entry) {
         var Icon = Icons$1[entry.icon];
         var iconElement = React__default['default'].createElement(Icon, { width: "24px", mr: "8px" });
-        var accordionIcon = React__default['default'].createElement(Icon, { width: "24px", mr: "8px" });
+        // const accordionIcon = <Icon width="24px" mr="8px" />;
         var calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
         if (entry.items) {
             var itemsMatchIndex = entry.items.findIndex(function (item) { return item.href === location.pathname; });
             var initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
             return (React__default['default'].createElement(Accordion$1, { key: entry.label, isPushed: isPushed, pushNav: pushNav, icon: iconElement, label: entry.label, initialOpenState: initialOpenState, className: calloutClass, isActive: entry.items.some(function (item) { return item.href === location.pathname; }) }, isPushed &&
                 entry.items.map(function (item) { return (React__default['default'].createElement(MenuEntry, { isSmall: true, key: item.href, secondary: true, isActive: item.href === location.pathname, onClick: handleClick },
-                    React__default['default'].createElement(MenuLink, { href: item.href, target: "_blank" }, item.label),
-                    accordionIcon)); })));
+                    React__default['default'].createElement(MenuLink, { href: item.href, target: "_blank" }, item.label))); })));
         }
         return (React__default['default'].createElement(MenuEntry, { key: entry.label, isActive: entry.href === location.pathname, className: calloutClass },
             React__default['default'].createElement(MenuLink, { href: entry.href, onClick: handleClick },
