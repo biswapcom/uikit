@@ -6,6 +6,7 @@ export interface Props {
   secondary?: boolean;
   isActive?: boolean;
   theme: DefaultTheme;
+  isSmall?: boolean;
 }
 
 const LinkLabel = styled.div<{ isPushed: boolean }>`
@@ -25,9 +26,10 @@ const MenuEntry = styled.div<Props>`
   height: ${MENU_ENTRY_HEIGHT}px;
   padding: ${({ secondary }) => (secondary ? "0 24px 0 44px" : "0 12px")};
   font-size: ${({ secondary }) => (secondary ? "12px" : "14px")};
-  color: ${({ theme }) => theme.colors.contrast};
+  color: ${({ theme, isSmall }) => ( isSmall ? theme.colors.text : theme.colors.contrast )};
   border-radius: 8px;
   background: ${({ isActive, theme }) => (isActive ? theme.colors.dropDown : "transparent")};
+  height: ${({ isSmall }) => isSmall ? '32px' : '48px'};
 
   a {
     display: flex;
