@@ -38,7 +38,7 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    padding-top: 34px;
+    padding-top: 17px;
     top: 0;
     overflow: visible;
     height: 100vh;

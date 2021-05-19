@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Button from "../../../components/Button/Button";
 import Text from "../../../components/Text/Text";
 import Wallet from "../icons/Wallet";
-import Loader from "../icons/Loader";
+import Pending from "../icons/Loader";
 import { useWalletModal } from "../../WalletModal";
 import { Login } from "../../WalletModal/types";
 
@@ -47,7 +47,7 @@ const UserBlock: React.FC<Props> = ({ account, login, logout, pendingTransaction
           >
             {pendingTransactions ? (
               <>
-                {pendingTransactions} pending <Loader stroke="#fff" />
+                {pendingTransactions} pending <Pending stroke="#fff" />
               </>
             ) : (
               <>

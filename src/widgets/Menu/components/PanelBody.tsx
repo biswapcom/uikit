@@ -7,6 +7,7 @@ import Accordion from "./Accordion";
 import { MenuEntry, LinkLabel } from "./MenuEntry";
 import MenuLink from "./MenuLink";
 import { PanelProps, PushedProps } from "../types";
+import { LoaderIcon } from "../icons";
 
 interface Props extends PanelProps, PushedProps {
   isMobile: boolean;
@@ -59,6 +60,9 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
                 entry.items.map((item) => (
                   <MenuEntry isSmall key={item.href} secondary isActive={item.href === location.pathname} onClick={handleClick}>
                     <MenuLink href={item.href} target="_blank">{item.label}</MenuLink>
+                    { item.ico &&
+                    <LoaderIcon width="20px" mr="8px" />
+                    }
                   </MenuEntry>
                 ))}
             </Accordion>
