@@ -66,7 +66,7 @@ export declare const total: {
     label: string;
     value: number;
 }[];
-export declare const MENU_HEIGHT = 104;
+export declare const MENU_HEIGHT = 72;
 export declare const MENU_HEIGHT_MOBILE = 64;
 export declare const MENU_ENTRY_HEIGHT = 48;
 export declare const SIDEBAR_WIDTH_FULL = 224;

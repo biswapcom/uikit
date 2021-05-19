@@ -11,7 +11,7 @@ export const links = [
       {
         label: "Exchange",
         href: "https://exchange.pancakeswap.finance",
-        ico: "FarmIcon"
+        ico: "LoaderIcon"
       },
       {
         label: "Liquidity",
@@ -121,12 +121,12 @@ export const socials = [
     icon: "TelegramIcon",
     items: [
       {
-        label: "Chanel",
-        href: "https://t.me/biswap_news",
-      },
-      {
         label: "Chat",
         href: "https://t.me/biswap",
+      },
+      {
+        label: "Chanel",
+        href: "https://t.me/biswap_news",
       },
     ],
   },
@@ -190,7 +190,7 @@ export const total = [
   },
 ];
 
-export const MENU_HEIGHT = 104;
+export const MENU_HEIGHT = 72;
 export const MENU_HEIGHT_MOBILE = 64;
 export const MENU_ENTRY_HEIGHT = 48;
 export const SIDEBAR_WIDTH_FULL = 224;
