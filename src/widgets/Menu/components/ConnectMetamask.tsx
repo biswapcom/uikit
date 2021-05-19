@@ -24,7 +24,7 @@ const ConnectMetamask: React.FC<Props> = (props) => {
     <Wrapper>
       <MetamaskIcon width="24px" mx="7px" />
       <StyledLink ml={16} as="a" fontSize="12px" color="primary" href={href} aria-label="Add to Metamask">
-        Add to Metamask
+        Add BSW to Metamask
       </StyledLink>
     </Wrapper>
   );
