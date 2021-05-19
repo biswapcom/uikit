@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Button from "../../../components/Button/Button";
 import Text from "../../../components/Text/Text";
 import Wallet from "../icons/Wallet";
-import Pending from "../icons/Loader";
+import Pending from "../icons/Pending";
 import { useWalletModal } from "../../WalletModal";
 import { Login } from "../../WalletModal/types";
 
@@ -11,7 +11,7 @@ interface Props {
   account?: string;
   login: Login;
   logout: () => void;
-  pendingTransactions: number;
+  pendingTransactions?: number;
 }
 
 const WalletWrap = styled.div`
