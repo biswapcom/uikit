@@ -6,5 +6,5 @@ interface Props {
     logout: () => void;
     pendingTransactions?: number;
 }
-declare const _default: React.NamedExoticComponent<Props>;
-export default _default;
+declare const UserBlock: React.FC<Props>;
+export default UserBlock;

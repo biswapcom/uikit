@@ -3391,7 +3391,6 @@ var UserBlock = function (_a) {
         React__default['default'].createElement(Icon$1b, __assign({}, iconProps, { mr: "8px" })),
         "Connect wallet"))));
 };
-var UserBlock$1 = React__default['default'].memo(UserBlock, function (prevProps, nextProps) { return prevProps.account === nextProps.account; });
 var templateObject_1$V;
 
 var Wrapper$8 = styled__default['default'].div(templateObject_1$W || (templateObject_1$W = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  grid-area: connect;\n  margin-bottom: 16px;\n\n  ", " {\n    margin-bottom: 0;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  grid-area: connect;\n  margin-bottom: 16px;\n\n  ", " {\n    margin-bottom: 0;\n  }\n"])), function (_a) {
@@ -3598,7 +3597,7 @@ var Menu = function (_a) {
             React__default['default'].createElement(StyledNav, { showMenu: showMenu, isPushed: isPushed, menuBg: menuBg },
                 React__default['default'].createElement(TogglePanel, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark }),
                 React__default['default'].createElement(Flex, null,
-                    React__default['default'].createElement(UserBlock$1, { account: account, login: login, logout: logout, pendingTransactions: pendingTransactions }))),
+                    React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout, pendingTransactions: pendingTransactions }))),
             React__default['default'].createElement(Panel, { togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isPushed: isPushed, isMobile: isMobile, showMenu: showMenu, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, pushNav: setIsPushed, links: links, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/", footerTitle: footerTitle, deals: deals }),
             React__default['default'].createElement(Inner$1, { isPushed: isPushed, showMenu: showMenu },
                 React__default['default'].createElement("div", null, children),
