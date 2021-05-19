@@ -180,14 +180,6 @@ export const total = [
     label: "Total Value Locked (TVL)",
     value: 10243739000,
   },
-  {
-    label: "Total Value",
-    value: 1243739000,
-  },
-  {
-    label: "Total Fees",
-    value: 999739000,
-  },
 ];
 
 export const MENU_HEIGHT = 72;

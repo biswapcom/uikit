@@ -9,6 +9,12 @@ interface Props {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  grid-area: connect;
+  margin-bottom: 16px;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    margin-bottom: 0;
+  }
 `;
 
 const StyledLink = styled(Link)`

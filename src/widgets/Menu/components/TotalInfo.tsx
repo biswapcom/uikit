@@ -11,6 +11,10 @@ interface Props {
   total: Array<TotalInfoTypes>;
 }
 
+const Wrapper = styled.div`
+  grid-area: total;
+`
+
 const Item = styled.div`
   position: relative;
 `;
@@ -19,7 +23,7 @@ const TotalInfo: React.FC<Props> = (props) => {
   const { total } = props;
 
   return (
-    <>
+    <Wrapper>
       {total.map((item, index) => {
         return (
           <Item key={index.toString()}>
@@ -32,7 +36,7 @@ const TotalInfo: React.FC<Props> = (props) => {
           </Item>
         );
       })}
-    </>
+    </Wrapper>
   );
 };
 
