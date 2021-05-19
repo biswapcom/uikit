@@ -10,7 +10,7 @@ const BannerBody = styled.p<BannerBodyProps>`
   margin-bottom: 24px;
   font-weight: 900;
   min-height: 64px;
-  font-size: 32px;
+  font-size: 24px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
