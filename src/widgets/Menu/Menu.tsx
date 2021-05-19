@@ -14,13 +14,12 @@ import { MENU_HEIGHT, MENU_HEIGHT_MOBILE, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_F
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
-  
-  
+
   &.no-scroll {
     height: calc(100vh - 2rem);
     max-height: calc(100vh - 2rem);
     overflow: hidden;
-    
+
     ${({ theme }) => theme.mediaQueries.lg} {
       height: auto;
       max-height: none;
@@ -62,7 +61,7 @@ const BodyWrapper = styled.div`
   min-height: calc(100vh - 2rem);
 `;
 
-const Inner = styled.div<{ isPushed: boolean; showMenu: boolean; }>`
+const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -93,25 +92,26 @@ const MobileOnlyOverlay = styled(Overlay)`
 `;
 
 const Menu: React.FC<NavProps> = ({
-                                    account,
-                                    login,
-                                    logout,
-                                    isDark,
-                                    toggleTheme,
-                                    langs,
-                                    setLang,
-                                    currentLang,
-                                    cakePriceUsd,
-                                    links,
-                                    profile,
-                                    children,
-                                    footerTitle,
-                                    deals,
-                                    BSWPriceLabel,
-                                    BSWPriceValue,
-                                    supply,
-                                    total
-                                  }) => {
+  account,
+  login,
+  logout,
+  isDark,
+  toggleTheme,
+  langs,
+  setLang,
+  currentLang,
+  cakePriceUsd,
+  links,
+  profile,
+  children,
+  footerTitle,
+  deals,
+  BSWPriceLabel,
+  BSWPriceValue,
+  supply,
+  total,
+  pendingTransactions
+}) => {
   const { isLg, isMd, isSm, isXs } = useMatchBreakpoints();
   const isMobile = isLg || isMd || isSm || isXs;
   const [isPushed, setIsPushed] = useState(!isMobile);
@@ -154,7 +154,7 @@ const Menu: React.FC<NavProps> = ({
   const homeLink = links.find((link) => link.label === "Home");
 
   return (
-    <Wrapper className={`${ isPushed ? 'no-scroll' : '' }`}>
+    <Wrapper className={`${isPushed ? "no-scroll" : ""}`}>
       <BodyWrapper>
         <StyledNav showMenu={showMenu} isPushed={isPushed} menuBg={menuBg}>
           <TogglePanel
@@ -163,7 +163,7 @@ const Menu: React.FC<NavProps> = ({
             isDark={isDark}
           />
           <Flex>
-            <UserBlock account={account} login={login} logout={logout} />
+            <UserBlock account={account} login={login} logout={logout} pendingTransactions={pendingTransactions} />
             {/* {profile && <Avatar profile={profile} />} */}
           </Flex>
         </StyledNav>
@@ -185,9 +185,7 @@ const Menu: React.FC<NavProps> = ({
           deals={deals}
         />
         <Inner isPushed={isPushed} showMenu={showMenu}>
-          <div>
-            {children}
-          </div>
+          <div>{children}</div>
 
           <Footer
             BSWPriceLabel={BSWPriceLabel}
@@ -201,6 +199,10 @@ const Menu: React.FC<NavProps> = ({
       </BodyWrapper>
     </Wrapper>
   );
+};
+
+Menu.defaultProps = {
+  pendingTransactions: 0,
 };
 
 export default Menu;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Button from "../../../components/Button/Button";
 import Text from "../../../components/Text/Text";
 import Wallet from "../icons/Wallet";
+import Pending from "../icons/Pending";
 import { useWalletModal } from "../../WalletModal";
 import { Login } from "../../WalletModal/types";
 
@@ -10,6 +11,7 @@ interface Props {
   account?: string;
   login: Login;
   logout: () => void;
+  pendingTransactions?: number;
 }
 
 const WalletWrap = styled.div`
@@ -23,7 +25,7 @@ const WalletWrap = styled.div`
 //   padding: 0 16px;
 // `;
 
-const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
+const UserBlock: React.FC<Props> = ({ account, login, logout, pendingTransactions }) => {
   const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account);
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
   const iconProps = { width: "24px", color: "contrast", style: { cursor: "pointer" } };
@@ -37,13 +39,22 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
           {/*  </Text> */}
           {/* </CurrencyValue> */}
           <Button
+            variant={pendingTransactions ? "success" : "primary"}
             scale="sm"
             onClick={() => {
               onPresentAccountModal();
             }}
           >
-            <Wallet {...iconProps} mr="8px" />
-            {accountEllipsis}
+            {pendingTransactions ? (
+              <>
+                {pendingTransactions} pending <Pending stroke="#fff" />
+              </>
+            ) : (
+              <>
+                <Wallet {...iconProps} mr="8px" />
+                {accountEllipsis}
+              </>
+            )}
           </Button>
         </WalletWrap>
       ) : (

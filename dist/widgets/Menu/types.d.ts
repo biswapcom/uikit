@@ -57,6 +57,7 @@ export interface NavProps extends PanelProps, PanelFooterProps, BSWPriceProps, F
     login: Login;
     profile?: Profile;
     logout: () => void;
+    pendingTransactions?: number;
 }
 export interface BSWPriceProps {
     BSWPriceLabel: string;
