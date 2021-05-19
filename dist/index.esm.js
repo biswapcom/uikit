@@ -2603,9 +2603,7 @@ var Icon$1f = function (props) {
 
 var Icon$1g = function (props) {
     return (React.createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
-        React.createElement("path", { d: "M16 6.5C16 5.67157 15.3284 5 14.5 5H9.5C8.67157 5 8 5.67157 8 6.5C8 7.32843 8.67157 8 9.5 8H10V9H9.5C9.22386 9 9 9.22386 9 9.5V11H7.5V15H15C16.1046 15 17 15.8954 17 17V18H21V17C21 13.6863 18.3137 11 15 11V9.5C15 9.22386 14.7761 9 14.5 9H14V8H14.5C15.3284 8 16 7.32843 16 6.5Z" }),
-        React.createElement("path", { d: "M3 9.5C3 9.22386 3.22386 9 3.5 9L5.5 9C5.77614 9 6 9.22386 6 9.5L6 15.5C6 15.7761 5.77614 16 5.5 16H3.5C3.22386 16 3 15.7761 3 15.5V9.5Z" }),
-        React.createElement("path", { d: "M17.75 19.5C17.3358 19.5 17 19.8358 17 20.25C17 20.6642 17.3358 21 17.75 21H20.25C20.6642 21 21 20.6642 21 20.25C21 19.8358 20.6642 19.5 20.25 19.5H17.75Z" })));
+        React.createElement("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M1.50016 10.3043C1.02187 10.5805 0.858 11.1921 1.13414 11.6704L7.13414 22.0627C7.41029 22.541 8.02188 22.7048 8.50017 22.4287L22.6515 14.2584C22.998 14.0584 23.1919 13.6711 23.1445 13.2739L22.3714 6.79207C22.339 6.52032 22.1967 6.27372 21.9775 6.10978L16.7506 2.19929C16.4302 1.95965 15.9979 1.93396 15.6515 2.13398L1.50016 10.3043ZM20.8935 9.8938L21.7229 11.3304L19.0345 12.8826L15.0345 5.95435L17.6979 4.41661L18.5244 5.8481L16.7414 6.87753L17.4973 8.18676L19.0276 7.30324L19.804 8.64813L18.2737 9.53165L19.0855 10.9377L20.8935 9.8938ZM18.1003 13.4219L17.2709 11.9853L15.4628 13.0292L14.6511 11.6232L16.1814 10.7397L15.4049 9.39479L13.8746 10.2783L13.1187 8.96908L14.9017 7.93965L14.0753 6.50816L11.4118 8.0459L15.4118 14.9741L18.1003 13.4219ZM11.0036 14.4287L12.3418 16.7466L11.4614 17.2549L7.46143 10.3267L9.11949 9.36938C9.91658 8.90918 11.0302 9.5296 11.8302 10.9152C12.3743 11.8577 12.5203 12.7583 12.2813 13.3514L14.572 15.459L13.5639 16.041L11.5646 14.1048L11.3952 14.2026L11.0036 14.4287ZM9.91279 10.8268L9.17125 11.2549L10.2242 13.0787L10.9657 12.6506C11.2574 12.4822 11.2616 11.9635 10.9498 11.4236C10.6704 10.9396 10.2016 10.66 9.91279 10.8268ZM7.27341 16.2698L8.74694 18.8221L7.86653 19.3304L3.86653 12.4022L6.52998 10.8644L7.35939 12.301L5.57635 13.3305L6.494 14.9199L8.0243 14.0363L8.80371 15.3863L7.27341 16.2698Z" })));
 };
 
 var Icon$1h = function (props) {
@@ -2988,7 +2986,7 @@ var PanelBody = function (_a) {
                 entry.items.map(function (item) { return (React.createElement(MenuEntry, { isSmall: true, key: item.href, secondary: true, isActive: item.href === location.pathname, onClick: handleClick },
                     React.createElement(MenuLink, { href: item.href, target: "_blank" }, item.label),
                     item.ico &&
-                        React.createElement(Icon$1h, { width: "20px", mr: "8px" }))); })));
+                        React.createElement(Icon$1h, { width: "16px" }))); })));
         }
         return (React.createElement(MenuEntry, { key: entry.label, isActive: entry.href === location.pathname, className: calloutClass },
             React.createElement(MenuLink, { href: entry.href, onClick: handleClick },
@@ -2997,13 +2995,6 @@ var PanelBody = function (_a) {
     })));
 };
 var templateObject_1$N;
-
-var SwapArrow = function (_a) {
-    var props = __rest(_a, []);
-    return (React.createElement(Svg, __assign({ viewBox: "0 0 12 10", fill: "none" }, props),
-        React.createElement("path", { fill: "white", d: "M5.28721 2.72727C5.28721 1.97415 4.68962 1.36364 3.95245 1.36364C3.21528 1.36364 2.61769 1.97415 2.61769 2.72727V7C2.61769 7.15062 2.73721 7.27273 2.88465 7.27273H3.72255C3.95126 7.27273 4.07406 7.54739 3.92432 7.724L2.19678 9.76196C2.09033 9.88753 1.89964 9.88753 1.79319 9.76196L0.0656467 7.724C-0.0840359 7.54739 0.0387625 7.27273 0.267469 7.27273H1.01598C1.16341 7.27273 1.28293 7.15062 1.28293 7V2.72727C1.28293 1.22104 2.47811 0 3.95245 0C5.4268 0 6.62198 1.22104 6.62198 2.72727V7.27273C6.62198 8.02585 7.21957 8.63636 7.95674 8.63636C8.69391 8.63636 9.2915 8.02585 9.2915 7.27273V3C9.2915 2.84938 9.17198 2.72727 9.02455 2.72727H8.27745C8.04874 2.72727 7.92594 2.45261 8.07568 2.276L9.80322 0.238037C9.90967 0.112471 10.1004 0.112471 10.2068 0.238037L11.9344 2.276C12.084 2.45261 11.9612 2.72727 11.7325 2.72727H10.8932C10.7458 2.72727 10.6263 2.84938 10.6263 3V7.27273C10.6263 8.77896 9.43108 10 7.95674 10C6.4824 10 5.28721 8.77896 5.28721 7.27273V2.72727Z" })));
-};
-var SwapArrow$1 = React.memo(SwapArrow);
 
 var Wrapper$4 = styled.div(templateObject_1$O || (templateObject_1$O = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n\n  & + div {\n    margin-top: 16px;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n\n  & + div {\n    margin-top: 16px;\n  }\n"])));
 var Icon$1i = styled.div(templateObject_2$i || (templateObject_2$i = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  min-width: 24px;\n  height: 24px;\n  margin-right: 8px;\n  border-radius: 8px;\n  background-color: ", ";\n\n  .swapArrow {\n    width: 12px;\n    height: auto;\n  }\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  min-width: 24px;\n  height: 24px;\n  margin-right: 8px;\n  border-radius: 8px;\n  background-color: ", ";\n\n  .swapArrow {\n    width: 12px;\n    height: auto;\n  }\n"])), function (_a) {
@@ -3016,7 +3007,7 @@ var DealItem = function (props) {
     var dealName = props.dealName, dealDate = props.dealDate, coupleFirst = props.coupleFirst, coupleLast = props.coupleLast, dealValue = props.dealValue;
     return (React.createElement(Wrapper$4, null,
         React.createElement(Icon$1i, null,
-            React.createElement(SwapArrow$1, { className: "swapArrow" })),
+            React.createElement(Icon$17, { width: "16px", color: "contrast" })),
         React.createElement(Info, null,
             React.createElement(Text, { color: "contrast", fontSize: "10px", bold: true }, dealName),
             React.createElement(Text, { color: "textSubtle", fontSize: "8px" }, dealDate)),
@@ -3360,7 +3351,10 @@ var UserBlock = function (_a) {
 var UserBlock$1 = React.memo(UserBlock, function (prevProps, nextProps) { return prevProps.account === nextProps.account; });
 var templateObject_1$U;
 
-var Wrapper$8 = styled.div(templateObject_1$V || (templateObject_1$V = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n"], ["\n  display: flex;\n  align-items: center;\n"])));
+var Wrapper$8 = styled.div(templateObject_1$V || (templateObject_1$V = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  grid-area: connect;\n  margin-bottom: 16px;\n\n  ", " {\n    margin-bottom: 0;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  grid-area: connect;\n  margin-bottom: 16px;\n\n  ", " {\n    margin-bottom: 0;\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.sm;
+});
 var StyledLink$2 = styled(Text)(templateObject_2$o || (templateObject_2$o = __makeTemplateObject(["\n  &:hover {\n    text-decoration: underline;\n  }\n"], ["\n  &:hover {\n    text-decoration: underline;\n  }\n"])));
 var ConnectMetamask = function (props) {
     var href = props.href;
@@ -3370,7 +3364,19 @@ var ConnectMetamask = function (props) {
 };
 var templateObject_1$V, templateObject_2$o;
 
-var Wrapper$9 = styled.div(templateObject_1$W || (templateObject_1$W = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 18px;\n  padding-right: 24px;\n  position: relative;\n\n  ", " {\n    padding-right: 0;\n  }\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"], ["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 18px;\n  padding-right: 24px;\n  position: relative;\n\n  ", " {\n    padding-right: 0;\n  }\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n\n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"])), function (_a) {
+var Wrapper$9 = styled.div(templateObject_1$W || (templateObject_1$W = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 8px;\n  padding-right: 24px;\n  position: relative;\n  grid-area: price;\n\n  ", " {\n    margin-bottom: 18px;\n  }\n  \n  ", " {\n    padding-right: 0;\n    max-width: 180px;\n  }\n\n  &:before {\n    display: none;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: block;\n    }\n    ", " {\n      display: none;\n    }\n  }\n\n  &:after {\n    display: none;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: block;\n    }\n\n    ", " {\n      display: none;\n    }\n  }\n\n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"], ["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 8px;\n  padding-right: 24px;\n  position: relative;\n  grid-area: price;\n\n  ", " {\n    margin-bottom: 18px;\n  }\n  \n  ", " {\n    padding-right: 0;\n    max-width: 180px;\n  }\n\n  &:before {\n    display: none;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: block;\n    }\n    ", " {\n      display: none;\n    }\n  }\n\n  &:after {\n    display: none;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: block;\n    }\n\n    ", " {\n      display: none;\n    }\n  }\n\n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.sm;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.lg;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.colors.dropDown;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.sm;
+}, function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
 }, function (_a) {
@@ -3378,10 +3384,7 @@ var Wrapper$9 = styled.div(templateObject_1$W || (templateObject_1$W = __makeTem
     return theme.colors.dropDown;
 }, function (_a) {
     var theme = _a.theme;
-    return theme.mediaQueries.lg;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.colors.dropDown;
+    return theme.mediaQueries.sm;
 }, function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
@@ -3397,9 +3400,12 @@ var BSWPrice = function (_a) {
 };
 var templateObject_1$W;
 
-var Wrapper$a = styled.div(templateObject_1$X || (templateObject_1$X = __makeTemplateObject(["\n  display: block;\n  margin-bottom: 18px;\n  position: relative;\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n"], ["\n  display: block;\n  margin-bottom: 18px;\n  position: relative;\n\n  &:after {\n    display: block;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: none;\n    }\n  }\n"])), function (_a) {
+var Wrapper$a = styled.div(templateObject_1$X || (templateObject_1$X = __makeTemplateObject(["\n  display: block;\n  margin-bottom: 18px;\n  position: relative;\n  grid-area: supply;\n\n  &:after {\n    display: none;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: block;\n    }\n    \n    ", " {\n      display: none;\n    }\n  }\n"], ["\n  display: block;\n  margin-bottom: 18px;\n  position: relative;\n  grid-area: supply;\n\n  &:after {\n    display: none;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: block;\n    }\n    \n    ", " {\n      display: none;\n    }\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.dropDown;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.sm;
 }, function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
@@ -3417,10 +3423,11 @@ var SupplyInfo = function (_a) {
 };
 var templateObject_1$X, templateObject_2$p;
 
-var Item = styled.div(templateObject_1$Y || (templateObject_1$Y = __makeTemplateObject(["\n  position: relative;\n"], ["\n  position: relative;\n"])));
+var Wrapper$b = styled.div(templateObject_1$Y || (templateObject_1$Y = __makeTemplateObject(["\n  grid-area: total;\n"], ["\n  grid-area: total;\n"])));
+var Item = styled.div(templateObject_2$q || (templateObject_2$q = __makeTemplateObject(["\n  position: relative;\n"], ["\n  position: relative;\n"])));
 var TotalInfo = function (props) {
     var total = props.total;
-    return (React.createElement(React.Fragment, null, total.map(function (item, index) {
+    return (React.createElement(Wrapper$b, null, total.map(function (item, index) {
         return (React.createElement(Item, { key: index.toString() },
             React.createElement(Text, { color: "text", fontSize: "12px", lineHeight: "18px" }, item.label),
             React.createElement(Text, { color: "contrast", fontSize: "16px", lineHeight: "18px", bold: true },
@@ -3428,9 +3435,9 @@ var TotalInfo = function (props) {
                 item.value)));
     })));
 };
-var templateObject_1$Y;
+var templateObject_1$Y, templateObject_2$q;
 
-var Wrapper$b = styled.footer(templateObject_1$Z || (templateObject_1$Z = __makeTemplateObject(["\n  color: #fff;\n  background: ", ";\n  padding: 32px 16px;\n  transition: padding-left 0.2s;\n\n  ", " {\n    // padding-left: ", ";\n  }\n"], ["\n  color: #fff;\n  background: ", ";\n  padding: 32px 16px;\n  transition: padding-left 0.2s;\n\n  ", " {\n    // padding-left: ", ";\n  }\n"])), function (_a) {
+var Wrapper$c = styled.footer(templateObject_1$Z || (templateObject_1$Z = __makeTemplateObject(["\n  color: #fff;\n  background: ", ";\n  padding: 32px 16px;\n  transition: padding-left 0.2s;\n\n  ", " {\n    // padding-left: ", ";\n  }\n"], ["\n  color: #fff;\n  background: ", ";\n  padding: 32px 16px;\n  transition: padding-left 0.2s;\n\n  ", " {\n    // padding-left: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.footer;
 }, function (_a) {
@@ -3440,26 +3447,29 @@ var Wrapper$b = styled.footer(templateObject_1$Z || (templateObject_1$Z = __make
     var isPushed = _a.isPushed;
     return (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px";
 });
-var GridRow = styled.div(templateObject_2$q || (templateObject_2$q = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns:\n    minmax(150px, 1fr)\n    minmax(150px, 1fr);\n  grid-row-gap: 8px;\n  max-width: 1152px;\n  margin: 0 auto;\n\n  ", " {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr);\n  }\n\n  @media screen and (min-width: 1400px) {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr)\n      minmax(150px, 1fr)\n      minmax(150px, 1fr);\n    grid-row-gap: 20px;\n  }\n"], ["\n  display: grid;\n  grid-template-columns:\n    minmax(150px, 1fr)\n    minmax(150px, 1fr);\n  grid-row-gap: 8px;\n  max-width: 1152px;\n  margin: 0 auto;\n\n  ", " {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr);\n  }\n\n  @media screen and (min-width: 1400px) {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr)\n      minmax(150px, 1fr)\n      minmax(150px, 1fr);\n    grid-row-gap: 20px;\n  }\n"])), function (_a) {
+var GridRow = styled.div(templateObject_2$r || (templateObject_2$r = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns:\n    minmax(150px, 1fr)\n    minmax(150px, 1fr);\n  grid-row-gap: 8px;\n  max-width: 1152px;\n  margin: 0 auto;\n  grid-template-areas: \n    'price supply'\n    'connect total';\n\n  ", " {\n    grid-template-areas: \n    'price supply'\n    'connect total';\n  }\n  \n  ", " {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr);\n    grid-template-areas: 'price connect supply total';\n  }\n\n  @media screen and (min-width: 1400px) {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr)\n      minmax(150px, 1fr);\n  }\n"], ["\n  display: grid;\n  grid-template-columns:\n    minmax(150px, 1fr)\n    minmax(150px, 1fr);\n  grid-row-gap: 8px;\n  max-width: 1152px;\n  margin: 0 auto;\n  grid-template-areas: \n    'price supply'\n    'connect total';\n\n  ", " {\n    grid-template-areas: \n    'price supply'\n    'connect total';\n  }\n  \n  ", " {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr);\n    grid-template-areas: 'price connect supply total';\n  }\n\n  @media screen and (min-width: 1400px) {\n    grid-template-columns:\n      minmax(200px, 1fr)\n      minmax(200px, 1fr)\n      minmax(160px, 1fr)\n      minmax(150px, 1fr);\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.sm;
+}, function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
 });
 var Footer = function (_a) {
     var isPushed = _a.isPushed, BSWPriceLabel = _a.BSWPriceLabel, BSWPriceValue = _a.BSWPriceValue, supply = _a.supply, total = _a.total;
-    return (React.createElement(Wrapper$b, { isPushed: isPushed },
+    return (React.createElement(Wrapper$c, { isPushed: isPushed },
         React.createElement(GridRow, null,
             React.createElement(BSWPrice, { BSWPriceLabel: BSWPriceLabel, BSWPriceValue: BSWPriceValue }),
+            React.createElement(ConnectMetamask, { href: "/" }),
             React.createElement(SupplyInfo, { supply: supply }),
-            React.createElement(TotalInfo, { total: total }),
-            React.createElement(ConnectMetamask, { href: "/" }))));
+            React.createElement(TotalInfo, { total: total }))));
 };
-var templateObject_1$Z, templateObject_2$q;
+var templateObject_1$Z, templateObject_2$r;
 
-var Wrapper$c = styled.div(templateObject_1$_ || (templateObject_1$_ = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n  \n  \n  &.no-scroll {\n    height: calc(100vh - 2rem);\n    max-height: calc(100vh - 2rem);\n    overflow: hidden;\n    \n    ", " {\n      height: auto;\n      max-height: none;\n      overflow: initial;\n    }\n  }\n"], ["\n  position: relative;\n  width: 100%;\n  \n  \n  &.no-scroll {\n    height: calc(100vh - 2rem);\n    max-height: calc(100vh - 2rem);\n    overflow: hidden;\n    \n    ", " {\n      height: auto;\n      max-height: none;\n      overflow: initial;\n    }\n  }\n"])), function (_a) {
+var Wrapper$d = styled.div(templateObject_1$_ || (templateObject_1$_ = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n  \n  \n  &.no-scroll {\n    height: calc(100vh - 2rem);\n    max-height: calc(100vh - 2rem);\n    overflow: hidden;\n    \n    ", " {\n      height: auto;\n      max-height: none;\n      overflow: initial;\n    }\n  }\n"], ["\n  position: relative;\n  width: 100%;\n  \n  \n  &.no-scroll {\n    height: calc(100vh - 2rem);\n    max-height: calc(100vh - 2rem);\n    overflow: hidden;\n    \n    ", " {\n      height: auto;\n      max-height: none;\n      overflow: initial;\n    }\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
 });
-var StyledNav = styled.nav(templateObject_2$r || (templateObject_2$r = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n\n  ", " {\n    height: ", "px;\n    top: ", ";\n  }\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n\n  ", " {\n    height: ", "px;\n    top: ", ";\n  }\n"])), function (_a) {
+var StyledNav = styled.nav(templateObject_2$s || (templateObject_2$s = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n\n  ", " {\n    height: ", "px;\n    top: ", ";\n  }\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.4s, padding-left 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    padding-left: ", ";\n  }\n\n  ", " {\n    height: ", "px;\n    top: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? 0 : "-" + MENU_HEIGHT_MOBILE + "px");
 }, MENU_HEIGHT_MOBILE, function (_a) {
@@ -3540,7 +3550,7 @@ var Menu = function (_a) {
     }, []);
     // Find the home link if provided
     var homeLink = links.find(function (link) { return link.label === "Home"; });
-    return (React.createElement(Wrapper$c, { className: "" + (isPushed ? 'no-scroll' : '') },
+    return (React.createElement(Wrapper$d, { className: "" + (isPushed ? 'no-scroll' : '') },
         React.createElement(BodyWrapper, null,
             React.createElement(StyledNav, { showMenu: showMenu, isPushed: isPushed, menuBg: menuBg },
                 React.createElement(TogglePanel, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark }),
@@ -3552,7 +3562,7 @@ var Menu = function (_a) {
                 React.createElement(Footer, { BSWPriceLabel: BSWPriceLabel, BSWPriceValue: BSWPriceValue, supply: supply, total: total, isPushed: isPushed })),
             React.createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };
-var templateObject_1$_, templateObject_2$r, templateObject_3$a, templateObject_4$7, templateObject_5$5;
+var templateObject_1$_, templateObject_2$s, templateObject_3$a, templateObject_4$7, templateObject_5$5;
 
 var ToastAction = function (_a) {
     var action = _a.action;

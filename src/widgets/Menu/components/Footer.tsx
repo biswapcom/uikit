@@ -30,12 +30,22 @@ const GridRow = styled.div`
   grid-row-gap: 8px;
   max-width: 1152px;
   margin: 0 auto;
+  grid-template-areas: 
+    'price supply'
+    'connect total';
 
+  ${({ theme }) => theme.mediaQueries.sm} {
+    grid-template-areas: 
+    'price supply'
+    'connect total';
+  }
+  
   ${({ theme }) => theme.mediaQueries.lg} {
     grid-template-columns:
       minmax(200px, 1fr)
       minmax(200px, 1fr)
       minmax(160px, 1fr);
+    grid-template-areas: 'price connect supply total';
   }
 
   @media screen and (min-width: 1400px) {
@@ -43,9 +53,7 @@ const GridRow = styled.div`
       minmax(200px, 1fr)
       minmax(200px, 1fr)
       minmax(160px, 1fr)
-      minmax(150px, 1fr)
       minmax(150px, 1fr);
-    grid-row-gap: 20px;
   }
 `;
 
@@ -54,9 +62,9 @@ const Footer: React.FC<Props> = ({ isPushed, BSWPriceLabel, BSWPriceValue, suppl
     <Wrapper isPushed={isPushed}>
       <GridRow>
         <BSWPrice BSWPriceLabel={BSWPriceLabel} BSWPriceValue={BSWPriceValue} />
+        <ConnectMetamask href="/" />
         <SupplyInfo supply={supply} />
         <TotalInfo total={total} />
-        <ConnectMetamask href="/" />
       </GridRow>
     </Wrapper>
   );
