@@ -7,9 +7,10 @@ const Wrapper = styled.div`
   display: block;
   margin-bottom: 18px;
   position: relative;
+  grid-area: supply;
 
   &:after {
-    display: block;
+    display: none;
     content: "";
     width: 100%;
     height: 2px;
@@ -18,6 +19,10 @@ const Wrapper = styled.div`
     bottom: -18px;
     left: 0;
 
+    ${({ theme }) => theme.mediaQueries.sm} {
+      display: block;
+    }
+    
     ${({ theme }) => theme.mediaQueries.lg} {
       display: none;
     }

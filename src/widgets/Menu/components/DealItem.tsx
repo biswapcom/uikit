@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import SwapArrow from "../icons/SwapArrow";
 import Text from "../../../components/Text/Text";
+import Exchange from "../icons/Exchange";
+import { TradeIcon } from "../icons";
 
 interface Props {
   isDark: boolean;
@@ -53,7 +55,7 @@ const DealItem: React.FC<Props> = (props) => {
   return (
     <Wrapper>
       <Icon>
-        <SwapArrow className="swapArrow" />
+        <TradeIcon width="16px" color="contrast" />
       </Icon>
       <Info>
         <Text color="contrast" fontSize="10px" bold>

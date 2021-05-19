@@ -10,16 +10,22 @@ const Wrapper = styled.div`
   grid-template-areas:
     "logo bsw-title"
     "logo bsw-value";
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   padding-right: 24px;
   position: relative;
+  grid-area: price;
 
+  ${({ theme }) => theme.mediaQueries.sm} {
+    margin-bottom: 18px;
+  }
+  
   ${({ theme }) => theme.mediaQueries.lg} {
     padding-right: 0;
+    max-width: 180px;
   }
 
   &:before {
-    display: block;
+    display: none;
     content: "";
     width: 2px;
     height: 100%;
@@ -28,13 +34,16 @@ const Wrapper = styled.div`
     right: 24px;
     top: 0;
 
+    ${({ theme }) => theme.mediaQueries.sm} {
+      display: block;
+    }
     ${({ theme }) => theme.mediaQueries.lg} {
       display: none;
     }
   }
 
   &:after {
-    display: block;
+    display: none;
     content: "";
     width: 100%;
     height: 2px;
@@ -42,6 +51,10 @@ const Wrapper = styled.div`
     position: absolute;
     bottom: -18px;
     left: 0;
+
+    ${({ theme }) => theme.mediaQueries.sm} {
+      display: block;
+    }
 
     ${({ theme }) => theme.mediaQueries.lg} {
       display: none;

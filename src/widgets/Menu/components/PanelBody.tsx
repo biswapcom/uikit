@@ -61,7 +61,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
                   <MenuEntry isSmall key={item.href} secondary isActive={item.href === location.pathname} onClick={handleClick}>
                     <MenuLink href={item.href} target="_blank">{item.label}</MenuLink>
                     { item.ico &&
-                    <LoaderIcon width="20px" mr="8px" />
+                    <LoaderIcon width="16px" />
                     }
                   </MenuEntry>
                 ))}
