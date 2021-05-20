@@ -9,6 +9,7 @@ import { BSWPriceProps, FooterSupplyProps, FooterTotalProps } from "../types";
 
 interface Props extends BSWPriceProps, FooterSupplyProps, FooterTotalProps {
   isPushed: boolean;
+  onClick: () => void;
 }
 
 const Wrapper = styled.footer<{ isPushed: boolean }>`
@@ -57,12 +58,12 @@ const GridRow = styled.div`
   }
 `;
 
-const Footer: React.FC<Props> = ({ isPushed, BSWPriceLabel, BSWPriceValue, supply, total }) => {
+const Footer: React.FC<Props> = ({ isPushed, BSWPriceLabel, BSWPriceValue, supply, total, onClick }) => {
   return (
     <Wrapper isPushed={isPushed}>
       <GridRow>
         <BSWPrice BSWPriceLabel={BSWPriceLabel} BSWPriceValue={BSWPriceValue} />
-        <ConnectMetamask href="/" />
+        <ConnectMetamask onClick={onClick}/>
         <SupplyInfo supply={supply} />
         <TotalInfo total={total} />
       </GridRow>

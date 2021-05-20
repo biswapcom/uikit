@@ -110,7 +110,8 @@ const Menu: React.FC<NavProps> = ({
   BSWPriceValue,
   supply,
   total,
-  pendingTransactions
+  pendingTransactions,
+  onClick
 }) => {
   const { isLg, isMd, isSm, isXs } = useMatchBreakpoints();
   const isMobile = isLg || isMd || isSm || isXs;
@@ -193,6 +194,7 @@ const Menu: React.FC<NavProps> = ({
             supply={supply}
             total={total}
             isPushed={isPushed}
+            onClick={onClick}
           />
         </Inner>
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />

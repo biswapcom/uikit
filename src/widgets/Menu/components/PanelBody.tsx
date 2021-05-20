@@ -13,6 +13,19 @@ interface Props extends PanelProps, PushedProps {
   isMobile: boolean;
 }
 
+const LoaderAnimation = styled(LoaderIcon)`
+  @keyframes loader {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  animation: loader 2s linear infinite;
+`
+
 const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
 
 const Container = styled.div<{ isPushed: boolean }>`
@@ -61,7 +74,8 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
                   <MenuEntry isSmall key={item.href} secondary isActive={item.href === location.pathname} onClick={handleClick}>
                     <MenuLink href={item.href} target="_blank">{item.label}</MenuLink>
                     { item.ico &&
-                    <LoaderIcon width="16px" />
+                    // <LoaderIcon width="16px" />
+                      <LoaderAnimation width="16px"/>
                     }
                   </MenuEntry>
                 ))}

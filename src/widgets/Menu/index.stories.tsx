@@ -37,6 +37,7 @@ const useProps = () => {
     BSWPriceValue,
     supply,
     total,
+    onClick: noop,
   });
 
   useEffect(() => {
@@ -59,6 +60,7 @@ const useProps = () => {
         BSWPriceValue,
         supply,
         total,
+        onClick: noop,
       });
     }, 2000);
     return () => {
@@ -144,6 +146,7 @@ export const NotConnected: React.FC = () => {
         BSWPriceValue={BSWPriceValue}
         supply={supply}
         total={total}
+        onClick={noop}
       >
         <div>
           <h1>Page body</h1>
@@ -186,6 +189,7 @@ export const WithNoProfile: React.FC = () => {
         BSWPriceValue={BSWPriceValue}
         supply={supply}
         total={total}
+        onClick={noop}
       >
         <div>
           <Heading as="h1" mb="8px">
@@ -236,6 +240,7 @@ export const WithProfile: React.FC = () => {
         BSWPriceValue={BSWPriceValue}
         supply={supply}
         total={total}
+        onClick={noop}
       >
         <div>
           <Heading as="h1" mb="8px">
@@ -296,6 +301,7 @@ export const WithSubmenuSelected: React.FC = () => {
         BSWPriceValue={BSWPriceValue}
         supply={supply}
         total={total}
+        onClick={noop}
       >
         <div>
           <Heading as="h1" mb="8px">
