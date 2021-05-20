@@ -4,7 +4,7 @@ import { MetamaskIcon } from "../../../components/Svg";
 import Link from "../../../components/Text/Text";
 
 interface Props {
-  href: string;
+  onClick: () => void;
 }
 const Wrapper = styled.div`
   display: flex;
@@ -18,18 +18,21 @@ const Wrapper = styled.div`
 `;
 
 const StyledLink = styled(Link)`
+  border: 0;
+  background: transparent;
+  
   &:hover {
     text-decoration: underline;
   }
 `;
 
 const ConnectMetamask: React.FC<Props> = (props) => {
-  const { href } = props;
+  const { onClick } = props;
 
   return (
     <Wrapper>
       <MetamaskIcon width="24px" mx="7px" />
-      <StyledLink ml={16} as="a" fontSize="12px" color="primary" href={href} aria-label="Add to Metamask">
+      <StyledLink ml={16} onClick={() => onClick()} as="button" fontSize="12px" color="primary" aria-label="Add to Metamask">
         Add BSW to Metamask
       </StyledLink>
     </Wrapper>

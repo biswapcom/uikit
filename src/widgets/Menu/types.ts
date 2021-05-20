@@ -62,12 +62,16 @@ export interface PanelFooterProps {
   deals?: Array<DealsEntry>;
 }
 
-export interface NavProps extends PanelProps, PanelFooterProps, BSWPriceProps, FooterSupplyProps, FooterTotalProps {
+export interface NavProps extends PanelProps, PanelFooterProps, BSWPriceProps, FooterSupplyProps, FooterTotalProps, ConnectMetaProps {
   account?: string;
   login: Login;
   profile?: Profile;
   logout: () => void;
   pendingTransactions?: number;
+}
+
+export interface ConnectMetaProps {
+  onClick: () => void;
 }
 
 export interface BSWPriceProps {
