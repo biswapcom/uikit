@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Text from "../../../components/Text/Text";
+import { formatSpacingAmount } from "../../../util/formatSpacingAmount";
 
 interface TotalInfoTypes {
   label: string;
@@ -31,7 +32,7 @@ const TotalInfo: React.FC<Props> = (props) => {
               {item.label}
             </Text>
             <Text color="contrast" fontSize="16px" lineHeight="18px" bold>
-              ${item.value}
+              ${formatSpacingAmount(item.value)}
             </Text>
           </Item>
         );

@@ -20,6 +20,8 @@ const Wrapper = styled.div`
 const StyledLink = styled(Link)`
   border: 0;
   background: transparent;
+  text-align: left;
+  margin-left: 8px;
   
   &:hover {
     text-decoration: underline;
