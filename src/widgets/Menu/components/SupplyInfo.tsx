@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Text from "../../../components/Text/Text";
 import { FooterSupplyProps } from "../types";
+import { formatSpacingAmount } from "../../../util/formatSpacingAmount";
 
 const Wrapper = styled.div`
   display: block;
@@ -43,7 +44,7 @@ const SupplyInfo: React.FC<FooterSupplyProps> = ({ supply }) => {
               {item.label}
             </Text>
             <Text color="contrast" fontSize="12px" lineHeight="18px" ml="8px">
-              {item.value} BSW
+              {formatSpacingAmount(item.value)} BSW
             </Text>
           </Row>
         );
