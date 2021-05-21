@@ -2794,7 +2794,7 @@ var socials = [
                 href: "https://t.me/biswap",
             },
             {
-                label: "Chanel",
+                label: "Channel",
                 href: "https://t.me/biswap_news",
             },
         ],
