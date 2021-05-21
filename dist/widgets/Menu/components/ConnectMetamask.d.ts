@@ -1,6 +1,6 @@
 import React from "react";
 interface Props {
-    href: string;
+    onClick: () => void;
 }
 declare const ConnectMetamask: React.FC<Props>;
 export default ConnectMetamask;

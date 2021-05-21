@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { LogoIcon } from "../../../components/Svg";
 import Text from "../../../components/Text/Text";
 import { BSWPriceProps } from "../types";
+import { formatSpacingAmount } from "../../../util/formatSpacingAmount";
 
 const Wrapper = styled.div`
   display: grid;
@@ -75,7 +76,7 @@ const BSWPrice: React.FC<BSWPriceProps> = ({ BSWPriceLabel, BSWPriceValue }) => 
         {BSWPriceLabel}
       </Text>
       <Text color="contrast" fontSize="16px" lineHeight="19px" ml={16} bold>
-        ${BSWPriceValue}
+        ${formatSpacingAmount(BSWPriceValue)}
       </Text>
     </Wrapper>
   );

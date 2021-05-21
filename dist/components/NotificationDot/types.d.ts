@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface NotificationDotProps {
     show?: boolean;
     children: React.ReactElement | React.ReactElement[];

@@ -61,7 +61,7 @@ const MenuBtnDesktop = styled.div<{ isPushed: boolean }>`
   background-color: ${({ theme }) => theme.colors.dropDown};
   cursor: pointer;
   position: absolute;
-  top: 40px;
+  top: 24px;
   right: -12px;
   transform: ${({ isPushed }) => (isPushed ? "scale(1, 1)" : "scale(-1, 1)")};
 
