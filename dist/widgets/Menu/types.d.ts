@@ -31,6 +31,9 @@ export interface MenuEntry {
     href?: string;
     calloutClass?: string;
     initialOpenState?: boolean;
+    secondLabel?: boolean;
+    secondTextLabel?: string;
+    secondCalloutClass?: string;
 }
 export interface PanelProps {
     isDark: boolean;
