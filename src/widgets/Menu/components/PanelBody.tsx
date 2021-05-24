@@ -88,8 +88,8 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
               {iconElement}
               {entry.secondLabel ? (
                   <LinkLabel isPushed={isPushed}>{entry.label}
-                    <span className={entry.secondCalloutClass}>
-                      {(entry.secondTextLabel)}
+                    <span style={{color:'#FFB237'}} className={entry.secondCalloutClass}>
+                      {entry.secondTextLabel}
                     </span>
                   </LinkLabel>
               ): (
@@ -101,6 +101,6 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
       })}
     </Container>
   );
-};
+}
 
 export default PanelBody;

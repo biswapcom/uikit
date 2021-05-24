@@ -3005,7 +3005,7 @@ var PanelBody = function (_a) {
                 iconElement,
                 entry.secondLabel ? (React__default['default'].createElement(LinkLabelMemo, { isPushed: isPushed },
                     entry.label,
-                    React__default['default'].createElement("span", { className: entry.secondCalloutClass }, (entry.secondTextLabel)))) : (React__default['default'].createElement(LinkLabelMemo, { isPushed: isPushed }, entry.label)))));
+                    React__default['default'].createElement("span", { style: { color: '#FFB237' }, className: entry.secondCalloutClass }, entry.secondTextLabel))) : (React__default['default'].createElement(LinkLabelMemo, { isPushed: isPushed }, entry.label)))));
     })));
 };
 var templateObject_1$N, templateObject_2$i;
