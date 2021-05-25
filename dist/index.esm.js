@@ -1072,7 +1072,7 @@ var FarmCardHead = function (_a) {
 };
 var templateObject_1$l;
 
-var StyledFarmCardBody = styled.div(templateObject_1$m || (templateObject_1$m = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n\n  & > p {\n    flex: 1 1;\n    color: ", ";\n    font-size: 24px;\n    font-weight: 900;\n\n    display: -webkit-box;\n    -webkit-line-clamp: 1;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n  }\n\n  & > div {\n      position: absolute;\n      top: 12px;\n      right: 12px;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n\n  & > p {\n    flex: 1 1;\n    color: ", ";\n    font-size: 24px;\n    font-weight: 900;\n\n    display: -webkit-box;\n    -webkit-line-clamp: 1;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n  }\n\n  & > div {\n      position: absolute;\n      top: 12px;\n      right: 12px;\n  }\n"])), function (_a) {
+var StyledFarmCardBody = styled.div(templateObject_1$m || (templateObject_1$m = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n\n  & > p {\n    flex: 1 1;\n    color: ", ";\n    font-size: 20px;\n    font-weight: 900;\n\n    display: -webkit-box;\n    -webkit-line-clamp: 1;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n  }\n\n  & > div {\n      position: absolute;\n      top: 12px;\n      right: 12px;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n\n  & > p {\n    flex: 1 1;\n    color: ", ";\n    font-size: 20px;\n    font-weight: 900;\n\n    display: -webkit-box;\n    -webkit-line-clamp: 1;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n  }\n\n  & > div {\n      position: absolute;\n      top: 12px;\n      right: 12px;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.primary;
 });
