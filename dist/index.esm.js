@@ -2992,7 +2992,7 @@ var PanelBody = function (_a) {
                 iconElement,
                 entry.secondLabel ? (React.createElement(LinkLabelMemo, { isPushed: isPushed },
                     entry.label,
-                    React.createElement("span", { style: { color: '#FFDB1C' }, className: entry.secondCalloutClass }, entry.secondTextLabel))) : (React.createElement(LinkLabelMemo, { isPushed: isPushed }, entry.label)))));
+                    isPushed && (React.createElement("span", { style: { color: '#FFDB1C' }, className: entry.secondCalloutClass }, entry.secondTextLabel)))) : (React.createElement(LinkLabelMemo, { isPushed: isPushed }, entry.label)))));
     })));
 };
 var templateObject_1$N, templateObject_2$i;
