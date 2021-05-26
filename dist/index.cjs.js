@@ -3436,17 +3436,33 @@ var templateObject_1$Y, templateObject_2$r;
 
 var Wrapper$b = styled__default['default'].div(templateObject_1$Z || (templateObject_1$Z = __makeTemplateObject(["\n  grid-area: total;\n"], ["\n  grid-area: total;\n"])));
 var Item = styled__default['default'].div(templateObject_2$s || (templateObject_2$s = __makeTemplateObject(["\n  position: relative;\n"], ["\n  position: relative;\n"])));
+var TopFlex = styled__default['default'].div(templateObject_3$a || (templateObject_3$a = __makeTemplateObject(["\n  display: flex;\n"], ["\n  display: flex;\n"])));
+var Tooltip$1 = styled__default['default'].div(templateObject_4$7 || (templateObject_4$7 = __makeTemplateObject(["\n  position: relative;\n  margin-left: 12px;\n  \n  &:hover > div {\n    display: block;\n  }\n"], ["\n  position: relative;\n  margin-left: 12px;\n  \n  &:hover > div {\n    display: block;\n  }\n"])));
+var TooltipContent = styled__default['default'].div(templateObject_5$5 || (templateObject_5$5 = __makeTemplateObject(["\n  display: none;\n  position: absolute;\n  background-color: ", ";\n  color: ", ";\n  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 0 4px 12px -8px rgba(14, 14, 44, 0.1);\n  padding: 8px 16px;\n  border-radius: 8px;\n  bottom: calc(100% + 12px);\n  right: -12px;\n  font-size: 14px;\n  width: 200px;\n  \n  &:before {\n    content: '';\n    display: block;\n    width: 0;\n    height: 0;\n    border-left: 10px solid transparent;\n    border-right: 10px solid transparent;\n    border-top: 10px solid ", ";\n    bottom: 0;\n    position: absolute;\n    -webkit-transform: translate(-12px,9px);\n    -ms-transform: translate(-12px,9px);\n    transform: translate(-12px,9px);\n    right: 0;\n  }\n"], ["\n  display: none;\n  position: absolute;\n  background-color: ", ";\n  color: ", ";\n  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 0 4px 12px -8px rgba(14, 14, 44, 0.1);\n  padding: 8px 16px;\n  border-radius: 8px;\n  bottom: calc(100% + 12px);\n  right: -12px;\n  font-size: 14px;\n  width: 200px;\n  \n  &:before {\n    content: '';\n    display: block;\n    width: 0;\n    height: 0;\n    border-left: 10px solid transparent;\n    border-right: 10px solid transparent;\n    border-top: 10px solid ", ";\n    bottom: 0;\n    position: absolute;\n    -webkit-transform: translate(-12px,9px);\n    -ms-transform: translate(-12px,9px);\n    transform: translate(-12px,9px);\n    right: 0;\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.colors.card;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.colors.text;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.colors.card;
+});
 var TotalInfo = function (props) {
     var total = props.total;
     return (React__default['default'].createElement(Wrapper$b, null, total.map(function (item, index) {
         return (React__default['default'].createElement(Item, { key: index.toString() },
-            React__default['default'].createElement(Text, { color: "text", fontSize: "12px", lineHeight: "18px" }, item.label),
+            React__default['default'].createElement(TopFlex, null,
+                React__default['default'].createElement(Text, { color: "text", fontSize: "12px", lineHeight: "18px" }, item.label),
+                React__default['default'].createElement(Tooltip$1, null,
+                    React__default['default'].createElement(Icon$p, null),
+                    React__default['default'].createElement(TooltipContent, null, "Across all LPs and Launchpools"))),
             React__default['default'].createElement(Text, { color: "contrast", fontSize: "16px", lineHeight: "18px", bold: true },
                 "$",
                 formatSpacingAmount(item.value))));
     })));
 };
-var templateObject_1$Z, templateObject_2$s;
+var templateObject_1$Z, templateObject_2$s, templateObject_3$a, templateObject_4$7, templateObject_5$5;
 
 var Wrapper$c = styled__default['default'].footer(templateObject_1$_ || (templateObject_1$_ = __makeTemplateObject(["\n  color: #fff;\n  background: ", ";\n  padding: 32px 16px;\n  transition: padding-left 0.2s;\n\n  ", " {\n    // padding-left: ", ";\n  }\n"], ["\n  color: #fff;\n  background: ", ";\n  padding: 32px 16px;\n  transition: padding-left 0.2s;\n\n  ", " {\n    // padding-left: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
@@ -3499,8 +3515,8 @@ var StyledNav = styled__default['default'].nav(templateObject_2$u || (templateOb
     var showMenu = _a.showMenu;
     return (showMenu ? 0 : "-" + MENU_HEIGHT + "px");
 });
-var BodyWrapper = styled__default['default'].div(templateObject_3$a || (templateObject_3$a = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  z-index: 30;\n  min-height: calc(100vh - 2rem);\n"], ["\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  z-index: 30;\n  min-height: calc(100vh - 2rem);\n"])));
-var Inner$1 = styled__default['default'].div(templateObject_4$7 || (templateObject_4$7 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-grow: 1;\n  padding-top: ", ";\n  transition: padding-top 0.4s;\n  max-width: 100%;\n\n  ", " {\n    margin-left: ", ";\n    max-width: ", ";\n  }\n"], ["\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-grow: 1;\n  padding-top: ", ";\n  transition: padding-top 0.4s;\n  max-width: 100%;\n\n  ", " {\n    margin-left: ", ";\n    max-width: ", ";\n  }\n"])), function (_a) {
+var BodyWrapper = styled__default['default'].div(templateObject_3$b || (templateObject_3$b = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  z-index: 30;\n  min-height: calc(100vh - 2rem);\n"], ["\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  z-index: 30;\n  min-height: calc(100vh - 2rem);\n"])));
+var Inner$1 = styled__default['default'].div(templateObject_4$8 || (templateObject_4$8 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-grow: 1;\n  padding-top: ", ";\n  transition: padding-top 0.4s;\n  max-width: 100%;\n\n  ", " {\n    margin-left: ", ";\n    max-width: ", ";\n  }\n"], ["\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-grow: 1;\n  padding-top: ", ";\n  transition: padding-top 0.4s;\n  max-width: 100%;\n\n  ", " {\n    margin-left: ", ";\n    max-width: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? 0 : "-" + MENU_HEIGHT + "px");
 }, function (_a) {
@@ -3513,7 +3529,7 @@ var Inner$1 = styled__default['default'].div(templateObject_4$7 || (templateObje
     var isPushed = _a.isPushed;
     return "calc(100% - " + (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px)";
 });
-var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_5$5 || (templateObject_5$5 = __makeTemplateObject(["\n  position: fixed;\n  height: calc(100% - 64px);\n  top: 64px;\n\n  ", " {\n    display: none;\n  }\n\n  ", " {\n    height: 100%;\n    top: 0;\n  }\n"], ["\n  position: fixed;\n  height: calc(100% - 64px);\n  top: 64px;\n\n  ", " {\n    display: none;\n  }\n\n  ", " {\n    height: 100%;\n    top: 0;\n  }\n"])), function (_a) {
+var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_5$6 || (templateObject_5$6 = __makeTemplateObject(["\n  position: fixed;\n  height: calc(100% - 64px);\n  top: 64px;\n\n  ", " {\n    display: none;\n  }\n\n  ", " {\n    height: 100%;\n    top: 0;\n  }\n"], ["\n  position: fixed;\n  height: calc(100% - 64px);\n  top: 64px;\n\n  ", " {\n    display: none;\n  }\n\n  ", " {\n    height: 100%;\n    top: 0;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.nav;
 }, function (_a) {
@@ -3576,7 +3592,7 @@ var Menu = function (_a) {
 Menu.defaultProps = {
     pendingTransactions: 0,
 };
-var templateObject_1$$, templateObject_2$u, templateObject_3$a, templateObject_4$7, templateObject_5$5;
+var templateObject_1$$, templateObject_2$u, templateObject_3$b, templateObject_4$8, templateObject_5$6;
 
 var ToastAction = function (_a) {
     var action = _a.action;
