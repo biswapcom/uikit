@@ -2371,7 +2371,7 @@ var Modal = function (_a) {
                 onBack && (React__default['default'].createElement(IconButton, { variant: "text", onClick: onBack, "area-label": "go back", mr: "8px" },
                     React__default['default'].createElement(Icon$5, { color: "primary" }))),
                 React__default['default'].createElement(Heading, null, title)),
-            !hideCloseButton && (React__default['default'].createElement(IconButton, { variant: "text", className: "closeModal", scale: "sm", onClick: onDismiss, "aria-label": "Close the dialog" },
+            !hideCloseButton && (React__default['default'].createElement(IconButton, { variant: "text", className: "closeModal", scale: "sm", ml: "12px", onClick: onDismiss, "aria-label": "Close the dialog" },
                 React__default['default'].createElement(Icon$l, { width: "24px", color: "card" })))),
         React__default['default'].createElement(ModalBody, null, children)));
 };
