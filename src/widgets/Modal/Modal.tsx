@@ -71,7 +71,7 @@ const Modal: React.FC<Props> = ({
         <Heading>{title}</Heading>
       </ModalTitle>
       {!hideCloseButton && (
-        <IconButton variant="text" className="closeModal" scale="sm" onClick={onDismiss} aria-label="Close the dialog">
+        <IconButton variant="text" className="closeModal" scale="sm" ml="12px" onClick={onDismiss} aria-label="Close the dialog">
           <CloseIcon width="24px" color="card" />
         </IconButton>
       )}
