@@ -13,11 +13,11 @@ const connectors: Config[] = [
     icon: Metamask,
     connectorId: ConnectorNames.Injected,
   },
-  {
-  title: "TrustWallet",
-   icon: TrustWallet,
-   connectorId: ConnectorNames.Injected,
-  },
+  // {
+  // title: "TrustWallet",
+  //  icon: TrustWallet,
+  //  connectorId: ConnectorNames.Injected,
+  // },
   // {
   //   title: "MathWallet",
   //   icon: MathWallet,
@@ -28,11 +28,11 @@ const connectors: Config[] = [
   //   icon: TokenPocket,
   //   connectorId: ConnectorNames.Injected,
   // },
-  {
-  title: "WalletConnect",
-  icon: WalletConnect,
-  connectorId: ConnectorNames.WalletConnect,
-  },
+  // {
+  // title: "WalletConnect",
+  // icon: WalletConnect,
+  // connectorId: ConnectorNames.WalletConnect,
+  // },
   {
     title: "Binance Chain Wallet",
     icon: BinanceChain,
