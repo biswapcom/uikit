@@ -2825,14 +2825,35 @@ var SIDEBAR_WIDTH_FULL = 224;
 var SIDEBAR_WIDTH_REDUCED = 74;
 
 var Icons = IconModule;
-var Wrapper$2 = styled__default['default'].div(templateObject_1$J || (templateObject_1$J = __makeTemplateObject(["\n  display: none;\n  align-items: center;\n\n  ", " {\n    display: flex;\n  }\n"], ["\n  display: none;\n  align-items: center;\n\n  ", " {\n    display: flex;\n  }\n"])), function (_a) {
+var Wrapper$2 = styled__default['default'].div(templateObject_1$J || (templateObject_1$J = __makeTemplateObject(["\n  display: ", ";\n  align-items: center;\n  padding: ", ";\n\n  ", " {\n    display: ", ";\n  }\n"], ["\n  display: ", ";\n  align-items: center;\n  padding: ", ";\n\n  ", " {\n    display: ", ";\n  }\n"])), function (_a) {
+    var isPushed = _a.isPushed, isSidebar = _a.isSidebar;
+    return isPushed && isSidebar ? 'flex' : 'none';
+}, function (_a) {
+    var isSidebar = _a.isSidebar;
+    return isSidebar ? '16px' : '0px';
+}, function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
+}, function (_a) {
+    var isSidebar = _a.isSidebar;
+    return isSidebar ? 'none' : 'flex';
 });
 var DropDownWrap = styled__default['default'].div(templateObject_2$e || (templateObject_2$e = __makeTemplateObject(["\n  position: relative;\n"], ["\n  position: relative;\n"])));
-var DropDown = styled__default['default'].div(templateObject_3$8 || (templateObject_3$8 = __makeTemplateObject(["\n  display: none;\n  position: absolute;\n  border-radius: 8px;\n  padding: 8px;\n  background-color: ", ";\n  top: 52px;\n  left: 50%;\n  transform: translateX(-50%);\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 8px;\n    height: 8px;\n    position: absolute;\n    top: -4px;\n    left: 50%;\n    transform: translateX(-50%) rotate(45deg);\n    background-color: ", ";\n  }\n\n  &.active {\n    display: block;\n  }\n"], ["\n  display: none;\n  position: absolute;\n  border-radius: 8px;\n  padding: 8px;\n  background-color: ", ";\n  top: 52px;\n  left: 50%;\n  transform: translateX(-50%);\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 8px;\n    height: 8px;\n    position: absolute;\n    top: -4px;\n    left: 50%;\n    transform: translateX(-50%) rotate(45deg);\n    background-color: ", ";\n  }\n\n  &.active {\n    display: block;\n  }\n"])), function (_a) {
+var DropDown = styled__default['default'].div(templateObject_3$8 || (templateObject_3$8 = __makeTemplateObject(["\n  display: none;\n  position: absolute;\n  border-radius: 8px;\n  padding: 8px;\n  background-color: ", ";\n  top: ", ";\n  bottom: ", ";\n  left: 50%;\n  transform: translateX(-50%);\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 8px;\n    height: 8px;\n    position: absolute;\n    top: ", ";\n    bottom: ", ";\n    left: 50%;\n    transform: translateX(-50%) rotate(45deg);\n    background-color: ", ";\n  }\n\n  &.active {\n    display: block;\n  }\n"], ["\n  display: none;\n  position: absolute;\n  border-radius: 8px;\n  padding: 8px;\n  background-color: ", ";\n  top: ", ";\n  bottom: ", ";\n  left: 50%;\n  transform: translateX(-50%);\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 8px;\n    height: 8px;\n    position: absolute;\n    top: ", ";\n    bottom: ", ";\n    left: 50%;\n    transform: translateX(-50%) rotate(45deg);\n    background-color: ", ";\n  }\n\n  &.active {\n    display: block;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.dropDown;
+}, function (_a) {
+    var isSidebar = _a.isSidebar;
+    return isSidebar ? 'auto' : '52px';
+}, function (_a) {
+    var isSidebar = _a.isSidebar;
+    return isSidebar ? '52px' : 'auto';
+}, function (_a) {
+    var isSidebar = _a.isSidebar;
+    return isSidebar ? 'auto' : '-4px';
+}, function (_a) {
+    var isSidebar = _a.isSidebar;
+    return isSidebar ? '-4px' : 'auto';
 }, function (_a) {
     var theme = _a.theme;
     return theme.colors.dropDown;
@@ -2851,8 +2872,9 @@ var ItemWrapper = styled__default['default'].div(templateObject_5$4 || (template
     var theme = _a.theme;
     return theme.colors.dropDown;
 });
-var NavSocial = function () {
-    var _a = React.useState(false), isOpen = _a[0], setIsOpen = _a[1];
+var NavSocial = function (_a) {
+    var isPushed = _a.isPushed, isSidebar = _a.isSidebar;
+    var _b = React.useState(false), isOpen = _b[0], setIsOpen = _b[1];
     var openDropdown = function () {
         setIsOpen(function () { return !isOpen; });
     };
@@ -2860,14 +2882,14 @@ var NavSocial = function () {
         setIsOpen(false);
     };
     var ref = reactDetectClickOutside.useDetectClickOutside({ onTriggered: closeDropdown });
-    return (React__default['default'].createElement(Wrapper$2, null, socials.map(function (social) {
+    return (React__default['default'].createElement(Wrapper$2, { isPushed: isPushed, isSidebar: isSidebar }, socials.map(function (social) {
         var Icon = Icons[social.icon];
         var iconProps = { width: "24px", color: "textSubtle", style: { cursor: "pointer" } };
         if (social.items) {
             return (React__default['default'].createElement(DropDownWrap, { ref: ref },
                 React__default['default'].createElement(ItemWrapper, { className: "" + (isOpen && "active"), onClick: openDropdown },
                     React__default['default'].createElement(Icon, __assign({}, iconProps))),
-                isOpen && (React__default['default'].createElement(DropDown, { className: "" + (isOpen && "active") }, social.items.map(function (item) {
+                isOpen && (React__default['default'].createElement(DropDown, { className: "" + (isOpen && "active"), isSidebar: isSidebar }, social.items.map(function (item) {
                     return (React__default['default'].createElement(DropDownLink, { key: item.label, href: item.href, "aria-label": social.label }, item.label));
                 })))));
         }
@@ -3138,7 +3160,8 @@ var Panel = function (props) {
             React__default['default'].createElement(Icon$1d, { width: "16px", color: "contrast" })),
         React__default['default'].createElement(Logo$3, { isPushed: isPushed, isDark: isDark, href: href }),
         React__default['default'].createElement(PanelBody, __assign({}, props)),
-        (deals === null || deals === void 0 ? void 0 : deals.length) && footerTitle && (React__default['default'].createElement(PanelFooter2, { isPushed: isPushed, footerTitle: footerTitle, isDark: isDark, deals: deals }))));
+        (deals === null || deals === void 0 ? void 0 : deals.length) && footerTitle && (React__default['default'].createElement(PanelFooter2, { isPushed: isPushed, footerTitle: footerTitle, isDark: isDark, deals: deals })),
+        React__default['default'].createElement(NavSocial, { isPushed: isPushed, isSidebar: true })));
 };
 var templateObject_1$R, templateObject_2$m;
 
@@ -3214,12 +3237,6 @@ var Icon$1l = function (props) {
 };
 
 var Icon$1m = function (props) {
-    return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 96 96" }, props),
-        React__default['default'].createElement("path", { d: "M96 48C96 21.4903 74.5097 0 48 0C21.4903 0 0 21.4903 0 48C0 74.5097 21.4903 96 48 96C74.5097 96 96 74.5097 96 48Z", fill: "#3389FB" }),
-        React__default['default'].createElement("path", { d: "M29.6927 35.4245C39.8036 25.5252 56.1965 25.5252 66.3074 35.4245L67.5242 36.6159C68.0298 37.1109 68.0298 37.9134 67.5242 38.4084L63.3616 42.4839C63.1088 42.7314 62.699 42.7314 62.4462 42.4839L60.7717 40.8444C53.7181 33.9384 42.282 33.9384 35.2284 40.8444L33.4351 42.6002C33.1823 42.8477 32.7725 42.8477 32.5197 42.6002L28.3571 38.5247C27.8515 38.0297 27.8515 37.2272 28.3571 36.7322L29.6927 35.4245ZM74.9161 43.8532L78.6208 47.4805C79.1264 47.9755 79.1264 48.778 78.6208 49.2729L61.9159 65.6288C61.4103 66.1237 60.5907 66.1237 60.0851 65.6288C60.0851 65.6288 60.0851 65.6288 60.0851 65.6288L48.229 54.0206C48.1026 53.8968 47.8977 53.8968 47.7713 54.0206C47.7713 54.0206 47.7713 54.0206 47.7713 54.0206L35.9153 65.6288C35.4098 66.1237 34.5902 66.1237 34.0846 65.6288C34.0846 65.6288 34.0846 65.6288 34.0846 65.6288L17.3792 49.2727C16.8736 48.7778 16.8736 47.9753 17.3792 47.4803L21.0839 43.853C21.5895 43.3581 22.4091 43.3581 22.9146 43.853L34.771 55.4614C34.8974 55.5851 35.1023 55.5851 35.2287 55.4614C35.2287 55.4614 35.2287 55.4614 35.2287 55.4614L47.0844 43.853C47.59 43.358 48.4096 43.358 48.9152 43.853C48.9152 43.853 48.9152 43.853 48.9152 43.853L60.7715 55.4614C60.8979 55.5851 61.1028 55.5851 61.2292 55.4614L73.0854 43.8532C73.5909 43.3583 74.4105 43.3583 74.9161 43.8532Z", fill: "white" })));
-};
-
-var Icon$1n = function (props) {
     return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 32 32" }, props),
         React__default['default'].createElement("path", { d: "M24 0H8C3.58172 0 0 3.58172 0 8V24C0 28.4183 3.58172 32 8 32H24C28.4183 32 32 28.4183 32 24V8C32 3.58172 28.4183 0 24 0Z", fill: "#1E2026" }),
         React__default['default'].createElement("path", { d: "M16.2857 4L9.97035 7.6761L12.2922 9.03415L16.2857 6.7161L20.2792 9.03415L22.6011 7.6761L16.2857 4Z", fill: "#F0B90B" }),
@@ -3262,14 +3279,14 @@ var connectors = [
     //   icon: TokenPocket,
     //   connectorId: ConnectorNames.Injected,
     // },
-    {
-        title: "WalletConnect",
-        icon: Icon$1m,
-        connectorId: exports.ConnectorNames.WalletConnect,
-    },
+    // {
+    // title: "WalletConnect",
+    // icon: WalletConnect,
+    // connectorId: ConnectorNames.WalletConnect,
+    // },
     {
         title: "Binance Chain Wallet",
-        icon: Icon$1n,
+        icon: Icon$1m,
         connectorId: exports.ConnectorNames.BSC,
     },
 ];
