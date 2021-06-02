@@ -18,6 +18,7 @@ export { default as TradeIcon } from "./Trade";
 export { default as TwitterIcon } from "./Twitter";
 export { default as MediumIcon } from "./Medium";
 export { default as RedditIcon } from "./Reddit";
+export { default as YoutubeIcon } from "./Youtube";
 export { default as Wallet } from "./Wallet";
 export { default as ArrowSidebar } from "./ArrowSidebar";
 export { default as ExchangeIcon } from "./Exchange";

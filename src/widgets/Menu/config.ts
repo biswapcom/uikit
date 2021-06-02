@@ -140,6 +140,11 @@ export const socials = [
     icon: "MediumIcon",
     href: "https://biswap-dex.medium.com/",
   },
+  {
+    label: "Youtube",
+    icon: "YoutubeIcon",
+    href: "https://www.youtube.com/channel/UCHartwkRUURf2Q7MlKOV84w",
+  },
 ];
 
 export const footerTitle = "Last top deals";
