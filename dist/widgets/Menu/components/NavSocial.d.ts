@@ -1,3 +1,7 @@
 import React from "react";
-declare const NavSocial: React.FC;
+interface Props {
+    isPushed?: boolean;
+    isSidebar?: boolean;
+}
+declare const NavSocial: React.FC<Props>;
 export default NavSocial;

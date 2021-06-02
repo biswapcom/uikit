@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PanelBody from "./PanelBody";
 import PanelFooter2 from "./PanelFooter2";
+import NavSocial from "./NavSocial";
 import Logo from "./Logo";
 import { ArrowSidebar } from "../icons";
 import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../config";
@@ -86,6 +87,8 @@ const Panel: React.FC<Props> = (props) => {
       {deals?.length && footerTitle && (
         <PanelFooter2 isPushed={isPushed} footerTitle={footerTitle} isDark={isDark} deals={deals} />
       )}
+      <NavSocial isPushed={isPushed} isSidebar/>
+
     </StyledPanel>
   );
 };
