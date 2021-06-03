@@ -2873,15 +2873,15 @@ var NavSocial = function (_a) {
         var Icon = Icons[social.icon];
         var iconProps = { width: "24px", color: "textSubtle", style: { cursor: "pointer" } };
         if (social.items) {
-            return (React.createElement(DropDownWrap, { ref: ref },
+            return (React.createElement(DropDownWrap, { key: social.label, ref: ref },
                 React.createElement(ItemWrapper, { className: "" + (isOpen && "active"), onClick: openDropdown },
                     React.createElement(Icon, __assign({}, iconProps))),
                 isOpen && (React.createElement(DropDown, { className: "" + (isOpen && "active"), isSidebar: isSidebar }, social.items.map(function (item) {
                     return (React.createElement(DropDownLink, { key: item.label, href: item.href, "aria-label": social.label }, item.label));
                 })))));
         }
-        return (React.createElement(ItemWrapper, null,
-            React.createElement(Link, { external: true, key: social.label, href: social.href, "aria-label": social.label },
+        return (React.createElement(ItemWrapper, { key: social.label },
+            React.createElement(Link, { external: true, href: social.href, "aria-label": social.label },
                 React.createElement(Icon, __assign({}, iconProps)))));
     })));
 };

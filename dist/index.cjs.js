@@ -2886,15 +2886,15 @@ var NavSocial = function (_a) {
         var Icon = Icons[social.icon];
         var iconProps = { width: "24px", color: "textSubtle", style: { cursor: "pointer" } };
         if (social.items) {
-            return (React__default['default'].createElement(DropDownWrap, { ref: ref },
+            return (React__default['default'].createElement(DropDownWrap, { key: social.label, ref: ref },
                 React__default['default'].createElement(ItemWrapper, { className: "" + (isOpen && "active"), onClick: openDropdown },
                     React__default['default'].createElement(Icon, __assign({}, iconProps))),
                 isOpen && (React__default['default'].createElement(DropDown, { className: "" + (isOpen && "active"), isSidebar: isSidebar }, social.items.map(function (item) {
                     return (React__default['default'].createElement(DropDownLink, { key: item.label, href: item.href, "aria-label": social.label }, item.label));
                 })))));
         }
-        return (React__default['default'].createElement(ItemWrapper, null,
-            React__default['default'].createElement(Link, { external: true, key: social.label, href: social.href, "aria-label": social.label },
+        return (React__default['default'].createElement(ItemWrapper, { key: social.label },
+            React__default['default'].createElement(Link, { external: true, href: social.href, "aria-label": social.label },
                 React__default['default'].createElement(Icon, __assign({}, iconProps)))));
     })));
 };
