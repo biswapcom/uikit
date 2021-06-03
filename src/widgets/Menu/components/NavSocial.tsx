@@ -114,7 +114,7 @@ const NavSocial: React.FC<Props> = ({ isPushed, isSidebar }) => {
 
         if (social.items) {
           return (
-            <DropDownWrap ref={ref}>
+            <DropDownWrap key={social.label} ref={ref}>
               <ItemWrapper className={`${isOpen && "active"}`} onClick={openDropdown}>
                 <Icon {...iconProps} />
               </ItemWrapper>
@@ -134,8 +134,8 @@ const NavSocial: React.FC<Props> = ({ isPushed, isSidebar }) => {
         }
 
         return (
-          <ItemWrapper>
-            <Link external key={social.label} href={social.href} aria-label={social.label}>
+          <ItemWrapper key={social.label}>
+            <Link external href={social.href} aria-label={social.label}>
               <Icon {...iconProps} />
             </Link>
           </ItemWrapper>
