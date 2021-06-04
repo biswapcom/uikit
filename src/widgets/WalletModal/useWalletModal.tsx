@@ -13,7 +13,10 @@ const useWalletModal = (login: Login,
                         logout: () => void,
                         account?: string,
                         recentTransaction?: any,
-                        rowStatus?:any,chainId?:any):
+                         rowStatus?: (ecentTransaction:any) => {
+  icon: JSX.Element,
+    color: string
+},chainId?:any):
   ReturnType => {
   const [onPresentConnectModal] = useModal(<ConnectModal login={login} />);
   const [onPresentAccountModal] = useModal(<AccountModal recentTransaction={recentTransaction} rowStatus={rowStatus} chainId={chainId} login={login} account={account || ""} logout={logout} />);

@@ -123,7 +123,9 @@ const Menu: React.FC<NavProps> = ({
   const [menuBg, setMenuBg] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
   console.log('recentTransaction menu',recentTransaction);
-  console.log('rowStatus menu',rowStatus(recentTransaction));
+  if (rowStatus) {
+    console.log("rowStatus menu", () => rowStatus(recentTransaction));
+  }
   console.log('chainId menu',chainId);
   useEffect(() => {
     const handleScroll = () => {

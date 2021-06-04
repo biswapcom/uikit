@@ -3342,7 +3342,9 @@ var AccountModal = function (_a) {
     var account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b; _a.login; var recentTransaction = _a.recentTransaction, chainId = _a.chainId, getRowStatus = _a.getRowStatus;
     console.log('recentTransaction account modal', recentTransaction);
     console.log('chainId account modal', chainId);
-    console.log('getRowStatus account modal', getRowStatus(recentTransaction));
+    if (getRowStatus) {
+        console.log("getRowStatus account modal", function () { return getRowStatus(recentTransaction); });
+    }
     return (React.createElement(Modal, { title: "Your wallet", onDismiss: onDismiss },
         React.createElement(ConnectedWrapper, null,
             React.createElement(Text, { fontSize: '14px', fontWeight: '400', lineHeight: '21px', color: '#708DB7' }, "Connected with Metamask"),
@@ -3390,7 +3392,9 @@ var UserBlock = function (_a) {
     var accountEllipsis = account ? account.substring(0, 4) + "..." + account.substring(account.length - 4) : null;
     var iconProps = { width: "24px", color: "contrast", style: { cursor: "pointer" } };
     console.log('recentTransaction user block', recentTransaction);
-    console.log('rowStatus user block', rowStatus(recentTransaction));
+    if (rowStatus) {
+        console.log("rowStatus user block", function () { return rowStatus(recentTransaction); });
+    }
     console.log('chainId user block', chainId);
     return (React.createElement("div", null, account ? (React.createElement(WalletWrap, null,
         React.createElement(Button, { variant: pendingTransactions ? "success" : "primary", scale: "sm", onClick: function () {
@@ -3599,7 +3603,9 @@ var Menu = function (_a) {
     var _f = useState(true), menuBg = _f[0], setMenuBg = _f[1];
     var refPrevOffset = useRef(window.pageYOffset);
     console.log('recentTransaction menu', recentTransaction);
-    console.log('rowStatus menu', rowStatus(recentTransaction));
+    if (rowStatus) {
+        console.log("rowStatus menu", function () { return rowStatus(recentTransaction); });
+    }
     console.log('chainId menu', chainId);
     useEffect(function () {
         var handleScroll = function () {
