@@ -3340,9 +3340,9 @@ var ConnectedWrapper = styled.div(templateObject_1$V || (templateObject_1$V = __
 var TransactionWrapper = styled.div(templateObject_2$q || (templateObject_2$q = __makeTemplateObject(["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"], ["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"])));
 var AccountModal = function (_a) {
     var account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b; _a.login; var recentTransaction = _a.recentTransaction, chainId = _a.chainId, getRowStatus = _a.getRowStatus;
-    console.log('recentTransaction', recentTransaction);
-    console.log('chainId', chainId);
-    console.log('getRowStatus', getRowStatus);
+    console.log('recentTransaction account modal', recentTransaction);
+    console.log('chainId account modal', chainId);
+    console.log('getRowStatus account modal', getRowStatus);
     return (React.createElement(Modal, { title: "Your wallet", onDismiss: onDismiss },
         React.createElement(ConnectedWrapper, null,
             React.createElement(Text, { fontSize: '14px', fontWeight: '400', lineHeight: '21px', color: '#708DB7' }, "Connected with Metamask"),
@@ -3361,20 +3361,7 @@ var AccountModal = function (_a) {
             React.createElement(Flex, { justifyContent: 'space-between', alignItems: 'center' },
                 React.createElement(Text, { fontSize: '14px', fontWeight: '600', lineHeight: '21px', color: '#07162D' }, "Recent transactions"),
                 React.createElement(Button, { scale: 'sm', variant: 'text' }, "Clear All")),
-            React.createElement(React.Fragment, null,
-                !account && (React.createElement(Flex, { justifyContent: "center", flexDirection: "column" },
-                    React.createElement(Text, { mb: "8px", bold: true }, "Please connect your wallet to view your recent transactions"))),
-                account && chainId && recentTransaction.length === 0 && (React.createElement(Flex, { justifyContent: "center", flexDirection: "column" },
-                    React.createElement(Text, { mb: "8px", bold: true }, "No recent transactions"))),
-                account &&
-                    chainId &&
-                    recentTransaction.map(function (sortedRecentTransaction) {
-                        var hash = sortedRecentTransaction.hash; sortedRecentTransaction.summary;
-                        var icon = getRowStatus(sortedRecentTransaction).icon;
-                        getRowStatus(sortedRecentTransaction).color;
-                        return (React.createElement(React.Fragment, null,
-                            React.createElement(Flex, { key: hash, alignItems: "center", justifyContent: "space-between", mb: "4px" }, icon)));
-                    }))),
+            React.createElement(React.Fragment, null)),
         React.createElement(Flex, null,
             React.createElement(Button, { style: { width: '100%' }, mt: '24px', variant: "secondary", onClick: function () {
                     logout();
@@ -3402,6 +3389,9 @@ var UserBlock = function (_a) {
     var _b = useWalletModal(login, logout, account, recentTransaction, rowStatus, chainId), onPresentConnectModal = _b.onPresentConnectModal, onPresentAccountModal = _b.onPresentAccountModal;
     var accountEllipsis = account ? account.substring(0, 4) + "..." + account.substring(account.length - 4) : null;
     var iconProps = { width: "24px", color: "contrast", style: { cursor: "pointer" } };
+    console.log('recentTransaction user block', recentTransaction);
+    console.log('rowStatus user block', rowStatus);
+    console.log('chainId user block', chainId);
     return (React.createElement("div", null, account ? (React.createElement(WalletWrap, null,
         React.createElement(Button, { variant: pendingTransactions ? "success" : "primary", scale: "sm", onClick: function () {
                 onPresentAccountModal();
@@ -3608,6 +3598,9 @@ var Menu = function (_a) {
     var _e = useState(true), showMenu = _e[0], setShowMenu = _e[1];
     var _f = useState(true), menuBg = _f[0], setMenuBg = _f[1];
     var refPrevOffset = useRef(window.pageYOffset);
+    console.log('recentTransaction menu', recentTransaction);
+    console.log('rowStatus menu', rowStatus);
+    console.log('chainId menu', chainId);
     useEffect(function () {
         var handleScroll = function () {
             var currentOffset = window.pageYOffset;

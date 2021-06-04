@@ -32,9 +32,9 @@ const TransactionWrapper = styled.div`
 `
 
 const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null,login ,recentTransaction,chainId,getRowStatus}) => {
-  console.log('recentTransaction',recentTransaction,);
-  console.log('chainId',chainId);
-  console.log('getRowStatus',getRowStatus);
+  console.log('recentTransaction account modal',recentTransaction,);
+  console.log('chainId account modal',chainId);
+  console.log('getRowStatus account modal',getRowStatus);
   return (
     <Modal title="Your wallet" onDismiss={onDismiss}>
       <ConnectedWrapper>
@@ -72,42 +72,42 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
         </Flex>
         <>
 
-          {!account && (
-            <Flex justifyContent="center" flexDirection="column">
-              <Text mb="8px" bold>
-                Please connect your wallet to view your recent transactions
-              </Text>
-            </Flex>
-          )}
-          {account && chainId && recentTransaction.length === 0 && (
-            <Flex justifyContent="center" flexDirection="column">
-              <Text mb="8px" bold>
-                No recent transactions
-              </Text>
-            </Flex>
-          )}
-          {account &&
-          chainId &&
-          recentTransaction.map((sortedRecentTransaction: any) => {
-            const { hash, summary } = sortedRecentTransaction
-            const { icon } = getRowStatus(sortedRecentTransaction)
-            let { color } = getRowStatus(sortedRecentTransaction)
-
-            if (color === 'success') {
-              color = 'primary'
-            }
-
-            return (
-              <>
-                <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
-                  {/* <LinkExternal href={getBscScanLink(chainId, hash, 'transaction')} color={color}> */}
-                  {/*  {summary ?? hash} */}
-                  {/* </LinkExternal> */}
-                  {icon}
-                </Flex>
-              </>
-            )
-          })}
+          {/* {!account && ( */}
+          {/*  <Flex justifyContent="center" flexDirection="column"> */}
+          {/*    <Text mb="8px" bold> */}
+          {/*      Please connect your wallet to view your recent transactions */}
+          {/*    </Text> */}
+          {/*  </Flex> */}
+          {/* )} */}
+          {/* {account && chainId && recentTransaction.length === 0 && ( */}
+          {/*  <Flex justifyContent="center" flexDirection="column"> */}
+          {/*    <Text mb="8px" bold> */}
+          {/*      No recent transactions */}
+          {/*    </Text> */}
+          {/*  </Flex> */}
+          {/* )} */}
+          {/* {account && */}
+          {/* chainId && */}
+          {/* recentTransaction.map((sortedRecentTransaction: any) => { */}
+          {/*  const { hash, summary } = sortedRecentTransaction */}
+          {/*  const { icon } = getRowStatus(sortedRecentTransaction) */}
+          {/*  let { color } = getRowStatus(sortedRecentTransaction) */}
+          
+          {/*  if (color === 'success') { */}
+          {/*    color = 'primary' */}
+          {/*  } */}
+          
+          {/*  return ( */}
+          {/*    <> */}
+          {/*      <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px"> */}
+          {/*        /!* <LinkExternal href={getBscScanLink(chainId, hash, 'transaction')} color={color}> *!/ */}
+          {/*        /!*  {summary ?? hash} *!/ */}
+          {/*        /!* </LinkExternal> *!/ */}
+          {/*        {icon} */}
+          {/*      </Flex> */}
+          {/*    </> */}
+          {/*  ) */}
+          {/* })} */}
         </>
       </TransactionWrapper>
       <Flex>
