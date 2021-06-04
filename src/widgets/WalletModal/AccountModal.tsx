@@ -9,6 +9,7 @@ import CopyToClipboard from "./CopyToClipboard";
 import { connectorLocalStorageKey } from "./config";
 import Loader from "../Menu/icons/Loader";
 import { CheckmarkCircleIcon, ErrorIcon } from "../../components/Svg";
+import { useWalletModal } from "./index";
 
 interface Props {
   account: string;
@@ -35,6 +36,7 @@ const TransactionWrapper = styled.div`
 const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null,login ,recentTransaction,chainId}) => {
 
   const [transactions, setTransactions] = useState(recentTransaction)
+  const { onPresentConnectModal } = useWalletModal(login, logout, account,recentTransaction,chainId);
   // console.log('recentTransaction account modal',recentTransaction,);
   // console.log('chainId account modal',chainId);
 
@@ -52,8 +54,11 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
     return { icon: <ErrorIcon color="failure" />, color: 'failure' }
   }
 
-  const changeWalletHandler = () => {
-     logout();
+  const changeWalletHandler = async () => {
+    await onDismiss();
+    await logout();
+    onPresentConnectModal();
+
   }
 
   return (
