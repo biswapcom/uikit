@@ -72,10 +72,6 @@ export interface NavProps extends PanelProps, PanelFooterProps, BSWPriceProps, F
   logout: () => void;
   pendingTransactions?: number;
   recentTransaction?: any;
-  rowStatus?: (recentTransaction:any) => {
-    icon: JSX.Element,
-    color: string
-  };
   chainId?: any
 }
 

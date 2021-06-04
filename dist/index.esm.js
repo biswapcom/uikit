@@ -3339,12 +3339,19 @@ var templateObject_1$U, templateObject_2$p;
 var ConnectedWrapper = styled.div(templateObject_1$V || (templateObject_1$V = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n"], ["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n"])));
 var TransactionWrapper = styled.div(templateObject_2$q || (templateObject_2$q = __makeTemplateObject(["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"], ["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"])));
 var AccountModal = function (_a) {
-    var account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b; _a.login; var recentTransaction = _a.recentTransaction, chainId = _a.chainId, getRowStatus = _a.getRowStatus;
+    var account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b; _a.login; var recentTransaction = _a.recentTransaction, chainId = _a.chainId;
     console.log('recentTransaction account modal', recentTransaction);
     console.log('chainId account modal', chainId);
-    if (getRowStatus) {
-        console.log("getRowStatus account modal", function () { return getRowStatus(recentTransaction); });
-    }
+    var getRowStatus = function (sortedRecentTransaction) {
+        var hash = sortedRecentTransaction.hash, receipt = sortedRecentTransaction.receipt;
+        if (!hash) {
+            return { icon: React.createElement(Icon$1i, null), color: 'text' };
+        }
+        if (hash && (receipt === null || receipt === void 0 ? void 0 : receipt.status) === 1) {
+            return { icon: React.createElement(Icon, { color: "success" }), color: 'success' };
+        }
+        return { icon: React.createElement(Icon$1, { color: "failure" }), color: 'failure' };
+    };
     return (React.createElement(Modal, { title: "Your wallet", onDismiss: onDismiss },
         React.createElement(ConnectedWrapper, null,
             React.createElement(Text, { fontSize: '14px', fontWeight: '400', lineHeight: '21px', color: '#708DB7' }, "Connected with Metamask"),
@@ -3363,7 +3370,25 @@ var AccountModal = function (_a) {
             React.createElement(Flex, { justifyContent: 'space-between', alignItems: 'center' },
                 React.createElement(Text, { fontSize: '14px', fontWeight: '600', lineHeight: '21px', color: '#07162D' }, "Recent transactions"),
                 React.createElement(Button, { scale: 'sm', variant: 'text' }, "Clear All")),
-            React.createElement(React.Fragment, null)),
+            React.createElement(React.Fragment, null,
+                !account && (React.createElement(Flex, { justifyContent: "center", flexDirection: "column" },
+                    React.createElement(Text, { mb: "8px", bold: true }, "Please connect your wallet to view your recent transactions"))),
+                account && chainId && recentTransaction.length === 0 && (React.createElement(Flex, { justifyContent: "center", flexDirection: "column" },
+                    React.createElement(Text, { mb: "8px", bold: true }, "No recent transactions"))),
+                account &&
+                    chainId &&
+                    recentTransaction.map(function (sortedRecentTransaction) {
+                        var hash = sortedRecentTransaction.hash, summary = sortedRecentTransaction.summary;
+                        var icon = getRowStatus(sortedRecentTransaction).icon;
+                        var color = getRowStatus(sortedRecentTransaction).color;
+                        if (color === 'success') {
+                            color = 'primary';
+                        }
+                        return (React.createElement(React.Fragment, null,
+                            React.createElement(Flex, { key: hash, alignItems: "center", justifyContent: "space-between", mb: "4px" },
+                                React.createElement(LinkExternal, { href: '/', color: color }, summary !== null && summary !== void 0 ? summary : hash),
+                                icon)));
+                    }))),
         React.createElement(Flex, null,
             React.createElement(Button, { style: { width: '100%' }, mt: '24px', variant: "secondary", onClick: function () {
                     logout();
@@ -3373,9 +3398,9 @@ var AccountModal = function (_a) {
 };
 var templateObject_1$V, templateObject_2$q;
 
-var useWalletModal = function (login, logout, account, recentTransaction, rowStatus, chainId) {
+var useWalletModal = function (login, logout, account, recentTransaction, chainId) {
     var onPresentConnectModal = useModal(React.createElement(ConnectModal, { login: login }))[0];
-    var onPresentAccountModal = useModal(React.createElement(AccountModal, { recentTransaction: recentTransaction, rowStatus: rowStatus, chainId: chainId, login: login, account: account || "", logout: logout }))[0];
+    var onPresentAccountModal = useModal(React.createElement(AccountModal, { recentTransaction: recentTransaction, chainId: chainId, login: login, account: account || "", logout: logout }))[0];
     return { onPresentConnectModal: onPresentConnectModal, onPresentAccountModal: onPresentAccountModal };
 };
 
@@ -3387,14 +3412,11 @@ var WalletWrap = styled.div(templateObject_1$W || (templateObject_1$W = __makeTe
 //   padding: 0 16px;
 // `;
 var UserBlock = function (_a) {
-    var account = _a.account, login = _a.login, logout = _a.logout, pendingTransactions = _a.pendingTransactions, recentTransaction = _a.recentTransaction, rowStatus = _a.rowStatus, chainId = _a.chainId;
-    var _b = useWalletModal(login, logout, account, recentTransaction, rowStatus, chainId), onPresentConnectModal = _b.onPresentConnectModal, onPresentAccountModal = _b.onPresentAccountModal;
+    var account = _a.account, login = _a.login, logout = _a.logout, pendingTransactions = _a.pendingTransactions, recentTransaction = _a.recentTransaction, chainId = _a.chainId;
+    var _b = useWalletModal(login, logout, account, recentTransaction, chainId), onPresentConnectModal = _b.onPresentConnectModal, onPresentAccountModal = _b.onPresentAccountModal;
     var accountEllipsis = account ? account.substring(0, 4) + "..." + account.substring(account.length - 4) : null;
     var iconProps = { width: "24px", color: "contrast", style: { cursor: "pointer" } };
     console.log('recentTransaction user block', recentTransaction);
-    if (rowStatus) {
-        console.log("rowStatus user block", function () { return rowStatus(recentTransaction); });
-    }
     console.log('chainId user block', chainId);
     return (React.createElement("div", null, account ? (React.createElement(WalletWrap, null,
         React.createElement(Button, { variant: pendingTransactions ? "success" : "primary", scale: "sm", onClick: function () {
@@ -3595,7 +3617,7 @@ var MobileOnlyOverlay = styled(Overlay)(templateObject_5$6 || (templateObject_5$
 });
 var Menu = function (_a) {
     var _b;
-    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links; _a.profile; var rowStatus = _a.rowStatus, chainId = _a.chainId, children = _a.children, footerTitle = _a.footerTitle, deals = _a.deals, BSWPriceLabel = _a.BSWPriceLabel, BSWPriceValue = _a.BSWPriceValue, supply = _a.supply, total = _a.total, pendingTransactions = _a.pendingTransactions, recentTransaction = _a.recentTransaction, onClick = _a.onClick;
+    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links; _a.profile; var chainId = _a.chainId, children = _a.children, footerTitle = _a.footerTitle, deals = _a.deals, BSWPriceLabel = _a.BSWPriceLabel, BSWPriceValue = _a.BSWPriceValue, supply = _a.supply, total = _a.total, pendingTransactions = _a.pendingTransactions, recentTransaction = _a.recentTransaction, onClick = _a.onClick;
     var _c = useMatchBreakpoints(), isLg = _c.isLg, isMd = _c.isMd, isSm = _c.isSm, isXs = _c.isXs;
     var isMobile = isLg || isMd || isSm || isXs;
     var _d = useState(!isMobile), isPushed = _d[0], setIsPushed = _d[1];
@@ -3603,9 +3625,6 @@ var Menu = function (_a) {
     var _f = useState(true), menuBg = _f[0], setMenuBg = _f[1];
     var refPrevOffset = useRef(window.pageYOffset);
     console.log('recentTransaction menu', recentTransaction);
-    if (rowStatus) {
-        console.log("rowStatus menu", function () { return rowStatus(recentTransaction); });
-    }
     console.log('chainId menu', chainId);
     useEffect(function () {
         var handleScroll = function () {
@@ -3644,7 +3663,7 @@ var Menu = function (_a) {
             React.createElement(StyledNav, { showMenu: showMenu, isPushed: isPushed, menuBg: menuBg },
                 React.createElement(TogglePanel, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark }),
                 React.createElement(Flex, null,
-                    React.createElement(UserBlock, { recentTransaction: recentTransaction, rowStatus: rowStatus, chainId: chainId, account: account, login: login, logout: logout, pendingTransactions: pendingTransactions }))),
+                    React.createElement(UserBlock, { recentTransaction: recentTransaction, chainId: chainId, account: account, login: login, logout: logout, pendingTransactions: pendingTransactions }))),
             React.createElement(Panel, { togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isPushed: isPushed, isMobile: isMobile, showMenu: showMenu, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, pushNav: setIsPushed, links: links, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/", footerTitle: footerTitle, deals: deals }),
             React.createElement(Inner$1, { isPushed: isPushed, showMenu: showMenu },
                 React.createElement("div", null, children),

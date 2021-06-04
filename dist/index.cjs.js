@@ -3352,12 +3352,19 @@ var templateObject_1$U, templateObject_2$p;
 var ConnectedWrapper = styled__default['default'].div(templateObject_1$V || (templateObject_1$V = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n"], ["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n"])));
 var TransactionWrapper = styled__default['default'].div(templateObject_2$q || (templateObject_2$q = __makeTemplateObject(["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"], ["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"])));
 var AccountModal = function (_a) {
-    var account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b; _a.login; var recentTransaction = _a.recentTransaction, chainId = _a.chainId, getRowStatus = _a.getRowStatus;
+    var account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b; _a.login; var recentTransaction = _a.recentTransaction, chainId = _a.chainId;
     console.log('recentTransaction account modal', recentTransaction);
     console.log('chainId account modal', chainId);
-    if (getRowStatus) {
-        console.log("getRowStatus account modal", function () { return getRowStatus(recentTransaction); });
-    }
+    var getRowStatus = function (sortedRecentTransaction) {
+        var hash = sortedRecentTransaction.hash, receipt = sortedRecentTransaction.receipt;
+        if (!hash) {
+            return { icon: React__default['default'].createElement(Icon$1i, null), color: 'text' };
+        }
+        if (hash && (receipt === null || receipt === void 0 ? void 0 : receipt.status) === 1) {
+            return { icon: React__default['default'].createElement(Icon, { color: "success" }), color: 'success' };
+        }
+        return { icon: React__default['default'].createElement(Icon$1, { color: "failure" }), color: 'failure' };
+    };
     return (React__default['default'].createElement(Modal, { title: "Your wallet", onDismiss: onDismiss },
         React__default['default'].createElement(ConnectedWrapper, null,
             React__default['default'].createElement(Text, { fontSize: '14px', fontWeight: '400', lineHeight: '21px', color: '#708DB7' }, "Connected with Metamask"),
@@ -3376,7 +3383,25 @@ var AccountModal = function (_a) {
             React__default['default'].createElement(Flex, { justifyContent: 'space-between', alignItems: 'center' },
                 React__default['default'].createElement(Text, { fontSize: '14px', fontWeight: '600', lineHeight: '21px', color: '#07162D' }, "Recent transactions"),
                 React__default['default'].createElement(Button, { scale: 'sm', variant: 'text' }, "Clear All")),
-            React__default['default'].createElement(React__default['default'].Fragment, null)),
+            React__default['default'].createElement(React__default['default'].Fragment, null,
+                !account && (React__default['default'].createElement(Flex, { justifyContent: "center", flexDirection: "column" },
+                    React__default['default'].createElement(Text, { mb: "8px", bold: true }, "Please connect your wallet to view your recent transactions"))),
+                account && chainId && recentTransaction.length === 0 && (React__default['default'].createElement(Flex, { justifyContent: "center", flexDirection: "column" },
+                    React__default['default'].createElement(Text, { mb: "8px", bold: true }, "No recent transactions"))),
+                account &&
+                    chainId &&
+                    recentTransaction.map(function (sortedRecentTransaction) {
+                        var hash = sortedRecentTransaction.hash, summary = sortedRecentTransaction.summary;
+                        var icon = getRowStatus(sortedRecentTransaction).icon;
+                        var color = getRowStatus(sortedRecentTransaction).color;
+                        if (color === 'success') {
+                            color = 'primary';
+                        }
+                        return (React__default['default'].createElement(React__default['default'].Fragment, null,
+                            React__default['default'].createElement(Flex, { key: hash, alignItems: "center", justifyContent: "space-between", mb: "4px" },
+                                React__default['default'].createElement(LinkExternal, { href: '/', color: color }, summary !== null && summary !== void 0 ? summary : hash),
+                                icon)));
+                    }))),
         React__default['default'].createElement(Flex, null,
             React__default['default'].createElement(Button, { style: { width: '100%' }, mt: '24px', variant: "secondary", onClick: function () {
                     logout();
@@ -3386,9 +3411,9 @@ var AccountModal = function (_a) {
 };
 var templateObject_1$V, templateObject_2$q;
 
-var useWalletModal = function (login, logout, account, recentTransaction, rowStatus, chainId) {
+var useWalletModal = function (login, logout, account, recentTransaction, chainId) {
     var onPresentConnectModal = useModal(React__default['default'].createElement(ConnectModal, { login: login }))[0];
-    var onPresentAccountModal = useModal(React__default['default'].createElement(AccountModal, { recentTransaction: recentTransaction, rowStatus: rowStatus, chainId: chainId, login: login, account: account || "", logout: logout }))[0];
+    var onPresentAccountModal = useModal(React__default['default'].createElement(AccountModal, { recentTransaction: recentTransaction, chainId: chainId, login: login, account: account || "", logout: logout }))[0];
     return { onPresentConnectModal: onPresentConnectModal, onPresentAccountModal: onPresentAccountModal };
 };
 
@@ -3400,14 +3425,11 @@ var WalletWrap = styled__default['default'].div(templateObject_1$W || (templateO
 //   padding: 0 16px;
 // `;
 var UserBlock = function (_a) {
-    var account = _a.account, login = _a.login, logout = _a.logout, pendingTransactions = _a.pendingTransactions, recentTransaction = _a.recentTransaction, rowStatus = _a.rowStatus, chainId = _a.chainId;
-    var _b = useWalletModal(login, logout, account, recentTransaction, rowStatus, chainId), onPresentConnectModal = _b.onPresentConnectModal, onPresentAccountModal = _b.onPresentAccountModal;
+    var account = _a.account, login = _a.login, logout = _a.logout, pendingTransactions = _a.pendingTransactions, recentTransaction = _a.recentTransaction, chainId = _a.chainId;
+    var _b = useWalletModal(login, logout, account, recentTransaction, chainId), onPresentConnectModal = _b.onPresentConnectModal, onPresentAccountModal = _b.onPresentAccountModal;
     var accountEllipsis = account ? account.substring(0, 4) + "..." + account.substring(account.length - 4) : null;
     var iconProps = { width: "24px", color: "contrast", style: { cursor: "pointer" } };
     console.log('recentTransaction user block', recentTransaction);
-    if (rowStatus) {
-        console.log("rowStatus user block", function () { return rowStatus(recentTransaction); });
-    }
     console.log('chainId user block', chainId);
     return (React__default['default'].createElement("div", null, account ? (React__default['default'].createElement(WalletWrap, null,
         React__default['default'].createElement(Button, { variant: pendingTransactions ? "success" : "primary", scale: "sm", onClick: function () {
@@ -3608,7 +3630,7 @@ var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_5$6 |
 });
 var Menu = function (_a) {
     var _b;
-    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links; _a.profile; var rowStatus = _a.rowStatus, chainId = _a.chainId, children = _a.children, footerTitle = _a.footerTitle, deals = _a.deals, BSWPriceLabel = _a.BSWPriceLabel, BSWPriceValue = _a.BSWPriceValue, supply = _a.supply, total = _a.total, pendingTransactions = _a.pendingTransactions, recentTransaction = _a.recentTransaction, onClick = _a.onClick;
+    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links; _a.profile; var chainId = _a.chainId, children = _a.children, footerTitle = _a.footerTitle, deals = _a.deals, BSWPriceLabel = _a.BSWPriceLabel, BSWPriceValue = _a.BSWPriceValue, supply = _a.supply, total = _a.total, pendingTransactions = _a.pendingTransactions, recentTransaction = _a.recentTransaction, onClick = _a.onClick;
     var _c = useMatchBreakpoints(), isLg = _c.isLg, isMd = _c.isMd, isSm = _c.isSm, isXs = _c.isXs;
     var isMobile = isLg || isMd || isSm || isXs;
     var _d = React.useState(!isMobile), isPushed = _d[0], setIsPushed = _d[1];
@@ -3616,9 +3638,6 @@ var Menu = function (_a) {
     var _f = React.useState(true), menuBg = _f[0], setMenuBg = _f[1];
     var refPrevOffset = React.useRef(window.pageYOffset);
     console.log('recentTransaction menu', recentTransaction);
-    if (rowStatus) {
-        console.log("rowStatus menu", function () { return rowStatus(recentTransaction); });
-    }
     console.log('chainId menu', chainId);
     React.useEffect(function () {
         var handleScroll = function () {
@@ -3657,7 +3676,7 @@ var Menu = function (_a) {
             React__default['default'].createElement(StyledNav, { showMenu: showMenu, isPushed: isPushed, menuBg: menuBg },
                 React__default['default'].createElement(TogglePanel, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark }),
                 React__default['default'].createElement(Flex, null,
-                    React__default['default'].createElement(UserBlock, { recentTransaction: recentTransaction, rowStatus: rowStatus, chainId: chainId, account: account, login: login, logout: logout, pendingTransactions: pendingTransactions }))),
+                    React__default['default'].createElement(UserBlock, { recentTransaction: recentTransaction, chainId: chainId, account: account, login: login, logout: logout, pendingTransactions: pendingTransactions }))),
             React__default['default'].createElement(Panel, { togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isPushed: isPushed, isMobile: isMobile, showMenu: showMenu, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, pushNav: setIsPushed, links: links, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/", footerTitle: footerTitle, deals: deals }),
             React__default['default'].createElement(Inner$1, { isPushed: isPushed, showMenu: showMenu },
                 React__default['default'].createElement("div", null, children),

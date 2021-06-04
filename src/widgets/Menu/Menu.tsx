@@ -103,8 +103,7 @@ const Menu: React.FC<NavProps> = ({
   cakePriceUsd,
   links,
   profile,
-                                    rowStatus,
-                                    chainId,
+  chainId,
   children,
   footerTitle,
   deals,
@@ -113,7 +112,7 @@ const Menu: React.FC<NavProps> = ({
   supply,
   total,
   pendingTransactions,
-                                    recentTransaction,
+  recentTransaction,
   onClick
 }) => {
   const { isLg, isMd, isSm, isXs } = useMatchBreakpoints();
@@ -123,9 +122,6 @@ const Menu: React.FC<NavProps> = ({
   const [menuBg, setMenuBg] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
   console.log('recentTransaction menu',recentTransaction);
-  if (rowStatus) {
-    console.log("rowStatus menu", () => rowStatus(recentTransaction));
-  }
   console.log('chainId menu',chainId);
   useEffect(() => {
     const handleScroll = () => {
@@ -172,7 +168,6 @@ const Menu: React.FC<NavProps> = ({
           />
           <Flex>
             <UserBlock recentTransaction={recentTransaction}
-                       rowStatus={rowStatus}
                        chainId={chainId}
                        account={account} login={login} logout={logout} pendingTransactions={pendingTransactions} />
             {/* {profile && <Avatar profile={profile} />} */}

@@ -13,10 +13,6 @@ interface Props {
   logout: () => void;
   pendingTransactions?: number;
   recentTransaction?: any;
-  rowStatus?: (recentTransaction:any) => {
-    icon: JSX.Element,
-    color: string
-  }
   chainId?: any
 }
 
@@ -31,14 +27,11 @@ const WalletWrap = styled.div`
 //   padding: 0 16px;
 // `;
 
-const UserBlock: React.FC<Props> = ({ account, login, logout, pendingTransactions,recentTransaction,rowStatus,chainId }) => {
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account,recentTransaction,rowStatus,chainId);
+const UserBlock: React.FC<Props> = ({ account, login, logout, pendingTransactions,recentTransaction,chainId }) => {
+  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account,recentTransaction,chainId);
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
   const iconProps = { width: "24px", color: "contrast", style: { cursor: "pointer" } };
   console.log('recentTransaction user block',recentTransaction);
-  if (rowStatus) {
-    console.log("rowStatus user block", () => rowStatus(recentTransaction));
-  }
   console.log('chainId user block',chainId);
   return (
     <div>

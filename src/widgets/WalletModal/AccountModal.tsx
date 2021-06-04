@@ -7,6 +7,8 @@ import Flex from "../../components/Box/Flex";
 import { Modal } from "../Modal";
 import CopyToClipboard from "./CopyToClipboard";
 import { connectorLocalStorageKey } from "./config";
+import Loader from "../Menu/icons/Loader";
+import { CheckmarkCircleIcon, ErrorIcon } from "../../components/Svg";
 
 interface Props {
   account: string;
@@ -16,10 +18,6 @@ interface Props {
   recentTransaction?: any;
   rowStatus?: any
   chainId?: any
-  getRowStatus?: (recentTransaction:any) => {
-    icon: JSX.Element,
-    color: string
-  }
 }
 
 const ConnectedWrapper = styled.div`
@@ -34,12 +32,25 @@ const TransactionWrapper = styled.div`
   background-color: #F2F6FC;
 `
 
-const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null,login ,recentTransaction,chainId,getRowStatus}) => {
+const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null,login ,recentTransaction,chainId}) => {
   console.log('recentTransaction account modal',recentTransaction,);
   console.log('chainId account modal',chainId);
-  if (getRowStatus) {
-    console.log("getRowStatus account modal", () => getRowStatus(recentTransaction));
+
+   const getRowStatus = (sortedRecentTransaction: any) => {
+    const { hash, receipt } = sortedRecentTransaction
+
+    if (!hash) {
+      return { icon: <Loader />, color: 'text' }
+    }
+
+    if (hash && receipt?.status === 1) {
+      return { icon: <CheckmarkCircleIcon color="success" />, color: 'success' }
+    }
+
+    return { icon: <ErrorIcon color="failure" />, color: 'failure' }
   }
+
+
   return (
     <Modal title="Your wallet" onDismiss={onDismiss}>
       <ConnectedWrapper>
@@ -77,42 +88,42 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
         </Flex>
         <>
 
-          {/* {!account && ( */}
-          {/*  <Flex justifyContent="center" flexDirection="column"> */}
-          {/*    <Text mb="8px" bold> */}
-          {/*      Please connect your wallet to view your recent transactions */}
-          {/*    </Text> */}
-          {/*  </Flex> */}
-          {/* )} */}
-          {/* {account && chainId && recentTransaction.length === 0 && ( */}
-          {/*  <Flex justifyContent="center" flexDirection="column"> */}
-          {/*    <Text mb="8px" bold> */}
-          {/*      No recent transactions */}
-          {/*    </Text> */}
-          {/*  </Flex> */}
-          {/* )} */}
-          {/* {account && */}
-          {/* chainId && */}
-          {/* recentTransaction.map((sortedRecentTransaction: any) => { */}
-          {/*  const { hash, summary } = sortedRecentTransaction */}
-          {/*  const { icon } = getRowStatus(sortedRecentTransaction) */}
-          {/*  let { color } = getRowStatus(sortedRecentTransaction) */}
+           {!account && (
+            <Flex justifyContent="center" flexDirection="column">
+              <Text mb="8px" bold>
+                Please connect your wallet to view your recent transactions
+              </Text>
+            </Flex>
+           )}
+           {account && chainId && recentTransaction.length === 0 && (
+            <Flex justifyContent="center" flexDirection="column">
+              <Text mb="8px" bold>
+                No recent transactions
+              </Text>
+            </Flex>
+           )}
+           {account &&
+           chainId &&
+           recentTransaction.map((sortedRecentTransaction: any) => {
+            const { hash, summary } = sortedRecentTransaction
+            const { icon } = getRowStatus(sortedRecentTransaction)
+            let { color } = getRowStatus(sortedRecentTransaction)
           
-          {/*  if (color === 'success') { */}
-          {/*    color = 'primary' */}
-          {/*  } */}
+            if (color === 'success') {
+              color = 'primary'
+            }
           
-          {/*  return ( */}
-          {/*    <> */}
-          {/*      <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px"> */}
-          {/*        /!* <LinkExternal href={getBscScanLink(chainId, hash, 'transaction')} color={color}> *!/ */}
-          {/*        /!*  {summary ?? hash} *!/ */}
-          {/*        /!* </LinkExternal> *!/ */}
-          {/*        {icon} */}
-          {/*      </Flex> */}
-          {/*    </> */}
-          {/*  ) */}
-          {/* })} */}
+            return (
+              <>
+                <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
+                   <LinkExternal href='/' color={color}>
+                  {summary ?? hash}
+                  </LinkExternal>
+                  {icon}
+                </Flex>
+              </>
+            )
+           })}
         </>
       </TransactionWrapper>
       <Flex>
