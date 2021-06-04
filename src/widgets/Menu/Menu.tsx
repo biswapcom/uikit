@@ -103,6 +103,8 @@ const Menu: React.FC<NavProps> = ({
   cakePriceUsd,
   links,
   profile,
+                                    rowStatus,
+                                    chainId,
   children,
   footerTitle,
   deals,
@@ -111,6 +113,7 @@ const Menu: React.FC<NavProps> = ({
   supply,
   total,
   pendingTransactions,
+                                    recentTransaction,
   onClick
 }) => {
   const { isLg, isMd, isSm, isXs } = useMatchBreakpoints();
@@ -164,7 +167,10 @@ const Menu: React.FC<NavProps> = ({
             isDark={isDark}
           />
           <Flex>
-            <UserBlock account={account} login={login} logout={logout} pendingTransactions={pendingTransactions} />
+            <UserBlock recentTransaction={recentTransaction}
+                       rowStatus={rowStatus}
+                       chainId={chainId}
+                       account={account} login={login} logout={logout} pendingTransactions={pendingTransactions} />
             {/* {profile && <Avatar profile={profile} />} */}
           </Flex>
         </StyledNav>

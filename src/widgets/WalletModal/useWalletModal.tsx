@@ -9,9 +9,14 @@ interface ReturnType {
   onPresentAccountModal: () => void;
 }
 
-const useWalletModal = (login: Login, logout: () => void, account?: string): ReturnType => {
+const useWalletModal = (login: Login,
+                        logout: () => void,
+                        account?: string,
+                        recentTransaction?: any,
+                        rowStatus?:any,chainId?:any):
+  ReturnType => {
   const [onPresentConnectModal] = useModal(<ConnectModal login={login} />);
-  const [onPresentAccountModal] = useModal(<AccountModal account={account || ""} logout={logout} />);
+  const [onPresentAccountModal] = useModal(<AccountModal recentTransaction={recentTransaction} rowStatus={rowStatus} chainId={chainId} login={login} account={account || ""} logout={logout} />);
   return { onPresentConnectModal, onPresentAccountModal };
 };
 
