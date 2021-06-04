@@ -34,7 +34,7 @@ const TransactionWrapper = styled.div`
 const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null,login ,recentTransaction,chainId,getRowStatus}) => {
   console.log('recentTransaction account modal',recentTransaction,);
   console.log('chainId account modal',chainId);
-  console.log('getRowStatus account modal',getRowStatus);
+  console.log('getRowStatus account modal',getRowStatus(recentTransaction));
   return (
     <Modal title="Your wallet" onDismiss={onDismiss}>
       <ConnectedWrapper>

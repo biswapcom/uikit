@@ -33,7 +33,7 @@ const UserBlock: React.FC<Props> = ({ account, login, logout, pendingTransaction
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
   const iconProps = { width: "24px", color: "contrast", style: { cursor: "pointer" } };
   console.log('recentTransaction user block',recentTransaction);
-  console.log('rowStatus user block',rowStatus);
+  console.log('rowStatus user block',rowStatus(recentTransaction));
   console.log('chainId user block',chainId);
   return (
     <div>
