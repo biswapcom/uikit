@@ -3353,8 +3353,9 @@ var ConnectedWrapper = styled__default['default'].div(templateObject_1$V || (tem
 var TransactionWrapper = styled__default['default'].div(templateObject_2$q || (templateObject_2$q = __makeTemplateObject(["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"], ["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"])));
 var AccountModal = function (_a) {
     var account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b; _a.login; var recentTransaction = _a.recentTransaction, chainId = _a.chainId;
-    console.log('recentTransaction account modal', recentTransaction);
-    console.log('chainId account modal', chainId);
+    var _c = React.useState(recentTransaction), transactions = _c[0], setTransactions = _c[1];
+    // console.log('recentTransaction account modal',recentTransaction,);
+    // console.log('chainId account modal',chainId);
     var getRowStatus = function (sortedRecentTransaction) {
         var hash = sortedRecentTransaction.hash, receipt = sortedRecentTransaction.receipt;
         if (!hash) {
@@ -3365,10 +3366,13 @@ var AccountModal = function (_a) {
         }
         return { icon: React__default['default'].createElement(Icon$1, { color: "failure" }), color: 'failure' };
     };
+    var changeWalletHandler = function () {
+        logout();
+    };
     return (React__default['default'].createElement(Modal, { title: "Your wallet", onDismiss: onDismiss },
         React__default['default'].createElement(ConnectedWrapper, null,
             React__default['default'].createElement(Text, { fontSize: '14px', fontWeight: '400', lineHeight: '21px', color: '#708DB7' }, "Connected with Metamask"),
-            React__default['default'].createElement(Button, { scale: 'sm', variant: 'primary' }, "Change")),
+            React__default['default'].createElement(Button, { onClick: changeWalletHandler, scale: 'sm', variant: 'primary' }, "Change")),
         React__default['default'].createElement(Text, { fontSize: "14px", fontWeight: '600', color: '#07162D', style: {
                 whiteSpace: "nowrap",
                 overflow: "hidden",
@@ -3382,15 +3386,15 @@ var AccountModal = function (_a) {
         React__default['default'].createElement(TransactionWrapper, null,
             React__default['default'].createElement(Flex, { justifyContent: 'space-between', alignItems: 'center' },
                 React__default['default'].createElement(Text, { fontSize: '14px', fontWeight: '600', lineHeight: '21px', color: '#07162D' }, "Recent transactions"),
-                React__default['default'].createElement(Button, { scale: 'sm', variant: 'text' }, "Clear All")),
+                React__default['default'].createElement(Button, { scale: 'sm', variant: 'text', onClick: function () { return setTransactions([]); } }, "Clear All")),
             React__default['default'].createElement(React__default['default'].Fragment, null,
                 !account && (React__default['default'].createElement(Flex, { justifyContent: "center", flexDirection: "column" },
                     React__default['default'].createElement(Text, { mb: "8px", bold: true }, "Please connect your wallet to view your recent transactions"))),
-                account && chainId && recentTransaction.length === 0 && (React__default['default'].createElement(Flex, { justifyContent: "center", flexDirection: "column" },
+                account && chainId && transactions.length === 0 && (React__default['default'].createElement(Flex, { justifyContent: "center", flexDirection: "column" },
                     React__default['default'].createElement(Text, { mb: "8px", bold: true }, "No recent transactions"))),
                 account &&
                     chainId &&
-                    recentTransaction.map(function (sortedRecentTransaction) {
+                    transactions.map(function (sortedRecentTransaction) {
                         var hash = sortedRecentTransaction.hash, summary = sortedRecentTransaction.summary;
                         var icon = getRowStatus(sortedRecentTransaction).icon;
                         var color = getRowStatus(sortedRecentTransaction).color;

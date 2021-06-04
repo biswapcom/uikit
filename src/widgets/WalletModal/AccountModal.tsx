@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "../../components/Button/Button";
 import Text from "../../components/Text/Text";
@@ -33,8 +33,10 @@ const TransactionWrapper = styled.div`
 `
 
 const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null,login ,recentTransaction,chainId}) => {
-  console.log('recentTransaction account modal',recentTransaction,);
-  console.log('chainId account modal',chainId);
+
+  const [transactions, setTransactions] = useState(recentTransaction)
+  // console.log('recentTransaction account modal',recentTransaction,);
+  // console.log('chainId account modal',chainId);
 
    const getRowStatus = (sortedRecentTransaction: any) => {
     const { hash, receipt } = sortedRecentTransaction
@@ -50,12 +52,15 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
     return { icon: <ErrorIcon color="failure" />, color: 'failure' }
   }
 
+  const changeWalletHandler = () => {
+     logout();
+  }
 
   return (
     <Modal title="Your wallet" onDismiss={onDismiss}>
       <ConnectedWrapper>
         <Text fontSize='14px' fontWeight='400' lineHeight='21px' color='#708DB7'>Connected with Metamask</Text>
-        <Button scale='sm' variant='primary'>Change</Button>
+        <Button onClick={changeWalletHandler} scale='sm' variant='primary'>Change</Button>
       </ConnectedWrapper>
       <Text
         fontSize="14px"
@@ -82,12 +87,11 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
           <Text fontSize='14px' fontWeight='600' lineHeight='21px' color='#07162D'>
             Recent transactions
           </Text>
-          <Button scale='sm' variant='text'>
+          <Button scale='sm' variant='text' onClick={()=> setTransactions([])}>
             Clear All
           </Button>
         </Flex>
         <>
-
            {!account && (
             <Flex justifyContent="center" flexDirection="column">
               <Text mb="8px" bold>
@@ -95,7 +99,7 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
               </Text>
             </Flex>
            )}
-           {account && chainId && recentTransaction.length === 0 && (
+           {account && chainId && transactions.length === 0 && (
             <Flex justifyContent="center" flexDirection="column">
               <Text mb="8px" bold>
                 No recent transactions
@@ -104,7 +108,7 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
            )}
            {account &&
            chainId &&
-           recentTransaction.map((sortedRecentTransaction: any) => {
+           transactions.map((sortedRecentTransaction: any) => {
             const { hash, summary } = sortedRecentTransaction
             const { icon } = getRowStatus(sortedRecentTransaction)
             let { color } = getRowStatus(sortedRecentTransaction)
