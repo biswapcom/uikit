@@ -53,5 +53,6 @@ export { default as TelegramIcon } from "./Icons/Telegram";
 export { default as TwitterIcon } from "./Icons/Twitter";
 export { default as RocketIcon } from "./Icons/Rocket";
 export { default as FlagIcon } from "./Icons/Flag";
+export { default as WalletIcon } from "./Icons/Wallet";
 export { default as Svg } from "./Svg";
 export type { SvgProps } from "./types";
