@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { BaseButtonProps, Scale, variants } from "../Button/types";
 export interface ButtonMenuItemProps extends BaseButtonProps {
     isActive?: boolean;

@@ -27,3 +27,4 @@ export { default as RocketIcon } from "./Rocket";
 export { default as FreeIcon } from "./Free";
 export { default as LoaderIcon } from "./Loader";
 export {default as CupIcon} from './Cup';
+export { default as AuditIcon } from "./AuditIcon";
