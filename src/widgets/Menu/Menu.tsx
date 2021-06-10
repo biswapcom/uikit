@@ -6,6 +6,7 @@ import Flex from "../../components/Box/Flex";
 import { useMatchBreakpoints } from "../../hooks";
 import TogglePanel from "./components/TogglePanel";
 import Panel from "./components/Panel";
+import AuditInfo from "./components/AuditInfo";
 import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 import Footer from "./components/Footer";
@@ -164,6 +165,7 @@ const Menu: React.FC<NavProps> = ({
             isDark={isDark}
           />
           <Flex>
+            <AuditInfo />
             <UserBlock account={account} login={login} logout={logout} pendingTransactions={pendingTransactions} />
             {/* {profile && <Avatar profile={profile} />} */}
           </Flex>

@@ -26,3 +26,4 @@ export { default as ReferralIcon } from "./Referral";
 export { default as RocketIcon } from "./Rocket";
 export { default as FreeIcon } from "./Free";
 export { default as LoaderIcon } from "./Loader";
+export { default as AuditIcon } from "./AuditIcon";
