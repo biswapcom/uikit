@@ -3077,6 +3077,13 @@ var PanelBody = function (_a) {
 };
 var templateObject_1$N, templateObject_2$i;
 
+// eslint-disable-next-line import/prefer-default-export
+var formatSpacingAmount = function (x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return parts.join(".");
+};
+
 var Wrapper$4 = styled.div(templateObject_1$O || (templateObject_1$O = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n\n  & + div {\n    margin-top: 16px;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n\n  & + div {\n    margin-top: 16px;\n  }\n"])));
 var Icon$1r = styled.div(templateObject_2$j || (templateObject_2$j = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  min-width: 24px;\n  height: 24px;\n  margin-right: 8px;\n  border-radius: 8px;\n  background-color: ", ";\n\n  .swapArrow {\n    width: 12px;\n    height: auto;\n  }\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  min-width: 24px;\n  height: 24px;\n  margin-right: 8px;\n  border-radius: 8px;\n  background-color: ", ";\n\n  .swapArrow {\n    width: 12px;\n    height: auto;\n  }\n"])), function (_a) {
     var theme = _a.theme;
@@ -3097,9 +3104,9 @@ var DealItem = function (props) {
                 React.createElement(Text, { color: "contrast", fontSize: "8px", lineHeight: "1", textTransform: "uppercase" }, coupleFirst),
                 React.createElement(Text, { color: "contrast", fontSize: "8px", lineHeight: "1", textTransform: "uppercase" }, "/"),
                 React.createElement(Text, { color: "textSubtle", fontSize: "8px", lineHeight: "1", textTransform: "uppercase" }, coupleLast)),
-            React.createElement(Text, { color: "success", fontSize: "12px" },
+            dealValue && (React.createElement(Text, { color: "success", fontSize: "12px" },
                 "$",
-                dealValue))));
+                formatSpacingAmount(dealValue))))));
 };
 var templateObject_1$O, templateObject_2$j, templateObject_3$9, templateObject_4$6;
 
@@ -3444,13 +3451,6 @@ var ConnectMetamask = function (props) {
         React.createElement(StyledLink$2, { ml: 16, onClick: function () { return onClick(); }, as: "button", fontSize: "12px", color: "primary", "aria-label": "Add to Metamask" }, "Add BSW to Metamask")));
 };
 var templateObject_1$W, templateObject_2$q;
-
-// eslint-disable-next-line import/prefer-default-export
-var formatSpacingAmount = function (x) {
-    var parts = x.toString().split(".");
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-    return parts.join(".");
-};
 
 var Wrapper$9 = styled.div(templateObject_1$X || (templateObject_1$X = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 8px;\n  padding-right: 24px;\n  position: relative;\n  grid-area: price;\n\n  ", " {\n    margin-bottom: 18px;\n  }\n  \n  ", " {\n    padding-right: 0;\n    max-width: 180px;\n  }\n\n  &:before {\n    display: none;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: block;\n    }\n    ", " {\n      display: none;\n    }\n  }\n\n  &:after {\n    display: none;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: block;\n    }\n\n    ", " {\n      display: none;\n    }\n  }\n\n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"], ["\n  display: grid;\n  grid-template-columns: 38px;\n  grid-template-areas:\n    \"logo bsw-title\"\n    \"logo bsw-value\";\n  margin-bottom: 8px;\n  padding-right: 24px;\n  position: relative;\n  grid-area: price;\n\n  ", " {\n    margin-bottom: 18px;\n  }\n  \n  ", " {\n    padding-right: 0;\n    max-width: 180px;\n  }\n\n  &:before {\n    display: none;\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    background-color: ", ";\n    position: absolute;\n    right: 24px;\n    top: 0;\n\n    ", " {\n      display: block;\n    }\n    ", " {\n      display: none;\n    }\n  }\n\n  &:after {\n    display: none;\n    content: \"\";\n    width: 100%;\n    height: 2px;\n    background-color: ", ";\n    position: absolute;\n    bottom: -18px;\n    left: 0;\n\n    ", " {\n      display: block;\n    }\n\n    ", " {\n      display: none;\n    }\n  }\n\n  .logo {\n    width: 38px;\n    grid-area: logo;\n  }\n"])), function (_a) {
     var theme = _a.theme;

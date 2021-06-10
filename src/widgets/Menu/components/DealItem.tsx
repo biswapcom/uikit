@@ -4,6 +4,7 @@ import SwapArrow from "../icons/SwapArrow";
 import Text from "../../../components/Text/Text";
 import Exchange from "../icons/Exchange";
 import { TradeIcon } from "../icons";
+import { formatSpacingAmount } from "../../../util/formatSpacingAmount";
 
 interface Props {
   isDark: boolean;
@@ -77,9 +78,11 @@ const DealItem: React.FC<Props> = (props) => {
             {coupleLast}
           </Text>
         </CoupleWrap>
-        <Text color="success" fontSize="12px">
-          ${dealValue}
-        </Text>
+        {dealValue && (
+          <Text color="success" fontSize="12px">
+            ${formatSpacingAmount(dealValue)}
+          </Text>
+        )}
       </div>
     </Wrapper>
   );
