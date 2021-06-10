@@ -51,7 +51,7 @@ const UserBlock: React.FC<Props> = ({ account, login, logout, pendingTransaction
               </>
             ) : (
               <>
-                <Wallet {...iconProps} mr="8px" />
+                {/* <Wallet {...iconProps} mr="8px" /> */}
                 {accountEllipsis}
               </>
             )}
@@ -64,7 +64,7 @@ const UserBlock: React.FC<Props> = ({ account, login, logout, pendingTransaction
             onPresentConnectModal();
           }}
         >
-          <Wallet {...iconProps} mr="8px" />
+          {/* <Wallet {...iconProps} mr="8px" /> */}
           Connect wallet
         </Button>
       )}

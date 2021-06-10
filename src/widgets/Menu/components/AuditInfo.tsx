@@ -5,12 +5,20 @@ import AuditIcon from "../icons/AuditIcon";
 const Wrapper = styled.a`
   display: flex;
   align-items: center;
-  margin-right: 32px;
+  margin-right: 12px;
+  
+  ${({ theme }) => theme.mediaQueries.sm} {
+    margin-right: 32px;
+  }
 `
 
 const Label = styled.span`
-  font-size: 14px;
+  font-size: 12px;
   color: ${({ theme }) => theme.colors.contrast};
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    font-size: 14px;
+  }
 `
 
 const AuditInfo: React.FC = () => {

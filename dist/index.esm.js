@@ -3209,10 +3209,16 @@ var Panel = function (props) {
 };
 var templateObject_1$e, templateObject_2$9;
 
-var Wrapper$7 = styled.a(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  margin-right: 32px;\n"], ["\n  display: flex;\n  align-items: center;\n  margin-right: 32px;\n"])));
-var Label = styled.span(templateObject_2$8 || (templateObject_2$8 = __makeTemplateObject(["\n  font-size: 14px;\n  color: ", ";\n"], ["\n  font-size: 14px;\n  color: ", ";\n"])), function (_a) {
+var Wrapper$7 = styled.a(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  margin-right: 12px;\n  \n  ", " {\n    margin-right: 32px;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  margin-right: 12px;\n  \n  ", " {\n    margin-right: 32px;\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.sm;
+});
+var Label = styled.span(templateObject_2$8 || (templateObject_2$8 = __makeTemplateObject(["\n  font-size: 12px;\n  color: ", ";\n\n  ", " {\n    font-size: 14px;\n  }\n"], ["\n  font-size: 12px;\n  color: ", ";\n\n  ", " {\n    font-size: 14px;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.contrast;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.sm;
 });
 var AuditInfo = function () {
     return (React.createElement(Wrapper$7, { href: 'https://www.certik.org/projects/biswap', target: "_blank" },
@@ -3442,20 +3448,15 @@ var UserBlock = function (_a) {
     var account = _a.account, login = _a.login, logout = _a.logout, pendingTransactions = _a.pendingTransactions;
     var _b = useWalletModal(login, logout, account), onPresentConnectModal = _b.onPresentConnectModal, onPresentAccountModal = _b.onPresentAccountModal;
     var accountEllipsis = account ? account.substring(0, 4) + "..." + account.substring(account.length - 4) : null;
-    var iconProps = { width: "24px", color: "contrast", style: { cursor: "pointer" } };
     return (React.createElement("div", null, account ? (React.createElement(WalletWrap, null,
         React.createElement(Button, { variant: pendingTransactions ? "success" : "primary", scale: "sm", onClick: function () {
                 onPresentAccountModal();
             } }, pendingTransactions ? (React.createElement(React.Fragment, null,
             pendingTransactions,
             " pending ",
-            React.createElement(Loader, { stroke: "#fff" }))) : (React.createElement(React.Fragment, null,
-            React.createElement(Icon$c, __assign({}, iconProps, { mr: "8px" })),
-            accountEllipsis))))) : (React.createElement(Button, { scale: "sm", onClick: function () {
+            React.createElement(Loader, { stroke: "#fff" }))) : (React.createElement(React.Fragment, null, accountEllipsis))))) : (React.createElement(Button, { scale: "sm", onClick: function () {
             onPresentConnectModal();
-        } },
-        React.createElement(Icon$c, __assign({}, iconProps, { mr: "8px" })),
-        "Connect wallet"))));
+        } }, "Connect wallet"))));
 };
 var templateObject_1$9;
 
