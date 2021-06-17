@@ -10,11 +10,11 @@ export declare const links: ({
     items: ({
         label: string;
         href: string;
-        ico: string;
+        target: string;
     } | {
         label: string;
         href: string;
-        ico?: undefined;
+        target?: undefined;
     })[];
     href?: undefined;
     calloutClass?: undefined;
