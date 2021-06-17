@@ -10,11 +10,11 @@ const Button = <E extends ElementType = "button">(props: ButtonProps<E>): JSX.El
   const classNames = className ? [className] : [];
 
   if (isLoading) {
-    classNames.push("pancake-button--loading");
+    classNames.push("biswap-button--loading");
   }
 
   if (isDisabled && !isLoading) {
-    classNames.push("pancake-button--disabled");
+    classNames.push("biswap-button--disabled");
   }
 
   return (
