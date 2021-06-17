@@ -7,24 +7,10 @@ import Accordion from "./Accordion";
 import { MenuEntry, LinkLabel } from "./MenuEntry";
 import MenuLink from "./MenuLink";
 import { PanelProps, PushedProps } from "../types";
-import { LoaderIcon } from "../icons";
 
 interface Props extends PanelProps, PushedProps {
   isMobile: boolean;
 }
-
-const LoaderAnimation = styled(LoaderIcon)`
-  @keyframes loader {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  animation: loader 2s linear infinite;
-`
 
 const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
 
@@ -72,11 +58,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
               {isPushed &&
                 entry.items.map((item) => (
                   <MenuEntry isSmall key={item.href} secondary isActive={item.href === location.pathname} onClick={handleClick}>
-                    <MenuLink href={item.href} target="_blank">{item.label}</MenuLink>
-                    { item.ico &&
-                    // <LoaderIcon width="16px" />
-                      <LoaderAnimation width="16px"/>
-                    }
+                    <MenuLink href={item.href} target={item.target ? item.target : '_self'}>{item.label}</MenuLink>
                   </MenuEntry>
                 ))}
             </Accordion>
