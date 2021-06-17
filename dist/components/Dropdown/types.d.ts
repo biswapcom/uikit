@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export declare type Position = "top" | "top-right" | "bottom";
 export interface PositionProps {
     position?: Position;
