@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 import Text from "../../../components/Text/Text";
 import DealItem from "./DealItem";
@@ -27,26 +27,61 @@ const Inner = styled.div`
 `;
 
 const PanelFooter2: React.FC<Props> = (props) => {
-  const { isPushed, isDark, footerTitle, deals } = props;
+  const { isPushed, isDark, footerTitle,deals } = props;
+  // const [deals,setDeals] = useState([
+  //   {
+  //     dealName: "Liquidity",
+  //     dealDate: "18:34:00",
+  //     coupleFirst: "BSW",
+  //     coupleLast: "BNB",
+  //     dealValue: 100987.77,
+  //   },
+  //   {
+  //     dealName: "Liquidity",
+  //     dealDate: "18:34:00",
+  //     coupleFirst: "BSW",
+  //     coupleLast: "BNB",
+  //     dealValue: 100987.77,
+  //   },
+  // ]);
 
-  const testItem = (): JSX.Element => {
-    if(deals) {
-      return (
-        <DealItem
-          isDark={isDark}
-          dealName={deals[0].dealName}
-          dealDate={deals[0].dealDate}
-          coupleFirst={deals[0].coupleFirst}
-          coupleLast={deals[0].coupleLast}
-          dealValue={deals[0].dealValue}
-          animate
-        />
-      )
-    }
-    return (
-      <div>hui</div>
-    )
-  }
+  // useEffect(()=> {
+  //   function newData  () {
+  //     setDeals(prevState => [{
+  //       dealName: "Liquidity",
+  //       dealDate: "18:34:00",
+  //       coupleFirst: "BSW",
+  //       coupleLast: "BNB",
+  //       dealValue:  Math.random()
+  //     },...prevState].splice(0,2))
+  //   }
+  //
+  //   const interval = setInterval(async ()=>{
+  //     newData();
+  //   },2000)
+  //
+  //
+  //   return () => clearInterval(interval);
+  // },[])
+
+  // const testItem = (): JSX.Element => {
+  //   if(deals) {
+  //     return (
+  //       <DealItem
+  //         isDark={isDark}
+  //         dealName={deals[0].dealName}
+  //         dealDate={deals[0].dealDate}
+  //         coupleFirst={deals[0].coupleFirst}
+  //         coupleLast={deals[0].coupleLast}
+  //         dealValue={deals[0].dealValue}
+  //         animate
+  //       />
+  //     )
+  //   }
+  //   return (
+  //     <div>hui</div>
+  //   )
+  // }
 
   return (
     <Wrapper isPushed={isPushed} footerTitle={footerTitle} isDark={isDark} deals={deals}>
@@ -57,18 +92,32 @@ const PanelFooter2: React.FC<Props> = (props) => {
 
         {deals &&
           deals.map((item, index) => {
-            return (
-              <DealItem
-                key={index.toString()}
-                isDark={isDark}
-                dealName={item.dealName}
-                dealDate={item.dealDate}
-                coupleFirst={item.coupleFirst}
-                coupleLast={item.coupleLast}
-                dealValue={item.dealValue}
-                animate={false}
-              />
-            );
+            if (index === 0) {
+             return (
+               <DealItem
+                 key={index.toString()}
+                 isDark={isDark}
+                 dealName={item.dealName}
+                 dealDate={item.dealDate}
+                 coupleFirst={item.coupleFirst}
+                 coupleLast={item.coupleLast}
+                 dealValue={item.dealValue}
+                 animate
+               />
+             )
+            }
+              return (
+                <DealItem
+                  key={index.toString()}
+                  isDark={isDark}
+                  dealName={item.dealName}
+                  dealDate={item.dealDate}
+                  coupleFirst={item.coupleFirst}
+                  coupleLast={item.coupleLast}
+                  dealValue={item.dealValue}
+                  animate={false}
+                />
+              );
           })}
       </Inner>
     </Wrapper>

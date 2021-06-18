@@ -1,5 +1,6 @@
 import React from "react";
-import styled from "styled-components";
+import styled,{ keyframes } from "styled-components";
+import { bounce } from 'react-animations';
 import Text from "../../../components/Text/Text";
 import { TradeIcon } from "../icons";
 import { formatSpacingAmount } from "../../../util/formatSpacingAmount";
@@ -62,8 +63,12 @@ const CoupleWrap = styled.div`
   padding-top: 5px;
 `;
 
+
 const DealItem: React.FC<Props> = (props) => {
+
+
   const { dealName, dealDate, coupleFirst, coupleLast, dealValue, animate } = props;
+  console.log('animate',animate,dealValue);
   return (
     <Wrapper className={animate ? 'show-animate' : 'show'}>
       <Icon>
