@@ -164,6 +164,13 @@ export const deals = [
     coupleLast: "BNB",
     dealValue: 100987.77,
   },
+  {
+    dealName: "Liquidity",
+    dealDate: "18:34:00",
+    coupleFirst: "BSW",
+    coupleLast: "BNB",
+    dealValue: 100987.77,
+  },
 ];
 
 export const BSWPriceLabel = "Price BSW";

@@ -1,8 +1,7 @@
 import React from "react";
-import styled from "styled-components";
-import SwapArrow from "../icons/SwapArrow";
+import styled,{ keyframes } from "styled-components";
+import { bounce } from 'react-animations';
 import Text from "../../../components/Text/Text";
-import Exchange from "../icons/Exchange";
 import { TradeIcon } from "../icons";
 import { formatSpacingAmount } from "../../../util/formatSpacingAmount";
 
@@ -13,14 +12,27 @@ interface Props {
   coupleFirst: string;
   coupleLast: string;
   dealValue: number;
+  animate: boolean;
 }
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  transition: margin-bottom 0.5s ease;
+  overflow: hidden;
+  height: 0;
 
-  & + div {
-    margin-top: 16px;
+  &.show {
+    height: 31px;
+  }
+  
+  &.show-animate {
+    height: 31px;
+    transition: height 0.4s ease;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
   }
 `;
 
@@ -51,10 +63,14 @@ const CoupleWrap = styled.div`
   padding-top: 5px;
 `;
 
+
 const DealItem: React.FC<Props> = (props) => {
-  const { dealName, dealDate, coupleFirst, coupleLast, dealValue } = props;
+
+
+  const { dealName, dealDate, coupleFirst, coupleLast, dealValue, animate } = props;
+  // console.log('animate',animate,dealValue);
   return (
-    <Wrapper>
+    <Wrapper className={animate ? 'show-animate' : 'show'}>
       <Icon>
         <TradeIcon width="16px" color="contrast" />
       </Icon>
