@@ -68,7 +68,7 @@ const DealItem: React.FC<Props> = (props) => {
 
 
   const { dealName, dealDate, coupleFirst, coupleLast, dealValue, animate } = props;
-  console.log('animate',animate,dealValue);
+  // console.log('animate',animate,dealValue);
   return (
     <Wrapper className={animate ? 'show-animate' : 'show'}>
       <Icon>
