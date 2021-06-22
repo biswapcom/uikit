@@ -6,6 +6,7 @@ interface Props {
     coupleFirst: string;
     coupleLast: string;
     dealValue: number;
+    animate: boolean;
 }
 declare const DealItem: React.FC<Props>;
 export default DealItem;

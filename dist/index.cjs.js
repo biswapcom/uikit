@@ -200,15 +200,15 @@ var styleVariants = (_b = {},
 var getDisabledStyles = function (_a) {
     var isLoading = _a.isLoading, theme = _a.theme;
     if (isLoading === true) {
-        return "\n      &:disabled,\n      &.pancake-button--disabled {\n        cursor: not-allowed;\n      }\n    ";
+        return "\n      &:disabled,\n      &.biswap-button--disabled {\n        cursor: not-allowed;\n      }\n    ";
     }
-    return "\n    &:disabled,\n    &.pancake-button--disabled {\n      background-color: " + theme.colors.backgroundDisabled + ";\n      border-color: " + theme.colors.backgroundDisabled + ";\n      box-shadow: none;\n      color: " + theme.colors.textDisabled + ";\n      cursor: not-allowed;\n    }\n  ";
+    return "\n    &:disabled,\n    &.biswap-button--disabled {\n      background-color: " + theme.colors.backgroundDisabled + ";\n      border-color: " + theme.colors.backgroundDisabled + ";\n      box-shadow: none;\n      color: " + theme.colors.textDisabled + ";\n      cursor: not-allowed;\n    }\n  ";
 };
 var getOpacity = function (_a) {
     var _b = _a.$isLoading, $isLoading = _b === void 0 ? false : _b;
     return $isLoading ? ".5" : "1";
 };
-var StyledButton = styled__default['default'].button(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  align-items: center;\n  border: 0;\n  border-radius: 8px;\n  box-shadow: 0px -1px 0px 0px rgba(14, 14, 44, 0.4) inset;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: 16px;\n  font-weight: 600;\n  justify-content: center;\n  letter-spacing: 0.03em;\n  line-height: 1;\n  opacity: ", ";\n  outline: 0;\n  transition: background-color 0.2s, opacity 0.2s;\n\n  &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active):not(.hover-disabled) {\n    opacity: 0.65;\n  }\n\n  &:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(.hover-disabled) {\n    opacity: 0.85;\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"], ["\n  align-items: center;\n  border: 0;\n  border-radius: 8px;\n  box-shadow: 0px -1px 0px 0px rgba(14, 14, 44, 0.4) inset;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: 16px;\n  font-weight: 600;\n  justify-content: center;\n  letter-spacing: 0.03em;\n  line-height: 1;\n  opacity: ", ";\n  outline: 0;\n  transition: background-color 0.2s, opacity 0.2s;\n\n  &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active):not(.hover-disabled) {\n    opacity: 0.65;\n  }\n\n  &:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(.hover-disabled) {\n    opacity: 0.85;\n  }\n\n  ", "\n  ",
+var StyledButton = styled__default['default'].button(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  align-items: center;\n  border: 0;\n  border-radius: 8px;\n  box-shadow: 0px -1px 0px 0px rgba(14, 14, 44, 0.4) inset;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: 16px;\n  font-weight: 600;\n  justify-content: center;\n  letter-spacing: 0.03em;\n  line-height: 1;\n  opacity: ", ";\n  outline: 0;\n  transition: background-color 0.2s, opacity 0.2s;\n\n  &:hover:not(:disabled):not(.biswap-button--disabled):not(.biswap-button--disabled):not(:active):not(.hover-disabled) {\n    opacity: 0.65;\n  }\n\n  &:active:not(:disabled):not(.biswap-button--disabled):not(.biswap-button--disabled):not(.hover-disabled) {\n    opacity: 0.85;\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"], ["\n  align-items: center;\n  border: 0;\n  border-radius: 8px;\n  box-shadow: 0px -1px 0px 0px rgba(14, 14, 44, 0.4) inset;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: 16px;\n  font-weight: 600;\n  justify-content: center;\n  letter-spacing: 0.03em;\n  line-height: 1;\n  opacity: ", ";\n  outline: 0;\n  transition: background-color 0.2s, opacity 0.2s;\n\n  &:hover:not(:disabled):not(.biswap-button--disabled):not(.biswap-button--disabled):not(:active):not(.hover-disabled) {\n    opacity: 0.65;\n  }\n\n  &:active:not(:disabled):not(.biswap-button--disabled):not(.biswap-button--disabled):not(.hover-disabled) {\n    opacity: 0.85;\n  }\n\n  ", "\n  ",
     "\n  ",
     "\n  ", "\n  ", "\n"])), getOpacity, getDisabledStyles, styledSystem.variant({
     prop: "scale",
@@ -224,10 +224,10 @@ var Button = function (props) {
     var isDisabled = isLoading || disabled;
     var classNames = className ? [className] : [];
     if (isLoading) {
-        classNames.push("pancake-button--loading");
+        classNames.push("biswap-button--loading");
     }
     if (isDisabled && !isLoading) {
-        classNames.push("pancake-button--disabled");
+        classNames.push("biswap-button--disabled");
     }
     return (React__default['default'].createElement(StyledButton, __assign({ "$isLoading": isLoading, className: classNames.join(" "), disabled: isDisabled }, internalProps, rest),
         React__default['default'].createElement(React__default['default'].Fragment, null,
@@ -3099,7 +3099,7 @@ var formatSpacingAmount = function (x) {
     return parts.join(".");
 };
 
-var Wrapper$4 = styled__default['default'].div(templateObject_1$O || (templateObject_1$O = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n\n  & + div {\n    margin-top: 16px;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n\n  & + div {\n    margin-top: 16px;\n  }\n"])));
+var Wrapper$4 = styled__default['default'].div(templateObject_1$O || (templateObject_1$O = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  transition: margin-bottom 0.5s ease;\n  overflow: hidden;\n  height: 0;\n\n  &.show {\n    height: 31px;\n  }\n  \n  &.show-animate {\n    height: 31px;\n    transition: height 0.4s ease;\n  }\n\n  &:not(:last-child) {\n    margin-bottom: 16px;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  transition: margin-bottom 0.5s ease;\n  overflow: hidden;\n  height: 0;\n\n  &.show {\n    height: 31px;\n  }\n  \n  &.show-animate {\n    height: 31px;\n    transition: height 0.4s ease;\n  }\n\n  &:not(:last-child) {\n    margin-bottom: 16px;\n  }\n"])));
 var Icon$1s = styled__default['default'].div(templateObject_2$i || (templateObject_2$i = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  min-width: 24px;\n  height: 24px;\n  margin-right: 8px;\n  border-radius: 8px;\n  background-color: ", ";\n\n  .swapArrow {\n    width: 12px;\n    height: auto;\n  }\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 24px;\n  min-width: 24px;\n  height: 24px;\n  margin-right: 8px;\n  border-radius: 8px;\n  background-color: ", ";\n\n  .swapArrow {\n    width: 12px;\n    height: auto;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.success;
@@ -3107,8 +3107,9 @@ var Icon$1s = styled__default['default'].div(templateObject_2$i || (templateObje
 var Info = styled__default['default'].div(templateObject_3$9 || (templateObject_3$9 = __makeTemplateObject(["\n  flex-grow: 1;\n"], ["\n  flex-grow: 1;\n"])));
 var CoupleWrap = styled__default['default'].div(templateObject_4$6 || (templateObject_4$6 = __makeTemplateObject(["\n  display: flex;\n  justify-content: flex-end;\n  padding-top: 5px;\n"], ["\n  display: flex;\n  justify-content: flex-end;\n  padding-top: 5px;\n"])));
 var DealItem = function (props) {
-    var dealName = props.dealName, dealDate = props.dealDate, coupleFirst = props.coupleFirst, coupleLast = props.coupleLast, dealValue = props.dealValue;
-    return (React__default['default'].createElement(Wrapper$4, null,
+    var dealName = props.dealName, dealDate = props.dealDate, coupleFirst = props.coupleFirst, coupleLast = props.coupleLast, dealValue = props.dealValue, animate = props.animate;
+    // console.log('animate',animate,dealValue);
+    return (React__default['default'].createElement(Wrapper$4, { className: animate ? 'show-animate' : 'show' },
         React__default['default'].createElement(Icon$1s, null,
             React__default['default'].createElement(Icon$1e, { width: "16px", color: "contrast" })),
         React__default['default'].createElement(Info, null,
@@ -3135,18 +3136,73 @@ var Wrapper$5 = styled__default['default'].div(templateObject_1$P || (templateOb
     var isPushed = _a.isPushed;
     return (isPushed ? "block" : "none");
 });
-var Inner = styled__default['default'].div(templateObject_2$j || (templateObject_2$j = __makeTemplateObject(["\n  padding: 16px;\n  border-radius: 16px;\n  background-color: ", ";\n"], ["\n  padding: 16px;\n  border-radius: 16px;\n  background-color: ", ";\n"])), function (_a) {
+var Inner = styled__default['default'].div(templateObject_2$j || (templateObject_2$j = __makeTemplateObject(["\n  padding: 16px;\n  border-radius: 16px;\n  background-color: ", ";\n  height: 143px;\n  overflow: hidden;\n"], ["\n  padding: 16px;\n  border-radius: 16px;\n  background-color: ", ";\n  height: 143px;\n  overflow: hidden;\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.dropDown;
 });
 var PanelFooter2 = function (props) {
     var isPushed = props.isPushed, isDark = props.isDark, footerTitle = props.footerTitle, deals = props.deals;
+    // const [deals,setDeals] = useState([
+    //   {
+    //     dealName: "Liquidity",
+    //     dealDate: "18:34:00",
+    //     coupleFirst: "BSW",
+    //     coupleLast: "BNB",
+    //     dealValue: 100987.77,
+    //   },
+    //   {
+    //     dealName: "Liquidity",
+    //     dealDate: "18:34:00",
+    //     coupleFirst: "BSW",
+    //     coupleLast: "BNB",
+    //     dealValue: 100987.77,
+    //   },
+    // ]);
+    // useEffect(()=> {
+    //   function newData  () {
+    //     setDeals(prevState => [{
+    //       dealName: "Liquidity",
+    //       dealDate: "18:34:00",
+    //       coupleFirst: "BSW",
+    //       coupleLast: "BNB",
+    //       dealValue:  Math.random()
+    //     },...prevState].splice(0,2))
+    //   }
+    //
+    //   const interval = setInterval(async ()=>{
+    //     newData();
+    //   },2000)
+    //
+    //
+    //   return () => clearInterval(interval);
+    // },[])
+    // const testItem = (): JSX.Element => {
+    //   if(deals) {
+    //     return (
+    //       <DealItem
+    //         isDark={isDark}
+    //         dealName={deals[0].dealName}
+    //         dealDate={deals[0].dealDate}
+    //         coupleFirst={deals[0].coupleFirst}
+    //         coupleLast={deals[0].coupleLast}
+    //         dealValue={deals[0].dealValue}
+    //         animate
+    //       />
+    //     )
+    //   }
+    //   return (
+    //     <div>hui</div>
+    //   )
+    // }
     return (React__default['default'].createElement(Wrapper$5, { isPushed: isPushed, footerTitle: footerTitle, isDark: isDark, deals: deals },
         React__default['default'].createElement(Inner, null,
             React__default['default'].createElement(Text, { color: "contrast", small: true, mb: "12px" }, footerTitle),
             deals &&
                 deals.map(function (item, index) {
-                    return (React__default['default'].createElement(DealItem, { key: index.toString(), isDark: isDark, dealName: item.dealName, dealDate: item.dealDate, coupleFirst: item.coupleFirst, coupleLast: item.coupleLast, dealValue: item.dealValue }));
+                    if (index === 0) {
+                        return (React__default['default'].createElement(DealItem, { key: index.toString(), isDark: isDark, dealName: item.dealName, dealDate: item.dealDate, coupleFirst: item.coupleFirst, coupleLast: item.coupleLast, dealValue: item.dealValue, animate: true }));
+                    }
+                    return (React__default['default'].createElement(DealItem, { key: index.toString(), isDark: isDark, dealName: item.dealName, dealDate: item.dealDate, coupleFirst: item.coupleFirst, coupleLast: item.coupleLast, dealValue: item.dealValue, animate: false }));
                 }))));
 };
 var templateObject_1$P, templateObject_2$j;
@@ -3311,6 +3367,12 @@ var Icon$1u = function (props) {
 };
 
 var Icon$1v = function (props) {
+    return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 96 96" }, props),
+        React__default['default'].createElement("path", { d: "M96 48C96 21.4903 74.5097 0 48 0C21.4903 0 0 21.4903 0 48C0 74.5097 21.4903 96 48 96C74.5097 96 96 74.5097 96 48Z", fill: "#3389FB" }),
+        React__default['default'].createElement("path", { d: "M29.6927 35.4245C39.8036 25.5252 56.1965 25.5252 66.3074 35.4245L67.5242 36.6159C68.0298 37.1109 68.0298 37.9134 67.5242 38.4084L63.3616 42.4839C63.1088 42.7314 62.699 42.7314 62.4462 42.4839L60.7717 40.8444C53.7181 33.9384 42.282 33.9384 35.2284 40.8444L33.4351 42.6002C33.1823 42.8477 32.7725 42.8477 32.5197 42.6002L28.3571 38.5247C27.8515 38.0297 27.8515 37.2272 28.3571 36.7322L29.6927 35.4245ZM74.9161 43.8532L78.6208 47.4805C79.1264 47.9755 79.1264 48.778 78.6208 49.2729L61.9159 65.6288C61.4103 66.1237 60.5907 66.1237 60.0851 65.6288C60.0851 65.6288 60.0851 65.6288 60.0851 65.6288L48.229 54.0206C48.1026 53.8968 47.8977 53.8968 47.7713 54.0206C47.7713 54.0206 47.7713 54.0206 47.7713 54.0206L35.9153 65.6288C35.4098 66.1237 34.5902 66.1237 34.0846 65.6288C34.0846 65.6288 34.0846 65.6288 34.0846 65.6288L17.3792 49.2727C16.8736 48.7778 16.8736 47.9753 17.3792 47.4803L21.0839 43.853C21.5895 43.3581 22.4091 43.3581 22.9146 43.853L34.771 55.4614C34.8974 55.5851 35.1023 55.5851 35.2287 55.4614C35.2287 55.4614 35.2287 55.4614 35.2287 55.4614L47.0844 43.853C47.59 43.358 48.4096 43.358 48.9152 43.853C48.9152 43.853 48.9152 43.853 48.9152 43.853L60.7715 55.4614C60.8979 55.5851 61.1028 55.5851 61.2292 55.4614L73.0854 43.8532C73.5909 43.3583 74.4105 43.3583 74.9161 43.8532Z", fill: "white" })));
+};
+
+var Icon$1w = function (props) {
     return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 32 32" }, props),
         React__default['default'].createElement("path", { d: "M24 0H8C3.58172 0 0 3.58172 0 8V24C0 28.4183 3.58172 32 8 32H24C28.4183 32 32 28.4183 32 24V8C32 3.58172 28.4183 0 24 0Z", fill: "#1E2026" }),
         React__default['default'].createElement("path", { d: "M16.2857 4L9.97035 7.6761L12.2922 9.03415L16.2857 6.7161L20.2792 9.03415L22.6011 7.6761L16.2857 4Z", fill: "#F0B90B" }),
@@ -3353,14 +3415,14 @@ var connectors = [
     //   icon: TokenPocket,
     //   connectorId: ConnectorNames.Injected,
     // },
-    // {
-    // title: "WalletConnect",
-    // icon: WalletConnect,
-    // connectorId: ConnectorNames.WalletConnect,
-    // },
+    {
+        title: "WalletConnect",
+        icon: Icon$1v,
+        connectorId: exports.ConnectorNames.WalletConnect,
+    },
     {
         title: "Binance Chain Wallet",
-        icon: Icon$1v,
+        icon: Icon$1w,
         connectorId: exports.ConnectorNames.BSC,
     },
 ];

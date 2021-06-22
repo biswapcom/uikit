@@ -11,7 +11,7 @@ const getDisabledStyles = ({ isLoading, theme }: ThemedButtonProps) => {
   if (isLoading === true) {
     return `
       &:disabled,
-      &.pancake-button--disabled {
+      &.biswap-button--disabled {
         cursor: not-allowed;
       }
     `;
@@ -19,7 +19,7 @@ const getDisabledStyles = ({ isLoading, theme }: ThemedButtonProps) => {
 
   return `
     &:disabled,
-    &.pancake-button--disabled {
+    &.biswap-button--disabled {
       background-color: ${theme.colors.backgroundDisabled};
       border-color: ${theme.colors.backgroundDisabled};
       box-shadow: none;
@@ -59,11 +59,11 @@ const StyledButton = styled.button<BaseButtonProps>`
   outline: 0;
   transition: background-color 0.2s, opacity 0.2s;
 
-  &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active):not(.hover-disabled) {
+  &:hover:not(:disabled):not(.biswap-button--disabled):not(.biswap-button--disabled):not(:active):not(.hover-disabled) {
     opacity: 0.65;
   }
 
-  &:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(.hover-disabled) {
+  &:active:not(:disabled):not(.biswap-button--disabled):not(.biswap-button--disabled):not(.hover-disabled) {
     opacity: 0.85;
   }
 
