@@ -3160,24 +3160,6 @@ var PanelFooter2 = function (props) {
     //
     //   return () => clearInterval(interval);
     // },[])
-    // const testItem = (): JSX.Element => {
-    //   if(deals) {
-    //     return (
-    //       <DealItem
-    //         isDark={isDark}
-    //         dealName={deals[0].dealName}
-    //         dealDate={deals[0].dealDate}
-    //         coupleFirst={deals[0].coupleFirst}
-    //         coupleLast={deals[0].coupleLast}
-    //         dealValue={deals[0].dealValue}
-    //         animate
-    //       />
-    //     )
-    //   }
-    //   return (
-    //     <div>hui</div>
-    //   )
-    // }
     return (React.createElement(Wrapper$9, { isPushed: isPushed, footerTitle: footerTitle, isDark: isDark, deals: deals },
         React.createElement(Inner$1, null,
             React.createElement(Text, { color: "contrast", small: true, mb: "12px" }, footerTitle),
