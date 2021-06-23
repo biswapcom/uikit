@@ -73,7 +73,8 @@ export interface NavProps extends PanelProps, PanelFooterProps, BSWPriceProps, F
   logout: () => void;
   pendingTransactions?: number;
   recentTransaction?: any;
-  chainId?: any
+  chainId?: any;
+  clearTransaction?:any;
 }
 
 export interface ConnectMetaProps {

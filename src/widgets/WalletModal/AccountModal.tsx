@@ -18,7 +18,8 @@ interface Props {
   onDismiss?: () => void;
   recentTransaction?: any;
   rowStatus?: any
-  chainId?: any
+  chainId?: any;
+  clearTransaction?: any
 }
 
 const ConnectedWrapper = styled.div`
@@ -34,7 +35,7 @@ const TransactionWrapper = styled.div`
 `
 
 
-const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null, login,recentTransaction,chainId}) =>{
+const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null, login,recentTransaction,chainId,clearTransaction}) =>{
   const [transactions, setTransactions] = useState(recentTransaction)
   const { onPresentConnectModal } = useWalletModal(login, logout, account,recentTransaction,chainId);
   // console.log('recentTransaction account modal',recentTransaction,);
@@ -91,7 +92,7 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
           <Text fontSize='14px' fontWeight='600' lineHeight='21px' color='#07162D'>
             Recent transactions
           </Text>
-          <Button scale='sm' variant='text' onClick={()=> setTransactions([])}>
+          <Button scale='sm' variant='text' onClick={()=>clearTransaction()}>
             Clear All
           </Button>
         </Flex>

@@ -11,10 +11,11 @@ interface ReturnType {
 
 const useWalletModal = (login: Login, logout: () => void, account?: string,
   recentTransaction?: any,
-  chainId?:any
+  chainId?:any,
+clearTransaction?: any
                         ): ReturnType => {
   const [onPresentConnectModal] = useModal(<ConnectModal login={login} />);
-  const [onPresentAccountModal] = useModal(<AccountModal login={login} recentTransaction={recentTransaction}  chainId={chainId} account={account || ""} logout={logout} />);
+  const [onPresentAccountModal] = useModal(<AccountModal login={login} recentTransaction={recentTransaction}  chainId={chainId} account={account || ""} logout={logout} clearTransaction={clearTransaction}/>);
   return { onPresentConnectModal, onPresentAccountModal };
 };
 
