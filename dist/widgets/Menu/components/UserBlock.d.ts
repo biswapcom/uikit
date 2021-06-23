@@ -8,6 +8,7 @@ interface Props {
     recentTransaction: any;
     chainId: any;
     clearTransaction: any;
+    isSwap?: boolean;
 }
 declare const UserBlock: React.FC<Props>;
 export default UserBlock;

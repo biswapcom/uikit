@@ -8,6 +8,7 @@ interface Props {
     rowStatus?: any;
     chainId?: any;
     clearTransaction?: any;
+    isSwap?: any;
 }
 declare const AccountModal: React.FC<Props>;
 export default AccountModal;

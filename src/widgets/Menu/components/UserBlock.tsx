@@ -14,8 +14,8 @@ interface Props {
   pendingTransactions?: number;
   recentTransaction: any;
   chainId: any;
-  clearTransaction: any
-
+  clearTransaction: any;
+  isSwap?: boolean
 }
 
 const WalletWrap = styled.div`
@@ -29,8 +29,8 @@ const WalletWrap = styled.div`
 //   padding: 0 16px;
 // `;
 
-const UserBlock: React.FC<Props> = ({ account, login, logout, pendingTransactions,recentTransaction,chainId, clearTransaction }) => {
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account,recentTransaction, chainId,clearTransaction);
+const UserBlock: React.FC<Props> = ({ account, login, logout, pendingTransactions,recentTransaction,chainId, clearTransaction,isSwap }) => {
+  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account,recentTransaction, chainId,clearTransaction,isSwap);
   console.log('recentTransaction user block',recentTransaction);
   console.log('chainId user block',chainId);
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
