@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Button from "../../components/Button/Button";
 import Text from "../../components/Text/Text";
@@ -6,10 +6,11 @@ import LinkExternal from "../../components/Link/LinkExternal";
 import Flex from "../../components/Box/Flex";
 import { Modal } from "../Modal";
 import CopyToClipboard from "./CopyToClipboard";
-import { connectorLocalStorageKey } from "./config";
+import connectors, { connectorLocalStorageKey } from "./config";
 import { useWalletModal } from "./index";
 import Loader from "../Menu/icons/Loader";
 import { CheckmarkCircleIcon, ErrorIcon } from "../../components/Svg";
+import { getBscScanLink } from "../../util/getBscScan";
 
 interface Props {
   account: string;
@@ -38,9 +39,21 @@ const TransactionWrapper = styled.div`
 
 const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = () => null, login,recentTransaction,chainId,clearTransaction}) =>{
   const [transactions, setTransactions] = useState(recentTransaction)
+  const [currentConnector, setCurrentConnector] = useState('');
+
+  useEffect(()=>{
+    if (account) {
+      const localStorageConnector = window.localStorage.getItem(connectorLocalStorageKey);
+      const current = connectors.find(el=>el.connectorId === localStorageConnector);
+      if (current && current?.title) {
+        setCurrentConnector(current.title)
+      }
+      // console.log('current',current);
+    }
+  },[account])
+
+  // console.log('currentConnector',currentConnector);
   const { onPresentConnectModal } = useWalletModal(login, logout, account,recentTransaction,chainId);
-  // console.log('recentTransaction account modal',recentTransaction,);
-  // console.log('chainId account modal',chainId);
 
   const getRowStatus = (sortedRecentTransaction: any) => {
     const { hash, receipt } = sortedRecentTransaction
@@ -70,7 +83,7 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
   return (
     <Modal title="Your wallet" onDismiss={onDismiss}>
       <ConnectedWrapper>
-        <Text fontSize='14px' fontWeight='400' lineHeight='21px' color='#708DB7'>Connected with Metamask</Text>
+        <Text fontSize='14px' fontWeight='400' lineHeight='21px' color='#708DB7'>Connected with {currentConnector}</Text>
         <Button onClick={changeWalletHandler} scale='sm' variant='primary'>Change</Button>
       </ConnectedWrapper>
       <Text
@@ -93,10 +106,9 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
           View on BscScan
         </LinkExternal>
       </Flex>
-      <TransactionWrapper>
         {
           isSwap && (
-            <>
+            <TransactionWrapper>
               <Flex justifyContent='space-between' alignItems='center'>
                 <Text fontSize='14px' fontWeight='600' lineHeight='21px' color='#07162D'>
                   Recent transactions
@@ -134,7 +146,7 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                   return (
                     <>
                       <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
-                        <LinkExternal href='/' color={color}>
+                        <LinkExternal href={getBscScanLink(chainId, hash, 'transaction')} color={color}>
                           {summary ?? hash}
                         </LinkExternal>
                         {icon}
@@ -143,11 +155,9 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                   )
                 })}
               </>
-
-            </>
+            </TransactionWrapper>
           )
         }
-      </TransactionWrapper>
       <Flex>
         <Button
           style={{ width: '100%' }}
