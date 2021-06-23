@@ -3624,10 +3624,9 @@ var AccountModal = function (_a) {
                         if (color === 'success') {
                             color = 'primary';
                         }
-                        return (React.createElement(React.Fragment, null,
-                            React.createElement(Flex, { key: hash, alignItems: "center", justifyContent: "space-between", mb: "4px" },
-                                React.createElement(LinkExternal, { href: getBscScanLink(chainId, hash, 'transaction'), color: color }, summary !== null && summary !== void 0 ? summary : hash),
-                                icon)));
+                        return (React.createElement(React.Fragment, null, chainId && (React.createElement(Flex, { key: hash, alignItems: "center", justifyContent: "space-between", mb: "4px" },
+                            React.createElement(LinkExternal, { href: getBscScanLink(chainId, hash, 'transaction'), color: color }, summary !== null && summary !== void 0 ? summary : hash),
+                            icon))));
                     })))),
         React.createElement(Flex, null,
             React.createElement(Button, { style: { width: '100%' }, mt: '24px', variant: "secondary", onClick: function () {

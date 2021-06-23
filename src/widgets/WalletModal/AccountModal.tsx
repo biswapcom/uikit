@@ -145,12 +145,14 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
 
                   return (
                     <>
-                      <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
-                        <LinkExternal href={getBscScanLink(chainId, hash, 'transaction')} color={color}>
-                          {summary ?? hash}
-                        </LinkExternal>
-                        {icon}
-                      </Flex>
+                      {chainId && (
+                        <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
+                          <LinkExternal href={getBscScanLink(chainId, hash, 'transaction')} color={color}>
+                            {summary ?? hash}
+                          </LinkExternal>
+                          {icon}
+                        </Flex>
+                      )}
                     </>
                   )
                 })}

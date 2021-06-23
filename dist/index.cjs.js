@@ -3637,10 +3637,9 @@ var AccountModal = function (_a) {
                         if (color === 'success') {
                             color = 'primary';
                         }
-                        return (React__default['default'].createElement(React__default['default'].Fragment, null,
-                            React__default['default'].createElement(Flex, { key: hash, alignItems: "center", justifyContent: "space-between", mb: "4px" },
-                                React__default['default'].createElement(LinkExternal, { href: getBscScanLink(chainId, hash, 'transaction'), color: color }, summary !== null && summary !== void 0 ? summary : hash),
-                                icon)));
+                        return (React__default['default'].createElement(React__default['default'].Fragment, null, chainId && (React__default['default'].createElement(Flex, { key: hash, alignItems: "center", justifyContent: "space-between", mb: "4px" },
+                            React__default['default'].createElement(LinkExternal, { href: getBscScanLink(chainId, hash, 'transaction'), color: color }, summary !== null && summary !== void 0 ? summary : hash),
+                            icon))));
                     })))),
         React__default['default'].createElement(Flex, null,
             React__default['default'].createElement(Button, { style: { width: '100%' }, mt: '24px', variant: "secondary", onClick: function () {
