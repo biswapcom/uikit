@@ -194,6 +194,8 @@ export const total = [
   },
 ];
 
+export const pendingTransactions = 2;
+
 export const MENU_HEIGHT = 72;
 export const MENU_HEIGHT_MOBILE = 64;
 export const MENU_ENTRY_HEIGHT = 48;
