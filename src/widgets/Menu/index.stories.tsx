@@ -7,7 +7,7 @@ import Text from "../../components/Text/Text";
 import { MenuEntry } from "./components/MenuEntry";
 import Menu from "./Menu";
 import { LangType } from "./types";
-import { links, footerTitle, deals, BSWPriceLabel, BSWPriceValue, supply, total } from "./config";
+import { links, footerTitle, deals, BSWPriceLabel, BSWPriceValue, supply, total, pendingTransactions } from "./config";
 
 export default {
   title: "Widgets/Menu",
@@ -38,6 +38,7 @@ const useProps = () => {
     supply,
     total,
     onClick: noop,
+    pendingTransactions,
   });
 
   useEffect(() => {
@@ -61,6 +62,7 @@ const useProps = () => {
         supply,
         total,
         onClick: noop,
+        pendingTransactions,
       });
     }, 2000);
     return () => {
@@ -103,7 +105,7 @@ export const WithPendingTransactions: React.FC = () => {
   const props = useProps();
   return (
     <BrowserRouter>
-      <Menu {...props} pendingTransactions={2}>
+      <Menu {...props} pendingTransactions={pendingTransactions}>
         <div>
           <Heading as="h1" mb="8px">
             Page body
