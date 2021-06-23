@@ -10,7 +10,6 @@ import connectors, { connectorLocalStorageKey } from "./config";
 import { useWalletModal } from "./index";
 import Loader from "../Menu/icons/Loader";
 import { CheckmarkCircleIcon, ErrorIcon } from "../../components/Svg";
-import { getBscScanLink } from "../../util/getBscScan";
 
 interface Props {
   account: string;
@@ -145,9 +144,9 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
 
                   return (
                     <>
-                      {chainId && (
+                      {hash && (
                         <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
-                          <LinkExternal href={getBscScanLink(chainId, hash, 'transaction')} color={color}>
+                          <LinkExternal href={`https://bscscan.com/tx/${hash}`}>
                             {summary ?? hash}
                           </LinkExternal>
                           {icon}

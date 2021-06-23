@@ -3524,26 +3524,6 @@ var CopyToClipboard = function (_a) {
 };
 var templateObject_1$b, templateObject_2$6;
 
-var BSCSCAN_PREFIXES = {
-    56: '',
-    97: 'testnet.'
-};
-function getBscScanLink(chainId, data, type) {
-    var prefix = "https://" + (BSCSCAN_PREFIXES[chainId] || BSCSCAN_PREFIXES[ChainId.MAINNET]) + "bscscan.com";
-    switch (type) {
-        case 'transaction': {
-            return prefix + "/tx/" + data;
-        }
-        case 'token': {
-            return prefix + "/token/" + data;
-        }
-        case 'address':
-        default: {
-            return prefix + "/address/" + data;
-        }
-    }
-}
-
 var ConnectedWrapper = styled.div(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n"], ["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n"])));
 var TransactionWrapper = styled.div(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"], ["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"])));
 var AccountModal = function (_a) {
@@ -3620,12 +3600,9 @@ var AccountModal = function (_a) {
                     transactions.map(function (sortedRecentTransaction) {
                         var hash = sortedRecentTransaction.hash, summary = sortedRecentTransaction.summary;
                         var icon = getRowStatus(sortedRecentTransaction).icon;
-                        var color = getRowStatus(sortedRecentTransaction).color;
-                        if (color === 'success') {
-                            color = 'primary';
-                        }
-                        return (React.createElement(React.Fragment, null, chainId && (React.createElement(Flex, { key: hash, alignItems: "center", justifyContent: "space-between", mb: "4px" },
-                            React.createElement(LinkExternal, { href: getBscScanLink(chainId, hash, 'transaction'), color: color }, summary !== null && summary !== void 0 ? summary : hash),
+                        getRowStatus(sortedRecentTransaction).color;
+                        return (React.createElement(React.Fragment, null, hash && (React.createElement(Flex, { key: hash, alignItems: "center", justifyContent: "space-between", mb: "4px" },
+                            React.createElement(LinkExternal, { href: "https://bscscan.com/tx/" + hash }, summary !== null && summary !== void 0 ? summary : hash),
                             icon))));
                     })))),
         React.createElement(Flex, null,
