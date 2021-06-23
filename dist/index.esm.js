@@ -3589,7 +3589,7 @@ var AccountModal = function (_a) {
         isSwap && (React.createElement(TransactionWrapper, null,
             React.createElement(Flex, { justifyContent: 'space-between', alignItems: 'center' },
                 React.createElement(Text, { fontSize: '14px', fontWeight: '600', lineHeight: '21px', color: '#07162D' }, "Recent transactions"),
-                React.createElement(Button, { scale: 'sm', variant: 'text', onClick: clearTransactions }, "Clear All")),
+                React.createElement(Button, { m: 0, p: 0, scale: 'sm', variant: 'text', onClick: clearTransactions }, "Clear All")),
             React.createElement(React.Fragment, null,
                 !account && (React.createElement(Flex, { justifyContent: "center", flexDirection: "column" },
                     React.createElement(Text, { mb: "8px", bold: true }, "Please connect your wallet to view your recent transactions"))),

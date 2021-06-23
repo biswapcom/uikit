@@ -112,7 +112,7 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                 <Text fontSize='14px' fontWeight='600' lineHeight='21px' color='#07162D'>
                   Recent transactions
                 </Text>
-                <Button scale='sm' variant='text' onClick={clearTransactions}>
+                <Button m={0} p={0} scale='sm' variant='text' onClick={clearTransactions}>
                   Clear All
                 </Button>
               </Flex>
