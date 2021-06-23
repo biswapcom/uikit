@@ -5,6 +5,8 @@ interface Props {
     login: Login;
     logout: () => void;
     pendingTransactions?: number;
+    recentTransaction: any;
+    chainId: any;
 }
 declare const UserBlock: React.FC<Props>;
 export default UserBlock;

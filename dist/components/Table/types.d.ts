@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export declare type ColumnType<T> = {
     name: string;
     label?: string;
