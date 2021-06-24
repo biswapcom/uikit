@@ -3846,7 +3846,7 @@ var Menu = function (_a) {
     var _c = useMatchBreakpoints(), isLg = _c.isLg, isMd = _c.isMd, isSm = _c.isSm, isXs = _c.isXs;
     var isMobile = isLg || isMd || isSm || isXs;
     var _d = React.useState(!isMobile), isPushed = _d[0], setIsPushed = _d[1];
-    var _e = React.useState(true), showMenu = _e[0], setShowMenu = _e[1];
+    var _e = React.useState(true), showMenu = _e[0]; _e[1];
     var _f = React.useState(true), menuBg = _f[0], setMenuBg = _f[1];
     var refPrevOffset = React.useRef(window.pageYOffset);
     console.log('recentTransaction menu', recentTransaction);
@@ -3858,19 +3858,20 @@ var Menu = function (_a) {
             var isTopOfPage = currentOffset === 0;
             // Always show the menu when user reach the top
             if (isTopOfPage) {
-                setShowMenu(true);
+                // setShowMenu(true);
                 setMenuBg(true);
             }
             // Avoid triggering anything at the bottom because of layout shift
             else if (!isBottomOfPage) {
                 if (currentOffset < refPrevOffset.current) {
                     // Has scroll up
-                    setShowMenu(true);
+                    // setShowMenu(true);
                     setMenuBg(false);
                 }
                 else {
                     // Has scroll down
-                    setShowMenu(false);
+                    // setShowMenu(false);
+                    setMenuBg(false);
                 }
             }
             refPrevOffset.current = currentOffset;
