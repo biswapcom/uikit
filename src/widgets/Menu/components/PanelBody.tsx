@@ -19,7 +19,8 @@ const Container = styled.div<{ isPushed: boolean }>`
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 100%;
+  //height: 100%;
+  flex-grow: 1;
   padding: ${({ isPushed }) => (isPushed ? "0 16px" : "0 12px")};
   transition: padding-left 0.4s, padding-right 0.4s;
 
