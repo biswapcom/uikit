@@ -135,18 +135,19 @@ const Menu: React.FC<NavProps> = ({
       const isTopOfPage = currentOffset === 0;
       // Always show the menu when user reach the top
       if (isTopOfPage) {
-        setShowMenu(true);
+        // setShowMenu(true);
         setMenuBg(true);
       }
       // Avoid triggering anything at the bottom because of layout shift
       else if (!isBottomOfPage) {
         if (currentOffset < refPrevOffset.current) {
           // Has scroll up
-          setShowMenu(true);
+          // setShowMenu(true);
           setMenuBg(false);
         } else {
           // Has scroll down
-          setShowMenu(false);
+          // setShowMenu(false);
+          setMenuBg(false);
         }
       }
       refPrevOffset.current = currentOffset;
