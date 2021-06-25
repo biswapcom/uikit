@@ -3601,12 +3601,12 @@ var AccountModal = function (_a) {
                 account &&
                     chainId &&
                     transactions.map(function (sortedRecentTransaction) {
-                        var _a;
+                        var _a, _b;
                         console.log('sortedRecentTransaction ui', sortedRecentTransaction);
                         var hash = sortedRecentTransaction.hash, summary = sortedRecentTransaction.summary;
                         console.log('hash ui', hash);
                         console.log('sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status ui', (sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.hash) && ((_a = sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt) === null || _a === void 0 ? void 0 : _a.status));
-                        console.log('transactions[hash].receipt', transactions[hash].receipt);
+                        console.log('transactions[hash].receipt', (sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.hash) && ((_b = sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt) === null || _b === void 0 ? void 0 : _b.status) !== 1 && transactions[hash].receipt);
                         // let pendingStatus;
                         // // const transactionHash = sortedRecentTransaction.hash
                         // if (!hash || !transactions[hash]) {

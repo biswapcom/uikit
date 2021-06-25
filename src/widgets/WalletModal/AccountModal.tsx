@@ -144,7 +144,7 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                   const { hash, summary } = sortedRecentTransaction
                   console.log('hash ui',hash);
                   console.log('sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status ui',sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status);
-                  console.log('transactions[hash].receipt',transactions[hash].receipt);
+                  console.log('transactions[hash].receipt', sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && transactions[hash].receipt);
                   // let pendingStatus;
                   // // const transactionHash = sortedRecentTransaction.hash
                   // if (!hash || !transactions[hash]) {
