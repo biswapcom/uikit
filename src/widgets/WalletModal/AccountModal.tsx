@@ -79,6 +79,9 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
     clearTransaction();
   }
 
+
+  console.log('recent ui',recentTransaction);
+  console.log('transactions ui',transactions);
   return (
     <Modal title="Your wallet" onDismiss={onDismiss}>
       <ConnectedWrapper>
@@ -131,19 +134,25 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                     </Text>
                   </Flex>
                 )}
+
                 {account &&
                 chainId &&
                 transactions.map((sortedRecentTransaction: any) => {
+
+                  console.log('sortedRecentTransaction ui',sortedRecentTransaction);
+                  const { hash, summary } = sortedRecentTransaction
                   let pendingStatus;
-                  const transactionHash = sortedRecentTransaction.hash
-                  if (!transactionHash || !transactions[transactionHash]) {
+                  // const transactionHash = sortedRecentTransaction.hash
+                  if (!hash || !transactions[hash]) {
                     pendingStatus = false
                     return pendingStatus;
                   }
 
-                  pendingStatus = sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt
 
-                  const { hash, summary } = sortedRecentTransaction
+                  pendingStatus = sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[hash].receipt
+                  console.log('pendingStatus ui',pendingStatus);
+
+
                   const { icon } = getRowStatus(sortedRecentTransaction)
                   let { color } = getRowStatus(sortedRecentTransaction)
 

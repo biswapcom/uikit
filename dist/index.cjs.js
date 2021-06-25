@@ -3584,6 +3584,8 @@ var AccountModal = function (_a) {
         setTransactions([]);
         clearTransaction();
     };
+    console.log('recent ui', recentTransaction);
+    console.log('transactions ui', transactions);
     return (React__default['default'].createElement(Modal, { title: "Your wallet", onDismiss: onDismiss },
         React__default['default'].createElement(ConnectedWrapper, null,
             React__default['default'].createElement(Text, { fontSize: '14px', fontWeight: '400', lineHeight: '21px', color: '#708DB7' },
@@ -3613,14 +3615,16 @@ var AccountModal = function (_a) {
                     chainId &&
                     transactions.map(function (sortedRecentTransaction) {
                         var _a;
+                        console.log('sortedRecentTransaction ui', sortedRecentTransaction);
+                        var hash = sortedRecentTransaction.hash, summary = sortedRecentTransaction.summary;
                         var pendingStatus;
-                        var transactionHash = sortedRecentTransaction.hash;
-                        if (!transactionHash || !transactions[transactionHash]) {
+                        // const transactionHash = sortedRecentTransaction.hash
+                        if (!hash || !transactions[hash]) {
                             pendingStatus = false;
                             return pendingStatus;
                         }
-                        pendingStatus = (sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.hash) && ((_a = sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt) === null || _a === void 0 ? void 0 : _a.status) !== 1 && !transactions[transactionHash].receipt;
-                        var hash = sortedRecentTransaction.hash, summary = sortedRecentTransaction.summary;
+                        pendingStatus = (sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.hash) && ((_a = sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt) === null || _a === void 0 ? void 0 : _a.status) !== 1 && !transactions[hash].receipt;
+                        console.log('pendingStatus ui', pendingStatus);
                         var icon = getRowStatus(sortedRecentTransaction).icon;
                         var color = getRowStatus(sortedRecentTransaction).color;
                         if (color === 'success') {
