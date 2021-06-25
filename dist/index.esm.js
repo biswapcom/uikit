@@ -3615,7 +3615,7 @@ var AccountModal = function (_a) {
                             // const transactionHash = sortedRecentTransaction.hash
                             if (!transactionHash || !transactions[transactionHash]) {
                                 console.log('is if');
-                                pendingStatus = false;
+                                pendingStatus = true;
                                 console.log('pending status is if', pendingStatus);
                                 // return pendingStatus;
                                 // eslint-disable-next-line

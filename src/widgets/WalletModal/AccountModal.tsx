@@ -155,7 +155,7 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
 
                     if (!transactionHash || !transactions[transactionHash]) {
                       console.log('is if')
-                      pendingStatus = false
+                      pendingStatus = true
                       console.log('pending status is if',pendingStatus)
                       // return pendingStatus;
                       // eslint-disable-next-line
