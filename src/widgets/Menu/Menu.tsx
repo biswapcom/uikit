@@ -41,7 +41,7 @@ const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean; menuBg: boo
   width: 100%;
   height: ${MENU_HEIGHT_MOBILE}px;
   background-color: ${({ theme, menuBg }) => (menuBg ? "transparent" : theme.colors.background)};
-  z-index: 20;
+  z-index: 40;
   transform: translate3d(0, 0, 0);
 
   ${({ theme }) => theme.mediaQueries.nav} {
@@ -51,6 +51,7 @@ const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean; menuBg: boo
   ${({ theme }) => theme.mediaQueries.lg} {
     height: ${MENU_HEIGHT}px;
     top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
+    z-index: 20;
   }
 `;
 
