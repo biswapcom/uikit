@@ -140,17 +140,21 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                 transactions.map((sortedRecentTransaction: any) => {
 
                   console.log('sortedRecentTransaction ui',sortedRecentTransaction);
+
                   const { hash, summary } = sortedRecentTransaction
-                  let pendingStatus;
-                  // const transactionHash = sortedRecentTransaction.hash
-                  if (!hash || !transactions[hash]) {
-                    pendingStatus = false
-                    return pendingStatus;
-                  }
-
-
-                  pendingStatus = sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[hash].receipt
-                  console.log('pendingStatus ui',pendingStatus);
+                  console.log('hash ui',hash);
+                  console.log('sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status ui',sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status);
+                  console.log('transactions[hash].receipt',transactions[hash].receipt);
+                  // let pendingStatus;
+                  // // const transactionHash = sortedRecentTransaction.hash
+                  // if (!hash || !transactions[hash]) {
+                  //   pendingStatus = false
+                  //   return pendingStatus;
+                  // }
+                  //
+                  //
+                  // pendingStatus = sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[hash].receipt
+                  // console.log('pendingStatus ui',pendingStatus);
 
 
                   const { icon } = getRowStatus(sortedRecentTransaction)
@@ -164,10 +168,10 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                     <>
                       {hash && (
                         <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
-                          <LinkExternal href={`https://bscscan.com/tx/${hash}`} color={pendingStatus? '#1263F1': color}>
+                          <LinkExternal href={`https://bscscan.com/tx/${hash}`} color={color}>
                             {summary ?? hash}
                           </LinkExternal>
-                          {pendingStatus ? <Loader/> : icon}
+                          {icon}
                         </Flex>
                       )}
                     </>
