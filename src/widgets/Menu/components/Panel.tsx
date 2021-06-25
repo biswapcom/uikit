@@ -15,41 +15,61 @@ interface Props extends PanelProps, PushedProps, PanelFooterProps {
   togglePush: () => void;
 }
 
-const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
+const PanelWrapper = styled.div<{ isPushed: boolean; showMenu: boolean }>`
+  display: flex;
+  flex-direction: column;
   position: fixed;
-  padding-top: 16px;
-  //top: 64px;
+  padding-top: 64px;
   left: 0;
+  top: 0;
+  width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
+  height: -webkit-fill-available;
+  z-index: 30;
+  overflow: ${({ isPushed }) => (isPushed ? "initial" : "hidden")};
+  transition: padding-top 0.2s, width 0.2s;
+
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
+  }
+  
+  ${({ theme }) => theme.mediaQueries.lg} {
+    padding-top: 0;
+    overflow: visible;
+    height: 100vh;
+  }
+  
+  ${({ theme }) => theme.mediaQueries.lg} {
+    &:hover .menuBtnDesktop {
+      opacity: 1;
+    }
+  }
+`
+
+const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
+  position: absolute;
+  top: 64px;
+  left: 0;
+  height: calc(100% - 64px);
+  flex-grow: 1;
+  padding-top: 16px;
+  width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-shrink: 0;
   background-color: ${({ theme }) => theme.nav.background};
-  width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
-  //height: calc(100vh - 64px);
-  height: -webkit-fill-available;
-  transition: padding-top 0.2s, width 0.2s;
   border-right: ${({ isPushed }) => (isPushed ? "2px solid rgba(133, 133, 133, 0.1)" : 0)};
-  overflow: ${({ isPushed }) => (isPushed ? "initial" : "hidden")};
-  z-index: 30;
-  transform: translate3d(0, 0, 0);
+  transition: padding-top 0.2s, width 0.2s;
 
   ${({ theme }) => theme.mediaQueries.nav} {
-    border-right: 2px solid rgba(133, 133, 133, 0.1);
     width: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
+    border-right: 2px solid rgba(133, 133, 133, 0.1);
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
     padding-top: 17px;
     top: 0;
-    overflow: visible;
-    height: 100vh;
-  }
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    &:hover .menuBtnDesktop {
-      opacity: 1;
-    }
+    height: 100%;
   }
 `;
 
@@ -79,18 +99,20 @@ const Panel: React.FC<Props> = (props) => {
   const { isPushed, showMenu, isDark, href, footerTitle, deals, togglePush } = props;
 
   return (
-    <StyledPanel isPushed={isPushed} showMenu={showMenu}>
-      <MenuBtnDesktop className="menuBtnDesktop" isPushed={isPushed} onClick={togglePush}>
-        <ArrowSidebar width="16px" color="contrast" />
-      </MenuBtnDesktop>
-      <Logo isPushed={isPushed} isDark={isDark} href={href} />
-      <PanelBody {...props} />
-      {deals?.length && footerTitle && (
-        <PanelFooter2 isPushed={isPushed} footerTitle={footerTitle} isDark={isDark} deals={deals} />
-      )}
-      <NavSocial isPushed={isPushed} isSidebar/>
+    <PanelWrapper isPushed={isPushed} showMenu={showMenu}>
+      <StyledPanel isPushed={isPushed} showMenu={showMenu}>
+        <MenuBtnDesktop className="menuBtnDesktop" isPushed={isPushed} onClick={togglePush}>
+          <ArrowSidebar width="16px" color="contrast" />
+        </MenuBtnDesktop>
+        <Logo isPushed={isPushed} isDark={isDark} href={href} />
+        <PanelBody {...props} />
+        {deals?.length && footerTitle && (
+          <PanelFooter2 isPushed={isPushed} footerTitle={footerTitle} isDark={isDark} deals={deals} />
+        )}
+        <NavSocial isPushed={isPushed} isSidebar/>
 
-    </StyledPanel>
+      </StyledPanel>
+    </PanelWrapper>
   );
 };
 
