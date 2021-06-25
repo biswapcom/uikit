@@ -134,6 +134,15 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                 {account &&
                 chainId &&
                 transactions.map((sortedRecentTransaction: any) => {
+                  let pendingStatus;
+                  const transactionHash = sortedRecentTransaction.hash
+                  if (!transactionHash || !transactions[transactionHash]) {
+                    pendingStatus = false
+                    return pendingStatus;
+                  }
+
+                  pendingStatus = sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt
+
                   const { hash, summary } = sortedRecentTransaction
                   const { icon } = getRowStatus(sortedRecentTransaction)
                   let { color } = getRowStatus(sortedRecentTransaction)
@@ -146,10 +155,10 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                     <>
                       {hash && (
                         <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
-                          <LinkExternal href={`https://bscscan.com/tx/${hash}`}>
+                          <LinkExternal href={`https://bscscan.com/tx/${hash}`} color={pendingStatus? '#1263F1': color}>
                             {summary ?? hash}
                           </LinkExternal>
-                          {icon}
+                          {pendingStatus ? <Loader/> : icon}
                         </Flex>
                       )}
                     </>

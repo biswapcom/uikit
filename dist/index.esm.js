@@ -3599,12 +3599,23 @@ var AccountModal = function (_a) {
                 account &&
                     chainId &&
                     transactions.map(function (sortedRecentTransaction) {
+                        var _a;
+                        var pendingStatus;
+                        var transactionHash = sortedRecentTransaction.hash;
+                        if (!transactionHash || !transactions[transactionHash]) {
+                            pendingStatus = false;
+                            return pendingStatus;
+                        }
+                        pendingStatus = (sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.hash) && ((_a = sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt) === null || _a === void 0 ? void 0 : _a.status) !== 1 && !transactions[transactionHash].receipt;
                         var hash = sortedRecentTransaction.hash, summary = sortedRecentTransaction.summary;
                         var icon = getRowStatus(sortedRecentTransaction).icon;
-                        getRowStatus(sortedRecentTransaction).color;
+                        var color = getRowStatus(sortedRecentTransaction).color;
+                        if (color === 'success') {
+                            color = 'primary';
+                        }
                         return (React.createElement(React.Fragment, null, hash && (React.createElement(Flex, { key: hash, alignItems: "center", justifyContent: "space-between", mb: "4px" },
-                            React.createElement(LinkExternal, { href: "https://bscscan.com/tx/" + hash }, summary !== null && summary !== void 0 ? summary : hash),
-                            icon))));
+                            React.createElement(LinkExternal, { href: "https://bscscan.com/tx/" + hash, color: pendingStatus ? '#1263F1' : color }, summary !== null && summary !== void 0 ? summary : hash),
+                            pendingStatus ? React.createElement(Icon$7, null) : icon))));
                     })))),
         React.createElement(Flex, null,
             React.createElement(Button, { style: { width: '100%' }, mt: '24px', variant: "secondary", onClick: function () {
