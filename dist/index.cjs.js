@@ -3614,22 +3614,22 @@ var AccountModal = function (_a) {
                 account &&
                     chainId &&
                     transactions.map(function (sortedRecentTransaction) {
-                        var _a;
+                        var _a, _b;
                         console.log('item in ui', sortedRecentTransaction);
                         var hash = sortedRecentTransaction.hash, summary = sortedRecentTransaction.summary;
                         console.log('item', sortedRecentTransaction);
                         var pendingStatus;
                         var transactionHash = sortedRecentTransaction.hash;
                         console.log('hash', transactionHash);
-                        console.log('allTransactions[transactionHash]', transactions[transactionHash]);
-                        console.log('!allTransactions[transactionHash].receipt', !transactions[transactionHash].receipt);
+                        console.log('allTransactions[transactionHash]', transactions && transactions[transactionHash]);
+                        console.log('!allTransactions[transactionHash].receipt', !transactions && !((_a = transactions[transactionHash]) === null || _a === void 0 ? void 0 : _a.receipt));
                         if (!transactionHash || !transactions[transactionHash]) {
                             pendingStatus = false;
                             return pendingStatus;
                         }
                         // eslint-disable-next-line
                         else {
-                            pendingStatus = (sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.hash) && ((_a = sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt) === null || _a === void 0 ? void 0 : _a.status) !== 1 && !transactions[transactionHash].receipt;
+                            pendingStatus = (sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.hash) && ((_b = sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt) === null || _b === void 0 ? void 0 : _b.status) !== 1 && !transactions[transactionHash].receipt;
                         }
                         var icon = getRowStatus(sortedRecentTransaction).icon;
                         var color = getRowStatus(sortedRecentTransaction).color;
