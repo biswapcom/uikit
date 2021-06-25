@@ -27,6 +27,7 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   background-color: ${({ theme }) => theme.nav.background};
   width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
   height: calc(100vh - 64px);
+  max-height: -webkit-fill-available;
   transition: padding-top 0.2s, width 0.2s;
   border-right: ${({ isPushed }) => (isPushed ? "2px solid rgba(133, 133, 133, 0.1)" : 0)};
   overflow: ${({ isPushed }) => (isPushed ? "initial" : "hidden")};
