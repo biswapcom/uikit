@@ -149,15 +149,21 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                   const transactionHash = sortedRecentTransaction.hash
 
                   function getStatus () {
-                    let pendingStatus;
+                    console.log('if get status');
+                    let pendingStatus: any;
                     // const transactionHash = sortedRecentTransaction.hash
 
                     if (!transactionHash || !transactions[transactionHash]) {
+                      console.log('is if')
                       pendingStatus = false
-                      return pendingStatus;
+                      console.log('pending status is if',pendingStatus)
+                      // return pendingStatus;
+                      // eslint-disable-next-line
+                    } else {
+                      pendingStatus = sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt
+                      console.log('sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt',sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt);
                     }
 
-                    pendingStatus = sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt
                     return pendingStatus;
                   }
 
@@ -175,7 +181,7 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                           <LinkExternal href={`https://bscscan.com/tx/${hash}`} color={color}>
                             {summary ?? hash}
                           </LinkExternal>
-                          {getStatus() ? <Loader/> :icon}
+                          {getStatus() ? <Loader/> : icon}
                         </Flex>
                       )}
                     </>
