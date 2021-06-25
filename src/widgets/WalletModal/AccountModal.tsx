@@ -39,7 +39,6 @@ const TransactionWrapper = styled.div`
 const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = () => null, login,recentTransaction,chainId,clearTransaction}) =>{
   const [transactions, setTransactions] = useState(recentTransaction)
   const [currentConnector, setCurrentConnector] = useState('');
-  const [isPendingTransaction, setIsPendingTransactions] = useState(true)
 
   useEffect(()=>{
     if (account) {
@@ -149,12 +148,17 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                   // let pendingStatus;
                   const transactionHash = sortedRecentTransaction.hash
 
-                  if (!transactionHash || !recentTransaction[transactionHash]) {
-                    setIsPendingTransactions(false)
-                  }
+                  function getStatus () {
+                    let pendingStatus;
+                    // const transactionHash = sortedRecentTransaction.hash
 
-                  if (sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !recentTransaction[transactionHash].receipt) {
-                    sortedRecentTransaction(true)
+                    if (!transactionHash || !transactions[transactionHash]) {
+                      pendingStatus = false
+                      return pendingStatus;
+                    }
+
+                    pendingStatus = sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt
+                    return pendingStatus;
                   }
 
                   const { icon } = getRowStatus(sortedRecentTransaction)
@@ -164,8 +168,6 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                     color = 'primary'
                   }
 
-
-                  console.log('is pending', isPendingTransaction);
                   return (
                     <>
                       {hash && (
@@ -173,7 +175,7 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                           <LinkExternal href={`https://bscscan.com/tx/${hash}`} color={color}>
                             {summary ?? hash}
                           </LinkExternal>
-                          {isPendingTransaction ? <Loader/> :icon}
+                          {getStatus() ? <Loader/> :icon}
                         </Flex>
                       )}
                     </>
