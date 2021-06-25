@@ -3600,39 +3600,33 @@ var AccountModal = function (_a) {
                     React.createElement(Text, { mb: "8px", bold: true }, "No recent transactions"))),
                 account &&
                     chainId &&
-                    recentTransaction.map(function (sortedRecentTransaction) {
-                        console.log('sortedRecentTransaction ui', sortedRecentTransaction);
+                    transactions.map(function (sortedRecentTransaction) {
+                        var _a;
+                        console.log('item in ui', sortedRecentTransaction);
                         var hash = sortedRecentTransaction.hash, summary = sortedRecentTransaction.summary;
-                        // console.log('hash ui',hash);
-                        // console.log('sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status ui',sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status);
-                        //  console.log('transactions[hash].receipt', sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !sortedRecentTransaction?.receipt);
-                        // let pendingStatus;
+                        console.log('item', sortedRecentTransaction);
+                        var pendingStatus;
                         var transactionHash = sortedRecentTransaction.hash;
-                        function getStatus() {
-                            var _a;
-                            console.log('if get status');
-                            var pendingStatus;
-                            // const transactionHash = sortedRecentTransaction.hash
-                            if (!transactionHash || !transactions[transactionHash]) {
-                                console.log('is if');
-                                pendingStatus = false;
-                                return pendingStatus;
-                                // return pendingStatus;
-                                // eslint-disable-next-line
-                            }
-                            else {
-                                pendingStatus = (sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.hash) && ((_a = sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt) === null || _a === void 0 ? void 0 : _a.status) !== 1 && !transactions[transactionHash].receipt;
-                                return pendingStatus;
-                            }
+                        console.log('hash', transactionHash);
+                        console.log('allTransactions[transactionHash]', transactions[transactionHash]);
+                        console.log('!allTransactions[transactionHash].receipt', !transactions[transactionHash].receipt);
+                        if (!transactionHash || !transactions[transactionHash]) {
+                            pendingStatus = false;
+                            return pendingStatus;
+                        }
+                        // eslint-disable-next-line
+                        else {
+                            pendingStatus = (sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.hash) && ((_a = sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt) === null || _a === void 0 ? void 0 : _a.status) !== 1 && !transactions[transactionHash].receipt;
                         }
                         var icon = getRowStatus(sortedRecentTransaction).icon;
                         var color = getRowStatus(sortedRecentTransaction).color;
                         if (color === 'success') {
                             color = 'primary';
                         }
-                        return (React.createElement(React.Fragment, null, hash && (React.createElement(Flex, { key: hash, alignItems: "center", justifyContent: "space-between", mb: "4px" },
-                            React.createElement(LinkExternal, { href: "https://bscscan.com/tx/" + hash, color: color }, summary !== null && summary !== void 0 ? summary : hash),
-                            getStatus() ? React.createElement(Icon$7, null) : icon))));
+                        return (React.createElement(React.Fragment, null,
+                            React.createElement(Flex, { key: hash, alignItems: "center", justifyContent: "space-between", mb: "4px" },
+                                React.createElement(LinkExternal, { href: hash && "https://bscscan.com/tx/" + hash, color: color }, summary !== null && summary !== void 0 ? summary : hash),
+                                pendingStatus ? React.createElement(Icon$7, null) : icon)));
                     })))),
         React.createElement(Flex, null,
             React.createElement(Button, { style: { width: '100%' }, mt: '24px', variant: "secondary", onClick: function () {

@@ -137,35 +137,24 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
 
                 {account &&
                 chainId &&
-                recentTransaction.map((sortedRecentTransaction: any) => {
-
-                  console.log('sortedRecentTransaction ui',sortedRecentTransaction);
-
+                transactions.map((sortedRecentTransaction: any) => {
+                  console.log('item in ui',sortedRecentTransaction);
                   const { hash, summary } = sortedRecentTransaction
-                  // console.log('hash ui',hash);
-                  // console.log('sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status ui',sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status);
-                  //  console.log('transactions[hash].receipt', sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !sortedRecentTransaction?.receipt);
-                  // let pendingStatus;
+                  console.log('item', sortedRecentTransaction);
+                  let pendingStatus;
                   const transactionHash = sortedRecentTransaction.hash
-
-                  function getStatus () {
-                    console.log('if get status');
-                    let pendingStatus: any;
-                    // const transactionHash = sortedRecentTransaction.hash
-
-                    if (!transactionHash || !transactions[transactionHash]) {
-                      console.log('is if')
-                      pendingStatus = false
-                      return pendingStatus;
-                      console.log('pending status is if',pendingStatus)
-                      // return pendingStatus;
-                      // eslint-disable-next-line
-                    } else {
-                      pendingStatus = sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt
-                      return pendingStatus;
-                      console.log('sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt',pendingStatus);
-                    }
+                  console.log('hash', transactionHash)
+                  console.log('allTransactions[transactionHash]',transactions[transactionHash])
+                  console.log('!allTransactions[transactionHash].receipt',!transactions[transactionHash].receipt)
+                  if (!transactionHash || !transactions[transactionHash]) {
+                    pendingStatus = false
+                    return pendingStatus;
                   }
+                  // eslint-disable-next-line
+                  else {
+                    pendingStatus = sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt
+                  }
+                  
 
                   const { icon } = getRowStatus(sortedRecentTransaction)
                   let { color } = getRowStatus(sortedRecentTransaction)
@@ -176,14 +165,14 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
 
                   return (
                     <>
-                      {hash && (
+                      {/* {hash && ( */}
                         <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
-                          <LinkExternal href={`https://bscscan.com/tx/${hash}`} color={color}>
+                          <LinkExternal href={hash && `https://bscscan.com/tx/${hash}`} color={color}>
                             {summary ?? hash}
                           </LinkExternal>
-                          {getStatus() ? <Loader/> : icon}
+                          {pendingStatus ? <Loader/> : icon}
                         </Flex>
-                      )}
+                      {/* )} */}
                     </>
                   )
                 })}
