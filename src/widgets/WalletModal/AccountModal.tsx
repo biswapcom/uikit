@@ -149,9 +149,13 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                   // let pendingStatus;
                   const transactionHash = sortedRecentTransaction.hash
 
-                  if (!transactionHash || !recentTransaction[transactionHash]) setIsPendingTransactions(false)
+                  if (!transactionHash || !recentTransaction[transactionHash]) {
+                    setIsPendingTransactions(false)
+                  }
 
-                  if (sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !recentTransaction[transactionHash].receipt) sortedRecentTransaction(true)
+                  if (sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !recentTransaction[transactionHash].receipt) {
+                    sortedRecentTransaction(true)
+                  }
 
                   const { icon } = getRowStatus(sortedRecentTransaction)
                   let { color } = getRowStatus(sortedRecentTransaction)

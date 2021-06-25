@@ -3623,10 +3623,12 @@ var AccountModal = function (_a) {
                         //  console.log('transactions[hash].receipt', sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !sortedRecentTransaction?.receipt);
                         // let pendingStatus;
                         var transactionHash = sortedRecentTransaction.hash;
-                        if (!transactionHash || !recentTransaction[transactionHash])
+                        if (!transactionHash || !recentTransaction[transactionHash]) {
                             setIsPendingTransactions(false);
-                        if ((sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.hash) && ((_a = sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt) === null || _a === void 0 ? void 0 : _a.status) !== 1 && !recentTransaction[transactionHash].receipt)
+                        }
+                        if ((sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.hash) && ((_a = sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt) === null || _a === void 0 ? void 0 : _a.status) !== 1 && !recentTransaction[transactionHash].receipt) {
                             sortedRecentTransaction(true);
+                        }
                         var icon = getRowStatus(sortedRecentTransaction).icon;
                         var color = getRowStatus(sortedRecentTransaction).color;
                         if (color === 'success') {
