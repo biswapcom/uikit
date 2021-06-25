@@ -39,6 +39,7 @@ const TransactionWrapper = styled.div`
 const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = () => null, login,recentTransaction,chainId,clearTransaction}) =>{
   const [transactions, setTransactions] = useState(recentTransaction)
   const [currentConnector, setCurrentConnector] = useState('');
+  const [isPendingTransaction, setIsPendingTransactions] = useState(true)
 
   useEffect(()=>{
     if (account) {
@@ -137,7 +138,7 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
 
                 {account &&
                 chainId &&
-                transactions.map((sortedRecentTransaction: any) => {
+                recentTransaction.map((sortedRecentTransaction: any) => {
 
                   console.log('sortedRecentTransaction ui',sortedRecentTransaction);
 
@@ -145,17 +146,12 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                   // console.log('hash ui',hash);
                   // console.log('sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status ui',sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status);
                   //  console.log('transactions[hash].receipt', sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !sortedRecentTransaction?.receipt);
-                  let pendingStatus;
-                  // const transactionHash = sortedRecentTransaction.hash
-                  if (!hash || !sortedRecentTransaction) {
-                    pendingStatus = false
-                    return pendingStatus;
-                  }
+                  // let pendingStatus;
+                  const transactionHash = sortedRecentTransaction.hash
 
-                    pendingStatus = sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !sortedRecentTransaction?.receipt
+                  if (!transactionHash || !recentTransaction[transactionHash]) setIsPendingTransactions(false)
 
-                  console.log('pendingStatus ui',pendingStatus);
-
+                  if (sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !recentTransaction[transactionHash].receipt) sortedRecentTransaction(true)
 
                   const { icon } = getRowStatus(sortedRecentTransaction)
                   let { color } = getRowStatus(sortedRecentTransaction)
@@ -164,6 +160,8 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                     color = 'primary'
                   }
 
+
+                  console.log('is pending', isPendingTransaction);
                   return (
                     <>
                       {hash && (
@@ -171,7 +169,7 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                           <LinkExternal href={`https://bscscan.com/tx/${hash}`} color={color}>
                             {summary ?? hash}
                           </LinkExternal>
-                          {icon}
+                          {isPendingTransaction ? <Loader/> :icon}
                         </Flex>
                       )}
                     </>

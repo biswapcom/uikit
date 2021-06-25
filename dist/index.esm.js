@@ -3531,6 +3531,7 @@ var AccountModal = function (_a) {
     var isSwap = _a.isSwap, account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b, login = _a.login, recentTransaction = _a.recentTransaction, chainId = _a.chainId, clearTransaction = _a.clearTransaction;
     var _c = useState(recentTransaction), transactions = _c[0], setTransactions = _c[1];
     var _d = useState(''), currentConnector = _d[0], setCurrentConnector = _d[1];
+    var _e = useState(true), isPendingTransaction = _e[0], setIsPendingTransactions = _e[1];
     useEffect(function () {
         if (account) {
             var localStorageConnector_1 = window.localStorage.getItem(connectorLocalStorageKey);
@@ -3600,29 +3601,28 @@ var AccountModal = function (_a) {
                     React.createElement(Text, { mb: "8px", bold: true }, "No recent transactions"))),
                 account &&
                     chainId &&
-                    transactions.map(function (sortedRecentTransaction) {
+                    recentTransaction.map(function (sortedRecentTransaction) {
                         var _a;
                         console.log('sortedRecentTransaction ui', sortedRecentTransaction);
                         var hash = sortedRecentTransaction.hash, summary = sortedRecentTransaction.summary;
                         // console.log('hash ui',hash);
                         // console.log('sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status ui',sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status);
                         //  console.log('transactions[hash].receipt', sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !sortedRecentTransaction?.receipt);
-                        var pendingStatus;
-                        // const transactionHash = sortedRecentTransaction.hash
-                        if (!hash || !sortedRecentTransaction) {
-                            pendingStatus = false;
-                            return pendingStatus;
-                        }
-                        pendingStatus = (sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.hash) && ((_a = sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt) === null || _a === void 0 ? void 0 : _a.status) !== 1 && !(sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt);
-                        console.log('pendingStatus ui', pendingStatus);
+                        // let pendingStatus;
+                        var transactionHash = sortedRecentTransaction.hash;
+                        if (!transactionHash || !recentTransaction[transactionHash])
+                            setIsPendingTransactions(false);
+                        if ((sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.hash) && ((_a = sortedRecentTransaction === null || sortedRecentTransaction === void 0 ? void 0 : sortedRecentTransaction.receipt) === null || _a === void 0 ? void 0 : _a.status) !== 1 && !recentTransaction[transactionHash].receipt)
+                            sortedRecentTransaction(true);
                         var icon = getRowStatus(sortedRecentTransaction).icon;
                         var color = getRowStatus(sortedRecentTransaction).color;
                         if (color === 'success') {
                             color = 'primary';
                         }
+                        console.log('is pending', isPendingTransaction);
                         return (React.createElement(React.Fragment, null, hash && (React.createElement(Flex, { key: hash, alignItems: "center", justifyContent: "space-between", mb: "4px" },
                             React.createElement(LinkExternal, { href: "https://bscscan.com/tx/" + hash, color: color }, summary !== null && summary !== void 0 ? summary : hash),
-                            icon))));
+                            isPendingTransaction ? React.createElement(Icon$7, null) : icon))));
                     })))),
         React.createElement(Flex, null,
             React.createElement(Button, { style: { width: '100%' }, mt: '24px', variant: "secondary", onClick: function () {
