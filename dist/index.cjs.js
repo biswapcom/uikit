@@ -3622,7 +3622,7 @@ var AccountModal = function (_a) {
                         //  console.log('transactions[hash].receipt', sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !sortedRecentTransaction?.receipt);
                         var pendingStatus;
                         // const transactionHash = sortedRecentTransaction.hash
-                        if (!hash || !transactions[hash]) {
+                        if (!hash || !sortedRecentTransaction) {
                             pendingStatus = false;
                             return pendingStatus;
                         }
