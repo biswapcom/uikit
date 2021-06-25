@@ -155,16 +155,16 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
 
                     if (!transactionHash || !transactions[transactionHash]) {
                       console.log('is if')
-                      pendingStatus = true
+                      pendingStatus = false
+                      return pendingStatus;
                       console.log('pending status is if',pendingStatus)
                       // return pendingStatus;
                       // eslint-disable-next-line
                     } else {
                       pendingStatus = sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt
-                      console.log('sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt',sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt);
+                      return pendingStatus;
+                      console.log('sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt',pendingStatus);
                     }
-
-                    return pendingStatus;
                   }
 
                   const { icon } = getRowStatus(sortedRecentTransaction)
