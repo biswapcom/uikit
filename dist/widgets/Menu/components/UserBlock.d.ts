@@ -9,7 +9,7 @@ interface Props {
     chainId: any;
     clearTransaction: any;
     isSwap?: boolean;
-    testTransactions?: any;
+    transactionsForUIKit?: any;
 }
 declare const UserBlock: React.FC<Props>;
 export default UserBlock;

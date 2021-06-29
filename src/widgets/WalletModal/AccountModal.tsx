@@ -21,7 +21,7 @@ interface Props {
   chainId?: any;
   clearTransaction?: any;
   isSwap?: any,
-  testTransactions?: any
+  transactionsForUIKit?: any
 }
 
 const ConnectedWrapper = styled.div`
@@ -37,7 +37,7 @@ const TransactionWrapper = styled.div`
 `
 
 
-const AccountModal: React.FC<Props> = ({testTransactions, isSwap, account, logout, onDismiss = () => null, login,recentTransaction,chainId,clearTransaction}) =>{
+const AccountModal: React.FC<Props> = ({transactionsForUIKit, isSwap, account, logout, onDismiss = () => null, login,recentTransaction,chainId,clearTransaction}) =>{
   const [transactions, setTransactions] = useState(recentTransaction)
   const [currentConnector, setCurrentConnector] = useState('');
 
@@ -80,10 +80,6 @@ const AccountModal: React.FC<Props> = ({testTransactions, isSwap, account, logou
     clearTransaction();
   }
 
-
-  console.log('recent ui',recentTransaction);
-  console.log('transactions ui',transactions);
-  console.log('testTransactions ui',testTransactions());
   return (
     <Modal title="Your wallet" onDismiss={onDismiss}>
       <ConnectedWrapper>
@@ -111,38 +107,7 @@ const AccountModal: React.FC<Props> = ({testTransactions, isSwap, account, logou
         </LinkExternal>
       </Flex>
         {
-          isSwap && (
-            <TransactionWrapper>
-              <Flex justifyContent='space-between' alignItems='center'>
-                <Text fontSize='14px' fontWeight='600' lineHeight='21px' color='#07162D'>
-                  Recent transactions
-                </Text>
-                <Button m={0} p={0} scale='sm' variant='text' onClick={clearTransactions}>
-                  Clear All
-                </Button>
-              </Flex>
-              <>
-                {!account && (
-                  <Flex justifyContent="center" flexDirection="column">
-                    <Text mb="8px" bold>
-                      Please connect your wallet to view your recent transactions
-                    </Text>
-                  </Flex>
-                )}
-                {account && chainId && transactions.length === 0 && (
-                  <Flex justifyContent="center" flexDirection="column">
-                    <Text mb="8px" bold>
-                      No recent transactions
-                    </Text>
-                  </Flex>
-                )}
-                {
-                  account &&
-                  chainId && transactions && transactions.length && testTransactions()
-                }
-              </>
-            </TransactionWrapper>
-          )
+          isSwap && transactionsForUIKit()
         }
       <Flex>
         <Button

@@ -76,7 +76,7 @@ export interface NavProps extends PanelProps, PanelFooterProps, BSWPriceProps, F
   chainId?: any;
   clearTransaction?:any;
   isSwap?: boolean,
-  testTransactions?: any
+  transactionsForUIKit?: any
 }
 
 export interface ConnectMetaProps {

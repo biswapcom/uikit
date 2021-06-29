@@ -15,10 +15,10 @@ const useWalletModal = (login: Login,
                         chainId?:any,
                         clearTransaction?: any,
                         isSwap?:any,
-                        testTransactions?: any
+                        transactionsForUIKit?: any
                         ): ReturnType => {
   const [onPresentConnectModal] = useModal(<ConnectModal login={login} />);
-  const [onPresentAccountModal] = useModal(<AccountModal testTransactions={testTransactions} isSwap={isSwap} login={login} recentTransaction={recentTransaction}  chainId={chainId} account={account || ""} logout={logout} clearTransaction={clearTransaction}/>);
+  const [onPresentAccountModal] = useModal(<AccountModal transactionsForUIKit={transactionsForUIKit} isSwap={isSwap} login={login} recentTransaction={recentTransaction}  chainId={chainId} account={account || ""} logout={logout} clearTransaction={clearTransaction}/>);
   return { onPresentConnectModal, onPresentAccountModal };
 };
 
