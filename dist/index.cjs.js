@@ -3550,9 +3550,9 @@ var CopyToClipboard = function (_a) {
 var templateObject_1$b, templateObject_2$6;
 
 var ConnectedWrapper = styled__default['default'].div(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n"], ["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n"])));
-styled__default['default'].div(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"], ["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"])));
+var TransactionWrapper = styled__default['default'].div(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"], ["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"])));
 var AccountModal = function (_a) {
-    var transactionsForUIKit = _a.transactionsForUIKit, isSwap = _a.isSwap, account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b, login = _a.login, recentTransaction = _a.recentTransaction, chainId = _a.chainId; _a.clearTransaction;
+    var transactionsForUIKit = _a.transactionsForUIKit, isSwap = _a.isSwap, account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b, login = _a.login, recentTransaction = _a.recentTransaction, chainId = _a.chainId, clearTransaction = _a.clearTransaction;
     var _c = React.useState(''), currentConnector = _c[0], setCurrentConnector = _c[1];
     React.useEffect(function () {
         if (account) {
@@ -3578,6 +3578,10 @@ var AccountModal = function (_a) {
             }
         });
     }); };
+    var ClearAndDismiss = function () {
+        clearTransaction();
+        onDismiss();
+    };
     return (React__default['default'].createElement(Modal, { title: "Your wallet", onDismiss: onDismiss },
         React__default['default'].createElement(ConnectedWrapper, null,
             React__default['default'].createElement(Text, { fontSize: '14px', fontWeight: '400', lineHeight: '21px', color: '#708DB7' },
@@ -3594,7 +3598,11 @@ var AccountModal = function (_a) {
         React__default['default'].createElement(Flex, { mb: "32px" },
             React__default['default'].createElement(CopyToClipboard, { toCopy: account }, "Copy Address"),
             React__default['default'].createElement(LinkExternal, { ml: '26px', small: true, href: "https://bscscan.com/address/" + account, mr: "16px" }, "View on BscScan")),
-        isSwap && transactionsForUIKit(),
+        isSwap && (React__default['default'].createElement(TransactionWrapper, null,
+            React__default['default'].createElement(Flex, { justifyContent: 'space-between', alignItems: 'center' },
+                React__default['default'].createElement(Text, { fontSize: '14px', fontWeight: '600', lineHeight: '21px', color: '#07162D' }, "Recent transactions"),
+                React__default['default'].createElement(Button, { m: 0, p: 0, scale: 'sm', variant: 'text', onClick: ClearAndDismiss }, "Clear All")),
+            React__default['default'].createElement(React__default['default'].Fragment, null, transactionsForUIKit()))),
         React__default['default'].createElement(Flex, null,
             React__default['default'].createElement(Button, { style: { width: '100%' }, mt: '24px', variant: "secondary", onClick: function () {
                     logout();

@@ -58,6 +58,11 @@ const AccountModal: React.FC<Props> = ({transactionsForUIKit, isSwap, account, l
     onPresentConnectModal();
   }
 
+  const ClearAndDismiss = () => {
+    clearTransaction();
+    onDismiss();
+  }
+
   return (
     <Modal title="Your wallet" onDismiss={onDismiss}>
       <ConnectedWrapper>
@@ -85,7 +90,21 @@ const AccountModal: React.FC<Props> = ({transactionsForUIKit, isSwap, account, l
         </LinkExternal>
       </Flex>
         {
-          isSwap && transactionsForUIKit()
+          isSwap && (
+            <TransactionWrapper>
+              <Flex justifyContent='space-between' alignItems='center'>
+                <Text fontSize='14px' fontWeight='600' lineHeight='21px' color='#07162D'>
+                  Recent transactions
+                </Text>
+                <Button m={0} p={0} scale='sm' variant='text' onClick={ClearAndDismiss}>
+                  Clear All
+                </Button>
+              </Flex>
+              <>
+                {transactionsForUIKit()}
+              </>
+            </TransactionWrapper>
+          )
         }
       <Flex>
         <Button
