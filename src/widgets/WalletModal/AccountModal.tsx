@@ -38,7 +38,6 @@ const TransactionWrapper = styled.div`
 
 
 const AccountModal: React.FC<Props> = ({transactionsForUIKit, isSwap, account, logout, onDismiss = () => null, login,recentTransaction,chainId,clearTransaction}) =>{
-  const [transactions, setTransactions] = useState(recentTransaction)
   const [currentConnector, setCurrentConnector] = useState('');
 
   useEffect(()=>{
@@ -48,36 +47,15 @@ const AccountModal: React.FC<Props> = ({transactionsForUIKit, isSwap, account, l
       if (current && current?.title) {
         setCurrentConnector(current.title)
       }
-      // console.log('current',current);
     }
   },[account])
 
-  // console.log('currentConnector',currentConnector);
   const { onPresentConnectModal } = useWalletModal(login, logout, account,recentTransaction,chainId);
-
-  // const getRowStatus = (sortedRecentTransaction: any) => {
-  //   const { hash, receipt } = sortedRecentTransaction
-  //
-  //   if (!hash) {
-  //     return { icon: <Loader />, color: 'text' }
-  //   }
-  //
-  //   if (hash && receipt?.status === 1) {
-  //     return { icon: <CheckmarkCircleIcon color="success" />, color: 'success' }
-  //   }
-  //
-  //   return { icon: <ErrorIcon color="failure" />, color: 'failure' }
-  // }
 
   const changeWalletHandler = async () => {
     await onDismiss();
     await logout();
     onPresentConnectModal();
-  }
-
-  const clearTransactions = () => {
-    setTransactions([])
-    clearTransaction();
   }
 
   return (

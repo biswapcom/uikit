@@ -3529,8 +3529,7 @@ var ConnectedWrapper = styled.div(templateObject_1$a || (templateObject_1$a = __
 styled.div(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"], ["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"])));
 var AccountModal = function (_a) {
     var transactionsForUIKit = _a.transactionsForUIKit, isSwap = _a.isSwap, account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b, login = _a.login, recentTransaction = _a.recentTransaction, chainId = _a.chainId; _a.clearTransaction;
-    var _c = useState(recentTransaction); _c[0]; _c[1];
-    var _d = useState(''), currentConnector = _d[0], setCurrentConnector = _d[1];
+    var _c = useState(''), currentConnector = _c[0], setCurrentConnector = _c[1];
     useEffect(function () {
         if (account) {
             var localStorageConnector_1 = window.localStorage.getItem(connectorLocalStorageKey);
@@ -3538,24 +3537,9 @@ var AccountModal = function (_a) {
             if (current && (current === null || current === void 0 ? void 0 : current.title)) {
                 setCurrentConnector(current.title);
             }
-            // console.log('current',current);
         }
     }, [account]);
-    // console.log('currentConnector',currentConnector);
     var onPresentConnectModal = useWalletModal(login, logout, account, recentTransaction, chainId).onPresentConnectModal;
-    // const getRowStatus = (sortedRecentTransaction: any) => {
-    //   const { hash, receipt } = sortedRecentTransaction
-    //
-    //   if (!hash) {
-    //     return { icon: <Loader />, color: 'text' }
-    //   }
-    //
-    //   if (hash && receipt?.status === 1) {
-    //     return { icon: <CheckmarkCircleIcon color="success" />, color: 'success' }
-    //   }
-    //
-    //   return { icon: <ErrorIcon color="failure" />, color: 'failure' }
-    // }
     var changeWalletHandler = function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -3827,8 +3811,6 @@ var Menu = function (_a) {
     var _e = useState(true), showMenu = _e[0]; _e[1];
     var _f = useState(true), menuBg = _f[0], setMenuBg = _f[1];
     var refPrevOffset = useRef(window.pageYOffset);
-    console.log('recentTransaction menu', recentTransaction);
-    console.log('chainId menu', chainId);
     useEffect(function () {
         var handleScroll = function () {
             var currentOffset = window.pageYOffset;
