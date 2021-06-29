@@ -117,6 +117,7 @@ const Menu: React.FC<NavProps> = ({
                                     chainId,
                                     clearTransaction,
                                     isSwap,
+                                    transactionsForUIKit,
   onClick
 }) => {
   const { isLg, isMd, isSm, isXs } = useMatchBreakpoints();
@@ -125,9 +126,6 @@ const Menu: React.FC<NavProps> = ({
   const [showMenu, setShowMenu] = useState(true);
   const [menuBg, setMenuBg] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
-
-  console.log('recentTransaction menu',recentTransaction);
-  console.log('chainId menu',chainId);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -183,6 +181,7 @@ const Menu: React.FC<NavProps> = ({
                        chainId={chainId}
                        pendingTransactions={pendingTransactions}
                        isSwap={isSwap}
+                       transactionsForUIKit={transactionsForUIKit}
             />
             {/* {profile && <Avatar profile={profile} />} */}
           </Flex>

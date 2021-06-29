@@ -20,7 +20,8 @@ interface Props {
   rowStatus?: any
   chainId?: any;
   clearTransaction?: any;
-  isSwap?: any
+  isSwap?: any,
+  transactionsForUIKit?: any
 }
 
 const ConnectedWrapper = styled.div`
@@ -36,8 +37,7 @@ const TransactionWrapper = styled.div`
 `
 
 
-const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = () => null, login,recentTransaction,chainId,clearTransaction}) =>{
-  const [transactions, setTransactions] = useState(recentTransaction)
+const AccountModal: React.FC<Props> = ({transactionsForUIKit, isSwap, account, logout, onDismiss = () => null, login,recentTransaction,chainId,clearTransaction}) =>{
   const [currentConnector, setCurrentConnector] = useState('');
 
   useEffect(()=>{
@@ -47,36 +47,15 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
       if (current && current?.title) {
         setCurrentConnector(current.title)
       }
-      // console.log('current',current);
     }
   },[account])
 
-  // console.log('currentConnector',currentConnector);
   const { onPresentConnectModal } = useWalletModal(login, logout, account,recentTransaction,chainId);
-
-  const getRowStatus = (sortedRecentTransaction: any) => {
-    const { hash, receipt } = sortedRecentTransaction
-
-    if (!hash) {
-      return { icon: <Loader />, color: 'text' }
-    }
-
-    if (hash && receipt?.status === 1) {
-      return { icon: <CheckmarkCircleIcon color="success" />, color: 'success' }
-    }
-
-    return { icon: <ErrorIcon color="failure" />, color: 'failure' }
-  }
 
   const changeWalletHandler = async () => {
     await onDismiss();
     await logout();
     onPresentConnectModal();
-  }
-
-  const clearTransactions = () => {
-    setTransactions([])
-    clearTransaction();
   }
 
   return (
@@ -106,58 +85,7 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
         </LinkExternal>
       </Flex>
         {
-          isSwap && (
-            <TransactionWrapper>
-              <Flex justifyContent='space-between' alignItems='center'>
-                <Text fontSize='14px' fontWeight='600' lineHeight='21px' color='#07162D'>
-                  Recent transactions
-                </Text>
-                <Button m={0} p={0} scale='sm' variant='text' onClick={clearTransactions}>
-                  Clear All
-                </Button>
-              </Flex>
-              <>
-                {!account && (
-                  <Flex justifyContent="center" flexDirection="column">
-                    <Text mb="8px" bold>
-                      Please connect your wallet to view your recent transactions
-                    </Text>
-                  </Flex>
-                )}
-                {account && chainId && transactions.length === 0 && (
-                  <Flex justifyContent="center" flexDirection="column">
-                    <Text mb="8px" bold>
-                      No recent transactions
-                    </Text>
-                  </Flex>
-                )}
-                {account &&
-                chainId &&
-                transactions.map((sortedRecentTransaction: any) => {
-                  const { hash, summary } = sortedRecentTransaction
-                  const { icon } = getRowStatus(sortedRecentTransaction)
-                  let { color } = getRowStatus(sortedRecentTransaction)
-
-                  if (color === 'success') {
-                    color = 'primary'
-                  }
-
-                  return (
-                    <>
-                      {hash && (
-                        <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
-                          <LinkExternal href={`https://bscscan.com/tx/${hash}`}>
-                            {summary ?? hash}
-                          </LinkExternal>
-                          {icon}
-                        </Flex>
-                      )}
-                    </>
-                  )
-                })}
-              </>
-            </TransactionWrapper>
-          )
+          isSwap && transactionsForUIKit()
         }
       <Flex>
         <Button
@@ -175,6 +103,7 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
       </Flex>
     </Modal>
   );
+
 }
 
 export default AccountModal;
