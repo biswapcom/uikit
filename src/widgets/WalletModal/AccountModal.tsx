@@ -55,19 +55,19 @@ const AccountModal: React.FC<Props> = ({testTransactions, isSwap, account, logou
   // console.log('currentConnector',currentConnector);
   const { onPresentConnectModal } = useWalletModal(login, logout, account,recentTransaction,chainId);
 
-  const getRowStatus = (sortedRecentTransaction: any) => {
-    const { hash, receipt } = sortedRecentTransaction
-
-    if (!hash) {
-      return { icon: <Loader />, color: 'text' }
-    }
-
-    if (hash && receipt?.status === 1) {
-      return { icon: <CheckmarkCircleIcon color="success" />, color: 'success' }
-    }
-
-    return { icon: <ErrorIcon color="failure" />, color: 'failure' }
-  }
+  // const getRowStatus = (sortedRecentTransaction: any) => {
+  //   const { hash, receipt } = sortedRecentTransaction
+  //
+  //   if (!hash) {
+  //     return { icon: <Loader />, color: 'text' }
+  //   }
+  //
+  //   if (hash && receipt?.status === 1) {
+  //     return { icon: <CheckmarkCircleIcon color="success" />, color: 'success' }
+  //   }
+  //
+  //   return { icon: <ErrorIcon color="failure" />, color: 'failure' }
+  // }
 
   const changeWalletHandler = async () => {
     await onDismiss();
@@ -83,6 +83,7 @@ const AccountModal: React.FC<Props> = ({testTransactions, isSwap, account, logou
 
   console.log('recent ui',recentTransaction);
   console.log('transactions ui',transactions);
+  console.log('testTransactions ui',testTransactions());
   return (
     <Modal title="Your wallet" onDismiss={onDismiss}>
       <ConnectedWrapper>
@@ -135,7 +136,10 @@ const AccountModal: React.FC<Props> = ({testTransactions, isSwap, account, logou
                     </Text>
                   </Flex>
                 )}
-                {testTransactions()}
+                {
+                  account &&
+                  chainId && transactions && transactions.length && testTransactions()
+                }
               </>
             </TransactionWrapper>
           )

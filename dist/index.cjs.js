@@ -3556,6 +3556,19 @@ var AccountModal = function (_a) {
     }, [account]);
     // console.log('currentConnector',currentConnector);
     var onPresentConnectModal = useWalletModal(login, logout, account, recentTransaction, chainId).onPresentConnectModal;
+    // const getRowStatus = (sortedRecentTransaction: any) => {
+    //   const { hash, receipt } = sortedRecentTransaction
+    //
+    //   if (!hash) {
+    //     return { icon: <Loader />, color: 'text' }
+    //   }
+    //
+    //   if (hash && receipt?.status === 1) {
+    //     return { icon: <CheckmarkCircleIcon color="success" />, color: 'success' }
+    //   }
+    //
+    //   return { icon: <ErrorIcon color="failure" />, color: 'failure' }
+    // }
     var changeWalletHandler = function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -3576,6 +3589,7 @@ var AccountModal = function (_a) {
     };
     console.log('recent ui', recentTransaction);
     console.log('transactions ui', transactions);
+    console.log('testTransactions ui', testTransactions());
     return (React__default['default'].createElement(Modal, { title: "Your wallet", onDismiss: onDismiss },
         React__default['default'].createElement(ConnectedWrapper, null,
             React__default['default'].createElement(Text, { fontSize: '14px', fontWeight: '400', lineHeight: '21px', color: '#708DB7' },
@@ -3601,7 +3615,8 @@ var AccountModal = function (_a) {
                     React__default['default'].createElement(Text, { mb: "8px", bold: true }, "Please connect your wallet to view your recent transactions"))),
                 account && chainId && transactions.length === 0 && (React__default['default'].createElement(Flex, { justifyContent: "center", flexDirection: "column" },
                     React__default['default'].createElement(Text, { mb: "8px", bold: true }, "No recent transactions"))),
-                testTransactions()))),
+                account &&
+                    chainId && transactions && transactions.length && testTransactions()))),
         React__default['default'].createElement(Flex, null,
             React__default['default'].createElement(Button, { style: { width: '100%' }, mt: '24px', variant: "secondary", onClick: function () {
                     logout();
