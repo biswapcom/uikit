@@ -20,7 +20,8 @@ interface Props {
   rowStatus?: any
   chainId?: any;
   clearTransaction?: any;
-  isSwap?: any
+  isSwap?: any,
+  testTransactions?: any
 }
 
 const ConnectedWrapper = styled.div`
@@ -36,7 +37,7 @@ const TransactionWrapper = styled.div`
 `
 
 
-const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = () => null, login,recentTransaction,chainId,clearTransaction}) =>{
+const AccountModal: React.FC<Props> = ({testTransactions, isSwap, account, logout, onDismiss = () => null, login,recentTransaction,chainId,clearTransaction}) =>{
   const [transactions, setTransactions] = useState(recentTransaction)
   const [currentConnector, setCurrentConnector] = useState('');
 
@@ -134,48 +135,7 @@ const AccountModal: React.FC<Props> = ({ isSwap, account, logout, onDismiss = ()
                     </Text>
                   </Flex>
                 )}
-
-                {account &&
-                chainId &&
-                transactions.map((sortedRecentTransaction: any) => {
-                  console.log('item in ui',sortedRecentTransaction);
-                  const { hash, summary } = sortedRecentTransaction
-                  console.log('item', sortedRecentTransaction);
-                  let pendingStatus;
-                  const transactionHash = sortedRecentTransaction.hash
-                  console.log('hash', transactionHash)
-                  console.log('allTransactions[transactionHash]',transactions && transactions[transactionHash])
-                  console.log('!allTransactions[transactionHash].receipt', !transactions && !transactions[transactionHash]?.receipt)
-                  if (!transactionHash || !transactions[transactionHash]) {
-                    pendingStatus = false
-                    return pendingStatus;
-                  }
-                  // eslint-disable-next-line
-                  else {
-                    pendingStatus = sortedRecentTransaction?.hash && sortedRecentTransaction?.receipt?.status !== 1 && !transactions[transactionHash].receipt
-                  }
-                  
-
-                  const { icon } = getRowStatus(sortedRecentTransaction)
-                  let { color } = getRowStatus(sortedRecentTransaction)
-
-                  if (color === 'success') {
-                    color = 'primary'
-                  }
-
-                  return (
-                    <>
-                      {/* {hash && ( */}
-                        <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
-                          <LinkExternal href={hash && `https://bscscan.com/tx/${hash}`} color={color}>
-                            {summary ?? hash}
-                          </LinkExternal>
-                          {pendingStatus ? <Loader/> : icon}
-                        </Flex>
-                      {/* )} */}
-                    </>
-                  )
-                })}
+                {testTransactions()}
               </>
             </TransactionWrapper>
           )

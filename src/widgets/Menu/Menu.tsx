@@ -116,6 +116,7 @@ const Menu: React.FC<NavProps> = ({
                                     chainId,
                                     clearTransaction,
                                     isSwap,
+                                    testTransactions,
   onClick
 }) => {
   const { isLg, isMd, isSm, isXs } = useMatchBreakpoints();
@@ -182,6 +183,7 @@ const Menu: React.FC<NavProps> = ({
                        chainId={chainId}
                        pendingTransactions={pendingTransactions}
                        isSwap={isSwap}
+                       testTransactions={testTransactions}
             />
             {/* {profile && <Avatar profile={profile} />} */}
           </Flex>
