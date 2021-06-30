@@ -59,10 +59,10 @@ const Wrapper = styled.div<BadgeProps>`
   border-radius: 16px;
 `;
 
-const Badge: FC<BadgeProps> = ({ children, badgeType }) => {
+const Badge: FC<BadgeProps> = ({ children, badgeType,fontSize,fontWeight }) => {
   return (
     <Wrapper badgeType={badgeType}>
-      <Text fontSize="10px" color="inherit" bold>
+      <Text fontSize={fontSize ?? "10px"} color="inherit" fontWeight={fontWeight ?? '600'}>
         {children}
       </Text>
     </Wrapper>

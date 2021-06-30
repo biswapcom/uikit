@@ -2174,9 +2174,9 @@ var getBadgeColor = function (_a) {
 };
 var Wrapper$d = styled__default['default'].div(templateObject_1$s || (templateObject_1$s = __makeTemplateObject(["\n  display: inline-flex;\n  padding: 4px 12px;\n  background: ", ";\n  color: ", ";\n  border-radius: 16px;\n"], ["\n  display: inline-flex;\n  padding: 4px 12px;\n  background: ", ";\n  color: ", ";\n  border-radius: 16px;\n"])), getBadgeBg, getBadgeColor);
 var Badge = function (_a) {
-    var children = _a.children, badgeType = _a.badgeType;
+    var children = _a.children, badgeType = _a.badgeType, fontSize = _a.fontSize, fontWeight = _a.fontWeight;
     return (React__default['default'].createElement(Wrapper$d, { badgeType: badgeType },
-        React__default['default'].createElement(Text, { fontSize: "10px", color: "inherit", bold: true }, children)));
+        React__default['default'].createElement(Text, { fontSize: fontSize !== null && fontSize !== void 0 ? fontSize : "10px", color: "inherit", fontWeight: fontWeight !== null && fontWeight !== void 0 ? fontWeight : '600' }, children)));
 };
 var templateObject_1$s;
 
