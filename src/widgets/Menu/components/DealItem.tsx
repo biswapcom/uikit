@@ -1,6 +1,5 @@
 import React from "react";
-import styled,{ keyframes } from "styled-components";
-import { bounce } from 'react-animations';
+import styled from "styled-components";
 import Text from "../../../components/Text/Text";
 import { TradeIcon } from "../icons";
 import { formatSpacingAmount } from "../../../util/formatSpacingAmount";

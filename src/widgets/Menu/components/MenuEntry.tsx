@@ -14,9 +14,7 @@ const LinkLabel = styled.div<{ isPushed: boolean }>`
   transition: color 0.4s;
   flex-grow: 1;
 
-  &:hover {
-    color: ${({ isPushed, theme }) => (isPushed ? theme.colors.textSubtle : "transparent")};
-  }
+  
 `;
 
 const MenuEntry = styled.div<Props>`
@@ -26,9 +24,9 @@ const MenuEntry = styled.div<Props>`
   height: ${MENU_ENTRY_HEIGHT}px;
   padding: ${({ secondary }) => (secondary ? "0 24px 0 44px" : "0 12px")};
   font-size: ${({ secondary }) => (secondary ? "12px" : "14px")};
-  color: ${({ theme, isSmall }) => ( isSmall ? theme.colors.text : theme.colors.contrast )};
+  color: ${({ theme, isSmall, isActive }) => ( isSmall && !isActive ? theme.colors.text : theme.colors.contrast )};
   border-radius: 8px;
-  background: ${({ isActive, theme }) => (isActive ? theme.colors.dropDown : "transparent")};
+  background: ${({ isActive, theme, isSmall }) => (isActive && !isSmall ? theme.colors.dropDown : "transparent")};
   height: ${({ isSmall }) => isSmall ? '32px' : '48px'};
 
   a {
@@ -44,10 +42,10 @@ const MenuEntry = styled.div<Props>`
   }
 
   &:hover {
-    color: ${({ theme }) => theme.colors.textSubtle};
+    color: ${({ theme }) => theme.colors.textSubtle} !important;
 
     svg {
-      fill: ${({ theme }) => theme.colors.textSubtle};
+      fill: ${({ theme }) => theme.colors.textSubtle} !important;
     }
   }
 

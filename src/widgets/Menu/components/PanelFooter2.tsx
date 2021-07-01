@@ -64,25 +64,6 @@ const PanelFooter2: React.FC<Props> = (props) => {
   //   return () => clearInterval(interval);
   // },[])
 
-  // const testItem = (): JSX.Element => {
-  //   if(deals) {
-  //     return (
-  //       <DealItem
-  //         isDark={isDark}
-  //         dealName={deals[0].dealName}
-  //         dealDate={deals[0].dealDate}
-  //         coupleFirst={deals[0].coupleFirst}
-  //         coupleLast={deals[0].coupleLast}
-  //         dealValue={deals[0].dealValue}
-  //         animate
-  //       />
-  //     )
-  //   }
-  //   return (
-  //     <div>hui</div>
-  //   )
-  // }
-
   return (
     <Wrapper isPushed={isPushed} footerTitle={footerTitle} isDark={isDark} deals={deals}>
       <Inner>

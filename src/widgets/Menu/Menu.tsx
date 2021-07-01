@@ -41,7 +41,7 @@ const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean; menuBg: boo
   width: 100%;
   height: ${MENU_HEIGHT_MOBILE}px;
   background-color: ${({ theme, menuBg }) => (menuBg ? "transparent" : theme.colors.background)};
-  z-index: 20;
+  z-index: 40;
   transform: translate3d(0, 0, 0);
 
   ${({ theme }) => theme.mediaQueries.nav} {
@@ -51,6 +51,7 @@ const StyledNav = styled.nav<{ showMenu: boolean; isPushed: boolean; menuBg: boo
   ${({ theme }) => theme.mediaQueries.lg} {
     height: ${MENU_HEIGHT}px;
     top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
+    z-index: 20;
   }
 `;
 
@@ -112,6 +113,11 @@ const Menu: React.FC<NavProps> = ({
   supply,
   total,
   pendingTransactions,
+                                    recentTransaction,
+                                    chainId,
+                                    clearTransaction,
+                                    isSwap,
+                                    transactionsForUIKit,
   onClick
 }) => {
   const { isLg, isMd, isSm, isXs } = useMatchBreakpoints();
@@ -128,18 +134,19 @@ const Menu: React.FC<NavProps> = ({
       const isTopOfPage = currentOffset === 0;
       // Always show the menu when user reach the top
       if (isTopOfPage) {
-        setShowMenu(true);
+        // setShowMenu(true);
         setMenuBg(true);
       }
       // Avoid triggering anything at the bottom because of layout shift
       else if (!isBottomOfPage) {
         if (currentOffset < refPrevOffset.current) {
           // Has scroll up
-          setShowMenu(true);
+          // setShowMenu(true);
           setMenuBg(false);
         } else {
           // Has scroll down
-          setShowMenu(false);
+          // setShowMenu(false);
+          setMenuBg(false);
         }
       }
       refPrevOffset.current = currentOffset;
@@ -166,7 +173,16 @@ const Menu: React.FC<NavProps> = ({
           />
           <Flex>
             <AuditInfo />
-            <UserBlock account={account} login={login} logout={logout} pendingTransactions={pendingTransactions} />
+            <UserBlock clearTransaction={clearTransaction}
+                       account={account}
+                       login={login}
+                       logout={logout}
+                       recentTransaction={recentTransaction}
+                       chainId={chainId}
+                       pendingTransactions={pendingTransactions}
+                       isSwap={isSwap}
+                       transactionsForUIKit={transactionsForUIKit}
+            />
             {/* {profile && <Avatar profile={profile} />} */}
           </Flex>
         </StyledNav>

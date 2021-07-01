@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import {animateScroll as scroll} from 'react-scroll'
 import { SIDEBAR_WIDTH_FULL, SIDEBAR_WIDTH_REDUCED } from "../config";
 import ConnectMetamask from "./ConnectMetamask";
 import BSWPrice from "./BSWPrice";
 import SupplyInfo from "./SupplyInfo";
 import TotalInfo from "./TotalInfo";
 import { BSWPriceProps, FooterSupplyProps, FooterTotalProps } from "../types";
+import { Button } from "../../../components/Button";
+import ArrowUp from "../../../components/Svg/Icons/ArrowUp";
 
 interface Props extends BSWPriceProps, FooterSupplyProps, FooterTotalProps {
   isPushed: boolean;
@@ -46,17 +49,29 @@ const GridRow = styled.div`
       minmax(200px, 1fr)
       minmax(200px, 1fr)
       minmax(160px, 1fr);
-    grid-template-areas: 'price connect supply total';
+      
+    grid-template-areas: 'price connect supply total btnUp';
   }
 
-  @media screen and (min-width: 1400px) {
+  ${({ theme }) => theme.mediaQueries.xxl} {
     grid-template-columns:
       minmax(200px, 1fr)
       minmax(200px, 1fr)
       minmax(160px, 1fr)
-      minmax(150px, 1fr);
+      minmax(150px, 1fr)
+      48px;
   }
 `;
+
+const BtnUp = styled(Button)`
+  grid-area: btnUp;
+  display: none;
+
+  ${({ theme }) => theme.mediaQueries.xll} {
+    display: inline-flex;
+    margin-left: 12px;
+  }
+`
 
 const Footer: React.FC<Props> = ({ isPushed, BSWPriceLabel, BSWPriceValue, supply, total, onClick }) => {
   return (
@@ -66,6 +81,7 @@ const Footer: React.FC<Props> = ({ isPushed, BSWPriceLabel, BSWPriceValue, suppl
         <ConnectMetamask onClick={onClick}/>
         <SupplyInfo supply={supply} />
         <TotalInfo total={total} />
+        <BtnUp onClick={()=> scroll.scrollToTop()}><ArrowUp color='white'/></BtnUp>
       </GridRow>
     </Wrapper>
   );
