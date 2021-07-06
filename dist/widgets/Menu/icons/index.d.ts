@@ -28,3 +28,4 @@ export { default as FreeIcon } from "./Free";
 export { default as LoaderIcon } from "./Loader";
 export { default as CupIcon } from './Cup';
 export { default as AuditIcon } from "./AuditIcon";
+export { default as RewardIcon } from "./Reward";
