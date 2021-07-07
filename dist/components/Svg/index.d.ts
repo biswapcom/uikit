@@ -58,5 +58,6 @@ export { default as WaitReloadIcon } from "./Icons/WaitReload";
 export { default as MouseIcon } from "./Icons/Mouse";
 export { default as RatingIcon } from "./Icons/Rating";
 export { default as CupIcon } from "./Icons/Cup";
+export { default as AutoCompaund } from './Icons/AutoCompaund';
 export { default as Svg } from "./Svg";
 export type { SvgProps } from "./types";
