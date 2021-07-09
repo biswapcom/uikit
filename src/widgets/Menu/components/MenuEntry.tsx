@@ -36,10 +36,14 @@ const MenuEntry = styled.div<Props>`
     height: 100%;
     
     .active {
-      background-color: red;
+      background-color: red !important;
     }
   }
 
+  &.active {
+    background-color: red !important; 
+  }
+  
   svg {
     fill: ${({ theme }) => theme.colors.contrast};
     transition: fill 0.4s;
