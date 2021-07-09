@@ -34,6 +34,10 @@ const MenuEntry = styled.div<Props>`
     align-items: center;
     width: 100%;
     height: 100%;
+    
+    .active {
+      background-color: red;
+    }
   }
 
   svg {
