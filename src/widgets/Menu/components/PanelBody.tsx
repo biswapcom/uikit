@@ -43,8 +43,9 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
 
         if (entry.items) {
           const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
+          console.log('itemsMatchIndex',itemsMatchIndex);
           const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
-
+          console.log('entry',entry.items);
           return (
             <Accordion
               key={entry.label}
@@ -67,7 +68,9 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
         }
         return (
           <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass}>
-            <MenuLink href={entry.href} onClick={handleClick}>
+            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+             { /* @ts-ignore */ }
+            <MenuLink isActive={entry.href === location.pathname} href={entry.href} onClick={handleClick}>
               {iconElement}
               {entry.secondLabel ? (
                   <LinkLabel isPushed={isPushed}>{entry.label}

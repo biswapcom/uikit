@@ -3131,13 +3131,15 @@ var PanelBody = function (_a) {
         var calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
         if (entry.items) {
             var itemsMatchIndex = entry.items.findIndex(function (item) { return item.href === location.pathname; });
+            console.log('itemsMatchIndex', itemsMatchIndex);
             var initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
+            console.log('entry', entry.items);
             return (React__default['default'].createElement(Accordion$1, { key: entry.label, isPushed: isPushed, pushNav: pushNav, icon: iconElement, label: entry.label, initialOpenState: initialOpenState, className: calloutClass, isActive: entry.items.some(function (item) { return item.href === location.pathname; }) }, isPushed &&
                 entry.items.map(function (item) { return (React__default['default'].createElement(MenuEntry, { isSmall: true, key: item.href, secondary: true, isActive: item.href === location.pathname, onClick: handleClick },
                     React__default['default'].createElement(MenuLink, { href: item.href, target: item.target ? item.target : '_self' }, item.label))); })));
         }
         return (React__default['default'].createElement(MenuEntry, { key: entry.label, isActive: entry.href === location.pathname, className: calloutClass },
-            React__default['default'].createElement(MenuLink, { href: entry.href, onClick: handleClick },
+            React__default['default'].createElement(MenuLink, { isActive: entry.href === location.pathname, href: entry.href, onClick: handleClick },
                 iconElement,
                 entry.secondLabel ? (React__default['default'].createElement(LinkLabelMemo, { isPushed: isPushed },
                     entry.label,
