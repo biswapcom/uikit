@@ -33,7 +33,7 @@ const HeaderMobileLogo = styled.a`
 const Logo: React.FC<Props> = ({ togglePush }) => {
   return (
     <Wrapper>
-      <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
+      <MenuButton aria-label="Toggle menu" onClick={togglePush}>
         <HamburgerIcon width="24px" color="textSubtle" />
       </MenuButton>
       <HeaderMobileLogo href="/">

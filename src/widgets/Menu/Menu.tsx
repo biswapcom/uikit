@@ -8,9 +8,13 @@ import TogglePanel from "./components/TogglePanel";
 import Panel from "./components/Panel";
 import AuditInfo from "./components/AuditInfo";
 import UserBlock from "./components/UserBlock";
+import NetworkSwitcher from "./components/NetworkSwitcher";
 import { NavProps } from "./types";
-import Footer from "./components/Footer";
+import Footer from "./components/footer/Footer";
 import { MENU_HEIGHT, MENU_HEIGHT_MOBILE, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
+
+import PolygonIcon from "./icons/Polygon";
+import BSCIcon from "./icons/BSC";
 
 const Wrapper = styled.div`
   position: relative;
@@ -110,15 +114,17 @@ const Menu: React.FC<NavProps> = ({
   deals,
   BSWPriceLabel,
   BSWPriceValue,
-  supply,
-  total,
+  footerStatistic,
   pendingTransactions,
-                                    recentTransaction,
-                                    chainId,
-                                    clearTransaction,
-                                    isSwap,
-                                    transactionsForUIKit,
-  onClick
+  recentTransaction,
+  chainId,
+  clearTransaction,
+  isSwap,
+  transactionsForUIKit,
+  onClick,
+  aboutLinks,
+  productLinks,
+  serviceLinks
 }) => {
   const { isLg, isMd, isSm, isXs } = useMatchBreakpoints();
   const isMobile = isLg || isMd || isSm || isXs;
@@ -171,8 +177,24 @@ const Menu: React.FC<NavProps> = ({
             togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
             isDark={isDark}
           />
-          <Flex>
+          <Flex alignItems="center">
             <AuditInfo />
+            <NetworkSwitcher
+              options={[
+                {
+                  label: 'Polygon',
+                  icon: <PolygonIcon className="icon"/>,
+                  value: 'polygon',
+                  bg: '#8046E3'
+                },
+                {
+                  label: 'BSC',
+                  icon: <BSCIcon className="icon"/>,
+                  value: 'bsc',
+                  bg: '#F0B90B'
+                },
+              ]}
+            />
             <UserBlock clearTransaction={clearTransaction}
                        account={account}
                        login={login}
@@ -209,10 +231,12 @@ const Menu: React.FC<NavProps> = ({
           <Footer
             BSWPriceLabel={BSWPriceLabel}
             BSWPriceValue={BSWPriceValue}
-            supply={supply}
-            total={total}
+            footerStatistic={footerStatistic}
             isPushed={isPushed}
             onClick={onClick}
+            aboutLinks={aboutLinks}
+            productLinks={productLinks}
+            serviceLinks={serviceLinks}
           />
         </Inner>
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />

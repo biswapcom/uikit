@@ -15,7 +15,8 @@ const getFontSize = ({ fontSize, small }: TextProps) => {
   return small ? "14px" : fontSize || "16px";
 };
 
-const Text = styled.div<TextProps>`
+const Text = styled.span<TextProps>`
+  display: block;
   color: ${getColor};
   font-size: ${getFontSize};
   vertical-align: middle;

@@ -66,7 +66,15 @@ export interface PanelFooterProps {
   deals?: Array<DealsEntry>;
 }
 
-export interface NavProps extends PanelProps, PanelFooterProps, BSWPriceProps, FooterSupplyProps, FooterTotalProps, ConnectMetaProps {
+export interface NavProps extends
+  PanelProps,
+  PanelFooterProps,
+  BSWPriceProps,
+  ConnectMetaProps,
+  FooterStatisticProps,
+  FooterAboutLinks,
+  FooterProductLinks,
+  FooterServiceLinks {
   account?: string;
   login: Login;
   profile?: Profile;
@@ -79,6 +87,15 @@ export interface NavProps extends PanelProps, PanelFooterProps, BSWPriceProps, F
   transactionsForUIKit?: any
 }
 
+export interface FooterStatisticProps {
+  footerStatistic: Array<FooterStatisticItem>
+}
+
+export interface FooterStatisticItem {
+  label: string,
+  value: number
+}
+
 export interface ConnectMetaProps {
   onClick: () => void;
 }
@@ -88,20 +105,20 @@ export interface BSWPriceProps {
   BSWPriceValue: number;
 }
 
-export interface SupplyInfo {
-  label: string;
-  value: number;
+export interface FooterAboutLinks {
+  aboutLinks: Array<FooterNavItem>
 }
 
-export interface TotalInfo {
-  label: string;
-  value: number;
+export interface FooterProductLinks {
+  productLinks: Array<FooterNavItem>
 }
 
-export interface FooterSupplyProps {
-  supply: Array<SupplyInfo>;
+export interface FooterServiceLinks {
+  serviceLinks: Array<FooterNavItem>
 }
 
-export interface FooterTotalProps {
-  total: Array<TotalInfo>;
+export interface FooterNavItem {
+  label: string,
+  href: string,
+  target?: string
 }

@@ -173,26 +173,92 @@ export const deals = [
   },
 ];
 
-export const BSWPriceLabel = "Price BSW";
+export const BSWPriceLabel = "BSW";
 export const BSWPriceValue = 1234.947;
 
-export const supply = [
+export const footerStatistic = [
+  {
+    label: "Max supply:",
+    value: 600000000,
+  },
   {
     label: "Total supply:",
     value: 10000000,
   },
   {
-    label: "Max supply:",
-    value: 500000000,
+    label: "Circulating supply:",
+    value: 600000000,
+  },
+  {
+    label: "Total Burned:",
+    value: 600000000,
+  },
+  {
+    label: "Market Cap:",
+    value: 1600000000,
   },
 ];
 
-export const total = [
+export const aboutLinks = [
   {
-    label: "Total Value Locked (TVL)",
-    value: 10243739000,
+    label: "Info",
+    href: "/",
   },
-];
+  {
+    label: "Github",
+    href: "/",
+  },
+  {
+    label: "Docs",
+    href: "/",
+  },
+  {
+    label: "News",
+    href: "/",
+  },
+  {
+    label: "Contacts",
+    href: "/",
+  },
+]
+
+export const productLinks = [
+  {
+    label: "Exchange",
+    href: "/",
+  },
+  {
+    label: "Liquidity",
+    href: "/",
+  },
+  {
+    label: "Farming",
+    href: "/",
+  },
+  {
+    label: "Launchpools",
+    href: "/",
+  },
+  {
+    label: "Bug Bounty?",
+    href: "/",
+  },
+]
+
+export const serviceLinks = [
+  {
+    label: "Referral",
+    href: "/",
+  },
+  {
+    label: "Apply to Lanch",
+    href: "/",
+  },
+  {
+    label: "Competitions",
+    href: "/",
+  },
+]
 
 export const pendingTransactions = 2;
 

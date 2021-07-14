@@ -7,7 +7,18 @@ import Text from "../../components/Text/Text";
 import { MenuEntry } from "./components/MenuEntry";
 import Menu from "./Menu";
 import { LangType } from "./types";
-import { links, footerTitle, deals, BSWPriceLabel, BSWPriceValue, supply, total, pendingTransactions } from "./config";
+import {
+  links,
+  footerTitle,
+  deals,
+  BSWPriceLabel,
+  BSWPriceValue,
+  pendingTransactions,
+  footerStatistic,
+  aboutLinks,
+  productLinks,
+  serviceLinks
+} from "./config";
 
 export default {
   title: "Widgets/Menu",
@@ -35,10 +46,12 @@ const useProps = () => {
     deals,
     BSWPriceLabel,
     BSWPriceValue,
-    supply,
-    total,
+    footerStatistic,
     onClick: noop,
     pendingTransactions,
+    aboutLinks,
+    productLinks,
+    serviceLinks,
   });
 
   useEffect(() => {
@@ -59,10 +72,12 @@ const useProps = () => {
         deals,
         BSWPriceLabel,
         BSWPriceValue,
-        supply,
-        total,
+        footerStatistic,
         onClick: noop,
         pendingTransactions,
+        aboutLinks,
+        productLinks,
+        serviceLinks,
       });
     }, 2000);
     return () => {
@@ -77,7 +92,7 @@ export const Connected: React.FC = () => {
   const props = useProps();
   return (
     <BrowserRouter>
-      <Menu {...props}>
+      <Menu {...props} pendingTransactions={0}>
         <div>
           <Heading as="h1" mb="8px">
             Page body
@@ -105,7 +120,7 @@ export const WithPendingTransactions: React.FC = () => {
   const props = useProps();
   return (
     <BrowserRouter>
-      <Menu {...props} pendingTransactions={pendingTransactions}>
+      <Menu {...props}>
         <div>
           <Heading as="h1" mb="8px">
             Page body
@@ -146,9 +161,11 @@ export const NotConnected: React.FC = () => {
         deals={deals}
         BSWPriceLabel={BSWPriceLabel}
         BSWPriceValue={BSWPriceValue}
-        supply={supply}
-        total={total}
+        footerStatistic={footerStatistic}
         onClick={noop}
+        aboutLinks={aboutLinks}
+        productLinks={productLinks}
+        serviceLinks={serviceLinks}
       >
         <div>
           <h1>Page body</h1>
@@ -189,9 +206,11 @@ export const WithNoProfile: React.FC = () => {
         deals={deals}
         BSWPriceLabel={BSWPriceLabel}
         BSWPriceValue={BSWPriceValue}
-        supply={supply}
-        total={total}
+        footerStatistic={footerStatistic}
         onClick={noop}
+        aboutLinks={aboutLinks}
+        productLinks={productLinks}
+        serviceLinks={serviceLinks}
       >
         <div>
           <Heading as="h1" mb="8px">
@@ -240,9 +259,11 @@ export const WithProfile: React.FC = () => {
         deals={deals}
         BSWPriceLabel={BSWPriceLabel}
         BSWPriceValue={BSWPriceValue}
-        supply={supply}
-        total={total}
+        footerStatistic={footerStatistic}
         onClick={noop}
+        aboutLinks={aboutLinks}
+        productLinks={productLinks}
+        serviceLinks={serviceLinks}
       >
         <div>
           <Heading as="h1" mb="8px">
@@ -301,9 +322,11 @@ export const WithSubmenuSelected: React.FC = () => {
         deals={deals}
         BSWPriceLabel={BSWPriceLabel}
         BSWPriceValue={BSWPriceValue}
-        supply={supply}
-        total={total}
+        footerStatistic={footerStatistic}
         onClick={noop}
+        aboutLinks={aboutLinks}
+        productLinks={productLinks}
+        serviceLinks={serviceLinks}
       >
         <div>
           <Heading as="h1" mb="8px">

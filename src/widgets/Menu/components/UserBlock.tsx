@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../../../components/Button/Button";
-import Text from "../../../components/Text/Text";
 import Wallet from "../icons/Wallet";
 import Pending from "../icons/Pending";
 import { useWalletModal } from "../../WalletModal";
 import { Login } from "../../WalletModal/types";
+import { useMatchBreakpoints } from "../../../hooks";
 
 interface Props {
   account?: string;
@@ -44,6 +44,7 @@ const UserBlock: React.FC<Props> = ({
   const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account,recentTransaction, chainId,clearTransaction,isSwap,transactionsForUIKit);
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
   const iconProps = { width: "24px", color: "contrast", style: { cursor: "pointer" } };
+  const {isSm, isXs} = useMatchBreakpoints()
   return (
     <div>
       {account ? (
@@ -55,7 +56,7 @@ const UserBlock: React.FC<Props> = ({
           {/* </CurrencyValue> */}
           <Button
             variant={pendingTransactions ? "success" : "primary"}
-            scale="sm"
+            scale={isSm || isXs ? 'xs' : 'sm'}
             onClick={() => {
               onPresentAccountModal();
             }}
@@ -66,7 +67,9 @@ const UserBlock: React.FC<Props> = ({
               </>
             ) : (
               <>
-                {/* <Wallet {...iconProps} mr="8px" /> */}
+                {!isSm && !isXs && (
+                  <Wallet {...iconProps} mr="8px" />
+                )}
                 {accountEllipsis}
               </>
             )}
@@ -74,12 +77,14 @@ const UserBlock: React.FC<Props> = ({
         </WalletWrap>
       ) : (
         <Button
-          scale="sm"
+          scale={isSm || isXs ? 'xs' : 'sm'}
           onClick={() => {
             onPresentConnectModal();
           }}
         >
-          {/* <Wallet {...iconProps} mr="8px" /> */}
+          {!isSm && !isXs && (
+            <Wallet {...iconProps} mr="8px" />
+          )}
           Connect wallet
         </Button>
       )}
