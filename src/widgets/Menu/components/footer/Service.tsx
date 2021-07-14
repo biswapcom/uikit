@@ -62,6 +62,9 @@ const NavList = styled.div<{ isOpen: boolean, innerHeight: number }>`
 
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-bottom: 0;
+    height: auto;
+    opacity: 1;
+    transform: scaleY(1);
   }
 `
 
