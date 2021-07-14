@@ -56,15 +56,23 @@ export declare const deals: {
     coupleLast: string;
     dealValue: number;
 }[];
-export declare const BSWPriceLabel = "Price BSW";
+export declare const BSWPriceLabel = "BSW";
 export declare const BSWPriceValue = 1234.947;
-export declare const supply: {
+export declare const footerStatistic: {
     label: string;
     value: number;
 }[];
-export declare const total: {
+export declare const aboutLinks: {
     label: string;
-    value: number;
+    href: string;
+}[];
+export declare const productLinks: {
+    label: string;
+    href: string;
+}[];
+export declare const serviceLinks: {
+    label: string;
+    href: string;
 }[];
 export declare const pendingTransactions = 2;
 export declare const MENU_HEIGHT = 72;
