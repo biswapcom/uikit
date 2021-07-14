@@ -38,8 +38,8 @@ const LeftInfo = styled.div`
   ${({ theme }) => theme.mediaQueries.xll} {
     flex-direction: column;
     justify-content: space-between;
-    width: 140px;
-    min-width: 140px;
+    width: 142px;
+    min-width: 142px;
     margin-right: 24px;
     margin-bottom: 0;
   }

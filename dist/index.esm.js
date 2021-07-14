@@ -3791,7 +3791,7 @@ var Label = styled.span(templateObject_1$b || (templateObject_1$b = __makeTempla
 });
 var ConnectMetamask = function (props) {
     var onClick = props.onClick;
-    return (React.createElement(Button, { scale: "sm", variant: "primary", width: "100%", maxWidth: "140px", onClick: function () { return onClick(); }, as: "button" },
+    return (React.createElement(Button, { scale: "sm", variant: "primary", width: "100%", maxWidth: "142px", onClick: function () { return onClick(); }, as: "button" },
         React.createElement(Label, null, "Add BSW to"),
         React.createElement(Icon$17, { width: "22px" })));
 };
@@ -3807,7 +3807,7 @@ var Wrapper$7 = styled.div(templateObject_1$a || (templateObject_1$a = __makeTem
     var theme = _a.theme;
     return theme.mediaQueries.xll;
 });
-var LeftInfo = styled.div(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 24px;\n\n  ", " {\n    flex-direction: column;\n    justify-content: space-between;\n    width: 140px;\n    min-width: 140px;\n    margin-right: 24px;\n    margin-bottom: 0;\n  }\n"], ["\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 24px;\n\n  ", " {\n    flex-direction: column;\n    justify-content: space-between;\n    width: 140px;\n    min-width: 140px;\n    margin-right: 24px;\n    margin-bottom: 0;\n  }\n"])), function (_a) {
+var LeftInfo = styled.div(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 24px;\n\n  ", " {\n    flex-direction: column;\n    justify-content: space-between;\n    width: 142px;\n    min-width: 142px;\n    margin-right: 24px;\n    margin-bottom: 0;\n  }\n"], ["\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 24px;\n\n  ", " {\n    flex-direction: column;\n    justify-content: space-between;\n    width: 142px;\n    min-width: 142px;\n    margin-right: 24px;\n    margin-bottom: 0;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.xll;
 });

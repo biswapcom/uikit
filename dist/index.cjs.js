@@ -3804,7 +3804,7 @@ var Label = styled__default['default'].span(templateObject_1$b || (templateObjec
 });
 var ConnectMetamask = function (props) {
     var onClick = props.onClick;
-    return (React__default['default'].createElement(Button, { scale: "sm", variant: "primary", width: "100%", maxWidth: "140px", onClick: function () { return onClick(); }, as: "button" },
+    return (React__default['default'].createElement(Button, { scale: "sm", variant: "primary", width: "100%", maxWidth: "142px", onClick: function () { return onClick(); }, as: "button" },
         React__default['default'].createElement(Label, null, "Add BSW to"),
         React__default['default'].createElement(Icon$17, { width: "22px" })));
 };
@@ -3820,7 +3820,7 @@ var Wrapper$7 = styled__default['default'].div(templateObject_1$a || (templateOb
     var theme = _a.theme;
     return theme.mediaQueries.xll;
 });
-var LeftInfo = styled__default['default'].div(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 24px;\n\n  ", " {\n    flex-direction: column;\n    justify-content: space-between;\n    width: 140px;\n    min-width: 140px;\n    margin-right: 24px;\n    margin-bottom: 0;\n  }\n"], ["\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 24px;\n\n  ", " {\n    flex-direction: column;\n    justify-content: space-between;\n    width: 140px;\n    min-width: 140px;\n    margin-right: 24px;\n    margin-bottom: 0;\n  }\n"])), function (_a) {
+var LeftInfo = styled__default['default'].div(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 24px;\n\n  ", " {\n    flex-direction: column;\n    justify-content: space-between;\n    width: 142px;\n    min-width: 142px;\n    margin-right: 24px;\n    margin-bottom: 0;\n  }\n"], ["\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 24px;\n\n  ", " {\n    flex-direction: column;\n    justify-content: space-between;\n    width: 142px;\n    min-width: 142px;\n    margin-right: 24px;\n    margin-bottom: 0;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.xll;
 });

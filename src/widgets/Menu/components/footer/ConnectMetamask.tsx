@@ -19,7 +19,7 @@ const ConnectMetamask: React.FC<Props> = (props) => {
   const { onClick } = props;
 
   return (
-    <Button scale="sm" variant="primary" width="100%" maxWidth="140px" onClick={() => onClick()} as="button">
+    <Button scale="sm" variant="primary" width="100%" maxWidth="142px" onClick={() => onClick()} as="button">
       <Label>
         Add BSW to
       </Label>
