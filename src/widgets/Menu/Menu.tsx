@@ -172,10 +172,10 @@ const Menu: React.FC<NavProps> = ({
   const homeLink = links.find((link) => link.label === "Home");
 
   const handleNetworkChange = (option: OptionProps): void => {
-    if (option.value === 65) {
+    if (option.value === currentNetwork) {
       networkChangeToMATIC()
     }
-    if (option.value === 137) {
+    if (option.value === currentNetwork) {
       networkChangeToBSC()
     }
   }

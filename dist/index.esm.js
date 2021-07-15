@@ -4126,7 +4126,7 @@ var MobileOnlyOverlay = styled(Overlay)(templateObject_5 || (templateObject_5 = 
 });
 var Menu = function (_a) {
     var _b;
-    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links; _a.profile; var children = _a.children, footerTitle = _a.footerTitle, deals = _a.deals, BSWPriceLabel = _a.BSWPriceLabel, BSWPriceValue = _a.BSWPriceValue, footerStatistic = _a.footerStatistic, pendingTransactions = _a.pendingTransactions, recentTransaction = _a.recentTransaction, chainId = _a.chainId, clearTransaction = _a.clearTransaction, isSwap = _a.isSwap, transactionsForUIKit = _a.transactionsForUIKit, onClick = _a.onClick, aboutLinks = _a.aboutLinks, productLinks = _a.productLinks, serviceLinks = _a.serviceLinks, networkChangeToBSC = _a.networkChangeToBSC, networkChangeToMATIC = _a.networkChangeToMATIC; _a.currentNetwork;
+    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links; _a.profile; var children = _a.children, footerTitle = _a.footerTitle, deals = _a.deals, BSWPriceLabel = _a.BSWPriceLabel, BSWPriceValue = _a.BSWPriceValue, footerStatistic = _a.footerStatistic, pendingTransactions = _a.pendingTransactions, recentTransaction = _a.recentTransaction, chainId = _a.chainId, clearTransaction = _a.clearTransaction, isSwap = _a.isSwap, transactionsForUIKit = _a.transactionsForUIKit, onClick = _a.onClick, aboutLinks = _a.aboutLinks, productLinks = _a.productLinks, serviceLinks = _a.serviceLinks, networkChangeToBSC = _a.networkChangeToBSC, networkChangeToMATIC = _a.networkChangeToMATIC, currentNetwork = _a.currentNetwork;
     var _c = useMatchBreakpoints(), isLg = _c.isLg, isMd = _c.isMd, isSm = _c.isSm, isXs = _c.isXs;
     var isMobile = isLg || isMd || isSm || isXs;
     var _d = useState(!isMobile), isPushed = _d[0], setIsPushed = _d[1];
@@ -4167,10 +4167,10 @@ var Menu = function (_a) {
     // Find the home link if provided
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     var handleNetworkChange = function (option) {
-        if (option.value === 65) {
+        if (option.value === currentNetwork) {
             networkChangeToMATIC();
         }
-        if (option.value === 137) {
+        if (option.value === currentNetwork) {
             networkChangeToBSC();
         }
     };
