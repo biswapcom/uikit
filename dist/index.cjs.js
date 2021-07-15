@@ -934,13 +934,13 @@ var ButtonMenu = function (_a) {
 };
 
 var InactiveButton = styled__default['default'](Button)(templateObject_1$V || (templateObject_1$V = __makeTemplateObject(["\n  background-color: transparent;\n  color: ", ";\n  &:hover:not(:disabled):not(:active) {\n    background-color: transparent;\n  }\n"], ["\n  background-color: transparent;\n  color: ", ";\n  &:hover:not(:disabled):not(:active) {\n    background-color: transparent;\n  }\n"])), function (_a) {
-    var theme = _a.theme, colorKey = _a.colorKey;
-    return theme.colors[colorKey];
+    var theme = _a.theme, color = _a.color;
+    return theme.colors[color];
 });
 var ButtonMenuItem = function (_a) {
     var _b = _a.isActive, isActive = _b === void 0 ? false : _b, _c = _a.variant, variant = _c === void 0 ? variants$3.PRIMARY : _c, as = _a.as, props = __rest(_a, ["isActive", "variant", "as"]);
     if (!isActive) {
-        return (React__default['default'].createElement(InactiveButton, __assign({ forwardedAs: as, variant: "tertiary", colorKey: variant === variants$3.PRIMARY ? "text" : "primary" }, props)));
+        return (React__default['default'].createElement(InactiveButton, __assign({ forwardedAs: as, variant: "tertiary", color: variant === variants$3.PRIMARY ? "text" : "primary" }, props)));
     }
     return React__default['default'].createElement(Button, __assign({ as: as, variant: variant }, props));
 };
