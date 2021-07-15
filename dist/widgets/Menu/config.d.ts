@@ -24,15 +24,6 @@ export declare const links: ({
     href: string;
     calloutClass: string;
     items?: undefined;
-} | {
-    label: string;
-    icon: string;
-    items: {
-        label: string;
-        href: string;
-    }[];
-    calloutClass: string;
-    href?: undefined;
 })[];
 export declare const socials: ({
     label: string;
