@@ -67,6 +67,9 @@ export interface NavProps extends PanelProps, PanelFooterProps, BSWPriceProps, C
     clearTransaction?: any;
     isSwap?: boolean;
     transactionsForUIKit?: any;
+    networkChangeToBSC?: any;
+    networkChangeToMATIC?: any;
+    currentNetwork?: any;
 }
 export interface FooterStatisticProps {
     footerStatistic: Array<FooterStatisticItem>;

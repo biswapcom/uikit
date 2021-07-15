@@ -84,7 +84,10 @@ export interface NavProps extends
   chainId?: any;
   clearTransaction?:any;
   isSwap?: boolean,
-  transactionsForUIKit?: any
+  transactionsForUIKit?: any,
+  networkChangeToBSC?: any,
+  networkChangeToMATIC?: any,
+  currentNetwork?: any
 }
 
 export interface FooterStatisticProps {

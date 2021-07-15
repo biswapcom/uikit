@@ -3745,6 +3745,7 @@ var NetworkSwitcher = function (_a) {
         setIsOpen(false);
         if (onChange) {
             onChange(option);
+            console.log(option);
         }
     }; };
     return (React.createElement(Wrapper$9, { ref: containerRef },
@@ -3753,7 +3754,7 @@ var NetworkSwitcher = function (_a) {
             React.createElement(TopLabel, null, selectedOption.label),
             React.createElement(Icon$1j, { width: "24px", color: "contrast", className: "arrow" })),
         React.createElement(DropDown, { ref: dropdownRef, isOpen: isOpen }, options.map(function (option) {
-            return option.label !== selectedOption.label ? (React.createElement(DropDownItem, { onClick: onOptionClicked(option), key: option.label, bg: option.bg },
+            return option.value !== selectedOption.value ? (React.createElement(DropDownItem, { onClick: onOptionClicked(option), key: option.label, bg: option.bg },
                 option.icon,
                 React.createElement(ItemLabel, null, option.label))) : null;
         }))));
@@ -4125,7 +4126,7 @@ var MobileOnlyOverlay = styled(Overlay)(templateObject_5 || (templateObject_5 = 
 });
 var Menu = function (_a) {
     var _b;
-    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links; _a.profile; var children = _a.children, footerTitle = _a.footerTitle, deals = _a.deals, BSWPriceLabel = _a.BSWPriceLabel, BSWPriceValue = _a.BSWPriceValue, footerStatistic = _a.footerStatistic, pendingTransactions = _a.pendingTransactions, recentTransaction = _a.recentTransaction, chainId = _a.chainId, clearTransaction = _a.clearTransaction, isSwap = _a.isSwap, transactionsForUIKit = _a.transactionsForUIKit, onClick = _a.onClick, aboutLinks = _a.aboutLinks, productLinks = _a.productLinks, serviceLinks = _a.serviceLinks;
+    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links; _a.profile; var children = _a.children, footerTitle = _a.footerTitle, deals = _a.deals, BSWPriceLabel = _a.BSWPriceLabel, BSWPriceValue = _a.BSWPriceValue, footerStatistic = _a.footerStatistic, pendingTransactions = _a.pendingTransactions, recentTransaction = _a.recentTransaction, chainId = _a.chainId, clearTransaction = _a.clearTransaction, isSwap = _a.isSwap, transactionsForUIKit = _a.transactionsForUIKit, onClick = _a.onClick, aboutLinks = _a.aboutLinks, productLinks = _a.productLinks, serviceLinks = _a.serviceLinks, networkChangeToBSC = _a.networkChangeToBSC, networkChangeToMATIC = _a.networkChangeToMATIC; _a.currentNetwork;
     var _c = useMatchBreakpoints(), isLg = _c.isLg, isMd = _c.isMd, isSm = _c.isSm, isXs = _c.isXs;
     var isMobile = isLg || isMd || isSm || isXs;
     var _d = useState(!isMobile), isPushed = _d[0], setIsPushed = _d[1];
@@ -4165,6 +4166,14 @@ var Menu = function (_a) {
     }, []);
     // Find the home link if provided
     var homeLink = links.find(function (link) { return link.label === "Home"; });
+    var handleNetworkChange = function (option) {
+        if (option.value === 65) {
+            networkChangeToMATIC();
+        }
+        if (option.value === 137) {
+            networkChangeToBSC();
+        }
+    };
     return (React.createElement(Wrapper, { className: "" + (isPushed ? "no-scroll" : "") },
         React.createElement(BodyWrapper, null,
             React.createElement(StyledNav, { showMenu: showMenu, isPushed: isPushed, menuBg: menuBg },
@@ -4175,16 +4184,16 @@ var Menu = function (_a) {
                             {
                                 label: 'Polygon',
                                 icon: React.createElement(Icon$6, { className: "icon" }),
-                                value: 'polygon',
-                                bg: '#8046E3'
+                                value: 137,
+                                bg: '#8046E3',
                             },
                             {
                                 label: 'BSC',
                                 icon: React.createElement(Icon$5, { className: "icon" }),
-                                value: 'bsc',
-                                bg: '#F0B90B'
+                                value: 56,
+                                bg: '#F0B90B',
                             },
-                        ] }),
+                        ], onChange: handleNetworkChange }),
                     React.createElement(UserBlock, { clearTransaction: clearTransaction, account: account, login: login, logout: logout, recentTransaction: recentTransaction, chainId: chainId, pendingTransactions: pendingTransactions, isSwap: isSwap, transactionsForUIKit: transactionsForUIKit }))),
             React.createElement(Panel, { togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isPushed: isPushed, isMobile: isMobile, showMenu: showMenu, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, pushNav: setIsPushed, links: links, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/", footerTitle: footerTitle, deals: deals }),
             React.createElement(Inner, { isPushed: isPushed, showMenu: showMenu },

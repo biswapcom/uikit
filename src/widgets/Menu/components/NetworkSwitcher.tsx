@@ -5,12 +5,13 @@ import ChevronDown from "../../../components/Svg/Icons/ChevronDown";
 export interface SelectProps {
   options: OptionProps[]
   onChange?: (option: OptionProps) => void
+  currentNetwork?: number,
 }
 
 export interface OptionProps {
   label: string
   icon: any
-  value: any
+  value?: any
   bg: string
 }
 
@@ -148,6 +149,7 @@ const NetworkSwitcher: React.FC<SelectProps> = ({ options, onChange }) => {
 
     if (onChange) {
       onChange(option)
+      console.log(option);
     }
   }
 
@@ -160,7 +162,7 @@ const NetworkSwitcher: React.FC<SelectProps> = ({ options, onChange }) => {
       </Top>
       <DropDown ref={dropdownRef} isOpen={isOpen}>
         {options.map((option) =>
-          option.label !== selectedOption.label ? (
+          option.value !== selectedOption.value ? (
             <DropDownItem onClick={onOptionClicked(option)} key={option.label} bg={option.bg}>
               {option.icon}
               <ItemLabel>{option.label}</ItemLabel>

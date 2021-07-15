@@ -8,7 +8,7 @@ import TogglePanel from "./components/TogglePanel";
 import Panel from "./components/Panel";
 import AuditInfo from "./components/AuditInfo";
 import UserBlock from "./components/UserBlock";
-import NetworkSwitcher from "./components/NetworkSwitcher";
+import NetworkSwitcher, { OptionProps } from "./components/NetworkSwitcher";
 import { NavProps } from "./types";
 import Footer from "./components/footer/Footer";
 import { MENU_HEIGHT, MENU_HEIGHT_MOBILE, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
@@ -124,7 +124,10 @@ const Menu: React.FC<NavProps> = ({
   onClick,
   aboutLinks,
   productLinks,
-  serviceLinks
+  serviceLinks,
+  networkChangeToBSC,
+  networkChangeToMATIC,
+  currentNetwork
 }) => {
   const { isLg, isMd, isSm, isXs } = useMatchBreakpoints();
   const isMobile = isLg || isMd || isSm || isXs;
@@ -168,6 +171,15 @@ const Menu: React.FC<NavProps> = ({
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");
 
+  const handleNetworkChange = (option: OptionProps): void => {
+    if (option.value === 65) {
+      networkChangeToMATIC()
+    }
+    if (option.value === 137) {
+      networkChangeToBSC()
+    }
+  }
+
   return (
     <Wrapper className={`${isPushed ? "no-scroll" : ""}`}>
       <BodyWrapper>
@@ -184,16 +196,17 @@ const Menu: React.FC<NavProps> = ({
                 {
                   label: 'Polygon',
                   icon: <PolygonIcon className="icon"/>,
-                  value: 'polygon',
-                  bg: '#8046E3'
+                  value: 137,
+                  bg: '#8046E3',
                 },
                 {
                   label: 'BSC',
                   icon: <BSCIcon className="icon"/>,
-                  value: 'bsc',
-                  bg: '#F0B90B'
+                  value: 56,
+                  bg: '#F0B90B',
                 },
               ]}
+              onChange={handleNetworkChange}
             />
             <UserBlock clearTransaction={clearTransaction}
                        account={account}
