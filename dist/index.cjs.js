@@ -3873,7 +3873,7 @@ var NavList$2 = styled__default['default'].div(templateObject_5$3 || (templateOb
     return isOpen ? 'scaleY(1)' : 'scaleY(0)';
 }, function (_a) {
     var isOpen = _a.isOpen, innerHeight = _a.innerHeight;
-    return isOpen ? innerHeight + 16 + "px" : '0';
+    return isOpen ? innerHeight * 26 + 16 + "px" : '0';
 }, function (_a) {
     var isOpen = _a.isOpen;
     return isOpen ? '1' : '0';
@@ -3891,21 +3891,13 @@ var NavItem$2 = styled__default['default'].div(templateObject_6$2 || (templateOb
 var About = function (_a) {
     var aboutLinks = _a.aboutLinks;
     var _b = React.useState(false), isOpen = _b[0], setIsOpen = _b[1];
-    var _c = React.useState(0), innerHeight = _c[0], setInnerHeight = _c[1];
-    var overlayEl = React.useRef(null);
-    React.useEffect(function () {
-        if (overlayEl && overlayEl.current) {
-            var node_1 = overlayEl.current;
-            setInnerHeight(function () { return (node_1.clientHeight); });
-        }
-    }, [innerHeight]);
+    var arrLength = aboutLinks.length;
     return (React__default['default'].createElement(Wrapper$6, null,
         React__default['default'].createElement(TopAction$2, { onClick: function () { return setIsOpen(!isOpen); } },
             React__default['default'].createElement(Title$4, null, "About Us"),
             React__default['default'].createElement(ActionIcon$2, { isOpen: isOpen })),
-        React__default['default'].createElement(NavList$2, { isOpen: isOpen, innerHeight: innerHeight },
-            React__default['default'].createElement("div", { ref: overlayEl }, aboutLinks.map(function (item, index) { return (React__default['default'].createElement(NavItem$2, { key: index.toString() },
-                React__default['default'].createElement(MenuLink, { href: item.href, target: item.target ? item.target : '_self' }, item.label))); })))));
+        React__default['default'].createElement(NavList$2, { isOpen: isOpen, innerHeight: arrLength }, aboutLinks.map(function (item, index) { return (React__default['default'].createElement(NavItem$2, { key: index.toString() },
+            React__default['default'].createElement(MenuLink, { href: item.href, target: item.target ? item.target : '_self' }, item.label))); }))));
 };
 var templateObject_1$9, templateObject_2$6, templateObject_3$6, templateObject_4$4, templateObject_5$3, templateObject_6$2;
 
@@ -3933,7 +3925,7 @@ var NavList$1 = styled__default['default'].div(templateObject_5$2 || (templateOb
     return isOpen ? 'scaleY(1)' : 'scaleY(0)';
 }, function (_a) {
     var isOpen = _a.isOpen, innerHeight = _a.innerHeight;
-    return isOpen ? innerHeight + 16 + "px" : '0';
+    return isOpen ? innerHeight * 26 + 16 + "px" : '0';
 }, function (_a) {
     var isOpen = _a.isOpen;
     return isOpen ? '1' : '0';
@@ -3951,21 +3943,13 @@ var NavItem$1 = styled__default['default'].div(templateObject_6$1 || (templateOb
 var Product = function (_a) {
     var productLinks = _a.productLinks;
     var _b = React.useState(false), isOpen = _b[0], setIsOpen = _b[1];
-    var _c = React.useState(0), innerHeight = _c[0], setInnerHeight = _c[1];
-    var overlayEl = React.useRef(null);
-    React.useEffect(function () {
-        if (overlayEl && overlayEl.current) {
-            var node_1 = overlayEl.current;
-            setInnerHeight(function () { return (node_1.clientHeight); });
-        }
-    }, [innerHeight]);
+    var arrLength = productLinks.length;
     return (React__default['default'].createElement(Wrapper$5, null,
         React__default['default'].createElement(TopAction$1, { onClick: function () { return setIsOpen(!isOpen); } },
             React__default['default'].createElement(Title$3, null, "Product"),
             React__default['default'].createElement(ActionIcon$1, { isOpen: isOpen })),
-        React__default['default'].createElement(NavList$1, { isOpen: isOpen, innerHeight: innerHeight },
-            React__default['default'].createElement("div", { ref: overlayEl }, productLinks.map(function (item, index) { return (React__default['default'].createElement(NavItem$1, { key: index.toString() },
-                React__default['default'].createElement(MenuLink, { href: item.href, target: item.target ? item.target : '_self' }, item.label))); })))));
+        React__default['default'].createElement(NavList$1, { isOpen: isOpen, innerHeight: arrLength }, productLinks.map(function (item, index) { return (React__default['default'].createElement(NavItem$1, { key: index.toString() },
+            React__default['default'].createElement(MenuLink, { href: item.href, target: item.target ? item.target : '_self' }, item.label))); }))));
 };
 var templateObject_1$8, templateObject_2$5, templateObject_3$5, templateObject_4$3, templateObject_5$2, templateObject_6$1;
 
@@ -3993,7 +3977,7 @@ var NavList = styled__default['default'].div(templateObject_5$1 || (templateObje
     return isOpen ? 'scaleY(1)' : 'scaleY(0)';
 }, function (_a) {
     var isOpen = _a.isOpen, innerHeight = _a.innerHeight;
-    return isOpen ? innerHeight + 16 + "px" : '0';
+    return isOpen ? innerHeight * 26 + 16 + "px" : '0';
 }, function (_a) {
     var isOpen = _a.isOpen;
     return isOpen ? '1' : '0';
@@ -4011,21 +3995,13 @@ var NavItem = styled__default['default'].div(templateObject_6 || (templateObject
 var Service = function (_a) {
     var serviceLinks = _a.serviceLinks;
     var _b = React.useState(false), isOpen = _b[0], setIsOpen = _b[1];
-    var _c = React.useState(0), innerHeight = _c[0], setInnerHeight = _c[1];
-    var overlayEl = React.useRef(null);
-    React.useEffect(function () {
-        if (overlayEl && overlayEl.current) {
-            var node_1 = overlayEl.current;
-            setInnerHeight(function () { return (node_1.clientHeight); });
-        }
-    }, [innerHeight]);
+    var arrLength = serviceLinks.length;
     return (React__default['default'].createElement(Wrapper$4, null,
         React__default['default'].createElement(TopAction, { onClick: function () { return setIsOpen(!isOpen); } },
             React__default['default'].createElement(Title$2, null, "Service"),
             React__default['default'].createElement(ActionIcon, { isOpen: isOpen })),
-        React__default['default'].createElement(NavList, { isOpen: isOpen, innerHeight: innerHeight },
-            React__default['default'].createElement("div", { ref: overlayEl }, serviceLinks.map(function (item, index) { return (React__default['default'].createElement(NavItem, { key: index.toString() },
-                React__default['default'].createElement(MenuLink, { href: item.href, target: item.target ? item.target : '_self' }, item.label))); })))));
+        React__default['default'].createElement(NavList, { isOpen: isOpen, innerHeight: arrLength }, serviceLinks.map(function (item, index) { return (React__default['default'].createElement(NavItem, { key: index.toString() },
+            React__default['default'].createElement(MenuLink, { href: item.href, target: item.target ? item.target : '_self' }, item.label))); }))));
 };
 var templateObject_1$7, templateObject_2$4, templateObject_3$4, templateObject_4$2, templateObject_5$1, templateObject_6;
 
