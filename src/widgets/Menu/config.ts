@@ -119,16 +119,30 @@ export const socials = [
   {
     label: "Telegram",
     icon: "TelegramIcon",
-    items: [
-      {
-        label: "Chat",
-        href: "https://t.me/biswap",
-      },
-      {
+    items: {
+      channel: {
+        icon: 'LogoIcon',
         label: "Channel",
         href: "https://t.me/biswap_news",
       },
-    ],
+      chats: [
+        {
+          icon: 'USAIcon',
+          label: "English",
+          href: "https://t.me/biswap",
+        },
+        {
+          icon: 'IDIcon',
+          label: "Bahasa",
+          href: "https://t.me/biswap",
+        },
+        {
+          icon: 'RUIcon',
+          label: "Русский",
+          href: "https://t.me/biswap",
+        },
+      ]
+    },
   },
   {
     label: "Twitter",
