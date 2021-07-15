@@ -3767,7 +3767,7 @@ var NetworkSwitcher = function (_a) {
             React__default['default'].createElement(TopLabel, null, selectedOption.label),
             React__default['default'].createElement(Icon$1j, { width: "24px", color: "contrast", className: "arrow" })),
         React__default['default'].createElement(DropDown, { ref: dropdownRef, isOpen: isOpen }, options.map(function (option) {
-            return option.value !== selectedOption.value ? (React__default['default'].createElement(DropDownItem, { onClick: onOptionClicked(option), key: option.label, bg: option.bg },
+            return option.value !== selectedOption.value ? (React__default['default'].createElement(DropDownItem, { onClick: function () { return onOptionClicked(option); }, key: option.label, bg: option.bg },
                 option.icon,
                 React__default['default'].createElement(ItemLabel, null, option.label))) : null;
         }))));

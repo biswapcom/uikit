@@ -3754,7 +3754,7 @@ var NetworkSwitcher = function (_a) {
             React.createElement(TopLabel, null, selectedOption.label),
             React.createElement(Icon$1j, { width: "24px", color: "contrast", className: "arrow" })),
         React.createElement(DropDown, { ref: dropdownRef, isOpen: isOpen }, options.map(function (option) {
-            return option.value !== selectedOption.value ? (React.createElement(DropDownItem, { onClick: onOptionClicked(option), key: option.label, bg: option.bg },
+            return option.value !== selectedOption.value ? (React.createElement(DropDownItem, { onClick: function () { return onOptionClicked(option); }, key: option.label, bg: option.bg },
                 option.icon,
                 React.createElement(ItemLabel, null, option.label))) : null;
         }))));

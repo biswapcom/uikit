@@ -163,7 +163,7 @@ const NetworkSwitcher: React.FC<SelectProps> = ({ options, onChange }) => {
       <DropDown ref={dropdownRef} isOpen={isOpen}>
         {options.map((option) =>
           option.value !== selectedOption.value ? (
-            <DropDownItem onClick={onOptionClicked(option)} key={option.label} bg={option.bg}>
+            <DropDownItem onClick={() => onOptionClicked(option)} key={option.label} bg={option.bg}>
               {option.icon}
               <ItemLabel>{option.label}</ItemLabel>
             </DropDownItem>
