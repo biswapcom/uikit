@@ -1,3 +1,5 @@
+
+
 export const links = [
   {
     label: "Home",
@@ -50,10 +52,10 @@ export const links = [
       },
       {
         label: "YourProfile",
-        href: "/",
+        href: "/profile",
       },
     ],
-    calloutClass: "rainbow",
+    // calloutClass: "rainbow",
   },
   {
     label: "Info",
