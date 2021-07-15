@@ -4180,10 +4180,10 @@ var Menu = function (_a) {
     // Find the home link if provided
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     var handleNetworkChange = function (option) {
-        if (option.value === currentNetwork) {
+        if (option.value !== currentNetwork) {
             networkChangeToMATIC();
         }
-        if (option.value === currentNetwork) {
+        if (option.value !== currentNetwork) {
             networkChangeToBSC();
         }
     };
