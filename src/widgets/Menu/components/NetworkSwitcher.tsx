@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import ChevronDown from "../../../components/Svg/Icons/ChevronDown";
 
@@ -134,7 +134,7 @@ const ItemLabel = styled.span`
   }
 `
 
-const NetworkSwitcher: React.FC<SelectProps> = ({ options, onChange }) => {
+const NetworkSwitcher: React.FC<SelectProps> = ({ options, onChange,currentNetwork }) => {
 
   const containerRef = useRef(null)
   const dropdownRef = useRef(null)
@@ -143,13 +143,18 @@ const NetworkSwitcher: React.FC<SelectProps> = ({ options, onChange }) => {
 
   const toggling = () => setIsOpen(!isOpen);
 
+  useEffect(() => {
+    if(currentNetwork === 56) {
+      setSelectedOption(options[1])
+    }
+  }, [options, currentNetwork]);
+
   const onOptionClicked = (option: OptionProps) => () => {
     setSelectedOption(option)
     setIsOpen(false)
 
     if (onChange) {
       onChange(option)
-      console.log(option);
     }
   }
 
@@ -162,8 +167,8 @@ const NetworkSwitcher: React.FC<SelectProps> = ({ options, onChange }) => {
       </Top>
       <DropDown ref={dropdownRef} isOpen={isOpen}>
         {options.map((option) =>
-          option.value !== selectedOption.value ? (
-            <DropDownItem onClick={() => onOptionClicked(option)} key={option.label} bg={option.bg}>
+          option.label !== selectedOption.label ? (
+            <DropDownItem onClick={onOptionClicked(option)} key={option.label} bg={option.bg}>
               {option.icon}
               <ItemLabel>{option.label}</ItemLabel>
             </DropDownItem>

@@ -3734,18 +3734,22 @@ var ItemLabel = styled.span(templateObject_6$4 || (templateObject_6$4 = __makeTe
     return theme.mediaQueries.sm;
 });
 var NetworkSwitcher = function (_a) {
-    var options = _a.options, onChange = _a.onChange;
+    var options = _a.options, onChange = _a.onChange, currentNetwork = _a.currentNetwork;
     var containerRef = useRef(null);
     var dropdownRef = useRef(null);
     var _b = useState(false), isOpen = _b[0], setIsOpen = _b[1];
     var _c = useState(options[0]), selectedOption = _c[0], setSelectedOption = _c[1];
     var toggling = function () { return setIsOpen(!isOpen); };
+    useEffect(function () {
+        if (currentNetwork === 56) {
+            setSelectedOption(options[1]);
+        }
+    }, [options, currentNetwork]);
     var onOptionClicked = function (option) { return function () {
         setSelectedOption(option);
         setIsOpen(false);
         if (onChange) {
             onChange(option);
-            console.log(option);
         }
     }; };
     return (React.createElement(Wrapper$9, { ref: containerRef },
@@ -3754,7 +3758,7 @@ var NetworkSwitcher = function (_a) {
             React.createElement(TopLabel, null, selectedOption.label),
             React.createElement(Icon$1j, { width: "24px", color: "contrast", className: "arrow" })),
         React.createElement(DropDown, { ref: dropdownRef, isOpen: isOpen }, options.map(function (option) {
-            return option.value !== selectedOption.value ? (React.createElement(DropDownItem, { onClick: function () { return onOptionClicked(option); }, key: option.label, bg: option.bg },
+            return option.label !== selectedOption.label ? (React.createElement(DropDownItem, { onClick: onOptionClicked(option), key: option.label, bg: option.bg },
                 option.icon,
                 React.createElement(ItemLabel, null, option.label))) : null;
         }))));
@@ -4193,7 +4197,7 @@ var Menu = function (_a) {
                                 value: 56,
                                 bg: '#F0B90B',
                             },
-                        ], onChange: handleNetworkChange }),
+                        ], onChange: handleNetworkChange, currentNetwork: currentNetwork }),
                     React.createElement(UserBlock, { clearTransaction: clearTransaction, account: account, login: login, logout: logout, recentTransaction: recentTransaction, chainId: chainId, pendingTransactions: pendingTransactions, isSwap: isSwap, transactionsForUIKit: transactionsForUIKit }))),
             React.createElement(Panel, { togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isPushed: isPushed, isMobile: isMobile, showMenu: showMenu, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, pushNav: setIsPushed, links: links, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/", footerTitle: footerTitle, deals: deals }),
             React.createElement(Inner, { isPushed: isPushed, showMenu: showMenu },

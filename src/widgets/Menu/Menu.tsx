@@ -207,6 +207,7 @@ const Menu: React.FC<NavProps> = ({
                 },
               ]}
               onChange={handleNetworkChange}
+              currentNetwork={currentNetwork}
             />
             <UserBlock clearTransaction={clearTransaction}
                        account={account}
