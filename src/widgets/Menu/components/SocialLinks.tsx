@@ -17,7 +17,7 @@ const SocialLinks: React.FC = () => (
       if (social.items) {
         return (
           <Dropdown key={social.label} position="top" target={<Icon {...iconProps} mr={mr} />}>
-            {social.items.map((item) => (
+            {social.items.chats.map((item) => (
               <Link external key={item.label} href={item.href} aria-label={item.label} color="textSubtle">
                 {item.label}
               </Link>
