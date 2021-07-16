@@ -136,12 +136,12 @@ export const socials = [
         {
           icon: 'IDIcon',
           label: "Bahasa",
-          href: "https://t.me/biswap",
+          href: "https://t.me/biswap_idn",
         },
         {
           icon: 'RUIcon',
           label: "Русский",
-          href: "https://t.me/biswap",
+          href: "https://t.me/biswap_russia",
         },
       ]
     },
