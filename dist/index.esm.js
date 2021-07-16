@@ -2941,7 +2941,7 @@ var socials = [
                 {
                     icon: 'RUIcon',
                     label: "Русский",
-                    href: "https://t.me/biswap_russia",
+                    href: "https://t.me/biswap_rus",
                 },
             ]
         },
