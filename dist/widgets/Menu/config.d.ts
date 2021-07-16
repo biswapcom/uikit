@@ -29,9 +29,17 @@ export declare const socials: ({
     label: string;
     icon: string;
     items: {
-        label: string;
-        href: string;
-    }[];
+        channel: {
+            icon: string;
+            label: string;
+            href: string;
+        };
+        chats: {
+            icon: string;
+            label: string;
+            href: string;
+        }[];
+    };
     href?: undefined;
 } | {
     label: string;

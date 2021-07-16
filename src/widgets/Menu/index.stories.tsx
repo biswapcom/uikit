@@ -77,7 +77,7 @@ export const Connected: React.FC = () => {
   const props = useProps();
   return (
     <BrowserRouter>
-      <Menu {...props}>
+      <Menu {...props} pendingTransactions={0}>
         <div>
           <Heading as="h1" mb="8px">
             Page body
