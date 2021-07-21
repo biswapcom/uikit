@@ -1,4 +1,5 @@
 import { Login } from "../WalletModal/types";
+import { Colors } from "../../theme/types";
 
 export interface LangType {
   code: string;
@@ -12,6 +13,12 @@ export interface Profile {
   noProfileLink: string;
   showPip?: boolean;
 }
+
+export interface LinkStatus {
+  text: string;
+  color: keyof Colors;
+}
+
 
 export interface PushedProps {
   isPushed: boolean;
@@ -29,6 +36,8 @@ export interface MenuSubEntry {
   calloutClass?: string;
   ico?: string;
   target?: string;
+  status?: LinkStatus;
+
 }
 
 export interface MenuEntry {
@@ -41,6 +50,7 @@ export interface MenuEntry {
   secondLabel?: boolean,
   secondTextLabel?: string,
   secondCalloutClass?: string
+  status?: LinkStatus;
 }
 
 export interface PanelProps {

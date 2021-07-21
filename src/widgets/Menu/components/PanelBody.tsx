@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { SvgProps } from "../../../components/Svg";
 import * as IconModule from "../icons";
 import Accordion from "./Accordion";
-import { MenuEntry, LinkLabel } from "./MenuEntry";
+import { MenuEntry, LinkLabel, LinkStatus } from "./MenuEntry";
 import MenuLink from "./MenuLink";
 import { PanelProps, PushedProps } from "../types";
 
@@ -52,6 +52,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
               pushNav={pushNav}
               icon={iconElement}
               label={entry.label}
+              status={entry.status}
               initialOpenState={initialOpenState}
               className={calloutClass}
               isActive={entry.items.some((item) => item.href === location.pathname)}
@@ -66,6 +67,17 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
           );
         }
         return (
+          // <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass}>
+          //   <MenuLink href={entry.href} onClick={handleClick}>
+          //     {iconElement}
+          //     <LinkLabel isPushed={isPushed}>{entry.label}</LinkLabel>
+          //     {entry.status && (
+          //       <LinkStatus color={entry.status.color} fontSize="14px">
+          //         {entry.status.text}
+          //       </LinkStatus>
+          //     )}
+          //   </MenuLink>
+          // </MenuEntry>
           <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass}>
             <MenuLink href={entry.href} onClick={handleClick}>
               {iconElement}
@@ -78,6 +90,11 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
                     </span>
                       )
                     }
+                    {entry.status && (
+                      <LinkStatus color={entry.status.color} fontSize="14px">
+                        {entry.status.text}
+                      </LinkStatus>
+                    )}
                   </LinkLabel>
               ): (
                   <LinkLabel isPushed={isPushed}>{entry.label}</LinkLabel>

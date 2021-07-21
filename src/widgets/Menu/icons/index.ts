@@ -31,3 +31,7 @@ export { default as AuditIcon } from "./AuditIcon";
 export { default as RewardIcon } from "./Reward";
 export { default as PolygonIcon } from "./Polygon";
 export { default as BSCIcon } from "./BSC";
+
+export { default as USAIcon } from "./flags/USA";
+export { default as IDIcon } from "./flags/ID";
+export { default as RUIcon } from "./flags/RU";

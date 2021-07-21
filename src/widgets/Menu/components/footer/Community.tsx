@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { socials } from "../../config";
 import { SvgProps } from "../../../../components/Svg";
 import Link from "../../../../components/Link/Link";
 import * as IconModule from "../../icons";
+import LogoChanel from "../../../../components/Svg/Icons/Logo";
+import { useDetectClickOutside } from "react-detect-click-outside";
 
 const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
 
@@ -31,13 +33,97 @@ const SocialWrap = styled.div`
   margin: 0 -4px;
 `
 
-const SocialItem = styled.a`
+const SocialItem = styled.div`
   width: 20px;
   height: 20px;
   margin: 0 4px;
 `
 
+const DropDownWrap = styled.div`
+  position: relative;
+`;
+
+const DropDown = styled.div`
+  display: none;
+  position: absolute;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: ${({ theme }) => theme.colors.dropDown};
+  bottom: 32px;
+  left: 100%;
+  transform: translateX(-40%);
+
+  &:before {
+    display: block;
+    content: "";
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    bottom: -4px;
+    left: 22px;
+    transform: translateX(-50%) rotate(45deg);
+    background-color: ${({ theme }) => theme.colors.dropDown};
+  }
+
+  &.active {
+    display: block;
+  }
+`;
+
+const DropDownLink = styled.a`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 12px;
+  line-height: 18px;
+  color: ${({ theme }) => theme.colors.text};
+  user-select: none;
+  transition: all 0.4s ease;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.contrast};
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+`;
+
+const ItemWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 8px;
+  margin-right: 8px;
+  transition: all 0.2s;
+
+  &:hover,
+  &.active {
+    background-color: ${({ theme }) => theme.colors.dropDown};
+  }
+`;
+
+const DropDownLabel = styled.span`
+  display: block;
+  font-size: 12px;
+  line-height: 18px;
+  color: ${({ theme }) => theme.colors.text};
+  margin-bottom: 8px;
+`
+
 const Community: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const openDropdown = () => {
+    setIsOpen(() => !isOpen);
+  };
+  const closeDropdown = () => {
+    setIsOpen(false);
+  };
+  const ref = useDetectClickOutside({ onTriggered: closeDropdown });
+
   return (
     <Wrapper>
       <Title>Community</Title>
@@ -48,11 +134,29 @@ const Community: React.FC = () => {
           const iconProps = { width: "20px", color: "textSubtle", style: { cursor: "pointer" } };
           if (social.items) {
             return (
-              <SocialItem key={social.items[1].label}>
-                <Link external href={social.items[1].href} aria-label={social.items[1].label}>
+              <DropDownWrap key={social.label} ref={ref}>
+                <SocialItem className={`${isOpen && "active"}`} onClick={openDropdown}>
                   <Icon {...iconProps} />
-                </Link>
-              </SocialItem>
+                </SocialItem>
+                {isOpen && (
+                  <DropDown className={`${isOpen && "active"}`}>
+                    <DropDownLink key={social.items.channel.label} href={social.items.channel.href} aria-label={social.label}>
+                      <LogoChanel  width="14px" mr="8px"/>
+                      {social.items.channel.label}
+                    </DropDownLink>
+                    <DropDownLabel>Chats:</DropDownLabel>
+                    {social.items.chats.map((item) => {
+                      const IconFlag = Icons[item.icon];
+                      return (
+                        <DropDownLink key={item.label} href={item.href} aria-label={social.label}>
+                          <IconFlag width="14px" mr="8px"/>
+                          {item.label}
+                        </DropDownLink>
+                      );
+                    })}
+                  </DropDown>
+                )}
+              </DropDownWrap>
             )
           }
           return (
