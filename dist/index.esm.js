@@ -1647,14 +1647,14 @@ var BarBackground = styled.div(templateObject_6$7 || (templateObject_6$7 = __mak
     var theme = _a.theme;
     return theme.colors.inputSecondary;
 });
-var BarProgress = styled.div(templateObject_7$1 || (templateObject_7$1 = __makeTemplateObject(["\n  position: absolute;\n  width: ", ";\n  height: 10px;\n  top: 18px;\n\n  background: ", ";\n"], ["\n  position: absolute;\n  width: ", ";\n  height: 10px;\n  top: 18px;\n\n  background: ", ";\n"])), function (_a) {
+var BarProgress = styled.div(templateObject_7$4 || (templateObject_7$4 = __makeTemplateObject(["\n  position: absolute;\n  width: ", ";\n  height: 10px;\n  top: 18px;\n\n  background: ", ";\n"], ["\n  position: absolute;\n  width: ", ";\n  height: 10px;\n  top: 18px;\n\n  background: ", ";\n"])), function (_a) {
     var progress = _a.progress, isCurrentValueMaxValue = _a.isCurrentValueMaxValue;
     return (isCurrentValueMaxValue ? "calc(100% - 16px)" : progress + "%");
 }, function (_a) {
     var theme = _a.theme;
     return theme.colors.primary;
 });
-var templateObject_1$B, templateObject_2$p, templateObject_3$h, templateObject_4$c, templateObject_5$a, templateObject_6$7, templateObject_7$1;
+var templateObject_1$B, templateObject_2$p, templateObject_3$h, templateObject_4$c, templateObject_5$a, templateObject_6$7, templateObject_7$4;
 
 var Icon$G = function (props) {
     return (React.createElement(Svg, __assign({ viewBox: "0 0 15 32", width: 15, height: 32 }, props),
@@ -3975,6 +3975,7 @@ var NavItem$2 = styled.div(templateObject_6$3 || (templateObject_6$3 = __makeTem
     var theme = _a.theme;
     return theme.colors.textSubtle;
 });
+var CustomLink$2 = styled(MenuLink)(templateObject_7$3 || (templateObject_7$3 = __makeTemplateObject(["\n  transition: opacity .3s ease;\n\n  &:hover {\n    opacity: .65;\n  }\n"], ["\n  transition: opacity .3s ease;\n\n  &:hover {\n    opacity: .65;\n  }\n"])));
 var About = function (_a) {
     var aboutLinks = _a.aboutLinks;
     var _b = useState(false), isOpen = _b[0], setIsOpen = _b[1];
@@ -3984,9 +3985,9 @@ var About = function (_a) {
             React.createElement(Title$4, null, "About Us"),
             React.createElement(ActionIcon$2, { isOpen: isOpen })),
         React.createElement(NavList$2, { isOpen: isOpen, innerHeight: arrLength }, aboutLinks.map(function (item, index) { return (React.createElement(NavItem$2, { key: index.toString() },
-            React.createElement(MenuLink, { href: item.href, target: item.target ? item.target : '_self' }, item.label))); }))));
+            React.createElement(CustomLink$2, { href: item.href, target: item.target ? item.target : '_self' }, item.label))); }))));
 };
-var templateObject_1$9, templateObject_2$6, templateObject_3$6, templateObject_4$4, templateObject_5$4, templateObject_6$3;
+var templateObject_1$9, templateObject_2$6, templateObject_3$6, templateObject_4$4, templateObject_5$4, templateObject_6$3, templateObject_7$3;
 
 var Wrapper$5 = styled.div(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["\n  grid-area: product;\n"], ["\n  grid-area: product;\n"])));
 var TopAction$1 = styled.div(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 16px;\n"], ["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 16px;\n"])));
@@ -4027,6 +4028,7 @@ var NavItem$1 = styled.div(templateObject_6$2 || (templateObject_6$2 = __makeTem
     var theme = _a.theme;
     return theme.colors.textSubtle;
 });
+var CustomLink$1 = styled(MenuLink)(templateObject_7$2 || (templateObject_7$2 = __makeTemplateObject(["\n  transition: opacity .3s ease;\n\n  &:hover {\n    opacity: .65;\n  }\n"], ["\n  transition: opacity .3s ease;\n\n  &:hover {\n    opacity: .65;\n  }\n"])));
 var Product = function (_a) {
     var productLinks = _a.productLinks;
     var _b = useState(false), isOpen = _b[0], setIsOpen = _b[1];
@@ -4036,9 +4038,9 @@ var Product = function (_a) {
             React.createElement(Title$3, null, "Product"),
             React.createElement(ActionIcon$1, { isOpen: isOpen })),
         React.createElement(NavList$1, { isOpen: isOpen, innerHeight: arrLength }, productLinks.map(function (item, index) { return (React.createElement(NavItem$1, { key: index.toString() },
-            React.createElement(MenuLink, { href: item.href, target: item.target ? item.target : '_self' }, item.label))); }))));
+            React.createElement(CustomLink$1, { href: item.href, target: item.target ? item.target : '_self' }, item.label))); }))));
 };
-var templateObject_1$8, templateObject_2$5, templateObject_3$5, templateObject_4$3, templateObject_5$3, templateObject_6$2;
+var templateObject_1$8, templateObject_2$5, templateObject_3$5, templateObject_4$3, templateObject_5$3, templateObject_6$2, templateObject_7$2;
 
 var Wrapper$4 = styled.div(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n  grid-area: service;\n"], ["\n  grid-area: service;\n"])));
 var TopAction = styled.div(templateObject_2$4 || (templateObject_2$4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 16px;\n"], ["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 16px;\n"])));
@@ -4079,6 +4081,7 @@ var NavItem = styled.div(templateObject_6$1 || (templateObject_6$1 = __makeTempl
     var theme = _a.theme;
     return theme.colors.textSubtle;
 });
+var CustomLink = styled(MenuLink)(templateObject_7$1 || (templateObject_7$1 = __makeTemplateObject(["\n  transition: opacity .3s ease;\n\n  &:hover {\n    opacity: .65;\n  }\n"], ["\n  transition: opacity .3s ease;\n\n  &:hover {\n    opacity: .65;\n  }\n"])));
 var Service = function (_a) {
     var serviceLinks = _a.serviceLinks;
     var _b = useState(false), isOpen = _b[0], setIsOpen = _b[1];
@@ -4088,9 +4091,9 @@ var Service = function (_a) {
             React.createElement(Title$2, null, "Service"),
             React.createElement(ActionIcon, { isOpen: isOpen })),
         React.createElement(NavList, { isOpen: isOpen, innerHeight: arrLength }, serviceLinks.map(function (item, index) { return (React.createElement(NavItem, { key: index.toString() },
-            React.createElement(MenuLink, { href: item.href, target: item.target ? item.target : '_self' }, item.label))); }))));
+            React.createElement(CustomLink, { href: item.href, target: item.target ? item.target : '_self' }, item.label))); }))));
 };
-var templateObject_1$7, templateObject_2$4, templateObject_3$4, templateObject_4$2, templateObject_5$2, templateObject_6$1;
+var templateObject_1$7, templateObject_2$4, templateObject_3$4, templateObject_4$2, templateObject_5$2, templateObject_6$1, templateObject_7$1;
 
 var Icons = IconModule;
 var Wrapper$3 = styled.div(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  grid-area: community;\n  margin-top: 8px;\n  \n  ", " {\n    margin-top: 24px;\n  }\n  \n  ", " {\n    margin-top: 0;\n  }\n"], ["\n  grid-area: community;\n  margin-top: 8px;\n  \n  ", " {\n    margin-top: 24px;\n  }\n  \n  ", " {\n    margin-top: 0;\n  }\n"])), function (_a) {
@@ -4105,7 +4108,7 @@ var Title$1 = styled.h4(templateObject_2$3 || (templateObject_2$3 = __makeTempla
     return theme.colors.contrast;
 });
 var SocialWrap = styled.div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  display: flex;\n  margin: 0 -4px;\n"], ["\n  display: flex;\n  margin: 0 -4px;\n"])));
-var SocialItem = styled.div(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n  width: 20px;\n  height: 20px;\n  margin: 0 4px;\n"], ["\n  width: 20px;\n  height: 20px;\n  margin: 0 4px;\n"])));
+var SocialItem = styled.div(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n  width: 20px;\n  height: 20px;\n  margin: 0 4px;\n  transition: opacity .3s ease;\n  \n  &:hover {\n    opacity: .65;\n  }\n"], ["\n  width: 20px;\n  height: 20px;\n  margin: 0 4px;\n  transition: opacity .3s ease;\n  \n  &:hover {\n    opacity: .65;\n  }\n"])));
 var DropDownWrap = styled.div(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n  position: relative;\n"], ["\n  position: relative;\n"])));
 var DropDown = styled.div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  display: none;\n  position: absolute;\n  border-radius: 8px;\n  padding: 8px;\n  background-color: ", ";\n  bottom: 32px;\n  left: 100%;\n  transform: translateX(-40%);\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 8px;\n    height: 8px;\n    position: absolute;\n    bottom: -4px;\n    left: 22px;\n    transform: translateX(-50%) rotate(45deg);\n    background-color: ", ";\n  }\n\n  &.active {\n    display: block;\n  }\n"], ["\n  display: none;\n  position: absolute;\n  border-radius: 8px;\n  padding: 8px;\n  background-color: ", ";\n  bottom: 32px;\n  left: 100%;\n  transform: translateX(-40%);\n\n  &:before {\n    display: block;\n    content: \"\";\n    width: 8px;\n    height: 8px;\n    position: absolute;\n    bottom: -4px;\n    left: 22px;\n    transform: translateX(-50%) rotate(45deg);\n    background-color: ", ";\n  }\n\n  &.active {\n    display: block;\n  }\n"])), function (_a) {
     var theme = _a.theme;
@@ -4121,11 +4124,7 @@ var DropDownLink = styled.a(templateObject_7 || (templateObject_7 = __makeTempla
     var theme = _a.theme;
     return theme.colors.contrast;
 });
-styled.div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 40px;\n  height: 40px;\n  background-color: transparent;\n  border-radius: 8px;\n  margin-right: 8px;\n  transition: all 0.2s;\n\n  &:hover,\n  &.active {\n    background-color: ", ";\n  }\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 40px;\n  height: 40px;\n  background-color: transparent;\n  border-radius: 8px;\n  margin-right: 8px;\n  transition: all 0.2s;\n\n  &:hover,\n  &.active {\n    background-color: ", ";\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.colors.dropDown;
-});
-var DropDownLabel = styled.span(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  display: block;\n  font-size: 12px;\n  line-height: 18px;\n  color: ", ";\n  margin-bottom: 8px;\n"], ["\n  display: block;\n  font-size: 12px;\n  line-height: 18px;\n  color: ", ";\n  margin-bottom: 8px;\n"])), function (_a) {
+var DropDownLabel = styled.span(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  display: block;\n  font-size: 12px;\n  line-height: 18px;\n  color: ", ";\n  margin-bottom: 8px;\n"], ["\n  display: block;\n  font-size: 12px;\n  line-height: 18px;\n  color: ", ";\n  margin-bottom: 8px;\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.text;
 });
@@ -4164,7 +4163,7 @@ var Community = function () {
                     React.createElement(Icon, __assign({}, iconProps)))));
         }))));
 };
-var templateObject_1$6, templateObject_2$3, templateObject_3$3, templateObject_4$1, templateObject_5$1, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
+var templateObject_1$6, templateObject_2$3, templateObject_3$3, templateObject_4$1, templateObject_5$1, templateObject_6, templateObject_7, templateObject_8;
 
 var Wrapper$2 = styled.div(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n  grid-area: support;\n  margin-top: 8px;\n\n  ", " {\n    margin-top: 24px;\n  }\n\n  ", " {\n    margin-top: 0;\n  }\n"], ["\n  grid-area: support;\n  margin-top: 8px;\n\n  ", " {\n    margin-top: 24px;\n  }\n\n  ", " {\n    margin-top: 0;\n  }\n"])), function (_a) {
     var theme = _a.theme;

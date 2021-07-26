@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { FooterAboutLinks } from '../../types'
 import MenuLink from "../MenuLink";
@@ -76,6 +76,14 @@ const NavItem = styled.div`
   line-height: 18px;
 `
 
+const CustomLink = styled(MenuLink)`
+  transition: opacity .3s ease;
+
+  &:hover {
+    opacity: .65;
+  }
+`
+
 const About: React.FC<FooterAboutLinks> = ({ aboutLinks }) => {
   const [ isOpen, setIsOpen ] = useState(false)
   const arrLength = aboutLinks.length
@@ -89,7 +97,7 @@ const About: React.FC<FooterAboutLinks> = ({ aboutLinks }) => {
       <NavList isOpen={isOpen} innerHeight={arrLength}>
         {aboutLinks.map((item, index) => (
           <NavItem key={index.toString()}>
-            <MenuLink href={item.href} target={item.target ? item.target : '_self'}>{item.label}</MenuLink>
+            <CustomLink href={item.href} target={item.target ? item.target : '_self'}>{item.label}</CustomLink>
           </NavItem>
         ))}
       </NavList>
