@@ -4,20 +4,38 @@ import React from "react";
 // import DealItem from "./DealItem";
 import { PanelFooterProps } from "../types";
 
+// eslint-disable-next-line import/order
+import styled from "styled-components";
+
 interface Props extends PanelFooterProps {
   isPushed: boolean;
   isDark: boolean;
 }
 
-// const Wrapper = styled.div<Props>`
-//   padding: ${({ isPushed }) => (isPushed ? "32px 16px" : "32px 12px")};
-//   display: none;
-//
-//   ${({ theme }) => theme.mediaQueries.lg} {
-//     display: ${({ isPushed }) => (isPushed ? "block" : "none")};
-//   }
-// `;
-//
+const Wrapper = styled.div`
+  .move-enter {
+    opacity: 0.01;
+    transform: translatey(-40px)
+  }
+
+  .move-enter-active {
+    opacity: 1;
+    transform: translatey(0);
+    transition: all 500ms ease-in;
+  }
+
+  .move-exit {
+    opacity: 1;
+    transform: translateY(0)
+  }
+
+  .move-exit-active {
+    opacity: 0.01;
+    transform: translateY(10px);
+    transition: all 500ms ease-in;
+  }
+`;
+
 // const Inner = styled.div`
 //   padding: 16px;
 //   border-radius: 16px;
@@ -64,11 +82,11 @@ const PanelFooter2: React.FC<Props> = ({isPushed,isDark,footerTitle,deals,dealsF
   // },[])
 
   return (
-    <>
+    <Wrapper>
       { showDeals &&
        dealsForUIKit()
       }
-    </>
+    </Wrapper>
     // <Wrapper isPushed={isPushed} footerTitle={footerTitle} isDark={isDark} deals={deals}>
     //   <Inner>
     //     <Text color="contrast" small mb="12px">
