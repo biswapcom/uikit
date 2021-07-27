@@ -96,7 +96,7 @@ const MenuBtnDesktop = styled.div<{ isPushed: boolean }>`
 
 const Panel: React.FC<Props> = (props) => {
   // Find the home link if provided
-  const { isPushed, showMenu, isDark, href, footerTitle, deals, togglePush } = props;
+  const { isPushed, showMenu, isDark, href, footerTitle, deals, togglePush,dealsForUIKit,showDeals } = props;
 
   return (
     <PanelWrapper isPushed={isPushed} showMenu={showMenu}>
@@ -106,8 +106,8 @@ const Panel: React.FC<Props> = (props) => {
         </MenuBtnDesktop>
         <Logo isPushed={isPushed} isDark={isDark} href={href} />
         <PanelBody {...props} />
-        {deals?.length && footerTitle && (
-          <PanelFooter2 isPushed={isPushed} footerTitle={footerTitle} isDark={isDark} deals={deals} />
+        {deals && deals?.length && footerTitle && (
+          <PanelFooter2 isPushed={isPushed} showDeals={showDeals} footerTitle={footerTitle} isDark={isDark} dealsForUIKit={dealsForUIKit} deals={deals} />
         )}
         <NavSocial isPushed={isPushed} isSidebar/>
 

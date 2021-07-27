@@ -42,6 +42,7 @@ export interface MenuEntry {
     secondTextLabel?: string;
     secondCalloutClass?: string;
     status?: LinkStatus;
+    dealsForUIKit?: any;
 }
 export interface PanelProps {
     isDark: boolean;
@@ -51,6 +52,8 @@ export interface PanelProps {
     langs: LangType[];
     setLang: (lang: LangType) => void;
     links: Array<MenuEntry>;
+    dealsForUIKit?: any;
+    showDeals?: boolean;
 }
 export interface DealsEntry {
     dealName: string;
@@ -62,6 +65,8 @@ export interface DealsEntry {
 export interface PanelFooterProps {
     footerTitle?: string;
     deals?: Array<DealsEntry>;
+    dealsForUIKit?: any;
+    showDeals?: boolean;
 }
 export interface NavProps extends PanelProps, PanelFooterProps, BSWPriceProps, ConnectMetaProps, FooterStatisticProps, FooterAboutLinks, FooterProductLinks, FooterServiceLinks {
     account?: string;
@@ -77,6 +82,8 @@ export interface NavProps extends PanelProps, PanelFooterProps, BSWPriceProps, C
     networkChangeToBSC?: any;
     networkChangeToMATIC?: any;
     currentNetwork?: any;
+    dealsForUIKit?: any;
+    showDeals?: boolean;
 }
 export interface FooterStatisticProps {
     footerStatistic: Array<FooterStatisticItem>;

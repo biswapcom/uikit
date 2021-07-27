@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Text from "../../../components/Text/Text";
-import DealItem from "./DealItem";
+// import DealItem from "./DealItem";
 import { PanelFooterProps } from "../types";
 
 interface Props extends PanelFooterProps {
@@ -26,8 +26,7 @@ const Inner = styled.div`
   overflow: hidden;
 `;
 
-const PanelFooter2: React.FC<Props> = (props) => {
-  const { isPushed, isDark, footerTitle,deals } = props;
+const PanelFooter2: React.FC<Props> = ({isPushed,isDark,footerTitle,deals,dealsForUIKit,showDeals}) => {
   // const [deals,setDeals] = useState([
   //   {
   //     dealName: "Liquidity",
@@ -70,36 +69,44 @@ const PanelFooter2: React.FC<Props> = (props) => {
         <Text color="contrast" small mb="12px">
           {footerTitle}
         </Text>
-
-        {deals &&
-          deals.map((item, index) => {
-            if (index === 0) {
-             return (
-               <DealItem
-                 key={index.toString()}
-                 isDark={isDark}
-                 dealName={item.dealName}
-                 dealDate={item.dealDate}
-                 coupleFirst={item.coupleFirst}
-                 coupleLast={item.coupleLast}
-                 dealValue={item.dealValue}
-                 animate
-               />
-             )
+          <>
+            {deals && deals.length > 0 &&
+            <>
+              { showDeals &&
+                dealsForUIKit()
+              }
+            </>
             }
-              return (
-                <DealItem
-                  key={index.toString()}
-                  isDark={isDark}
-                  dealName={item.dealName}
-                  dealDate={item.dealDate}
-                  coupleFirst={item.coupleFirst}
-                  coupleLast={item.coupleLast}
-                  dealValue={item.dealValue}
-                  animate={false}
-                />
-              );
-          })}
+          </>
+        {/* {deals && */}
+        {/*  deals.map((item, index) => { */}
+        {/*    if (index === 0) { */}
+        {/*     return ( */}
+        {/*       <DealItem */}
+        {/*         key={index.toString()} */}
+        {/*         isDark={isDark} */}
+        {/*         dealName={item.dealName} */}
+        {/*         dealDate={item.dealDate} */}
+        {/*         coupleFirst={item.coupleFirst} */}
+        {/*         coupleLast={item.coupleLast} */}
+        {/*         dealValue={item.dealValue} */}
+        {/*         animate */}
+        {/*       /> */}
+        {/*     ) */}
+        {/*    } */}
+        {/*      return ( */}
+        {/*        <DealItem */}
+        {/*          key={index.toString()} */}
+        {/*          isDark={isDark} */}
+        {/*          dealName={item.dealName} */}
+        {/*          dealDate={item.dealDate} */}
+        {/*          coupleFirst={item.coupleFirst} */}
+        {/*          coupleLast={item.coupleLast} */}
+        {/*          dealValue={item.dealValue} */}
+        {/*          animate={false} */}
+        {/*        /> */}
+        {/*      ); */}
+        {/*  })} */}
       </Inner>
     </Wrapper>
   );
