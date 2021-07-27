@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
-import Text from "../../../components/Text/Text";
+// import styled from "styled-components";
+// import Text from "../../../components/Text/Text";
 // import DealItem from "./DealItem";
 import { PanelFooterProps } from "../types";
 
@@ -9,22 +9,22 @@ interface Props extends PanelFooterProps {
   isDark: boolean;
 }
 
-const Wrapper = styled.div<Props>`
-  padding: ${({ isPushed }) => (isPushed ? "32px 16px" : "32px 12px")};
-  display: none;
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    display: ${({ isPushed }) => (isPushed ? "block" : "none")};
-  }
-`;
-
-const Inner = styled.div`
-  padding: 16px;
-  border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.dropDown};
-  height: 143px;
-  overflow: hidden;
-`;
+// const Wrapper = styled.div<Props>`
+//   padding: ${({ isPushed }) => (isPushed ? "32px 16px" : "32px 12px")};
+//   display: none;
+//
+//   ${({ theme }) => theme.mediaQueries.lg} {
+//     display: ${({ isPushed }) => (isPushed ? "block" : "none")};
+//   }
+// `;
+//
+// const Inner = styled.div`
+//   padding: 16px;
+//   border-radius: 16px;
+//   background-color: ${({ theme }) => theme.colors.dropDown};
+//   height: 143px;
+//   overflow: hidden;
+// `;
 
 const PanelFooter2: React.FC<Props> = ({isPushed,isDark,footerTitle,deals,dealsForUIKit,showDeals}) => {
   // const [deals,setDeals] = useState([
@@ -64,51 +64,56 @@ const PanelFooter2: React.FC<Props> = ({isPushed,isDark,footerTitle,deals,dealsF
   // },[])
 
   return (
-    <Wrapper isPushed={isPushed} footerTitle={footerTitle} isDark={isDark} deals={deals}>
-      <Inner>
-        <Text color="contrast" small mb="12px">
-          {footerTitle}
-        </Text>
-          <>
-            {deals && deals.length > 0 &&
-            <>
-              { showDeals &&
-                dealsForUIKit()
-              }
-            </>
-            }
-          </>
-        {/* {deals && */}
-        {/*  deals.map((item, index) => { */}
-        {/*    if (index === 0) { */}
-        {/*     return ( */}
-        {/*       <DealItem */}
-        {/*         key={index.toString()} */}
-        {/*         isDark={isDark} */}
-        {/*         dealName={item.dealName} */}
-        {/*         dealDate={item.dealDate} */}
-        {/*         coupleFirst={item.coupleFirst} */}
-        {/*         coupleLast={item.coupleLast} */}
-        {/*         dealValue={item.dealValue} */}
-        {/*         animate */}
-        {/*       /> */}
-        {/*     ) */}
-        {/*    } */}
-        {/*      return ( */}
-        {/*        <DealItem */}
-        {/*          key={index.toString()} */}
-        {/*          isDark={isDark} */}
-        {/*          dealName={item.dealName} */}
-        {/*          dealDate={item.dealDate} */}
-        {/*          coupleFirst={item.coupleFirst} */}
-        {/*          coupleLast={item.coupleLast} */}
-        {/*          dealValue={item.dealValue} */}
-        {/*          animate={false} */}
-        {/*        /> */}
-        {/*      ); */}
-        {/*  })} */}
-      </Inner>
-    </Wrapper>
+    <>
+      { showDeals &&
+       dealsForUIKit()
+      }
+    </>
+    // <Wrapper isPushed={isPushed} footerTitle={footerTitle} isDark={isDark} deals={deals}>
+    //   <Inner>
+    //     <Text color="contrast" small mb="12px">
+    //       {footerTitle}
+    //     </Text>
+    //       <>
+    //         {deals && deals.length > 0 &&
+    //         <>
+    //           { showDeals &&
+    //             dealsForUIKit()
+    //           }
+    //         </>
+    //         }
+    //       </>
+    //     {/* {deals && */}
+    //     {/*  deals.map((item, index) => { */}
+    //     {/*    if (index === 0) { */}
+    //     {/*     return ( */}
+    //     {/*       <DealItem */}
+    //     {/*         key={index.toString()} */}
+    //     {/*         isDark={isDark} */}
+    //     {/*         dealName={item.dealName} */}
+    //     {/*         dealDate={item.dealDate} */}
+    //     {/*         coupleFirst={item.coupleFirst} */}
+    //     {/*         coupleLast={item.coupleLast} */}
+    //     {/*         dealValue={item.dealValue} */}
+    //     {/*         animate */}
+    //     {/*       /> */}
+    //     {/*     ) */}
+    //     {/*    } */}
+    //     {/*      return ( */}
+    //     {/*        <DealItem */}
+    //     {/*          key={index.toString()} */}
+    //     {/*          isDark={isDark} */}
+    //     {/*          dealName={item.dealName} */}
+    //     {/*          dealDate={item.dealDate} */}
+    //     {/*          coupleFirst={item.coupleFirst} */}
+    //     {/*          coupleLast={item.coupleLast} */}
+    //     {/*          dealValue={item.dealValue} */}
+    //     {/*          animate={false} */}
+    //     {/*        /> */}
+    //     {/*      ); */}
+    //     {/*  })} */}
+    //   </Inner>
+    // </Wrapper>
   );
 };
 
