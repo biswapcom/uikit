@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { FooterServiceLinks } from '../../types'
 import MenuLink from "../MenuLink";
@@ -76,6 +76,14 @@ const NavItem = styled.div`
   line-height: 18px;
 `
 
+const CustomLink = styled(MenuLink)`
+  transition: opacity .3s ease;
+
+  &:hover {
+    opacity: .65;
+  }
+`
+
 const Service: React.FC<FooterServiceLinks> = ({ serviceLinks }) => {
   const [ isOpen, setIsOpen ] = useState(false)
   const arrLength = serviceLinks.length
@@ -89,7 +97,7 @@ const Service: React.FC<FooterServiceLinks> = ({ serviceLinks }) => {
       <NavList isOpen={isOpen} innerHeight={arrLength}>
         {serviceLinks.map((item, index) => (
           <NavItem key={index.toString()}>
-            <MenuLink href={item.href} target={item.target ? item.target : '_self'}>{item.label}</MenuLink>
+            <CustomLink href={item.href} target={item.target ? item.target : '_self'}>{item.label}</CustomLink>
           </NavItem>
         ))}
       </NavList>

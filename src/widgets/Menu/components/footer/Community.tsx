@@ -37,6 +37,11 @@ const SocialItem = styled.div`
   width: 20px;
   height: 20px;
   margin: 0 4px;
+  transition: opacity .3s ease;
+  
+  &:hover {
+    opacity: .65;
+  }
 `
 
 const DropDownWrap = styled.div`
@@ -86,23 +91,6 @@ const DropDownLink = styled.a`
 
   &:not(:last-child) {
     margin-bottom: 8px;
-  }
-`;
-
-const ItemWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  border-radius: 8px;
-  margin-right: 8px;
-  transition: all 0.2s;
-
-  &:hover,
-  &.active {
-    background-color: ${({ theme }) => theme.colors.dropDown};
   }
 `;
 
