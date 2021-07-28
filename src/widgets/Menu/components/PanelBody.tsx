@@ -54,7 +54,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
         if (entry.items) {
           const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
           const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
-          console.log('enytt', entry.items);
+          // console.log('enytt', entry.items);
           return (
             <Accordion
               key={entry.label}
@@ -69,7 +69,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
             >
               {isPushed &&
                 entry.items.map((item) => {
-                  console.log('fdvfd',item.cycleType);
+                  // console.log('fdvfd',item.cycleType);
                   return(
                     <MenuEntry isSmall key={item.href} secondary isActive={item.href === location.pathname} onClick={handleClick}>
                       <>

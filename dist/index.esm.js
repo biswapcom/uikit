@@ -3049,7 +3049,7 @@ var NavSocial = function (_a) {
                     React.createElement(DropDownLabel, null, "Chats:"),
                     social.items.chats.map(function (item) {
                         var IconFlag = Icons$1[item.icon];
-                        console.log(item.icon);
+                        // console.log(item.icon);
                         return (React.createElement(DropDownLink, { key: item.label, href: item.href, "aria-label": social.label },
                             React.createElement(IconFlag, { width: "14px", mr: "8px" }),
                             item.label));
@@ -3208,10 +3208,10 @@ var PanelBody = function (_a) {
         if (entry.items) {
             var itemsMatchIndex = entry.items.findIndex(function (item) { return item.href === location.pathname; });
             var initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
-            console.log('enytt', entry.items);
+            // console.log('enytt', entry.items);
             return (React.createElement(Accordion, { key: entry.label, isPushed: isPushed, pushNav: pushNav, icon: iconElement, label: entry.label, status: entry.status, initialOpenState: initialOpenState, className: calloutClass, isActive: entry.items.some(function (item) { return item.href === location.pathname; }) }, isPushed &&
                 entry.items.map(function (item) {
-                    console.log('fdvfd', item.cycleType);
+                    // console.log('fdvfd',item.cycleType);
                     return (React.createElement(MenuEntry, { isSmall: true, key: item.href, secondary: true, isActive: item.href === location.pathname, onClick: handleClick },
                         React.createElement(React.Fragment, null,
                             item.cycleType ? (React.createElement(React.Fragment, null,
