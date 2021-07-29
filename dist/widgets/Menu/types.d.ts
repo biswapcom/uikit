@@ -30,6 +30,7 @@ export interface MenuSubEntry {
     ico?: string;
     target?: string;
     status?: LinkStatus;
+    cycleType?: string;
 }
 export interface MenuEntry {
     label: string;
