@@ -132,7 +132,7 @@ const NavSocial: React.FC<Props> = ({ isPushed, isSidebar }) => {
                   <DropDownLabel>Chats:</DropDownLabel>
                   {social.items.chats.map((item) => {
                     const IconFlag = Icons[item.icon];
-                    console.log(item.icon);
+                    // console.log(item.icon);
                     return (
                       <DropDownLink key={item.label} href={item.href} aria-label={social.label}>
                         <IconFlag width="14px" mr="8px"/>
