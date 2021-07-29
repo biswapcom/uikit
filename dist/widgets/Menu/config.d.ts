@@ -27,11 +27,15 @@ export declare const links: ({
 } | {
     label: string;
     icon: string;
-    items: {
+    items: ({
         label: string;
         href: string;
         cycleType: string;
-    }[];
+    } | {
+        label: string;
+        href: string;
+        cycleType?: undefined;
+    })[];
     href?: undefined;
     calloutClass?: undefined;
 })[];

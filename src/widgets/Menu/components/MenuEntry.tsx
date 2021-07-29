@@ -18,6 +18,7 @@ const LinkLabel = styled.div<{ isPushed: boolean }>`
 `;
 
 const MenuEntry = styled.div<Props>`
+  position: relative;
   cursor: pointer;
   display: flex;
   align-items: center;

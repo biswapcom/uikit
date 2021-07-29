@@ -56,6 +56,10 @@ export const links = [
         href: "/profile",
         cycleType: 'inactive'
       },
+      {
+        label: "Archive",
+        href: "/profile",
+      },
     ],
     // calloutClass: "rainbow",
   },

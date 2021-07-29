@@ -30,18 +30,17 @@ const Container = styled.div<{ isPushed: boolean }>`
 `;
 
 const CompetitionCycle = styled.span<{cycleType: string}>`
-  position: relative;
-  left: -15px;
+  position: absolute;
+  left: 28px;
   border-radius: 50%;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   display: inline-block;
   background-color: ${({theme,cycleType})=> (cycleType === 'active' ? theme.colors.success : theme.colors.text)}
 `
 
 const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   const location = useLocation();
-
   // Close the menu when a user clicks a link on mobile
   const handleClick = isMobile ? () => pushNav(false) : undefined;
   return (
