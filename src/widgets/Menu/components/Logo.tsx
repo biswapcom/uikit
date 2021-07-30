@@ -81,7 +81,7 @@ const Logo: React.FC<Props> = ({ isPushed, isDark, href }) => {
   return (
     <Wrapper isPushed={isPushed} isDark={isDark} href={href}>
       {isAbsoluteUrl ? (
-        <StyledLink as="a" href={href} aria-label="Biswap home page">
+        <StyledLink as="a" to={href} aria-label="Biswap home page">
           {innerLogo}
         </StyledLink>
       ) : (

@@ -56,10 +56,14 @@ export const WithAction: React.FC = () => {
       id: `id-${now}`,
       title: `Title: ${now}`,
       description: "A description of a toast with a call to action",
-      action: {
+      url: "test.url",
+      actions: [{
         text: "Action Button",
         url: "https://pancakeswap.finance",
-      },
+      }, {
+        text: "Action test",
+        url: "https://pancakeswap.finance",
+      }],
       type: alertVariants[sample(Object.keys(alertVariants))],
     };
 

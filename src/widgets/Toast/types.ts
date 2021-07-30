@@ -17,7 +17,7 @@ export interface Toast {
   type: Types;
   title: string;
   description?: string;
-  action?: ToastAction;
+  actions?: Array<ToastAction>;
 }
 
 export interface ToastContainerProps {

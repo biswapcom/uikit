@@ -20,6 +20,9 @@ const StyledToast = styled.div`
   transition: all 250ms ease-in;
   width: 100%;
 
+  box-shadow: 0px -4px 11px rgba(0, 0, 0, 0.1), 0px 20px 36px -8px rgba(14, 14, 44, 0.32), 0px 1px 1px rgba(0, 0, 0, 0.16);
+  border-radius: 16px;
+
   ${({ theme }) => theme.mediaQueries.sm} {
     max-width: 400px;
   }
@@ -29,7 +32,7 @@ const Toast: React.FC<ToastProps> = ({ toast, onRemove, style, ttl, ...props }) 
   const timer = useRef<number>();
   const ref = useRef(null);
   const removeHandler = useRef(onRemove);
-  const { id, title, description, type, action } = toast;
+  const { id, title, description, type, actions } = toast;
 
   const handleRemove = useCallback(() => removeHandler.current(id), [id, removeHandler]);
 
@@ -65,12 +68,12 @@ const Toast: React.FC<ToastProps> = ({ toast, onRemove, style, ttl, ...props }) 
     <CSSTransition nodeRef={ref} timeout={250} style={style} {...props}>
       <StyledToast ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <Alert title={title} variant={alertTypeMap[type]} onClick={handleRemove}>
-          {action ? (
+          {actions ? (
             <>
               <Text as="p" mb="8px">
                 {description}
               </Text>
-              <ToastAction action={action} />
+              <ToastAction actions={actions} />
             </>
           ) : (
             description
