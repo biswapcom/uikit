@@ -31,7 +31,7 @@ const StyledToastContainer = styled.div`
   }
 `;
 
-const ToastContainer: React.FC<ToastContainerProps> = ({ toasts, onRemove, ttl = 6000, stackSpacing = 8 }) => {
+const ToastContainer: React.FC<ToastContainerProps> = ({ toasts, onRemove, ttl = 10000, stackSpacing = 8 }) => {
   console.log('log');
   return (
     <StyledToastContainer>
