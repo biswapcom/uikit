@@ -41,90 +41,12 @@ const ProgressLine = styled.div`
   //transition-delay: 0.2s;
 `
 
-const Toast: React.FC<ToastProps> = ({ toast, onRemove, style, ttl, ...props }) => {
-
-  const [progress, setProgress] = useState<number>(100)
-  const [progressRun, setProgressRun] = useState(true)
-  const [currentTime, setCurrentTime] = useState(ttl)
-
-  const timer = useRef<number>();
-  const intervalRef = useRef(null)
-  const removeHandler = useRef(onRemove);
-  const { id, title, description, type, actions } = toast;
-
-  console.log('timer',timer);
-  console.log('prp',progressRun);
-  useEffect(()=> {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-     // @ts-ignore
-    intervalRef.current = setTimeout(()=> {
-      const timeToRemove = ttl * progress / 100
-      const percent = ttl / 100;
-
-      setCurrentTime(timeToRemove)
-
-      console.log("timeToRemove", timeToRemove);
-
-      if (progressRun) {
-        setProgress((timeToRemove - percent) / percent);
-      }
-    },100)
-
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    return () => clearTimeout(intervalRef)
-    // eslint-disable-next-line
-  },[progress, progressRun])
-
-  const handleRemove = useCallback(() => removeHandler.current(id), [id, removeHandler]);
-
-  const handleMouseEnter = () => {
-    clearTimeout(timer.current);
-    setProgressRun(false);
-
-    if (intervalRef.current) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      clearTimeout(intervalRef.current)
-    }
-
-  };
-
-  const handleMouseLeave = () => {
-    setProgressRun(true);
-    if (timer.current) {
-      clearTimeout(timer.current);
-    }
-
-    if (intervalRef.current) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      clearTimeout(intervalRef.current)
-    }
-
-    timer.current = window.setTimeout(() => {
-      handleRemove();
-    }, currentTime);
-  };
-
-  useEffect(() => {
-    if (timer.current) {
-      clearTimeout(timer.current);
-    }
-
-    timer.current = window.setTimeout(() => {
-      handleRemove();
-    }, currentTime);
-
-    return () => {
-      clearTimeout(timer.current);
-    };
-    // eslint-disable-next-line
-  }, [timer, handleRemove]);
+const Toast: React.FC<ToastProps> = ({ toast, style,handleMouseEnter,handleMouseLeave,handleRemove, progress, ...props }) => {
+  const { title, description, type, actions } = toast;
 
   return (
     <CSSTransition timeout={250} style={style} {...props}>
-      <StyledToast onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <StyledToast onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>
         <Alert title={title} variant={alertTypeMap[type]} onClick={handleRemove}>
           {actions ? (
             <>
@@ -137,9 +59,12 @@ const Toast: React.FC<ToastProps> = ({ toast, onRemove, style, ttl, ...props }) 
             description
           )}
         </Alert>
-        <ProgressWrapper  style={{width: '100%'}}>
-          <ProgressLine style={{width: `${progress}%`}}/>
-        </ProgressWrapper>
+        {progress && (
+          <ProgressWrapper  style={{width: '100%'}}>
+            <ProgressLine style={{width: `${progress}%`}}/>
+          </ProgressWrapper>
+        )}
+
       </StyledToast>
     </CSSTransition>
   );

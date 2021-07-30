@@ -24,7 +24,11 @@ export interface ToastContainerProps {
 }
 export interface ToastProps {
     toast: Toast;
-    onRemove: ToastContainerProps["onRemove"];
-    ttl: number;
+    onRemove?: ToastContainerProps["onRemove"];
+    ttl?: number;
     style: Partial<CSSStyleDeclaration>;
+    handleMouseEnter?: any;
+    handleMouseLeave?: any;
+    handleRemove?: any;
+    progress?: any;
 }

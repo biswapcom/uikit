@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
 import Toast from "./Toast";
 import { ToastContainerProps } from "./types";
 import { Button } from "../../components/Button";
-import { logDOM } from "@testing-library/react";
 
 const ZINDEX = 1000;
 const TOP_POSITION = 80; // Initial position from the top
@@ -33,6 +32,93 @@ const StyledToastContainer = styled.div`
 
 const ToastContainer: React.FC<ToastContainerProps> = ({ toasts, onRemove, ttl = 10000, stackSpacing = 8 }) => {
   console.log('log');
+
+  const [progress, setProgress] = useState<number>(100)
+  const [progressRun, setProgressRun] = useState(true)
+  const [currentTime, setCurrentTime] = useState(ttl)
+
+  const timer = useRef<number>();
+  const intervalRef = useRef<number>();
+  const removeHandler = useRef(onRemove);
+
+  useEffect(()=> {
+    if (toasts.length) {
+
+      intervalRef.current = window.setTimeout(() => {
+
+        const timeToRemove = ttl * progress / 100
+        const percent = ttl / 100;
+
+        setCurrentTime(timeToRemove > 0 ? timeToRemove : 0)
+
+        if (progressRun && (timeToRemove - percent)>=0) {
+          setProgress((timeToRemove - percent) / percent);
+        }
+      },100)
+
+
+    }
+
+
+    return () => {
+     return  clearTimeout(intervalRef.current)
+    }
+
+    // eslint-disable-next-line
+  },[progress, currentTime, progressRun,toasts])
+
+   const handleRemove = useCallback(() => {
+     console.log('ebala');
+     removeHandler.current(toasts[0].id)
+     setProgress(100)
+     setCurrentTime(ttl)
+
+     clearTimeout(intervalRef.current)
+     clearTimeout(timer.current);
+       // eslint-disable-next-line
+   }, [toasts, progress, removeHandler]);
+
+  const handleMouseEnter = () => {
+    clearTimeout(timer.current);
+    setProgressRun(false);
+
+
+    if (intervalRef.current) {
+      clearTimeout(intervalRef.current)
+    }
+
+  };
+
+  const handleMouseLeave = () => {
+    setProgressRun(true);
+    if (timer.current) {
+      clearTimeout(timer.current);
+    }
+
+    if (intervalRef.current) {
+      clearTimeout(intervalRef.current)
+    }
+
+    timer.current = window.setTimeout(() => {
+      // handleRemove();
+    }, currentTime);
+  };
+
+  useEffect(() => {
+    if (timer.current) {
+      clearTimeout(timer.current);
+    }
+
+      timer.current = window.setTimeout(() => {
+        handleRemove();
+      }, currentTime);
+
+    return () => {
+      clearTimeout(timer.current);
+    };
+  }, [handleRemove, currentTime]);
+
+
   return (
     <StyledToastContainer>
       <Button onClick={() => toasts.forEach((item, index) => setTimeout(() => onRemove(item.id), index * 10))}/>
@@ -41,8 +127,22 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ toasts, onRemove, ttl =
           const zIndex = (ZINDEX - index).toString();
           const top = TOP_POSITION - index * stackSpacing;
 
+          if (index===0) {
+            return (<Toast handleRemove={handleRemove}
+                   progress={progress}
+                   key={toast.id}
+                   toast={toast}
+                   ttl={ttl}
+                   style={{ top: `${top}px`, zIndex }}
+            />)
+          }
+
           return (
-            <Toast key={toast.id} toast={toast} onRemove={onRemove} ttl={ttl} style={{ top: `${top}px`, zIndex }} />
+            <Toast
+                   key={toast.id}
+                   toast={toast}
+                   style={{ top: `${top}px`, zIndex }}
+            />
           );
         })}
       </TransitionGroup>
