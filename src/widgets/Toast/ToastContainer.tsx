@@ -36,13 +36,28 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
   const [progressRun, setProgressRun] = useState(true)
   const [currentTime, setCurrentTime] = useState(ttl)
 
+  // for update timer for new toast
+  const updateTimerRef = useRef<number>(toasts.length);
+
   const timer = useRef<number>();
   const intervalRef = useRef<number>();
   const removeHandler = useRef(onRemove);
 
-  useEffect(()=> {
-    if (toasts.length) {
+  const resetAll = () => {
+    setProgress(100);
+    setCurrentTime(ttl)
 
+    clearTimeout(intervalRef.current)
+    clearTimeout(timer.current);
+  }
+
+  useEffect(()=> {
+    if (toasts.length !== updateTimerRef.current && toasts.length !== 1) {
+      resetAll();
+      updateTimerRef.current = toasts.length
+    }
+
+    if (toasts.length) {
       intervalRef.current = window.setTimeout(() => {
 
         const timeToRemove = ttl * progress / 100
@@ -62,7 +77,7 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
     }
 
     // eslint-disable-next-line
-  },[progress, currentTime, progressRun,toasts])
+  },[progress, currentTime, progressRun,toasts,updateTimerRef.current])
 
    const handleRemove = useCallback(() => {
      removeHandler.current(toasts[0].id)

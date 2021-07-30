@@ -4079,10 +4079,22 @@ var ToastContainer = function (_a) {
     var _d = React.useState(100), progress = _d[0], setProgress = _d[1];
     var _e = React.useState(true), progressRun = _e[0], setProgressRun = _e[1];
     var _f = React.useState(ttl), currentTime = _f[0], setCurrentTime = _f[1];
+    // for update timer for new toast
+    var updateTimerRef = React.useRef(toasts.length);
     var timer = React.useRef();
     var intervalRef = React.useRef();
     var removeHandler = React.useRef(onRemove);
+    var resetAll = function () {
+        setProgress(100);
+        setCurrentTime(ttl);
+        clearTimeout(intervalRef.current);
+        clearTimeout(timer.current);
+    };
     React.useEffect(function () {
+        if (toasts.length !== updateTimerRef.current && toasts.length !== 1) {
+            resetAll();
+            updateTimerRef.current = toasts.length;
+        }
         if (toasts.length) {
             intervalRef.current = window.setTimeout(function () {
                 var timeToRemove = ttl * progress / 100;
@@ -4097,7 +4109,7 @@ var ToastContainer = function (_a) {
             return clearTimeout(intervalRef.current);
         };
         // eslint-disable-next-line
-    }, [progress, currentTime, progressRun, toasts]);
+    }, [progress, currentTime, progressRun, toasts, updateTimerRef.current]);
     var handleRemove = React.useCallback(function () {
         removeHandler.current(toasts[0].id);
         setProgress(100);
