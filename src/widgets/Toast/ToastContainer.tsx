@@ -30,8 +30,7 @@ const StyledToastContainer = styled.div`
   }
 `;
 
-const ToastContainer: React.FC<ToastContainerProps> = ({ toasts, onRemove, ttl = 10000, stackSpacing = 8 }) => {
-  console.log('log');
+const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemove, ttl = 10000, stackSpacing = 8 }) => {
 
   const [progress, setProgress] = useState<number>(100)
   const [progressRun, setProgressRun] = useState(true)
@@ -55,8 +54,6 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ toasts, onRemove, ttl =
           setProgress((timeToRemove - percent) / percent);
         }
       },100)
-
-
     }
 
 
@@ -68,7 +65,6 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ toasts, onRemove, ttl =
   },[progress, currentTime, progressRun,toasts])
 
    const handleRemove = useCallback(() => {
-     console.log('ebala');
      removeHandler.current(toasts[0].id)
      setProgress(100)
      setCurrentTime(ttl)
@@ -100,7 +96,6 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ toasts, onRemove, ttl =
     }
 
     timer.current = window.setTimeout(() => {
-      // handleRemove();
     }, currentTime);
   };
 
@@ -121,19 +116,28 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ toasts, onRemove, ttl =
 
   return (
     <StyledToastContainer>
-      <Button onClick={() => toasts.forEach((item, index) => setTimeout(() => onRemove(item.id), index * 10))}/>
+      {
+        toasts.length && (
+          <Button onClick={() => toasts.forEach((item, index) => setTimeout(() => onRemove(item.id), index * 10))}/>
+        )
+      }
       <TransitionGroup>
         {toasts.map((toast, index) => {
           const zIndex = (ZINDEX - index).toString();
           const top = TOP_POSITION - index * stackSpacing;
-
+          const removeButtonPosition = stackSpacing * toasts.length + 40;
           if (index===0) {
             return (<Toast handleRemove={handleRemove}
-                   progress={progress}
-                   key={toast.id}
-                   toast={toast}
-                   ttl={ttl}
-                   style={{ top: `${top}px`, zIndex }}
+                           handleMouseEnter={handleMouseEnter}
+                           handleMouseLeave={handleMouseLeave}
+                           progress={progress}
+                           key={toast.id}
+                           toast={toast}
+                           zIndex={zIndex}
+                           ttl={ttl}
+                           removeButtonPosition={removeButtonPosition}
+                           clearAll={clearAll}
+                           style={{ top: `${top}px`, zIndex }}
             />)
           }
 

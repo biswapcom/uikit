@@ -1,10 +1,11 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React from "react";
 import { CSSTransition } from "react-transition-group";
 import styled from "styled-components";
 import { Alert, alertVariants } from "../../components/Alert";
 import { Text } from "../../components/Text";
 import ToastAction from "./ToastAction";
 import { ToastProps, types } from "./types";
+import { Button } from "../../components/Button";
 
 const alertTypeMap = {
   [types.INFO]: alertVariants.INFO,
@@ -38,15 +39,24 @@ const ProgressLine = styled.div`
   height: 10px;
   border-radius: 1rem;
   transition: 100ms all;
-  //transition-delay: 0.2s;
 `
 
-const Toast: React.FC<ToastProps> = ({ toast, style,handleMouseEnter,handleMouseLeave,handleRemove, progress, ...props }) => {
+const Toast: React.FC<ToastProps> = ({ removeButtonPosition=60,zIndex,clearAll,toast, style,handleMouseEnter,handleMouseLeave,handleRemove, progress, ...props }) => {
   const { title, description, type, actions } = toast;
-
   return (
     <CSSTransition timeout={250} style={style} {...props}>
-      <StyledToast onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>
+      <StyledToast onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        {
+          clearAll && (
+            <Button
+              variant='text'
+              style={{position: 'absolute',right: 0,top: -removeButtonPosition,zIndex: Number(zIndex)}} onClick={() => clearAll()}>
+              <Text fontSize='16px' color='primary' lineHeight='19px'>
+                Clear All
+              </Text>
+            </Button>
+          )
+        }
         <Alert title={title} variant={alertTypeMap[type]} onClick={handleRemove}>
           {actions ? (
             <>

@@ -29,6 +29,10 @@ export const Default: React.FC = () => {
     setToasts((prevToasts) => prevToasts.filter((prevToast) => prevToast.id !== id));
   };
 
+  const ClearAllHandler = () => {
+    setToasts([])
+  }
+
   return (
     <div>
       <Button type="button" variant="secondary" onClick={() => handleClick()}>
@@ -42,13 +46,17 @@ export const Default: React.FC = () => {
       >
         Random Toast with Description
       </Button>
-      <ToastContainer toasts={toasts} onRemove={handleRemove} />
+      <ToastContainer clearAll={ClearAllHandler} toasts={toasts} onRemove={handleRemove} />
     </div>
   );
 };
 
 export const WithAction: React.FC = () => {
   const [toasts, setToasts] = useState([]);
+
+  const ClearAllHandler = () => {
+    setToasts([])
+  }
 
   const handleClick = () => {
     const now = Date.now();
@@ -79,7 +87,7 @@ export const WithAction: React.FC = () => {
       <Button type="button" variant="success" ml="8px" onClick={() => handleClick()}>
         Random Toast with Action Button
       </Button>
-      <ToastContainer toasts={toasts} onRemove={handleRemove} />
+      <ToastContainer clearAll={ClearAllHandler} toasts={toasts} onRemove={handleRemove} />
     </div>
   );
 };

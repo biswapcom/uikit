@@ -21,6 +21,7 @@ export interface ToastContainerProps {
     stackSpacing?: number;
     ttl?: number;
     onRemove: (id: string) => void;
+    clearAll?: () => void;
 }
 export interface ToastProps {
     toast: Toast;
@@ -31,4 +32,7 @@ export interface ToastProps {
     handleMouseLeave?: any;
     handleRemove?: any;
     progress?: any;
+    clearAll?: () => void;
+    zIndex?: string;
+    removeButtonPosition?: number;
 }

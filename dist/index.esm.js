@@ -4042,12 +4042,14 @@ var StyledToast = styled.div(templateObject_1$2 || (templateObject_1$2 = __makeT
     return theme.mediaQueries.sm;
 });
 var ProgressWrapper = styled.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background-color: rgb(233, 233, 233);\n  border-radius: .5rem;\n"], ["\n  background-color: rgb(233, 233, 233);\n  border-radius: .5rem;\n"])));
-var ProgressLine = styled.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  background-color: rgb(62, 122, 235);\n  height: 10px;\n  border-radius: 1rem;\n  transition: 100ms all;\n  //transition-delay: 0.2s;\n"], ["\n  background-color: rgb(62, 122, 235);\n  height: 10px;\n  border-radius: 1rem;\n  transition: 100ms all;\n  //transition-delay: 0.2s;\n"])));
+var ProgressLine = styled.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  background-color: rgb(62, 122, 235);\n  height: 10px;\n  border-radius: 1rem;\n  transition: 100ms all;\n"], ["\n  background-color: rgb(62, 122, 235);\n  height: 10px;\n  border-radius: 1rem;\n  transition: 100ms all;\n"])));
 var Toast = function (_a) {
-    var toast = _a.toast, style = _a.style, handleMouseEnter = _a.handleMouseEnter, handleMouseLeave = _a.handleMouseLeave, handleRemove = _a.handleRemove, progress = _a.progress, props = __rest(_a, ["toast", "style", "handleMouseEnter", "handleMouseLeave", "handleRemove", "progress"]);
+    var _b = _a.removeButtonPosition, removeButtonPosition = _b === void 0 ? 60 : _b, zIndex = _a.zIndex, clearAll = _a.clearAll, toast = _a.toast, style = _a.style, handleMouseEnter = _a.handleMouseEnter, handleMouseLeave = _a.handleMouseLeave, handleRemove = _a.handleRemove, progress = _a.progress, props = __rest(_a, ["removeButtonPosition", "zIndex", "clearAll", "toast", "style", "handleMouseEnter", "handleMouseLeave", "handleRemove", "progress"]);
     var title = toast.title, description = toast.description, type = toast.type, actions = toast.actions;
     return (React.createElement(CSSTransition, __assign({ timeout: 250, style: style }, props),
-        React.createElement(StyledToast, { onMouseEnter: function () { return handleMouseEnter(); }, onMouseLeave: function () { return handleMouseLeave(); } },
+        React.createElement(StyledToast, { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave },
+            clearAll && (React.createElement(Button, { variant: 'text', style: { position: 'absolute', right: 0, top: -removeButtonPosition, zIndex: Number(zIndex) }, onClick: function () { return clearAll(); } },
+                React.createElement(Text, { fontSize: '16px', color: 'primary', lineHeight: '19px' }, "Clear All"))),
             React.createElement(Alert, { title: title, variant: alertTypeMap[type], onClick: handleRemove }, actions ? (React.createElement(React.Fragment, null,
                 React.createElement(Text, { as: "p", mb: "8px" }, description),
                 React.createElement(ToastAction, { actions: actions }))) : (description)),
@@ -4060,10 +4062,9 @@ var ZINDEX = 1000;
 var TOP_POSITION = 80; // Initial position from the top
 var StyledToastContainer = styled.div(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  .enter,\n  .appear {\n    opacity: 0.01;\n  }\n\n  .enter.enter-active,\n  .appear.appear-active {\n    opacity: 1;\n    transition: opacity 250ms ease-in;\n  }\n\n  .exit {\n    opacity: 1;\n  }\n\n  .exit.exit-active {\n    opacity: 0.01;\n    transition: opacity 250ms ease-out;\n  }\n"], ["\n  .enter,\n  .appear {\n    opacity: 0.01;\n  }\n\n  .enter.enter-active,\n  .appear.appear-active {\n    opacity: 1;\n    transition: opacity 250ms ease-in;\n  }\n\n  .exit {\n    opacity: 1;\n  }\n\n  .exit.exit-active {\n    opacity: 0.01;\n    transition: opacity 250ms ease-out;\n  }\n"])));
 var ToastContainer = function (_a) {
-    var toasts = _a.toasts, onRemove = _a.onRemove, _b = _a.ttl, ttl = _b === void 0 ? 10000 : _b, _c = _a.stackSpacing, stackSpacing = _c === void 0 ? 8 : _c;
-    console.log('log');
+    var clearAll = _a.clearAll, toasts = _a.toasts, onRemove = _a.onRemove, _b = _a.ttl, ttl = _b === void 0 ? 10000 : _b, _c = _a.stackSpacing, stackSpacing = _c === void 0 ? 8 : _c;
     var _d = useState(100), progress = _d[0], setProgress = _d[1];
-    var _e = useState(true), progressRun = _e[0]; _e[1];
+    var _e = useState(true), progressRun = _e[0], setProgressRun = _e[1];
     var _f = useState(ttl), currentTime = _f[0], setCurrentTime = _f[1];
     var timer = useRef();
     var intervalRef = useRef();
@@ -4085,7 +4086,6 @@ var ToastContainer = function (_a) {
         // eslint-disable-next-line
     }, [progress, currentTime, progressRun, toasts]);
     var handleRemove = useCallback(function () {
-        console.log('ebala');
         removeHandler.current(toasts[0].id);
         setProgress(100);
         setCurrentTime(ttl);
@@ -4093,6 +4093,24 @@ var ToastContainer = function (_a) {
         clearTimeout(timer.current);
         // eslint-disable-next-line
     }, [toasts, progress, removeHandler]);
+    var handleMouseEnter = function () {
+        clearTimeout(timer.current);
+        setProgressRun(false);
+        if (intervalRef.current) {
+            clearTimeout(intervalRef.current);
+        }
+    };
+    var handleMouseLeave = function () {
+        setProgressRun(true);
+        if (timer.current) {
+            clearTimeout(timer.current);
+        }
+        if (intervalRef.current) {
+            clearTimeout(intervalRef.current);
+        }
+        timer.current = window.setTimeout(function () {
+        }, currentTime);
+    };
     useEffect(function () {
         if (timer.current) {
             clearTimeout(timer.current);
@@ -4105,12 +4123,13 @@ var ToastContainer = function (_a) {
         };
     }, [handleRemove, currentTime]);
     return (React.createElement(StyledToastContainer, null,
-        React.createElement(Button, { onClick: function () { return toasts.forEach(function (item, index) { return setTimeout(function () { return onRemove(item.id); }, index * 10); }); } }),
+        toasts.length && (React.createElement(Button, { onClick: function () { return toasts.forEach(function (item, index) { return setTimeout(function () { return onRemove(item.id); }, index * 10); }); } })),
         React.createElement(TransitionGroup, null, toasts.map(function (toast, index) {
             var zIndex = (ZINDEX - index).toString();
             var top = TOP_POSITION - index * stackSpacing;
+            var removeButtonPosition = stackSpacing * toasts.length + 40;
             if (index === 0) {
-                return (React.createElement(Toast, { handleRemove: handleRemove, progress: progress, key: toast.id, toast: toast, ttl: ttl, style: { top: top + "px", zIndex: zIndex } }));
+                return (React.createElement(Toast, { handleRemove: handleRemove, handleMouseEnter: handleMouseEnter, handleMouseLeave: handleMouseLeave, progress: progress, key: toast.id, toast: toast, zIndex: zIndex, ttl: ttl, removeButtonPosition: removeButtonPosition, clearAll: clearAll, style: { top: top + "px", zIndex: zIndex } }));
             }
             return (React.createElement(Toast, { key: toast.id, toast: toast, style: { top: top + "px", zIndex: zIndex } }));
         }))));
