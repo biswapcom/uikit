@@ -17,7 +17,7 @@ const alertTypeMap = {
 
 const StyledToast = styled.div`
   //overflow: hidden;
-  right: 16px;
+  right: 35px;
   position: fixed;
   max-width: calc(100% - 32px);
   transition: all 250ms ease-in;

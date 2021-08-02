@@ -5,7 +5,7 @@ import Toast from "./Toast";
 import { ToastContainerProps } from "./types";
 
 const ZINDEX = 1000;
-const BOTTOM_POSITION = 80; // Initial position from the top
+const BOTTOM_POSITION = 35; // Initial position from the bottom
 
 const StyledToastContainer = styled.div`
   .enter,
