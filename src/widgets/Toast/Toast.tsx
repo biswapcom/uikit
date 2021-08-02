@@ -33,20 +33,15 @@ const StyledToast = styled.div`
 
 const ProgressWrapper = styled.div`
   background-color: ${({theme})=> theme.colors.contrast}
-  //border-radius: .5rem;
   bottom: 0;
   min-height: 5px;
-  //border-bottom-left-radius: 16px;
-  //border-bottom-right-radius: 16px;
 `
 
 const ProgressLine = styled.div`
-  background-color: #1DC872;
+  background-color: ${({theme})=> theme.colors.success}
   height: 5px;
   transition: 100ms all;
   border-radius: 16px;
-  //border-bottom-left-radius: 16px;
-  //border-bottom-right-radius: 16px;
 `
 
 const AlertWrapper = styled.div`
@@ -66,10 +61,8 @@ const LinkStyles = styled.a`
   text-decoration: underline;
 `
 
-
-
 const Toast: React.FC<ToastProps> = ({removeButtonPosition=60,zIndex,clearAll,toast, style,handleMouseEnter,handleMouseLeave,handleRemove, progress, ...props }) => {
-  const {showDetails, description, type, actions, title} = toast;
+  const {showDetails, description, type, title} = toast;
   return (
     <CSSTransition timeout={250} style={style} {...props}>
       <StyledToast onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -99,17 +92,17 @@ const Toast: React.FC<ToastProps> = ({removeButtonPosition=60,zIndex,clearAll,to
             </AlertWrapper>
           {
             showDetails && (
-              <Text
-                mt='8px'
-                ml='16px'
-                mb='16px'
-                fontSize='10px'
-                fontWeight='400'
-                lineHeight='12px'
-                color='#6b7d98'
-              >
-                *Share your earnings in our official telegram group
-              </Text>
+                <Button variant='text' as='a' href='https://t.me/biswap'>
+                   <Text
+                    fontSize='10px'
+                    pl='0'
+                    fontWeight='400'
+                    lineHeight='12px'
+                    color='#6b7d98'
+                  >
+                    *Share your earnings in our official telegram group
+                  </Text>
+                </Button>
             )
           }
             <div style={{width: '100%'}}>
