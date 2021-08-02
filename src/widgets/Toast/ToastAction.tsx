@@ -11,8 +11,10 @@ import { Text } from "../../components/Text";
 
 interface ToastActionProps {
   // actions: Array<Action>;
-  title?: string,
-  url?: string
+  title?: string;
+  url?: string;
+  telegramDescription: string;
+  tweeterDescription: string;
 }
 
 const ActionsContainer = styled.div`
@@ -20,26 +22,26 @@ const ActionsContainer = styled.div`
   justify-content: space-around;
 `
 
-const ToastAction: React.FC<ToastActionProps> = ({title, url}) => {
+const ToastAction: React.FC<ToastActionProps> = ({title, telegramDescription, tweeterDescription}) => {
 
   return (
     <ActionsContainer>
-      <TelegramShareButton style={{ width:'45%'}}  title={title}
-                           url='Biswap'
+      <TwitterShareButton style={{ width:'45%'}}  title={tweeterDescription}
+                           url='https://biswap.org/'
       >
         <Button width='100%' style={{backgroundColor: '#16CDFD'}}>
           <Text color='contrast' fontSize='12px' bold lineHeight='18px'>Retweet</Text>
           <TwitterIcon  color="#fff" mr="7px" width="20px" />
         </Button>
-      </TelegramShareButton>
-      <TwitterShareButton style={{ width:'45%'}} title={title}
-                          url='Biswap'
+      </TwitterShareButton>
+      <TelegramShareButton style={{ width:'45%'}} title={telegramDescription}
+                          url='https://biswap.org/'
       >
         <Button width='100%' style={{backgroundColor: '#26A6E5'}}>
           <Text color='contrast' fontSize='12px' bold lineHeight='18px'>Telegram</Text>
           <TelegramIcon  color="#fff" mr="7px" width="20px" />
         </Button>
-      </TwitterShareButton>
+      </TelegramShareButton>
     </ActionsContainer>
   )
 };

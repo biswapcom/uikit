@@ -62,7 +62,7 @@ const LinkStyles = styled.a`
 `
 
 const Toast: React.FC<ToastProps> = ({removeButtonPosition=60,zIndex,clearAll,toast, style,handleMouseEnter,handleMouseLeave,handleRemove, progress, ...props }) => {
-  const {showDetails, description, type, title} = toast;
+  const {showDetails, description, type, title, telegramDescription, tweeterDescription} = toast;
   return (
     <CSSTransition timeout={250} style={style} {...props}>
       <StyledToast onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -88,7 +88,7 @@ const Toast: React.FC<ToastProps> = ({removeButtonPosition=60,zIndex,clearAll,to
               <Text as="p" mb="8px">
                 {description}
               </Text>
-              <ToastAction title={title} />
+              <ToastAction telegramDescription={telegramDescription} tweeterDescription={tweeterDescription} title={title} />
             </AlertWrapper>
            {
             showDetails && (

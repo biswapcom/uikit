@@ -19,6 +19,8 @@ export const Default: React.FC = () => {
       id: `id-${now}`,
       title: `Title: ${now}`,
       showDetails: true,
+      telegramDescription: "Share your earnings on Biswap and win a part of $2530 in BSW Prize Pool for 253 winners every week! #biswap_sharing",
+      tweeterDescription: "Share your earnings on Biswap and win a part of $2530 in BSW Prize Pool for 253 winners every week! #biswap_earn",
       description,
       type: alertVariants[sample(Object.keys(alertVariants))],
     };
@@ -67,13 +69,8 @@ export const WithAction: React.FC = () => {
       description: "Share your earnings and win a part of $2530 in BSW Prize Pool for 253 winners every week!",
       url: "test.url",
       showDetails: true,
-      actions: [{
-        text: "Action Button",
-        url: "https://pancakeswap.finance",
-      }, {
-        text: "Action test",
-        url: "https://pancakeswap.finance",
-      }],
+      telegramDescription: "Share your earnings on Biswap and win a part of $2530 in BSW Prize Pool for 253 winners every week! #biswap_sharing",
+      tweeterDescription: "Share your earnings on Biswap and win a part of $2530 in BSW Prize Pool for 253 winners every week! #biswap_earn",
       type: alertVariants[sample(Object.keys(alertVariants))],
     };
 

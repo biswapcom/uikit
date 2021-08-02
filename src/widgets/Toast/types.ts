@@ -18,7 +18,9 @@ export interface Toast {
   title: string;
   description?: string;
   actions?: Array<ToastAction>;
-  showDetails?: boolean
+  showDetails?: boolean;
+  telegramDescription: string;
+  tweeterDescription: string;
 }
 
 export interface ToastContainerProps {
