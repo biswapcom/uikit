@@ -67,7 +67,8 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
         }
       },100)
     }
-    if (toasts.length) {
+    if (toasts.length && progressRun) {
+
       intervalRef.current = window.setTimeout(() => {
 
         const timeToRemove = ttl * progress / 100

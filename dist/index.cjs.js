@@ -4118,7 +4118,7 @@ var ToastContainer = function (_a) {
                 }
             }, 100);
         }
-        if (toasts.length) {
+        if (toasts.length && progressRun) {
             intervalRef.current = window.setTimeout(function () {
                 var timeToRemove = ttl * progress / 100;
                 var percent = ttl / 100;
