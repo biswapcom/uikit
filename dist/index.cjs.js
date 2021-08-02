@@ -13,6 +13,7 @@ var reactDetectClickOutside = require('react-detect-click-outside');
 var reactRouterDom = require('react-router-dom');
 var reactScroll = require('react-scroll');
 var reactTransitionGroup = require('react-transition-group');
+var reactShare = require('react-share');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -4021,24 +4022,18 @@ Menu.defaultProps = {
 };
 var templateObject_1$4, templateObject_2$1, templateObject_3$1, templateObject_4$1, templateObject_5$1;
 
-var ActionsContainer = styled__default['default'].div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-around;\n"], ["\n  display: flex;\n  justify-content: space-around;\n"
-    // const GiftImage = styled.img`
-    //   width: 60px;
-    //   height: 60px;
-    // `
-])));
-// const GiftImage = styled.img`
-//   width: 60px;
-//   height: 60px;
-// `
+var ActionsContainer = styled__default['default'].div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-around;\n"], ["\n  display: flex;\n  justify-content: space-around;\n"])));
 var ToastAction = function (_a) {
-    var actions = _a.actions;
-    return (React__default['default'].createElement(ActionsContainer, null, actions.map(function (action) {
-        if (action.url.startsWith("http")) {
-            return (React__default['default'].createElement(Button, __assign({ as: "a", scale: "sm", href: action.url }, getExternalLinkProps()), action.text));
-        }
-        return (React__default['default'].createElement(Button, { as: reactRouterDom.Link, scale: "sm", to: action.url }, action.text));
-    })));
+    _a.actions; var title = _a.title; _a.url;
+    return (React__default['default'].createElement(ActionsContainer, null,
+        React__default['default'].createElement(reactShare.TelegramShareButton, { style: { width: '45%' }, title: title, url: 'Biswap' },
+            React__default['default'].createElement(Button, { width: '100%', style: { backgroundColor: '#16CDFD' } },
+                React__default['default'].createElement(Text, { color: 'contrast', fontSize: '12px', bold: true, lineHeight: '18px' }, "Retweet"),
+                React__default['default'].createElement(Icon$N, { color: "#fff", mr: "7px", width: "20px" }))),
+        React__default['default'].createElement(reactShare.TwitterShareButton, { style: { width: '45%' }, title: title, url: 'Biswap' },
+            React__default['default'].createElement(Button, { width: '100%', style: { backgroundColor: '#26A6E5' } },
+                React__default['default'].createElement(Text, { color: 'contrast', fontSize: '12px', bold: true, lineHeight: '18px' }, "Telegram"),
+                React__default['default'].createElement(Icon$O, { color: "#fff", mr: "7px", width: "20px" })))));
 };
 var templateObject_1$3;
 
@@ -4056,15 +4051,15 @@ var alertTypeMap = (_a = {},
     _a[types.DANGER] = variants$2.DANGER,
     _a[types.WARNING] = variants$2.WARNING,
     _a);
-var StyledToast = styled__default['default'].div(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  right: 16px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  box-shadow: 0px -4px 11px rgba(0, 0, 0, 0.1), 0px 20px 36px -8px rgba(14, 14, 44, 0.32), 0px 1px 1px rgba(0, 0, 0, 0.16);\n  border-radius: 16px;\n\n  ", " {\n    max-width: 400px;\n  }\n"], ["\n  right: 16px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  box-shadow: 0px -4px 11px rgba(0, 0, 0, 0.1), 0px 20px 36px -8px rgba(14, 14, 44, 0.32), 0px 1px 1px rgba(0, 0, 0, 0.16);\n  border-radius: 16px;\n\n  ", " {\n    max-width: 400px;\n  }\n"])), function (_a) {
+var StyledToast = styled__default['default'].div(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  overflow: hidden;\n  right: 16px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  box-shadow: 0px -4px 11px rgba(0, 0, 0, 0.1), 0px 20px 36px -8px rgba(14, 14, 44, 0.32), 0px 1px 1px rgba(0, 0, 0, 0.16);\n  border-radius: 16px;\n\n  ", " {\n    max-width: 400px;\n  }\n"], ["\n  overflow: hidden;\n  right: 16px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  box-shadow: 0px -4px 11px rgba(0, 0, 0, 0.1), 0px 20px 36px -8px rgba(14, 14, 44, 0.32), 0px 1px 1px rgba(0, 0, 0, 0.16);\n  border-radius: 16px;\n\n  ", " {\n    max-width: 400px;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.sm;
 });
-var ProgressWrapper = styled__default['default'].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background-color: ", "\n  //border-radius: .5rem;\n  bottom: 0;\n  //min-height: 5px;\n  border-bottom-left-radius: 16px;\n  border-bottom-right-radius: 16px;\n"], ["\n  background-color: ", "\n  //border-radius: .5rem;\n  bottom: 0;\n  //min-height: 5px;\n  border-bottom-left-radius: 16px;\n  border-bottom-right-radius: 16px;\n"])), function (_a) {
+var ProgressWrapper = styled__default['default'].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background-color: ", "\n  //border-radius: .5rem;\n  bottom: 0;\n  min-height: 5px;\n  //border-bottom-left-radius: 16px;\n  //border-bottom-right-radius: 16px;\n"], ["\n  background-color: ", "\n  //border-radius: .5rem;\n  bottom: 0;\n  min-height: 5px;\n  //border-bottom-left-radius: 16px;\n  //border-bottom-right-radius: 16px;\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.contrast;
 });
-var ProgressLine = styled__default['default'].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  background-color: #1DC872;\n  height: 5px;\n  transition: 100ms all;\n  border-bottom-left-radius: 16px;\n  border-bottom-right-radius: 16px;\n"], ["\n  background-color: #1DC872;\n  height: 5px;\n  transition: 100ms all;\n  border-bottom-left-radius: 16px;\n  border-bottom-right-radius: 16px;\n"])));
+var ProgressLine = styled__default['default'].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  background-color: #1DC872;\n  height: 5px;\n  transition: 100ms all;\n  border-radius: 16px;\n  //border-bottom-left-radius: 16px;\n  //border-bottom-right-radius: 16px;\n"], ["\n  background-color: #1DC872;\n  height: 5px;\n  transition: 100ms all;\n  border-radius: 16px;\n  //border-bottom-left-radius: 16px;\n  //border-bottom-right-radius: 16px;\n"])));
 var AlertWrapper = styled__default['default'].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  padding: 0 16px;\n"], ["\n  padding: 0 16px;\n"])));
 var LinkWrapper = styled__default['default'].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  margin: 14px 0 11px 0;\n  display: flex;\n  align-items: center;\n"], ["\n  margin: 14px 0 11px 0;\n  display: flex;\n  align-items: center;\n"])));
 var LinkStyles = styled__default['default'].a(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n color: ", ";\n font-size: 14px;\n font-weight: 700;\n line-height: 21px;\n  text-decoration: underline;\n"], ["\n color: ", ";\n font-size: 14px;\n font-weight: 700;\n line-height: 21px;\n  text-decoration: underline;\n"])), function (_a) {
@@ -4073,7 +4068,7 @@ var LinkStyles = styled__default['default'].a(templateObject_6 || (templateObjec
 });
 var Toast = function (_a) {
     var _b = _a.removeButtonPosition, removeButtonPosition = _b === void 0 ? 60 : _b, zIndex = _a.zIndex, clearAll = _a.clearAll, toast = _a.toast, style = _a.style, handleMouseEnter = _a.handleMouseEnter, handleMouseLeave = _a.handleMouseLeave, handleRemove = _a.handleRemove, progress = _a.progress, props = __rest(_a, ["removeButtonPosition", "zIndex", "clearAll", "toast", "style", "handleMouseEnter", "handleMouseLeave", "handleRemove", "progress"]);
-    var showDetails = toast.showDetails, title = toast.title, description = toast.description, type = toast.type, actions = toast.actions;
+    var showDetails = toast.showDetails, description = toast.description, type = toast.type, actions = toast.actions, title = toast.title;
     return (React__default['default'].createElement(reactTransitionGroup.CSSTransition, __assign({ timeout: 250, style: style }, props),
         React__default['default'].createElement(StyledToast, { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave },
             clearAll && (React__default['default'].createElement(Button, { variant: 'text', style: { position: 'absolute', right: 0, top: -removeButtonPosition, zIndex: Number(zIndex) }, onClick: function () { return clearAll(); } },
@@ -4084,10 +4079,10 @@ var Toast = function (_a) {
                         React__default['default'].createElement(LinkStyles, { href: '!#' }, "View on bscscan"),
                         React__default['default'].createElement(Icon$P, { ml: '7px', width: '18px', height: '18px', color: 'primary' })),
                     React__default['default'].createElement(Text, { as: "p", mb: "8px" }, description),
-                    React__default['default'].createElement(ToastAction, { actions: actions }))) : (description),
+                    React__default['default'].createElement(ToastAction, { title: title, actions: actions }))) : (description),
                 showDetails && (React__default['default'].createElement(Text, { mt: '8px', ml: '16px', mb: '16px', fontSize: '10px', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official telegram group")),
-                progress && (React__default['default'].createElement(ProgressWrapper, { style: { width: '100%' } },
-                    React__default['default'].createElement(ProgressLine, { style: { width: progress + "%" } })))))));
+                React__default['default'].createElement("div", { style: { width: '100%' } },
+                    React__default['default'].createElement(ProgressWrapper, { style: { width: '100%' } }, progress ? React__default['default'].createElement(ProgressLine, { style: { width: progress + "%" } }) : null))))));
 };
 var templateObject_1$2, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
 

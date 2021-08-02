@@ -16,6 +16,7 @@ const alertTypeMap = {
 };
 
 const StyledToast = styled.div`
+  overflow: hidden;
   right: 16px;
   position: fixed;
   max-width: calc(100% - 32px);
@@ -34,17 +35,18 @@ const ProgressWrapper = styled.div`
   background-color: ${({theme})=> theme.colors.contrast}
   //border-radius: .5rem;
   bottom: 0;
-  //min-height: 5px;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+  min-height: 5px;
+  //border-bottom-left-radius: 16px;
+  //border-bottom-right-radius: 16px;
 `
 
 const ProgressLine = styled.div`
   background-color: #1DC872;
   height: 5px;
   transition: 100ms all;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+  border-radius: 16px;
+  //border-bottom-left-radius: 16px;
+  //border-bottom-right-radius: 16px;
 `
 
 const AlertWrapper = styled.div`
@@ -66,8 +68,8 @@ const LinkStyles = styled.a`
 
 
 
-const Toast: React.FC<ToastProps> = ({ removeButtonPosition=60,zIndex,clearAll,toast, style,handleMouseEnter,handleMouseLeave,handleRemove, progress, ...props }) => {
-  const {showDetails, title, description, type, actions } = toast;
+const Toast: React.FC<ToastProps> = ({removeButtonPosition=60,zIndex,clearAll,toast, style,handleMouseEnter,handleMouseLeave,handleRemove, progress, ...props }) => {
+  const {showDetails, description, type, actions, title} = toast;
   return (
     <CSSTransition timeout={250} style={style} {...props}>
       <StyledToast onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -75,7 +77,7 @@ const Toast: React.FC<ToastProps> = ({ removeButtonPosition=60,zIndex,clearAll,t
           clearAll && (
             <Button
               variant='text'
-              style={{position: 'absolute',right: 0,top: -removeButtonPosition,zIndex: Number(zIndex)}} onClick={() => clearAll()}>
+              style={{position: 'absolute',right: 0, top: -removeButtonPosition,zIndex: Number(zIndex)}} onClick={() => clearAll()}>
               <Text fontSize='16px' color='primary' lineHeight='19px'>
                 Clear All
               </Text>
@@ -94,7 +96,7 @@ const Toast: React.FC<ToastProps> = ({ removeButtonPosition=60,zIndex,clearAll,t
               <Text as="p" mb="8px">
                 {description}
               </Text>
-              <ToastAction actions={actions} />
+              <ToastAction title={title} actions={actions} />
             </AlertWrapper>
           ) : (
             description
@@ -114,12 +116,14 @@ const Toast: React.FC<ToastProps> = ({ removeButtonPosition=60,zIndex,clearAll,t
               </Text>
             )
           }
-          {progress && (
-            <ProgressWrapper  style={{width: '100%'}}>
-              <ProgressLine style={{width: `${progress}%`}}/>
-            </ProgressWrapper>
-          )}
+            <div style={{width: '100%'}}>
+              <ProgressWrapper  style={{width: '100%'}}>
+                {
+                  progress ?  <ProgressLine style={{width: `${progress}%`}}/> : null
+                }
 
+              </ProgressWrapper>
+            </div>
         </Alert>
       </StyledToast>
     </CSSTransition>

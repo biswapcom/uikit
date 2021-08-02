@@ -1,15 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import styled from "styled-components";
-import getExternalLinkProps from "../../util/getExternalLinkProps";
+import { TelegramShareButton, TwitterShareButton } from 'react-share';
+
+// import getExternalLinkProps from "../../util/getExternalLinkProps";
 import { Button } from "../../components/Button";
 import { ToastAction as Action } from "./types";
-
-// images
-// import giftImage from "./shared/gift.png"
+import { TelegramIcon, TwitterIcon } from "../../components/Svg";
+import { Text } from "../../components/Text";
 
 interface ToastActionProps {
   actions: Array<Action>;
+  title?: string,
+  url?: string
 }
 
 const ActionsContainer = styled.div`
@@ -17,32 +20,26 @@ const ActionsContainer = styled.div`
   justify-content: space-around;
 `
 
-// const GiftImage = styled.img`
-//   width: 60px;
-//   height: 60px;
-// `
+const ToastAction: React.FC<ToastActionProps> = ({ actions ,title, url}) => {
 
-const ToastAction: React.FC<ToastActionProps> = ({ actions }) => {
   return (
     <ActionsContainer>
-      {
-        actions.map(action => {
-          if (action.url.startsWith("http")) {
-            return (
-              <Button as="a" scale="sm" href={action.url} {...getExternalLinkProps()}>
-                { /* <GiftImage src={giftImage} alt="" /> */ }
-                {action.text}
-              </Button>
-            );
-          }
-
-          return (
-            <Button as={Link} scale="sm" to={action.url}>
-              {action.text}
-            </Button>
-          );
-        })
-      }
+      <TelegramShareButton style={{ width:'45%'}}  title={title}
+                           url='Biswap'
+      >
+        <Button width='100%' style={{backgroundColor: '#16CDFD'}}>
+          <Text color='contrast' fontSize='12px' bold lineHeight='18px'>Retweet</Text>
+          <TwitterIcon  color="#fff" mr="7px" width="20px" />
+        </Button>
+      </TelegramShareButton>
+      <TwitterShareButton style={{ width:'45%'}} title={title}
+                          url='Biswap'
+      >
+        <Button width='100%' style={{backgroundColor: '#26A6E5'}}>
+          <Text color='contrast' fontSize='12px' bold lineHeight='18px'>Telegram</Text>
+          <TelegramIcon  color="#fff" mr="7px" width="20px" />
+        </Button>
+      </TwitterShareButton>
     </ActionsContainer>
   )
 };

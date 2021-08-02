@@ -64,7 +64,7 @@ export const WithAction: React.FC = () => {
     const randomToast = {
       id: `id-${now}`,
       title: `Title: ${now}`,
-      description: "A description of a toast with a call to action",
+      description: "Share your earnings and win a part of $2530 in BSW Prize Pool for 253 winners every week!",
       url: "test.url",
       showDetails: true,
       actions: [{
