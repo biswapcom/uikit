@@ -85,7 +85,6 @@ const Toast: React.FC<ToastProps> = ({removeButtonPosition=60,zIndex,clearAll,to
           )
         }
         <Alert style={{padding: '16px 0 0 0'}} title={title} variant={alertTypeMap[type]} onClick={handleRemove}>
-          {actions ? (
             <AlertWrapper>
               <LinkWrapper>
                 <LinkStyles href='!#'>
@@ -96,11 +95,8 @@ const Toast: React.FC<ToastProps> = ({removeButtonPosition=60,zIndex,clearAll,to
               <Text as="p" mb="8px">
                 {description}
               </Text>
-              <ToastAction title={title} actions={actions} />
+              <ToastAction title={title} />
             </AlertWrapper>
-          ) : (
-            description
-          )}
           {
             showDetails && (
               <Text

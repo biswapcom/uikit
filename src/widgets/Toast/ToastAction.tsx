@@ -10,7 +10,7 @@ import { TelegramIcon, TwitterIcon } from "../../components/Svg";
 import { Text } from "../../components/Text";
 
 interface ToastActionProps {
-  actions: Array<Action>;
+  // actions: Array<Action>;
   title?: string,
   url?: string
 }
@@ -20,7 +20,7 @@ const ActionsContainer = styled.div`
   justify-content: space-around;
 `
 
-const ToastAction: React.FC<ToastActionProps> = ({ actions ,title, url}) => {
+const ToastAction: React.FC<ToastActionProps> = ({title, url}) => {
 
   return (
     <ActionsContainer>

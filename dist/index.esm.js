@@ -4011,7 +4011,7 @@ var templateObject_1$4, templateObject_2$1, templateObject_3$1, templateObject_4
 
 var ActionsContainer = styled.div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  display: flex;\n  justify-content: space-around;\n"], ["\n  display: flex;\n  justify-content: space-around;\n"])));
 var ToastAction = function (_a) {
-    _a.actions; var title = _a.title; _a.url;
+    var title = _a.title; _a.url;
     return (React.createElement(ActionsContainer, null,
         React.createElement(TelegramShareButton, { style: { width: '45%' }, title: title, url: 'Biswap' },
             React.createElement(Button, { width: '100%', style: { backgroundColor: '#16CDFD' } },
@@ -4055,18 +4055,18 @@ var LinkStyles = styled.a(templateObject_6 || (templateObject_6 = __makeTemplate
 });
 var Toast = function (_a) {
     var _b = _a.removeButtonPosition, removeButtonPosition = _b === void 0 ? 60 : _b, zIndex = _a.zIndex, clearAll = _a.clearAll, toast = _a.toast, style = _a.style, handleMouseEnter = _a.handleMouseEnter, handleMouseLeave = _a.handleMouseLeave, handleRemove = _a.handleRemove, progress = _a.progress, props = __rest(_a, ["removeButtonPosition", "zIndex", "clearAll", "toast", "style", "handleMouseEnter", "handleMouseLeave", "handleRemove", "progress"]);
-    var showDetails = toast.showDetails, description = toast.description, type = toast.type, actions = toast.actions, title = toast.title;
+    var showDetails = toast.showDetails, description = toast.description, type = toast.type; toast.actions; var title = toast.title;
     return (React.createElement(CSSTransition, __assign({ timeout: 250, style: style }, props),
         React.createElement(StyledToast, { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave },
             clearAll && (React.createElement(Button, { variant: 'text', style: { position: 'absolute', right: 0, top: -removeButtonPosition, zIndex: Number(zIndex) }, onClick: function () { return clearAll(); } },
                 React.createElement(Text, { fontSize: '16px', color: 'primary', lineHeight: '19px' }, "Clear All"))),
             React.createElement(Alert, { style: { padding: '16px 0 0 0' }, title: title, variant: alertTypeMap[type], onClick: handleRemove },
-                actions ? (React.createElement(AlertWrapper, null,
+                React.createElement(AlertWrapper, null,
                     React.createElement(LinkWrapper, null,
                         React.createElement(LinkStyles, { href: '!#' }, "View on bscscan"),
                         React.createElement(Icon$P, { ml: '7px', width: '18px', height: '18px', color: 'primary' })),
                     React.createElement(Text, { as: "p", mb: "8px" }, description),
-                    React.createElement(ToastAction, { title: title, actions: actions }))) : (description),
+                    React.createElement(ToastAction, { title: title })),
                 showDetails && (React.createElement(Text, { mt: '8px', ml: '16px', mb: '16px', fontSize: '10px', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official telegram group")),
                 React.createElement("div", { style: { width: '100%' } },
                     React.createElement(ProgressWrapper, { style: { width: '100%' } }, progress ? React.createElement(ProgressLine, { style: { width: progress + "%" } }) : null))))));
