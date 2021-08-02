@@ -18,6 +18,7 @@ export const Default: React.FC = () => {
     const randomToast = {
       id: `id-${now}`,
       title: `Title: ${now}`,
+      showDetails: true,
       description,
       type: alertVariants[sample(Object.keys(alertVariants))],
     };
@@ -65,6 +66,7 @@ export const WithAction: React.FC = () => {
       title: `Title: ${now}`,
       description: "A description of a toast with a call to action",
       url: "test.url",
+      showDetails: true,
       actions: [{
         text: "Action Button",
         url: "https://pancakeswap.finance",

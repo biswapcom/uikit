@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import getExternalLinkProps from "../../util/getExternalLinkProps";
 import { Button } from "../../components/Button";
 import { ToastAction as Action } from "./types";
-import styled from "styled-components";
+
+// images
+// import giftImage from "./shared/gift.png"
 
 interface ToastActionProps {
   actions: Array<Action>;
@@ -14,8 +17,12 @@ const ActionsContainer = styled.div`
   justify-content: space-around;
 `
 
+// const GiftImage = styled.img`
+//   width: 60px;
+//   height: 60px;
+// `
+
 const ToastAction: React.FC<ToastActionProps> = ({ actions }) => {
-  console.log("actions", actions);
   return (
     <ActionsContainer>
       {
@@ -23,6 +30,7 @@ const ToastAction: React.FC<ToastActionProps> = ({ actions }) => {
           if (action.url.startsWith("http")) {
             return (
               <Button as="a" scale="sm" href={action.url} {...getExternalLinkProps()}>
+                { /* <GiftImage src={giftImage} alt="" /> */ }
                 {action.text}
               </Button>
             );

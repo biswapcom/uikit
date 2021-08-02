@@ -15,6 +15,7 @@ export interface Toast {
     title: string;
     description?: string;
     actions?: Array<ToastAction>;
+    showDetails?: boolean;
 }
 export interface ToastContainerProps {
     toasts: Toast[];

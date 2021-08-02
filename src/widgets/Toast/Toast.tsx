@@ -6,6 +6,7 @@ import { Text } from "../../components/Text";
 import ToastAction from "./ToastAction";
 import { ToastProps, types } from "./types";
 import { Button } from "../../components/Button";
+import { LinkIcon } from "../../components/Svg";
 
 const alertTypeMap = {
   [types.INFO]: alertVariants.INFO,
@@ -30,19 +31,43 @@ const StyledToast = styled.div`
 `;
 
 const ProgressWrapper = styled.div`
-  background-color: rgb(233, 233, 233);
-  border-radius: .5rem;
+  background-color: ${({theme})=> theme.colors.contrast}
+  //border-radius: .5rem;
+  bottom: 0;
+  //min-height: 5px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 `
 
 const ProgressLine = styled.div`
-  background-color: rgb(62, 122, 235);
-  height: 10px;
-  border-radius: 1rem;
+  background-color: #1DC872;
+  height: 5px;
   transition: 100ms all;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 `
 
+const AlertWrapper = styled.div`
+  padding: 0 16px;
+`
+const LinkWrapper = styled.div`
+  margin: 14px 0 11px 0;
+  display: flex;
+  align-items: center;
+`
+
+const LinkStyles = styled.a`
+ color: ${({theme})=> theme.colors.primary};
+ font-size: 14px;
+ font-weight: 700;
+ line-height: 21px;
+  text-decoration: underline;
+`
+
+
+
 const Toast: React.FC<ToastProps> = ({ removeButtonPosition=60,zIndex,clearAll,toast, style,handleMouseEnter,handleMouseLeave,handleRemove, progress, ...props }) => {
-  const { title, description, type, actions } = toast;
+  const {showDetails, title, description, type, actions } = toast;
   return (
     <CSSTransition timeout={250} style={style} {...props}>
       <StyledToast onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -57,24 +82,45 @@ const Toast: React.FC<ToastProps> = ({ removeButtonPosition=60,zIndex,clearAll,t
             </Button>
           )
         }
-        <Alert title={title} variant={alertTypeMap[type]} onClick={handleRemove}>
+        <Alert style={{padding: '16px 0 0 0'}} title={title} variant={alertTypeMap[type]} onClick={handleRemove}>
           {actions ? (
-            <>
+            <AlertWrapper>
+              <LinkWrapper>
+                <LinkStyles href='!#'>
+                  View on bscscan
+                </LinkStyles>
+                <LinkIcon ml='7px' width='18px' height='18px' color='primary'/>
+              </LinkWrapper>
               <Text as="p" mb="8px">
                 {description}
               </Text>
               <ToastAction actions={actions} />
-            </>
+            </AlertWrapper>
           ) : (
             description
           )}
-        </Alert>
-        {progress && (
-          <ProgressWrapper  style={{width: '100%'}}>
-            <ProgressLine style={{width: `${progress}%`}}/>
-          </ProgressWrapper>
-        )}
+          {
+            showDetails && (
+              <Text
+                mt='8px'
+                ml='16px'
+                mb='16px'
+                fontSize='10px'
+                fontWeight='400'
+                lineHeight='12px'
+                color='#6b7d98'
+              >
+                *Share your earnings in our official telegram group
+              </Text>
+            )
+          }
+          {progress && (
+            <ProgressWrapper  style={{width: '100%'}}>
+              <ProgressLine style={{width: `${progress}%`}}/>
+            </ProgressWrapper>
+          )}
 
+        </Alert>
       </StyledToast>
     </CSSTransition>
   );
