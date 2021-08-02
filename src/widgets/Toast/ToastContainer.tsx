@@ -3,10 +3,9 @@ import { TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
 import Toast from "./Toast";
 import { ToastContainerProps } from "./types";
-import { Button } from "../../components/Button";
 
 const ZINDEX = 1000;
-const TOP_POSITION = 80; // Initial position from the top
+const BOTTOM_POSITION = 80; // Initial position from the top
 
 const StyledToastContainer = styled.div`
   .enter,
@@ -145,7 +144,7 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
       <TransitionGroup>
         {toasts.map((toast, index) => {
           const zIndex = (ZINDEX - index).toString();
-          const top = TOP_POSITION - index * stackSpacing;
+          const bottom = BOTTOM_POSITION + index * stackSpacing;
           const removeButtonPosition = stackSpacing * toasts.length + 40;
           if (index===0) {
             return (<Toast handleRemove={handleRemove}
@@ -158,7 +157,7 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
                            ttl={ttl}
                            removeButtonPosition={removeButtonPosition}
                            clearAll={clearAll}
-                           style={{ top: `${top}px`, zIndex }}
+                           style={{ bottom: `${bottom}px`, zIndex }}
             />)
           }
 
@@ -166,7 +165,7 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
             <Toast
                    key={toast.id}
                    toast={toast}
-                   style={{ top: `${top}px`, zIndex }}
+                   style={{ bottom: `${bottom}px`, zIndex }}
             />
           );
         })}
