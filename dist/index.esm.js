@@ -4046,7 +4046,7 @@ var ProgressWrapper = styled.div(templateObject_2 || (templateObject_2 = __makeT
     var theme = _a.theme;
     return theme.colors.contrast;
 });
-var ProgressLine = styled.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  background-color: ", "\n  height: 5px;\n  transition: 100ms all;\n  border-radius: 16px;\n"], ["\n  background-color: ", "\n  height: 5px;\n  transition: 100ms all;\n  border-radius: 16px;\n"])), function (_a) {
+var ProgressLine = styled.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  background-color: ", ";\n  height: 5px;\n  transition: 100ms all;\n  border-radius: 16px;\n"], ["\n  background-color: ", ";\n  height: 5px;\n  transition: 100ms all;\n  border-radius: 16px;\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.success;
 });

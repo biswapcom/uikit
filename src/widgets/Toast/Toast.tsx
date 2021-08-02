@@ -38,7 +38,7 @@ const ProgressWrapper = styled.div`
 `
 
 const ProgressLine = styled.div`
-  background-color: ${({theme})=> theme.colors.success}
+  background-color: ${({theme})=> theme.colors.success};
   height: 5px;
   transition: 100ms all;
   border-radius: 16px;
@@ -90,7 +90,7 @@ const Toast: React.FC<ToastProps> = ({removeButtonPosition=60,zIndex,clearAll,to
               </Text>
               <ToastAction title={title} />
             </AlertWrapper>
-          {
+           {
             showDetails && (
                 <Button variant='text' as='a' href='https://t.me/biswap'>
                    <Text
@@ -104,7 +104,7 @@ const Toast: React.FC<ToastProps> = ({removeButtonPosition=60,zIndex,clearAll,to
                   </Text>
                 </Button>
             )
-          }
+           }
             <div style={{width: '100%'}}>
               <ProgressWrapper  style={{width: '100%'}}>
                 {
