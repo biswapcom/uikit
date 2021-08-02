@@ -37,7 +37,7 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
   const [currentTime, setCurrentTime] = useState(ttl)
 
   // for update timer for new toast
-  const updateTimerRef = useRef<number>(toasts.length);
+  const updateTimerRef = useRef<number>(1);
 
   const timer = useRef<number>();
   const intervalRef = useRef<number>();
@@ -47,16 +47,26 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
     setProgress(100);
     setCurrentTime(ttl)
 
-    clearTimeout(intervalRef.current)
-    clearTimeout(timer.current);
+    // clearTimeout(intervalRef.current)
+    // clearTimeout(timer.current);
   }
 
   useEffect(()=> {
-    if (toasts.length !== updateTimerRef.current && toasts.length !== 1) {
+    if (toasts.length !== updateTimerRef.current) {
       resetAll();
       updateTimerRef.current = toasts.length
-    }
+      intervalRef.current = window.setTimeout(() => {
 
+        const timeToRemove = ttl
+        const percent = ttl / 100;
+
+        setCurrentTime(timeToRemove > 0 ? timeToRemove : 0)
+
+        if (progressRun && (timeToRemove - percent)>=0) {
+          setProgress((timeToRemove - percent) / percent);
+        }
+      },100)
+    }
     if (toasts.length) {
       intervalRef.current = window.setTimeout(() => {
 
@@ -80,7 +90,7 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
   },[progress, currentTime, progressRun,toasts,updateTimerRef.current])
 
    const handleRemove = useCallback(() => {
-     removeHandler.current(toasts[0].id)
+     removeHandler.current(toasts[0]?.id)
      setProgress(100)
      setCurrentTime(ttl)
 
@@ -131,11 +141,6 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
 
   return (
     <StyledToastContainer>
-      {
-        toasts.length && (
-          <Button onClick={() => toasts.forEach((item, index) => setTimeout(() => onRemove(item.id), index * 10))}/>
-        )
-      }
       <TransitionGroup>
         {toasts.map((toast, index) => {
           const zIndex = (ZINDEX - index).toString();
