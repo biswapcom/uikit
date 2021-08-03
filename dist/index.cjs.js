@@ -4070,20 +4070,22 @@ var LinkStyles = styled__default['default'].a(templateObject_6 || (templateObjec
 });
 var Toast = function (_a) {
     var _b = _a.removeButtonPosition, removeButtonPosition = _b === void 0 ? 60 : _b, zIndex = _a.zIndex, clearAll = _a.clearAll, toast = _a.toast, style = _a.style, handleMouseEnter = _a.handleMouseEnter, handleMouseLeave = _a.handleMouseLeave, handleRemove = _a.handleRemove, progress = _a.progress, props = __rest(_a, ["removeButtonPosition", "zIndex", "clearAll", "toast", "style", "handleMouseEnter", "handleMouseLeave", "handleRemove", "progress"]);
-    var showDetails = toast.showDetails, description = toast.description, type = toast.type, title = toast.title, telegramDescription = toast.telegramDescription, tweeterDescription = toast.tweeterDescription;
+    var description = toast.description, type = toast.type, title = toast.title, telegramDescription = toast.telegramDescription, tweeterDescription = toast.tweeterDescription, hash = toast.hash;
     return (React__default['default'].createElement(reactTransitionGroup.CSSTransition, __assign({ timeout: 250, style: style }, props),
         React__default['default'].createElement(StyledToast, { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave },
             clearAll && (React__default['default'].createElement(Button, { variant: 'text', style: { position: 'absolute', right: 0, top: -removeButtonPosition, zIndex: Number(zIndex) }, onClick: function () { return clearAll(); } },
                 React__default['default'].createElement(Text, { fontSize: '16px', color: 'primary', lineHeight: '19px' }, "Clear All"))),
             React__default['default'].createElement(Alert, { style: { padding: '16px 0 0 0' }, title: title, variant: alertTypeMap[type], onClick: handleRemove },
                 React__default['default'].createElement(AlertWrapper, null,
-                    React__default['default'].createElement(LinkWrapper, null,
-                        React__default['default'].createElement(LinkStyles, { href: '!#' }, "View on bscscan"),
-                        React__default['default'].createElement(Icon$P, { ml: '7px', width: '18px', height: '18px', color: 'primary' })),
+                    hash &&
+                        React__default['default'].createElement(LinkWrapper, null,
+                            React__default['default'].createElement(LinkStyles, { href: "https://bscscan.com/tx/" + hash }, "View on bscscan"),
+                            React__default['default'].createElement(Icon$P, { ml: '7px', width: '18px', height: '18px', color: 'primary' })),
                     React__default['default'].createElement(Text, { as: "p", mb: "8px" }, description),
-                    React__default['default'].createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title })),
-                showDetails && (React__default['default'].createElement(Button, { variant: 'text', as: 'a', href: 'https://t.me/biswap' },
-                    React__default['default'].createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official telegram group"))),
+                    telegramDescription && tweeterDescription && (React__default['default'].createElement(React__default['default'].Fragment, null,
+                        React__default['default'].createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title }),
+                        React__default['default'].createElement(Button, { variant: 'text', as: 'a', href: 'https://t.me/biswap' },
+                            React__default['default'].createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official telegram group"))))),
                 React__default['default'].createElement("div", { style: { width: '100%' } },
                     React__default['default'].createElement(ProgressWrapper, { style: { width: '100%' } }, progress ? React__default['default'].createElement(ProgressLine, { style: { width: progress + "%" } }) : null))))));
 };

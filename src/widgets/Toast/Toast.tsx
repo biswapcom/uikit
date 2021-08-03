@@ -61,8 +61,27 @@ const LinkStyles = styled.a`
   text-decoration: underline;
 `
 
-const Toast: React.FC<ToastProps> = ({removeButtonPosition=60,zIndex,clearAll,toast, style,handleMouseEnter,handleMouseLeave,handleRemove, progress, ...props }) => {
-  const {showDetails, description, type, title, telegramDescription, tweeterDescription} = toast;
+const Toast: React.FC<ToastProps> = ({
+                                       removeButtonPosition=60,
+                                       zIndex,
+                                       clearAll,
+                                       toast,
+                                       style,
+                                       handleMouseEnter,
+                                       handleMouseLeave,
+                                       handleRemove,
+                                       progress,
+                                       ...props
+}) => {
+  const {
+    description,
+    type,
+    title,
+    telegramDescription,
+    tweeterDescription,
+    hash
+  } = toast;
+
   return (
     <CSSTransition timeout={250} style={style} {...props}>
       <StyledToast onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -79,32 +98,37 @@ const Toast: React.FC<ToastProps> = ({removeButtonPosition=60,zIndex,clearAll,to
         }
         <Alert style={{padding: '16px 0 0 0'}} title={title} variant={alertTypeMap[type]} onClick={handleRemove}>
             <AlertWrapper>
-              <LinkWrapper>
-                <LinkStyles href='!#'>
-                  View on bscscan
-                </LinkStyles>
-                <LinkIcon ml='7px' width='18px' height='18px' color='primary'/>
-              </LinkWrapper>
+              {
+                hash &&
+                <LinkWrapper>
+                  <LinkStyles href={`https://bscscan.com/tx/${hash}`}>
+                    View on bscscan
+                  </LinkStyles>
+                  <LinkIcon ml='7px' width='18px' height='18px' color='primary'/>
+                </LinkWrapper>
+              }
               <Text as="p" mb="8px">
                 {description}
               </Text>
-              <ToastAction telegramDescription={telegramDescription} tweeterDescription={tweeterDescription} title={title} />
+              {
+                telegramDescription && tweeterDescription && (
+                  <>
+                    <ToastAction telegramDescription={telegramDescription} tweeterDescription={tweeterDescription} title={title} />
+                    <Button variant='text' as='a' href='https://t.me/biswap'>
+                      <Text
+                        fontSize='10px'
+                        pl='0'
+                        fontWeight='400'
+                        lineHeight='12px'
+                        color='#6b7d98'
+                      >
+                        *Share your earnings in our official telegram group
+                      </Text>
+                    </Button>
+                  </>
+                )
+              }
             </AlertWrapper>
-           {
-            showDetails && (
-                <Button variant='text' as='a' href='https://t.me/biswap'>
-                   <Text
-                    fontSize='10px'
-                    pl='0'
-                    fontWeight='400'
-                    lineHeight='12px'
-                    color='#6b7d98'
-                  >
-                    *Share your earnings in our official telegram group
-                  </Text>
-                </Button>
-            )
-           }
             <div style={{width: '100%'}}>
               <ProgressWrapper  style={{width: '100%'}}>
                 {

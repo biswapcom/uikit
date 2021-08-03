@@ -14,14 +14,14 @@ export const Default: React.FC = () => {
   const [toasts, setToasts] = useState([]);
 
   const handleClick = (description = "") => {
-    const now = Date.now();
+    const now = Date.now()
     const randomToast = {
       id: `id-${now}`,
       title: `Title: ${now}`,
-      showDetails: true,
       telegramDescription: "Share your earnings on Biswap and win a part of $2530 in BSW Prize Pool for 253 winners every week! #biswap_sharing",
       tweeterDescription: "Share your earnings on Biswap and win a part of $2530 in BSW Prize Pool for 253 winners every week! #biswap_earn",
       description,
+      hash: "hash",
       type: alertVariants[sample(Object.keys(alertVariants))],
     };
 

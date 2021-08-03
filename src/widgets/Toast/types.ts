@@ -17,10 +17,9 @@ export interface Toast {
   type: Types;
   title: string;
   description?: string;
-  actions?: Array<ToastAction>;
-  showDetails?: boolean;
-  telegramDescription: string;
-  tweeterDescription: string;
+  telegramDescription?: string;
+  tweeterDescription?: string;
+  hash?: string;
 }
 
 export interface ToastContainerProps {

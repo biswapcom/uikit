@@ -4057,20 +4057,22 @@ var LinkStyles = styled.a(templateObject_6 || (templateObject_6 = __makeTemplate
 });
 var Toast = function (_a) {
     var _b = _a.removeButtonPosition, removeButtonPosition = _b === void 0 ? 60 : _b, zIndex = _a.zIndex, clearAll = _a.clearAll, toast = _a.toast, style = _a.style, handleMouseEnter = _a.handleMouseEnter, handleMouseLeave = _a.handleMouseLeave, handleRemove = _a.handleRemove, progress = _a.progress, props = __rest(_a, ["removeButtonPosition", "zIndex", "clearAll", "toast", "style", "handleMouseEnter", "handleMouseLeave", "handleRemove", "progress"]);
-    var showDetails = toast.showDetails, description = toast.description, type = toast.type, title = toast.title, telegramDescription = toast.telegramDescription, tweeterDescription = toast.tweeterDescription;
+    var description = toast.description, type = toast.type, title = toast.title, telegramDescription = toast.telegramDescription, tweeterDescription = toast.tweeterDescription, hash = toast.hash;
     return (React.createElement(CSSTransition, __assign({ timeout: 250, style: style }, props),
         React.createElement(StyledToast, { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave },
             clearAll && (React.createElement(Button, { variant: 'text', style: { position: 'absolute', right: 0, top: -removeButtonPosition, zIndex: Number(zIndex) }, onClick: function () { return clearAll(); } },
                 React.createElement(Text, { fontSize: '16px', color: 'primary', lineHeight: '19px' }, "Clear All"))),
             React.createElement(Alert, { style: { padding: '16px 0 0 0' }, title: title, variant: alertTypeMap[type], onClick: handleRemove },
                 React.createElement(AlertWrapper, null,
-                    React.createElement(LinkWrapper, null,
-                        React.createElement(LinkStyles, { href: '!#' }, "View on bscscan"),
-                        React.createElement(Icon$P, { ml: '7px', width: '18px', height: '18px', color: 'primary' })),
+                    hash &&
+                        React.createElement(LinkWrapper, null,
+                            React.createElement(LinkStyles, { href: "https://bscscan.com/tx/" + hash }, "View on bscscan"),
+                            React.createElement(Icon$P, { ml: '7px', width: '18px', height: '18px', color: 'primary' })),
                     React.createElement(Text, { as: "p", mb: "8px" }, description),
-                    React.createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title })),
-                showDetails && (React.createElement(Button, { variant: 'text', as: 'a', href: 'https://t.me/biswap' },
-                    React.createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official telegram group"))),
+                    telegramDescription && tweeterDescription && (React.createElement(React.Fragment, null,
+                        React.createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title }),
+                        React.createElement(Button, { variant: 'text', as: 'a', href: 'https://t.me/biswap' },
+                            React.createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official telegram group"))))),
                 React.createElement("div", { style: { width: '100%' } },
                     React.createElement(ProgressWrapper, { style: { width: '100%' } }, progress ? React.createElement(ProgressLine, { style: { width: progress + "%" } }) : null))))));
 };
