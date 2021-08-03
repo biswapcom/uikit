@@ -4168,9 +4168,8 @@ var ToastContainer = function (_a) {
             var zIndex = (ZINDEX - index).toString();
             var bottom = BOTTOM_POSITION + index * stackSpacing;
             var removeButtonPosition = stackSpacing * toasts.length + 40;
-            if (index === 0) {
-                return (React.createElement(Toast, { handleRemove: handleRemove, handleMouseEnter: handleMouseEnter, handleMouseLeave: handleMouseLeave, progress: progress, key: toast.id, toast: toast, zIndex: zIndex, ttl: ttl, removeButtonPosition: removeButtonPosition, clearAll: clearAll, style: { bottom: bottom + "px", zIndex: zIndex } }));
-            }
+            if (index === 0)
+                return React.createElement(Toast, { handleRemove: handleRemove, handleMouseEnter: handleMouseEnter, handleMouseLeave: handleMouseLeave, progress: progress, key: toast.id, toast: toast, zIndex: zIndex, ttl: ttl, removeButtonPosition: removeButtonPosition, clearAll: toasts.length > 1 ? clearAll : undefined, style: { bottom: bottom + "px", zIndex: zIndex } });
             return (React.createElement(Toast, { key: toast.id, toast: toast, style: { bottom: bottom + "px", zIndex: zIndex } }));
         }))));
 };

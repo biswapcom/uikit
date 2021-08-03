@@ -146,8 +146,7 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
           const zIndex = (ZINDEX - index).toString();
           const bottom = BOTTOM_POSITION + index * stackSpacing;
           const removeButtonPosition = stackSpacing * toasts.length + 40;
-          if (index===0) {
-            return (<Toast handleRemove={handleRemove}
+          if (index===0) return <Toast handleRemove={handleRemove}
                            handleMouseEnter={handleMouseEnter}
                            handleMouseLeave={handleMouseLeave}
                            progress={progress}
@@ -156,10 +155,9 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
                            zIndex={zIndex}
                            ttl={ttl}
                            removeButtonPosition={removeButtonPosition}
-                           clearAll={clearAll}
+                           clearAll={toasts.length > 1 ? clearAll : undefined}
                            style={{ bottom: `${bottom}px`, zIndex }}
-            />)
-          }
+            />
 
           return (
             <Toast

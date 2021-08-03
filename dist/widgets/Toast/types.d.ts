@@ -14,17 +14,16 @@ export interface Toast {
     type: Types;
     title: string;
     description?: string;
-    actions?: Array<ToastAction>;
-    showDetails?: boolean;
-    telegramDescription: string;
-    tweeterDescription: string;
+    telegramDescription?: string;
+    tweeterDescription?: string;
+    hash?: string;
 }
 export interface ToastContainerProps {
     toasts: Toast[];
     stackSpacing?: number;
     ttl?: number;
     onRemove: (id: string) => void;
-    clearAll?: () => void;
+    clearAll?: () => void | null;
 }
 export interface ToastProps {
     toast: Toast;
@@ -35,7 +34,7 @@ export interface ToastProps {
     handleMouseLeave?: any;
     handleRemove?: any;
     progress?: any;
-    clearAll?: () => void;
+    clearAll?: () => void | null;
     zIndex?: string;
     removeButtonPosition?: number;
 }
