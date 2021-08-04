@@ -4050,7 +4050,7 @@ var alertTypeMap = (_a = {},
     _a[types.DANGER] = variants$2.DANGER,
     _a[types.WARNING] = variants$2.WARNING,
     _a);
-var StyledToast = styled__default['default'].div(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  //overflow: hidden;\n  right: 35px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  box-shadow: 0px -4px 11px rgba(0, 0, 0, 0.1), 0px 20px 36px -8px rgba(14, 14, 44, 0.32), 0px 1px 1px rgba(0, 0, 0, 0.16);\n  border-radius: 16px;\n\n  ", " {\n    max-width: 400px;\n  }\n"], ["\n  //overflow: hidden;\n  right: 35px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  box-shadow: 0px -4px 11px rgba(0, 0, 0, 0.1), 0px 20px 36px -8px rgba(14, 14, 44, 0.32), 0px 1px 1px rgba(0, 0, 0, 0.16);\n  border-radius: 16px;\n\n  ", " {\n    max-width: 400px;\n  }\n"])), function (_a) {
+var StyledToast = styled__default['default'].div(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  left: 50%;\n  transform: translate(-50%, 0);\n  position: fixed;\n  max-width: calc(100% - 12px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  box-shadow: 0px -4px 11px rgba(0, 0, 0, 0.1), 0px 20px 36px -8px rgba(14, 14, 44, 0.32), 0px 1px 1px rgba(0, 0, 0, 0.16);\n  border-radius: 16px;\n\n  ", " {\n    transform: none;\n    left: auto;\n    right: 35px;\n    \n    max-width: 400px;\n  }\n"], ["\n  left: 50%;\n  transform: translate(-50%, 0);\n  position: fixed;\n  max-width: calc(100% - 12px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  box-shadow: 0px -4px 11px rgba(0, 0, 0, 0.1), 0px 20px 36px -8px rgba(14, 14, 44, 0.32), 0px 1px 1px rgba(0, 0, 0, 0.16);\n  border-radius: 16px;\n\n  ", " {\n    transform: none;\n    left: auto;\n    right: 35px;\n    \n    max-width: 400px;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.sm;
 });
@@ -4087,7 +4087,7 @@ var Toast = function (_a) {
                         React__default['default'].createElement(Button, { variant: 'text', as: 'a', href: 'https://t.me/biswap' },
                             React__default['default'].createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official telegram group"))))),
                 React__default['default'].createElement("div", { style: { width: '100%' } },
-                    React__default['default'].createElement(ProgressWrapper, { style: { width: '100%' } }, progress ? React__default['default'].createElement(ProgressLine, { style: { width: progress + "%" } }) : null))))));
+                    React__default['default'].createElement(ProgressWrapper, { style: { width: '100%' } }, progress ? React__default['default'].createElement(ProgressLine, { style: { width: 100 - progress + "%" } }) : null))))));
 };
 var templateObject_1$2, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
 
@@ -4143,6 +4143,7 @@ var ToastContainer = function (_a) {
         removeHandler.current((_a = toasts[0]) === null || _a === void 0 ? void 0 : _a.id);
         setProgress(100);
         setCurrentTime(ttl);
+        setProgressRun(true);
         clearTimeout(intervalRef.current);
         clearTimeout(timer.current);
         // eslint-disable-next-line
@@ -4176,13 +4177,19 @@ var ToastContainer = function (_a) {
             clearTimeout(timer.current);
         };
     }, [handleRemove, currentTime]);
+    var clearAllHandler = function () {
+        if (clearAll) {
+            clearAll();
+            setProgressRun(true);
+        }
+    };
     return (React__default['default'].createElement(StyledToastContainer, null,
         React__default['default'].createElement(reactTransitionGroup.TransitionGroup, null, toasts.map(function (toast, index) {
             var zIndex = (ZINDEX - index).toString();
             var bottom = BOTTOM_POSITION + index * stackSpacing;
             var removeButtonPosition = stackSpacing * toasts.length + 40;
             if (index === 0)
-                return React__default['default'].createElement(Toast, { handleRemove: handleRemove, handleMouseEnter: handleMouseEnter, handleMouseLeave: handleMouseLeave, progress: progress, key: toast.id, toast: toast, zIndex: zIndex, ttl: ttl, removeButtonPosition: removeButtonPosition, clearAll: toasts.length > 1 ? clearAll : undefined, style: { bottom: bottom + "px", zIndex: zIndex } });
+                return React__default['default'].createElement(Toast, { handleRemove: handleRemove, handleMouseEnter: handleMouseEnter, handleMouseLeave: handleMouseLeave, progress: progress, key: toast.id, toast: toast, zIndex: zIndex, ttl: ttl, removeButtonPosition: removeButtonPosition, clearAll: toasts.length > 1 ? clearAllHandler : undefined, style: { bottom: bottom + "px", zIndex: zIndex } });
             return (React__default['default'].createElement(Toast, { key: toast.id, toast: toast, style: { bottom: bottom + "px", zIndex: zIndex } }));
         }))));
 };

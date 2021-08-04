@@ -16,10 +16,10 @@ const alertTypeMap = {
 };
 
 const StyledToast = styled.div`
-  //overflow: hidden;
-  right: 35px;
+  left: 50%;
+  transform: translate(-50%, 0);
   position: fixed;
-  max-width: calc(100% - 32px);
+  max-width: calc(100% - 12px);
   transition: all 250ms ease-in;
   width: 100%;
 
@@ -27,6 +27,10 @@ const StyledToast = styled.div`
   border-radius: 16px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
+    transform: none;
+    left: auto;
+    right: 35px;
+    
     max-width: 400px;
   }
 `;

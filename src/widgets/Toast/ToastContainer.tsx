@@ -50,7 +50,7 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
     // clearTimeout(timer.current);
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     if (toasts.length !== updateTimerRef.current) {
       resetAll();
       updateTimerRef.current = toasts.length
@@ -93,6 +93,7 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
      removeHandler.current(toasts[0]?.id)
      setProgress(100)
      setCurrentTime(ttl)
+     setProgressRun(true);
 
      clearTimeout(intervalRef.current)
      clearTimeout(timer.current);
@@ -138,6 +139,12 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
     };
   }, [handleRemove, currentTime]);
 
+  const clearAllHandler = () => {
+    if (clearAll) {
+      clearAll();
+      setProgressRun(true)
+    }
+  }
 
   return (
     <StyledToastContainer>
@@ -155,7 +162,7 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ clearAll,toasts, onRemo
                            zIndex={zIndex}
                            ttl={ttl}
                            removeButtonPosition={removeButtonPosition}
-                           clearAll={toasts.length > 1 ? clearAll : undefined}
+                           clearAll={toasts.length > 1 ? clearAllHandler : undefined}
                            style={{ bottom: `${bottom}px`, zIndex }}
             />
 

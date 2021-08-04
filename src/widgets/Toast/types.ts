@@ -38,7 +38,7 @@ export interface ToastProps {
   handleMouseEnter?: any;
   handleMouseLeave?: any,
   handleRemove?: any;
-  progress?: any;
+  progress?: number;
   clearAll?: () => void | null;
   zIndex?: string
   removeButtonPosition?: number
