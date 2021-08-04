@@ -3259,10 +3259,7 @@ var PanelBody = function (_a) {
 };
 var templateObject_1$n, templateObject_2$f;
 
-var Wrapper$d = styled.div(templateObject_1$m || (templateObject_1$m = __makeTemplateObject(["\n  padding: ", ";\n  display: none;\n\n  ", " {\n    display: ", ";\n  }\n  \n  .move-enter {\n    opacity: 0.01;\n    transform: translatey(-40px)\n  }\n\n  .move-enter-active {\n    opacity: 1;\n    transform: translatey(0);\n    transition: all 500ms ease-in;\n  }\n\n  .move-exit {\n    opacity: 1;\n    transform: translateY(0)\n  }\n\n  .move-exit-active {\n    opacity: 0.01;\n    transform: translateY(10px);\n    transition: all 500ms ease-in;\n  }\n"], ["\n  padding: ", ";\n  display: none;\n\n  ", " {\n    display: ", ";\n  }\n  \n  .move-enter {\n    opacity: 0.01;\n    transform: translatey(-40px)\n  }\n\n  .move-enter-active {\n    opacity: 1;\n    transform: translatey(0);\n    transition: all 500ms ease-in;\n  }\n\n  .move-exit {\n    opacity: 1;\n    transform: translateY(0)\n  }\n\n  .move-exit-active {\n    opacity: 0.01;\n    transform: translateY(10px);\n    transition: all 500ms ease-in;\n  }\n"])), function (_a) {
-    var isPushed = _a.isPushed;
-    return (isPushed ? "32px 16px" : "32px 12px");
-}, function (_a) {
+var Wrapper$d = styled.div(templateObject_1$m || (templateObject_1$m = __makeTemplateObject(["\n  display: none;\n\n  ", " {\n    display: ", ";\n  }\n  \n  .move-enter {\n    opacity: 0.01;\n    transform: translatey(-40px)\n  }\n\n  .move-enter-active {\n    opacity: 1;\n    transform: translatey(0);\n    transition: all 500ms ease-in;\n  }\n\n  .move-exit {\n    opacity: 1;\n    transform: translateY(0)\n  }\n\n  .move-exit-active {\n    opacity: 0.01;\n    transform: translateY(10px);\n    transition: all 500ms ease-in;\n  }\n"], ["\n  display: none;\n\n  ", " {\n    display: ", ";\n  }\n  \n  .move-enter {\n    opacity: 0.01;\n    transform: translatey(-40px)\n  }\n\n  .move-enter-active {\n    opacity: 1;\n    transform: translatey(0);\n    transition: all 500ms ease-in;\n  }\n\n  .move-exit {\n    opacity: 1;\n    transform: translateY(0)\n  }\n\n  .move-exit-active {\n    opacity: 0.01;\n    transform: translateY(10px);\n    transition: all 500ms ease-in;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.lg;
 }, function (_a) {

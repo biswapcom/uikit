@@ -12,7 +12,6 @@ interface Props extends PanelFooterProps {
 }
 
 const Wrapper = styled.div<Props>`
-  padding: ${({ isPushed }) => (isPushed ? "32px 16px" : "32px 12px")};
   display: none;
 
   ${({ theme }) => theme.mediaQueries.lg} {
