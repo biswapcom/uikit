@@ -132,7 +132,7 @@ const Toast: React.FC<ToastProps> = ({
             <div style={{width: '100%'}}>
               <ProgressWrapper  style={{width: '100%'}}>
                 {
-                  progress ?  <ProgressLine style={{width: `${progress}%`}}/> : null
+                  progress ?  <ProgressLine style={{width: `${100 - progress}%`}}/> : null
                 }
 
               </ProgressWrapper>
