@@ -14,17 +14,27 @@ export interface Toast {
     type: Types;
     title: string;
     description?: string;
-    action?: ToastAction;
+    telegramDescription?: string;
+    tweeterDescription?: string;
+    hash?: string;
 }
 export interface ToastContainerProps {
     toasts: Toast[];
     stackSpacing?: number;
     ttl?: number;
     onRemove: (id: string) => void;
+    clearAll?: () => void | undefined;
 }
 export interface ToastProps {
     toast: Toast;
-    onRemove: ToastContainerProps["onRemove"];
-    ttl: number;
+    onRemove?: ToastContainerProps["onRemove"];
+    ttl?: number;
     style: Partial<CSSStyleDeclaration>;
+    handleMouseEnter?: any;
+    handleMouseLeave?: any;
+    handleRemove?: any;
+    progress?: number;
+    clearAll?: () => void | undefined;
+    zIndex?: string;
+    removeButtonPosition?: number;
 }

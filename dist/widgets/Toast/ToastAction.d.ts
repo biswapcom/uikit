@@ -1,7 +1,9 @@
 import React from "react";
-import { ToastAction as Action } from "./types";
 interface ToastActionProps {
-    action: Action;
+    title?: string;
+    url?: string;
+    telegramDescription: string;
+    tweeterDescription: string;
 }
 declare const ToastAction: React.FC<ToastActionProps>;
 export default ToastAction;

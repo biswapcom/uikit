@@ -1,10 +1,12 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React from "react";
 import { CSSTransition } from "react-transition-group";
 import styled from "styled-components";
 import { Alert, alertVariants } from "../../components/Alert";
 import { Text } from "../../components/Text";
 import ToastAction from "./ToastAction";
 import { ToastProps, types } from "./types";
+import { Button } from "../../components/Button";
+import { LinkIcon } from "../../components/Svg";
 
 const alertTypeMap = {
   [types.INFO]: alertVariants.INFO,
@@ -13,68 +15,142 @@ const alertTypeMap = {
   [types.WARNING]: alertVariants.WARNING,
 };
 
+interface ClearButtonProps {
+  top: number;
+}
+
+const ClearAllButton = styled(Button)<ClearButtonProps>`
+  position: absolute;
+  right: 0;
+  top: ${({top}) => `${-top}px`};
+`
+
 const StyledToast = styled.div`
-  right: 16px;
+  left: 50%;
+  transform: translate(-50%, 0);
   position: fixed;
-  max-width: calc(100% - 32px);
+  max-width: calc(100% - 12px);
   transition: all 250ms ease-in;
   width: 100%;
 
+  box-shadow: 0px -4px 11px rgba(0, 0, 0, 0.1), 0px 20px 36px -8px rgba(14, 14, 44, 0.32), 0px 1px 1px rgba(0, 0, 0, 0.16);
+  border-radius: 16px;
+
   ${({ theme }) => theme.mediaQueries.sm} {
+    transform: none;
+    left: auto;
+    right: 35px;
     max-width: 400px;
   }
 `;
 
-const Toast: React.FC<ToastProps> = ({ toast, onRemove, style, ttl, ...props }) => {
-  const timer = useRef<number>();
-  const ref = useRef(null);
-  const removeHandler = useRef(onRemove);
-  const { id, title, description, type, action } = toast;
+const ProgressWrapper = styled.div`
+  background-color: ${({theme})=> theme.colors.contrast}
+  bottom: 0;
+  min-height: 5px;
+`
 
-  const handleRemove = useCallback(() => removeHandler.current(id), [id, removeHandler]);
+const ProgressLine = styled.div`
+  background-color: ${({theme})=> theme.colors.success};
+  height: 5px;
+  transition: 100ms all;
+  border-radius: 16px;
+`
 
-  const handleMouseEnter = () => {
-    clearTimeout(timer.current);
-  };
+const AlertWrapper = styled.div`
+  padding: 0 16px;
+`
+const LinkWrapper = styled.div`
+  margin: 14px 0 11px 0;
+  display: flex;
+  align-items: center;
+`
 
-  const handleMouseLeave = () => {
-    if (timer.current) {
-      clearTimeout(timer.current);
-    }
+const LinkStyles = styled.a`
+ color: ${({theme})=> theme.colors.primary};
+ font-size: 14px;
+ font-weight: 700;
+ line-height: 21px;
+  text-decoration: underline;
+`
 
-    timer.current = window.setTimeout(() => {
-      handleRemove();
-    }, ttl);
-  };
-
-  useEffect(() => {
-    if (timer.current) {
-      clearTimeout(timer.current);
-    }
-
-    timer.current = window.setTimeout(() => {
-      handleRemove();
-    }, ttl);
-
-    return () => {
-      clearTimeout(timer.current);
-    };
-  }, [timer, ttl, handleRemove]);
+const Toast: React.FC<ToastProps> = ({
+                                       removeButtonPosition=60,
+                                       clearAll,
+                                       toast,
+                                       style,
+                                       handleMouseEnter,
+                                       handleMouseLeave,
+                                       handleRemove,
+                                       progress,
+                                       ...props
+}) => {
+  const {
+    description,
+    type,
+    title,
+    telegramDescription,
+    tweeterDescription,
+    hash
+  } = toast;
 
   return (
-    <CSSTransition nodeRef={ref} timeout={250} style={style} {...props}>
-      <StyledToast ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <Alert title={title} variant={alertTypeMap[type]} onClick={handleRemove}>
-          {action ? (
-            <>
+    <CSSTransition timeout={250} style={style} {...props}>
+      <StyledToast onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        {
+          clearAll && (
+            <ClearAllButton
+              variant='text'
+               top={removeButtonPosition}
+              onClick={() => clearAll()}
+            >
+              <Text fontSize='16px' color='primary' lineHeight='19px'>
+                Clear All
+              </Text>
+            </ClearAllButton>
+          )
+        }
+        <Alert style={{padding: '16px 0 0 0'}} title={title} variant={alertTypeMap[type]} onClick={handleRemove}>
+            <AlertWrapper>
+              {
+                hash &&
+                <LinkWrapper>
+                  <LinkStyles href={`https://bscscan.com/tx/${hash}`}>
+                    View on bscscan
+                  </LinkStyles>
+                  <LinkIcon ml='7px' width='18px' height='18px' color='primary'/>
+                </LinkWrapper>
+              }
               <Text as="p" mb="8px">
                 {description}
               </Text>
-              <ToastAction action={action} />
-            </>
-          ) : (
-            description
-          )}
+              {
+                telegramDescription && tweeterDescription && (
+                  <>
+                    <ToastAction telegramDescription={telegramDescription} tweeterDescription={tweeterDescription} title={title} />
+                    <Button variant='text' as='a' href='https://t.me/biswap'>
+                      <Text
+                        fontSize='10px'
+                        pl='0'
+                        fontWeight='400'
+                        lineHeight='12px'
+                        color='#6b7d98'
+                      >
+                        *Share your earnings in our official telegram group
+                      </Text>
+                    </Button>
+                  </>
+                )
+              }
+            </AlertWrapper>
+            <div style={{width: '100%'}}>
+              <ProgressWrapper  style={{width: '100%'}}>
+                {
+                  progress ?  <ProgressLine style={{width: `${100 - progress}%`}}/> : null
+                }
+
+              </ProgressWrapper>
+            </div>
         </Alert>
       </StyledToast>
     </CSSTransition>
