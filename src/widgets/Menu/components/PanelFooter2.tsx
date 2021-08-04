@@ -9,10 +9,16 @@ import styled from "styled-components";
 
 interface Props extends PanelFooterProps {
   isPushed: boolean;
-  isDark: boolean;
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<Props>`
+  padding: ${({ isPushed }) => (isPushed ? "32px 16px" : "32px 12px")};
+  display: none;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    display: ${({ isPushed }) => (isPushed ? "block" : "none")};
+  }
+  
   .move-enter {
     opacity: 0.01;
     transform: translatey(-40px)
@@ -44,7 +50,7 @@ const Wrapper = styled.div`
 //   overflow: hidden;
 // `;
 
-const PanelFooter2: React.FC<Props> = ({isPushed,isDark,footerTitle,deals,dealsForUIKit,showDeals}) => {
+const PanelFooter2: React.FC<Props> = ({isPushed,dealsForUIKit,showDeals}) => {
   // const [deals,setDeals] = useState([
   //   {
   //     dealName: "Liquidity",
@@ -82,7 +88,7 @@ const PanelFooter2: React.FC<Props> = ({isPushed,isDark,footerTitle,deals,dealsF
   // },[])
 
   return (
-    <Wrapper>
+    <Wrapper isPushed={isPushed}>
       { showDeals &&
        dealsForUIKit()
       }

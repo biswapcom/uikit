@@ -107,7 +107,7 @@ const Panel: React.FC<Props> = (props) => {
         <Logo isPushed={isPushed} isDark={isDark} href={href} />
         <PanelBody {...props} />
         {deals && deals?.length && footerTitle && (
-          <PanelFooter2 isPushed={isPushed} showDeals={showDeals} footerTitle={footerTitle} isDark={isDark} dealsForUIKit={dealsForUIKit} deals={deals} />
+          <PanelFooter2 isPushed={isPushed} showDeals={showDeals} dealsForUIKit={dealsForUIKit} />
         )}
         <NavSocial isPushed={isPushed} isSidebar/>
 
