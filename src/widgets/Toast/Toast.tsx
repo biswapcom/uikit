@@ -15,6 +15,16 @@ const alertTypeMap = {
   [types.WARNING]: alertVariants.WARNING,
 };
 
+interface ClearButtonProps {
+  top: number;
+}
+
+const ClearAllButton = styled(Button)<ClearButtonProps>`
+  position: absolute;
+  right: 0;
+  top: ${({top}) => `${-top}px`};
+`
+
 const StyledToast = styled.div`
   left: 50%;
   transform: translate(-50%, 0);
@@ -30,7 +40,6 @@ const StyledToast = styled.div`
     transform: none;
     left: auto;
     right: 35px;
-    
     max-width: 400px;
   }
 `;
@@ -67,7 +76,6 @@ const LinkStyles = styled.a`
 
 const Toast: React.FC<ToastProps> = ({
                                        removeButtonPosition=60,
-                                       zIndex,
                                        clearAll,
                                        toast,
                                        style,
@@ -91,13 +99,15 @@ const Toast: React.FC<ToastProps> = ({
       <StyledToast onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         {
           clearAll && (
-            <Button
+            <ClearAllButton
               variant='text'
-              style={{position: 'absolute',right: 0, top: -removeButtonPosition,zIndex: Number(zIndex)}} onClick={() => clearAll()}>
+               top={removeButtonPosition}
+              onClick={() => clearAll()}
+            >
               <Text fontSize='16px' color='primary' lineHeight='19px'>
                 Clear All
               </Text>
-            </Button>
+            </ClearAllButton>
           )
         }
         <Alert style={{padding: '16px 0 0 0'}} title={title} variant={alertTypeMap[type]} onClick={handleRemove}>
