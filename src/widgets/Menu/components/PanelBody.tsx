@@ -29,9 +29,18 @@ const Container = styled.div<{ isPushed: boolean }>`
   }
 `;
 
+const CompetitionCycle = styled.span<{cycleType: string}>`
+  position: absolute;
+  left: 28px;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  background-color: ${({theme,cycleType})=> (cycleType === 'active' ? theme.colors.success : theme.colors.text)}
+`
+
 const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   const location = useLocation();
-
   // Close the menu when a user clicks a link on mobile
   const handleClick = isMobile ? () => pushNav(false) : undefined;
   return (
@@ -44,7 +53,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
         if (entry.items) {
           const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
           const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
-
+          // console.log('enytt', entry.items);
           return (
             <Accordion
               key={entry.label}
@@ -58,11 +67,24 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
               isActive={entry.items.some((item) => item.href === location.pathname)}
             >
               {isPushed &&
-                entry.items.map((item) => (
-                  <MenuEntry isSmall key={item.href} secondary isActive={item.href === location.pathname} onClick={handleClick}>
-                    <MenuLink href={item.href} target={item.target ? item.target : '_self'}>{item.label}</MenuLink>
-                  </MenuEntry>
-                ))}
+                entry.items.map((item) => {
+                  // console.log('fdvfd',item.cycleType);
+                  return(
+                    <MenuEntry isSmall key={item.href} secondary isActive={item.href === location.pathname} onClick={handleClick}>
+                      <>
+                        {
+                          item.cycleType ? (
+                            <>
+                              <CompetitionCycle cycleType={item.cycleType}/>
+                            </>
+
+                          ): null
+                        }
+                        <MenuLink href={item.href} target={item.target ? item.target : '_self'}>{item.label}</MenuLink>
+                      </>
+                    </MenuEntry>
+                  )
+                })}
             </Accordion>
           );
         }

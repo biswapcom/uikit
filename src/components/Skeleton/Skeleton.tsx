@@ -14,13 +14,13 @@ const waves = keyframes`
 
 const pulse = keyframes`
   0% {
-    opacity: 1;
+    opacity: 0.6;
   }
   50% {
-    opacity: 0.4;
+    opacity: 0.3;
   }
   100% {
-    opacity: 1;
+    opacity: 0.6;
   }
 `;
 

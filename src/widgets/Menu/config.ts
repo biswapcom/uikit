@@ -49,9 +49,15 @@ export const links = [
       {
         label: "Leaderboard",
         href: "/teams",
+        cycleType: 'active'
       },
       {
         label: "YourProfile",
+        href: "/profile",
+        cycleType: 'inactive'
+      },
+      {
+        label: "Archive",
         href: "/profile",
       },
     ],
