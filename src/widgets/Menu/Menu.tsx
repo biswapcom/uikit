@@ -127,7 +127,9 @@ const Menu: React.FC<NavProps> = ({
   serviceLinks,
   networkChangeToBSC,
   networkChangeToMATIC,
-  currentNetwork
+  currentNetwork,
+  dealsForUIKit,
+                                    showDeals
 }) => {
   const { isLg, isMd, isSm, isXs } = useMatchBreakpoints();
   const isMobile = isLg || isMd || isSm || isXs;
@@ -238,6 +240,8 @@ const Menu: React.FC<NavProps> = ({
           href={homeLink?.href ?? "/"}
           footerTitle={footerTitle}
           deals={deals}
+          dealsForUIKit={dealsForUIKit}
+          showDeals={showDeals}
         />
         <Inner isPushed={isPushed} showMenu={showMenu}>
           <div>{children}</div>

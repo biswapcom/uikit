@@ -8,8 +8,6 @@ import { Modal } from "../Modal";
 import CopyToClipboard from "./CopyToClipboard";
 import connectors, { connectorLocalStorageKey } from "./config";
 import { useWalletModal } from "./index";
-import Loader from "../Menu/icons/Loader";
-import { CheckmarkCircleIcon, ErrorIcon } from "../../components/Svg";
 
 interface Props {
   account: string;
