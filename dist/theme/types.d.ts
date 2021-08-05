@@ -54,6 +54,7 @@ export declare type Colors = {
     card: string;
     dropDown: string;
     footer: string;
+    boost: string;
     gradients: Gradients;
     binance: string;
 };
