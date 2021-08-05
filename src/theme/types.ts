@@ -60,6 +60,7 @@ export type Colors = {
   card: string;
   dropDown: string;
   footer: string;
+  boost: string;
 
   // Gradients
   gradients: Gradients;
