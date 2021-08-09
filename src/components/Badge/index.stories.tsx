@@ -21,6 +21,7 @@ export const Default: React.FC = () => {
       <Badge badgeType="warning">Warning</Badge>
       <Badge badgeType="primary">Primary</Badge>
       <Badge badgeType="any">any</Badge>
+      <Badge badgeType="boost">Boosted</Badge>
       <Badge badgeType="warning" fontWeight='700' fontSize='18px' >up to 120%</Badge>
     </div>
   );
