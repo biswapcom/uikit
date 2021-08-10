@@ -3578,11 +3578,13 @@ var connectors = [
         title: "Metamask",
         icon: Icon$4,
         connectorId: ConnectorNames.Injected,
+        priority: 1,
     },
     {
         title: "TrustWallet",
         icon: Icon$3,
         connectorId: ConnectorNames.Injected,
+        priority: 2,
     },
     // {
     //   title: "MathWallet",
@@ -3598,19 +3600,23 @@ var connectors = [
         title: "WalletConnect",
         icon: Icon$2,
         connectorId: ConnectorNames.WalletConnect,
+        priority: 3,
     },
     {
         title: "Binance Chain",
         icon: Icon$1,
         connectorId: ConnectorNames.BSC,
+        priority: 999,
     },
     {
         title: "SafePal Wallet",
         icon: Icon,
         connectorId: ConnectorNames.Injected,
+        priority: 999,
     },
 ];
 var connectorLocalStorageKey = "connectorId";
+var walletLocalStorageKey = "wallet";
 
 var StyledButton = styled(Button)(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  display: flex; \n  flex-direction: column;\n  justify-content: space-around;\n  padding: 8px 0 0;\n  white-space: nowrap;\n  min-height: 91px;\n"], ["\n  display: flex; \n  flex-direction: column;\n  justify-content: space-around;\n  padding: 8px 0 0;\n  white-space: nowrap;\n  min-height: 91px;\n"])));
 var StyledText = styled(Text)(templateObject_2$8 || (templateObject_2$8 = __makeTemplateObject(["\n  font-weight: bold;\n  color: ", ";\n"], ["\n  font-weight: bold;\n  color: ", ";\n"])), function (_a) {
@@ -3633,11 +3639,26 @@ var templateObject_1$d, templateObject_2$8;
 var HelpLink = styled(Link)(templateObject_1$c || (templateObject_1$c = __makeTemplateObject(["\n  display: flex;\n  align-self: center;\n  align-items: center;\n  margin-top: 24px;\n"], ["\n  display: flex;\n  align-self: center;\n  align-items: center;\n  margin-top: 24px;\n"])));
 var Wrapper$6 = styled.div(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["\n"], ["\n"])));
 var WalletCardsWrapper = styled.div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  display: grid;\n  grid-gap: 16px;\n  width: 100%;\n  grid-template-columns: repeat(2, 1fr);\n"], ["\n  display: grid;\n  grid-gap: 16px;\n  width: 100%;\n  grid-template-columns: repeat(2, 1fr);\n"])));
+var getPreferredConfig = function (walletConfig) {
+    var preferredWalletName = localStorage.getItem(walletLocalStorageKey);
+    var sortedConfig = walletConfig.sort(function (a, b) { return a.priority - b.priority; });
+    if (!preferredWalletName) {
+        return sortedConfig;
+    }
+    var preferredWallet = sortedConfig.find(function (sortedWalletConfig) { return sortedWalletConfig.title === preferredWalletName; });
+    if (!preferredWallet) {
+        return sortedConfig;
+    }
+    return __spreadArray([
+        preferredWallet
+    ], sortedConfig.filter(function (sortedWalletConfig) { return sortedWalletConfig.title !== preferredWalletName; }));
+};
 var ConnectModal = function (_a) {
     var login = _a.login, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b;
+    var sortedConfig = getPreferredConfig(connectors);
     return (React.createElement(Modal, { title: "Connect to a wallet", onDismiss: onDismiss },
         React.createElement(Wrapper$6, null,
-            React.createElement(WalletCardsWrapper, null, connectors.map(function (entry) { return (React.createElement(WalletCard, { key: entry.title, login: login, walletConfig: entry, onDismiss: onDismiss })); })),
+            React.createElement(WalletCardsWrapper, null, sortedConfig.map(function (entry) { return (React.createElement(WalletCard, { key: entry.title, login: login, walletConfig: entry, onDismiss: onDismiss })); })),
             React.createElement(HelpLink, { href: "https://docs.biswap.org/faq/biswap-platform#how-do-i-connect-my-wallet-to-biswap", external: true },
                 React.createElement(Icon$1d, { color: "primary", mr: "6px" }),
                 "Learn how to connect"))));
