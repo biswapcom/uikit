@@ -10,8 +10,8 @@ export interface SelectProps {
 
 export interface OptionProps {
   label: string
-  icon: any
-  value?: any
+  icon: JSX.Element
+  value?: number
   bg: string
 }
 
