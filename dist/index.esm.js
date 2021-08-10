@@ -3616,6 +3616,7 @@ var connectors = [
     },
 ];
 var connectorLocalStorageKey = "connectorId";
+var walletLocalStorageKey = "wallet";
 
 var StyledButton = styled(Button)(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  display: flex; \n  flex-direction: column;\n  justify-content: space-around;\n  padding: 8px 0 0;\n  white-space: nowrap;\n  min-height: 91px;\n"], ["\n  display: flex; \n  flex-direction: column;\n  justify-content: space-around;\n  padding: 8px 0 0;\n  white-space: nowrap;\n  min-height: 91px;\n"])));
 var StyledText = styled(Text)(templateObject_2$8 || (templateObject_2$8 = __makeTemplateObject(["\n  font-weight: bold;\n  color: ", ";\n"], ["\n  font-weight: bold;\n  color: ", ";\n"])), function (_a) {
@@ -3627,6 +3628,7 @@ var WalletCard = function (_a) {
     var title = walletConfig.title, Icon = walletConfig.icon;
     return (React.createElement(StyledButton, { variant: "tertiary", onClick: function () {
             login(walletConfig.connectorId);
+            localStorage.setItem(walletLocalStorageKey, walletConfig.title);
             window.localStorage.setItem(connectorLocalStorageKey, walletConfig.connectorId);
             onDismiss();
         }, id: "wallet-connect-" + title.toLocaleLowerCase() },
