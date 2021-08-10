@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Button from "../../components/Button/Button";
 import Text from "../../components/Text/Text";
@@ -6,10 +6,7 @@ import LinkExternal from "../../components/Link/LinkExternal";
 import Flex from "../../components/Box/Flex";
 import { Modal } from "../Modal";
 import CopyToClipboard from "./CopyToClipboard";
-import connectors, { connectorLocalStorageKey } from "./config";
 import { useWalletModal } from "./index";
-import Loader from "../Menu/icons/Loader";
-import { CheckmarkCircleIcon, ErrorIcon } from "../../components/Svg";
 
 interface Props {
   account: string;
@@ -38,17 +35,6 @@ const TransactionWrapper = styled.div`
 
 
 const AccountModal: React.FC<Props> = ({transactionsForUIKit, isSwap, account, logout, onDismiss = () => null, login,recentTransaction,chainId,clearTransaction}) =>{
-  const [currentConnector, setCurrentConnector] = useState('');
-
-  useEffect(()=>{
-    if (account) {
-      const localStorageConnector = window.localStorage.getItem(connectorLocalStorageKey);
-      const current = connectors.find(el=>el.connectorId === localStorageConnector);
-      if (current && current?.title) {
-        setCurrentConnector(current.title)
-      }
-    }
-  },[account])
 
   const { onPresentConnectModal } = useWalletModal(login, logout, account,recentTransaction,chainId);
 
@@ -66,7 +52,7 @@ const AccountModal: React.FC<Props> = ({transactionsForUIKit, isSwap, account, l
   return (
     <Modal title="Your wallet" onDismiss={onDismiss}>
       <ConnectedWrapper>
-        <Text fontSize='14px' fontWeight='400' lineHeight='21px' color='#708DB7'>Connected with {currentConnector}</Text>
+        <Text fontSize='14px' fontWeight='400' lineHeight='21px' color='#1DC872'>Connected</Text>
         <Button onClick={changeWalletHandler} scale='sm' variant='primary'>Change</Button>
       </ConnectedWrapper>
       <Text
@@ -113,7 +99,6 @@ const AccountModal: React.FC<Props> = ({transactionsForUIKit, isSwap, account, l
           variant="secondary"
           onClick={() => {
             logout();
-            window.localStorage.removeItem(connectorLocalStorageKey);
             onDismiss();
           }}
         >
