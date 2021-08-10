@@ -38,7 +38,6 @@ const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null }) => (
       <HelpLink
         href="https://docs.biswap.org/faq/biswap-platform#how-do-i-connect-my-wallet-to-biswap"
         external
-
       >
         <HelpIcon color="primary" mr="6px" />
         Learn how to connect
