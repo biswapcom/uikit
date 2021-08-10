@@ -7,6 +7,7 @@ export declare enum ConnectorNames {
 }
 export declare type Login = (connectorId: ConnectorNames) => void;
 export interface Config {
+    priority: number;
     title: string;
     icon: FC<SvgProps>;
     connectorId: ConnectorNames;

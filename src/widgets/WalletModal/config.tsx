@@ -13,16 +13,19 @@ const connectors: Config[] = [
     title: "Metamask",
     icon: Metamask,
     connectorId: ConnectorNames.Injected,
+    priority: 1,
   },
   {
     title: "TrustWallet",
     icon: TrustWallet,
     connectorId: ConnectorNames.Injected,
+    priority: 2,
   },
   {
     title: "MathWallet",
     icon: MathWallet,
     connectorId: ConnectorNames.Injected,
+    priority: 3,
   },
   // {
   //   title: "TokenPocket",
@@ -33,23 +36,28 @@ const connectors: Config[] = [
     title: "Coin98",
     icon: Coin98,
     connectorId: ConnectorNames.Injected,
+    priority: 999,
   },
   {
     title: "WalletConnect",
     icon: WalletConnect,
     connectorId: ConnectorNames.WalletConnect,
+    priority: 999,
   },
   {
     title: "Binance Chain",
     icon: BinanceChain,
     connectorId: ConnectorNames.BSC,
+    priority: 999,
   },
   {
     title: "SafePal Wallet",
     icon: SafePalWallet,
     connectorId: ConnectorNames.Injected,
+    priority: 999,
   },
 ];
 
 export default connectors;
 export const connectorLocalStorageKey = "connectorId";
+export const walletLocalStorageKey = "wallet";

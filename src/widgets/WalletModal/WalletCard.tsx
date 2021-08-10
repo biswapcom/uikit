@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Button from "../../components/Button/Button";
 import Text from "../../components/Text/Text";
-import { connectorLocalStorageKey } from "./config";
+import { connectorLocalStorageKey, walletLocalStorageKey } from "./config";
 import { Login, Config } from "./types";
 
 interface Props {
@@ -32,6 +32,7 @@ const WalletCard: React.FC<Props> = ({ login, walletConfig, onDismiss }) => {
       variant="tertiary"
       onClick={() => {
         login(walletConfig.connectorId);
+        localStorage.setItem(walletLocalStorageKey, walletConfig.title);
         window.localStorage.setItem(connectorLocalStorageKey, walletConfig.connectorId);
         onDismiss();
       }}
