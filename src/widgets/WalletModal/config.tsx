@@ -51,5 +51,6 @@ const connectors: Config[] = [
   },
 ];
 
+
 export default connectors;
 export const connectorLocalStorageKey = "connectorId";
