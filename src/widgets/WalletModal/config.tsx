@@ -24,6 +24,8 @@ const connectors: Config[] = [
   //   icon: MathWallet,
   //   connectorId: ConnectorNames.Injected,
   // },
+
+
   // {
   //   title: "TokenPocket",
   //   icon: TokenPocket,  //   connectorId: ConnectorNames.Injected,
