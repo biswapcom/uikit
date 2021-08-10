@@ -3616,7 +3616,6 @@ var connectors = [
     },
 ];
 var connectorLocalStorageKey = "connectorId";
-var walletLocalStorageKey = "wallet";
 
 var StyledButton = styled(Button)(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  display: flex; \n  flex-direction: column;\n  justify-content: space-around;\n  padding: 8px 0 0;\n  white-space: nowrap;\n  min-height: 91px;\n"], ["\n  display: flex; \n  flex-direction: column;\n  justify-content: space-around;\n  padding: 8px 0 0;\n  white-space: nowrap;\n  min-height: 91px;\n"])));
 var StyledText = styled(Text)(templateObject_2$8 || (templateObject_2$8 = __makeTemplateObject(["\n  font-weight: bold;\n  color: ", ";\n"], ["\n  font-weight: bold;\n  color: ", ";\n"])), function (_a) {
@@ -3640,7 +3639,7 @@ var HelpLink = styled(Link)(templateObject_1$c || (templateObject_1$c = __makeTe
 var Wrapper$6 = styled.div(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["\n"], ["\n"])));
 var WalletCardsWrapper = styled.div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  display: grid;\n  grid-gap: 16px;\n  width: 100%;\n  grid-template-columns: repeat(2, 1fr);\n"], ["\n  display: grid;\n  grid-gap: 16px;\n  width: 100%;\n  grid-template-columns: repeat(2, 1fr);\n"])));
 var getPreferredConfig = function (walletConfig) {
-    var preferredWalletName = localStorage.getItem(walletLocalStorageKey);
+    var preferredWalletName = localStorage.getItem(connectorLocalStorageKey);
     var sortedConfig = walletConfig.sort(function (a, b) { return a.priority - b.priority; });
     if (!preferredWalletName) {
         return sortedConfig;

@@ -4,7 +4,7 @@ import { Link } from "../../components/Link";
 import { HelpIcon } from "../../components/Svg";
 import { Modal } from "../Modal";
 import WalletCard from "./WalletCard";
-import config, { walletLocalStorageKey } from "./config";
+import config, { connectorLocalStorageKey } from "./config";
 import { Config, Login } from "./types";
 
 interface Props {
@@ -30,7 +30,7 @@ const WalletCardsWrapper = styled.div`
 `
 
 const getPreferredConfig = (walletConfig: Config[]) => {
-  const preferredWalletName = localStorage.getItem(walletLocalStorageKey);
+  const preferredWalletName = localStorage.getItem(connectorLocalStorageKey);
   const sortedConfig = walletConfig.sort((a: Config, b: Config) => a.priority - b.priority);
 
   if (!preferredWalletName) {
