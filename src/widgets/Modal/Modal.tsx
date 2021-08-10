@@ -14,7 +14,7 @@ interface Props extends InjectedProps {
 
 const StyledModal = styled.div`
   background-color: #fff;
-  border-radius: 16px;
+  border-radius: 16px 16px 0 0;  
   width: 100%;
   z-index: ${({ theme }) => theme.zIndices.modal};
   overflow-y: auto;
@@ -22,6 +22,7 @@ const StyledModal = styled.div`
     width: auto;
     min-width: 416px;
     max-width: 100%;
+    border-radius: 16px;
   }
 `;
 
