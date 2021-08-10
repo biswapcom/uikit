@@ -3641,7 +3641,7 @@ var HelpLink = styled(Link)(templateObject_1$c || (templateObject_1$c = __makeTe
 var Wrapper$6 = styled.div(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["\n"], ["\n"])));
 var WalletCardsWrapper = styled.div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  display: grid;\n  grid-gap: 16px;\n  width: 100%;\n  grid-template-columns: repeat(2, 1fr);\n"], ["\n  display: grid;\n  grid-gap: 16px;\n  width: 100%;\n  grid-template-columns: repeat(2, 1fr);\n"])));
 var getPreferredConfig = function (walletConfig) {
-    var preferredWalletName = localStorage.getItem(connectorLocalStorageKey);
+    var preferredWalletName = localStorage.getItem(walletLocalStorageKey);
     var sortedConfig = walletConfig.sort(function (a, b) { return a.priority - b.priority; });
     if (!preferredWalletName) {
         return sortedConfig;
