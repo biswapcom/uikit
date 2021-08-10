@@ -32,6 +32,10 @@ const getBadgeBg = ({ badgeType = "light", theme }: StyledBadgeProps) => {
     return theme.colors.warning;
   }
 
+  if (badgeType === "boost") {
+    return theme.colors.boost;
+  }
+
   return theme.colors.inputBorder;
 };
 
@@ -40,7 +44,7 @@ const getBadgeColor = ({ badgeType = "light", theme }: StyledBadgeProps) => {
     return theme.colors.text;
   }
 
-  if (badgeType === "new" || badgeType === "primary" || badgeType === "hot") {
+  if (badgeType === "new" || badgeType === "primary" || badgeType === "hot" || badgeType === "boost") {
     return theme.colors.contrast;
   }
 

@@ -26,7 +26,7 @@ export const lightColors: Colors = {
   input: "#eeeaf4",
   inputBorder: "#E5EAF2",
   inputSecondary: "#d7caec",
-  tertiary: "#EFF4F5",
+  tertiary: "#E4EFFF",
   text: "#452A7A",
   disabled: "#E9EAEB",
   textDisabled: "#BDC2C4",
@@ -35,6 +35,7 @@ export const lightColors: Colors = {
   card: "#FFFFFF",
   dropDown: "#F6F6F6",
   footer: "#FFFFFF",
+  boost: "#7412F1",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #E6FDFF 0%, #F3EFFF 100%)",
     cardHeader: "linear-gradient(180deg, #071C3C 0%, #002B6F 100%)",
@@ -64,6 +65,7 @@ export const darkColors: Colors = {
   card: "#102648",
   dropDown: "#1C3254",
   footer: "#0C1F3C",
+  boost: "#7412F1",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)",
     cardHeader: "linear-gradient(180deg, #071C3C 0%, #002B6F 100%)",
