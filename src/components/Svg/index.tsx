@@ -59,5 +59,7 @@ export { default as MouseIcon } from "./Icons/Mouse"
 export { default as RatingIcon } from "./Icons/Rating"
 export { default as CupIcon } from "./Icons/Cup"
 export {default as AutoCompaundIcon} from './Icons/AutoCompaund'
+export {default as PolygonIcon} from './Icons/Polygon'
+export {default as BSCIcon} from './Icons/BSC'
 export { default as Svg } from "./Svg";
 export type { SvgProps } from "./types";

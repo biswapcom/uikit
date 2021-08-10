@@ -13,8 +13,8 @@ import { NavProps } from "./types";
 import Footer from "./components/footer/Footer";
 import { MENU_HEIGHT, MENU_HEIGHT_MOBILE, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 
-import PolygonIcon from "./icons/Polygon";
-import BSCIcon from "./icons/BSC";
+import PolygonIcon from "../../components/Svg/Icons/Polygon";
+import BSCIcon from "../../components/Svg/Icons/BSC";
 
 const Wrapper = styled.div`
   position: relative;
