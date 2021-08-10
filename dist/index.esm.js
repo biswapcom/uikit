@@ -3680,16 +3680,6 @@ var ConnectedWrapper = styled.div(templateObject_1$a || (templateObject_1$a = __
 var TransactionWrapper = styled.div(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"], ["\n  border-radius: 16px;\n  padding: 24px;\n  background-color: #F2F6FC;\n"])));
 var AccountModal = function (_a) {
     var transactionsForUIKit = _a.transactionsForUIKit, isSwap = _a.isSwap, account = _a.account, logout = _a.logout, _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b, login = _a.login, recentTransaction = _a.recentTransaction, chainId = _a.chainId, clearTransaction = _a.clearTransaction;
-    var _c = useState(''), currentConnector = _c[0], setCurrentConnector = _c[1];
-    useEffect(function () {
-        if (account) {
-            var localStorageConnector_1 = window.localStorage.getItem(connectorLocalStorageKey);
-            var current = connectors.find(function (el) { return el.connectorId === localStorageConnector_1; });
-            if (current && (current === null || current === void 0 ? void 0 : current.title)) {
-                setCurrentConnector(current.title);
-            }
-        }
-    }, [account]);
     var onPresentConnectModal = useWalletModal(login, logout, account, recentTransaction, chainId).onPresentConnectModal;
     var changeWalletHandler = function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
@@ -3711,9 +3701,7 @@ var AccountModal = function (_a) {
     };
     return (React.createElement(Modal, { title: "Your wallet", onDismiss: onDismiss },
         React.createElement(ConnectedWrapper, null,
-            React.createElement(Text, { fontSize: '14px', fontWeight: '400', lineHeight: '21px', color: '#708DB7' },
-                "Connected with ",
-                currentConnector),
+            React.createElement(Text, { fontSize: '14px', fontWeight: '400', lineHeight: '21px', color: '#1DC872' }, "Connected"),
             React.createElement(Button, { onClick: changeWalletHandler, scale: 'sm', variant: 'primary' }, "Change")),
         React.createElement(Text, { fontSize: "14px", fontWeight: '600', color: '#07162D', style: {
                 whiteSpace: "nowrap",
@@ -3733,7 +3721,6 @@ var AccountModal = function (_a) {
         React.createElement(Flex, null,
             React.createElement(Button, { style: { width: '100%' }, mt: '24px', variant: "secondary", onClick: function () {
                     logout();
-                    window.localStorage.removeItem(connectorLocalStorageKey);
                     onDismiss();
                 } }, "Logout"))));
 };
