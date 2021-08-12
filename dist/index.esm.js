@@ -4121,10 +4121,10 @@ var Toast = function (_a) {
                         React.createElement(LinkWrapper, null,
                             React.createElement(LinkStyles, { href: "https://bscscan.com/tx/" + hash }, "View on bscscan"),
                             React.createElement(Icon$S, { ml: '7px', width: '18px', height: '18px', color: 'primary' })),
-                    description ? React.createElement(Text, { fontSize: "12px", as: "p", mb: "8px", dangerouslySetInnerHTML: { __html: description } }) : React.createElement(React.Fragment, null),
+                    description ? React.createElement(Text, { color: "#6B7D98", fontSize: "12px", as: "p", mb: "8px", dangerouslySetInnerHTML: { __html: description } }) : React.createElement(React.Fragment, null),
                     telegramDescription && tweeterDescription && (React.createElement(React.Fragment, null,
                         React.createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title }),
-                        React.createElement(Button, { scale: "sm", variant: 'text', as: 'a', href: 'https://t.me/biswap' },
+                        React.createElement(Button, { p: "0", scale: "sm", variant: 'text', as: 'a', href: 'https://t.me/biswap' },
                             React.createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official telegram group"))))),
                 React.createElement("div", { style: { width: '100%' } },
                     React.createElement(ProgressWrapper, { style: { width: '100%' } }, progress ? React.createElement(ProgressLine, { style: { width: 100 - progress + "%" } }) : null))))));

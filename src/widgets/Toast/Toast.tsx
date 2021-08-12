@@ -121,12 +121,12 @@ const Toast: React.FC<ToastProps> = ({
                   <LinkIcon ml='7px' width='18px' height='18px' color='primary'/>
                 </LinkWrapper>
               }
-              {description ? <Text fontSize="12px" as="p" mb="8px" dangerouslySetInnerHTML={{__html: description}}/> : <></>}
+              {description ? <Text color="#6B7D98" fontSize="12px" as="p" mb="8px" dangerouslySetInnerHTML={{__html: description}}/> : <></>}
               {
                 telegramDescription && tweeterDescription && (
                   <>
                     <ToastAction telegramDescription={telegramDescription} tweeterDescription={tweeterDescription} title={title} />
-                    <Button scale="sm" variant='text' as='a' href='https://t.me/biswap'>
+                    <Button p="0" scale="sm" variant='text' as='a' href='https://t.me/biswap'>
                       <Text
                         fontSize='10px'
                         pl='0'

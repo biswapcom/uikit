@@ -4134,10 +4134,10 @@ var Toast = function (_a) {
                         React__default['default'].createElement(LinkWrapper, null,
                             React__default['default'].createElement(LinkStyles, { href: "https://bscscan.com/tx/" + hash }, "View on bscscan"),
                             React__default['default'].createElement(Icon$S, { ml: '7px', width: '18px', height: '18px', color: 'primary' })),
-                    description ? React__default['default'].createElement(Text, { fontSize: "12px", as: "p", mb: "8px", dangerouslySetInnerHTML: { __html: description } }) : React__default['default'].createElement(React__default['default'].Fragment, null),
+                    description ? React__default['default'].createElement(Text, { color: "#6B7D98", fontSize: "12px", as: "p", mb: "8px", dangerouslySetInnerHTML: { __html: description } }) : React__default['default'].createElement(React__default['default'].Fragment, null),
                     telegramDescription && tweeterDescription && (React__default['default'].createElement(React__default['default'].Fragment, null,
                         React__default['default'].createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title }),
-                        React__default['default'].createElement(Button, { scale: "sm", variant: 'text', as: 'a', href: 'https://t.me/biswap' },
+                        React__default['default'].createElement(Button, { p: "0", scale: "sm", variant: 'text', as: 'a', href: 'https://t.me/biswap' },
                             React__default['default'].createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official telegram group"))))),
                 React__default['default'].createElement("div", { style: { width: '100%' } },
                     React__default['default'].createElement(ProgressWrapper, { style: { width: '100%' } }, progress ? React__default['default'].createElement(ProgressLine, { style: { width: 100 - progress + "%" } }) : null))))));
