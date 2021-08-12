@@ -94,6 +94,7 @@ const Toast: React.FC<ToastProps> = ({
     hash
   } = toast;
 
+  // @ts-ignore
   return (
     <CSSTransition timeout={250} style={style} {...props}>
       <StyledToast onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -121,9 +122,7 @@ const Toast: React.FC<ToastProps> = ({
                   <LinkIcon ml='7px' width='18px' height='18px' color='primary'/>
                 </LinkWrapper>
               }
-              <Text fontSize="12px" as="p" mb="8px">
-                {description}
-              </Text>
+              {description ? <Text fontSize="12px" as="p" mb="8px" dangerouslySetInnerHTML={{__html: description}}/> : <></>}
               {
                 telegramDescription && tweeterDescription && (
                   <>

@@ -4074,6 +4074,7 @@ var LinkStyles = styled.a(templateObject_7 || (templateObject_7 = __makeTemplate
 var Toast = function (_a) {
     var _b = _a.removeButtonPosition, removeButtonPosition = _b === void 0 ? 60 : _b, clearAll = _a.clearAll, toast = _a.toast, style = _a.style, handleMouseEnter = _a.handleMouseEnter, handleMouseLeave = _a.handleMouseLeave, handleRemove = _a.handleRemove, progress = _a.progress, props = __rest(_a, ["removeButtonPosition", "clearAll", "toast", "style", "handleMouseEnter", "handleMouseLeave", "handleRemove", "progress"]);
     var description = toast.description, type = toast.type, title = toast.title, telegramDescription = toast.telegramDescription, tweeterDescription = toast.tweeterDescription, hash = toast.hash;
+    // @ts-ignore
     return (React.createElement(CSSTransition, __assign({ timeout: 250, style: style }, props),
         React.createElement(StyledToast, { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave },
             clearAll && (React.createElement(ClearAllButton, { variant: 'text', top: removeButtonPosition, onClick: function () { return clearAll(); } },
@@ -4084,7 +4085,7 @@ var Toast = function (_a) {
                         React.createElement(LinkWrapper, null,
                             React.createElement(LinkStyles, { href: "https://bscscan.com/tx/" + hash }, "View on bscscan"),
                             React.createElement(Icon$Q, { ml: '7px', width: '18px', height: '18px', color: 'primary' })),
-                    React.createElement(Text, { fontSize: "12px", as: "p", mb: "8px" }, description),
+                    description ? React.createElement(Text, { fontSize: "12px", as: "p", mb: "8px", dangerouslySetInnerHTML: { __html: description } }) : React.createElement(React.Fragment, null),
                     telegramDescription && tweeterDescription && (React.createElement(React.Fragment, null,
                         React.createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title }),
                         React.createElement(Button, { variant: 'text', as: 'a', href: 'https://t.me/biswap' },

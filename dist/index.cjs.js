@@ -4087,6 +4087,7 @@ var LinkStyles = styled__default['default'].a(templateObject_7 || (templateObjec
 var Toast = function (_a) {
     var _b = _a.removeButtonPosition, removeButtonPosition = _b === void 0 ? 60 : _b, clearAll = _a.clearAll, toast = _a.toast, style = _a.style, handleMouseEnter = _a.handleMouseEnter, handleMouseLeave = _a.handleMouseLeave, handleRemove = _a.handleRemove, progress = _a.progress, props = __rest(_a, ["removeButtonPosition", "clearAll", "toast", "style", "handleMouseEnter", "handleMouseLeave", "handleRemove", "progress"]);
     var description = toast.description, type = toast.type, title = toast.title, telegramDescription = toast.telegramDescription, tweeterDescription = toast.tweeterDescription, hash = toast.hash;
+    // @ts-ignore
     return (React__default['default'].createElement(reactTransitionGroup.CSSTransition, __assign({ timeout: 250, style: style }, props),
         React__default['default'].createElement(StyledToast, { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave },
             clearAll && (React__default['default'].createElement(ClearAllButton, { variant: 'text', top: removeButtonPosition, onClick: function () { return clearAll(); } },
@@ -4097,7 +4098,7 @@ var Toast = function (_a) {
                         React__default['default'].createElement(LinkWrapper, null,
                             React__default['default'].createElement(LinkStyles, { href: "https://bscscan.com/tx/" + hash }, "View on bscscan"),
                             React__default['default'].createElement(Icon$Q, { ml: '7px', width: '18px', height: '18px', color: 'primary' })),
-                    React__default['default'].createElement(Text, { fontSize: "12px", as: "p", mb: "8px" }, description),
+                    description ? React__default['default'].createElement(Text, { fontSize: "12px", as: "p", mb: "8px", dangerouslySetInnerHTML: { __html: description } }) : React__default['default'].createElement(React__default['default'].Fragment, null),
                     telegramDescription && tweeterDescription && (React__default['default'].createElement(React__default['default'].Fragment, null,
                         React__default['default'].createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title }),
                         React__default['default'].createElement(Button, { variant: 'text', as: 'a', href: 'https://t.me/biswap' },
