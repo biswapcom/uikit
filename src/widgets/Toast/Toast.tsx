@@ -40,7 +40,7 @@ const StyledToast = styled.div`
     transform: none;
     left: auto;
     right: 35px;
-    max-width: 400px;
+    max-width: 350px;
   }
 `;
 
@@ -121,7 +121,7 @@ const Toast: React.FC<ToastProps> = ({
                   <LinkIcon ml='7px' width='18px' height='18px' color='primary'/>
                 </LinkWrapper>
               }
-              <Text as="p" mb="8px">
+              <Text fontSize="12px" as="p" mb="8px">
                 {description}
               </Text>
               {
