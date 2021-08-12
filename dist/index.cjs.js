@@ -4039,9 +4039,9 @@ var ToastAction = function (_a) {
             React__default['default'].createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#16CDFD', alignItems: "center" } },
                 React__default['default'].createElement(StyledIcon, { src: giftImg, alt: "gift-icon" }),
                 React__default['default'].createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Retweet"),
-                React__default['default'].createElement(Icon$O, { mr: "7px", color: "#fff", width: "20px" }))),
+                React__default['default'].createElement(Icon$O, { mr: "8px", color: "#fff", width: "20px" }))),
         React__default['default'].createElement(reactShare.TelegramShareButton, { style: { width: '35%', marginLeft: "10px", alignItems: "center" }, title: telegramDescription, url: 'https://biswap.org/' },
-            React__default['default'].createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#26A6E5' } },
+            React__default['default'].createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#26A6E5', alignItems: "center" } },
                 React__default['default'].createElement(StyledIcon, { src: giftImg, alt: "gift-icon" }),
                 React__default['default'].createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Telegram"),
                 React__default['default'].createElement(Icon$P, { mr: "8px", color: "#fff", width: "20px" })))));
@@ -4087,7 +4087,6 @@ var LinkStyles = styled__default['default'].a(templateObject_7 || (templateObjec
 var Toast = function (_a) {
     var _b = _a.removeButtonPosition, removeButtonPosition = _b === void 0 ? 60 : _b, clearAll = _a.clearAll, toast = _a.toast, style = _a.style, handleMouseEnter = _a.handleMouseEnter, handleMouseLeave = _a.handleMouseLeave, handleRemove = _a.handleRemove, progress = _a.progress, props = __rest(_a, ["removeButtonPosition", "clearAll", "toast", "style", "handleMouseEnter", "handleMouseLeave", "handleRemove", "progress"]);
     var description = toast.description, type = toast.type, title = toast.title, telegramDescription = toast.telegramDescription, tweeterDescription = toast.tweeterDescription, hash = toast.hash;
-    // @ts-ignore
     return (React__default['default'].createElement(reactTransitionGroup.CSSTransition, __assign({ timeout: 250, style: style }, props),
         React__default['default'].createElement(StyledToast, { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave },
             clearAll && (React__default['default'].createElement(ClearAllButton, { variant: 'text', top: removeButtonPosition, onClick: function () { return clearAll(); } },
@@ -4101,7 +4100,7 @@ var Toast = function (_a) {
                     description ? React__default['default'].createElement(Text, { fontSize: "12px", as: "p", mb: "8px", dangerouslySetInnerHTML: { __html: description } }) : React__default['default'].createElement(React__default['default'].Fragment, null),
                     telegramDescription && tweeterDescription && (React__default['default'].createElement(React__default['default'].Fragment, null,
                         React__default['default'].createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title }),
-                        React__default['default'].createElement(Button, { variant: 'text', as: 'a', href: 'https://t.me/biswap' },
+                        React__default['default'].createElement(Button, { scale: "sm", variant: 'text', as: 'a', href: 'https://t.me/biswap' },
                             React__default['default'].createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official telegram group"))))),
                 React__default['default'].createElement("div", { style: { width: '100%' } },
                     React__default['default'].createElement(ProgressWrapper, { style: { width: '100%' } }, progress ? React__default['default'].createElement(ProgressLine, { style: { width: 100 - progress + "%" } }) : null))))));

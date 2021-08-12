@@ -4026,9 +4026,9 @@ var ToastAction = function (_a) {
             React.createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#16CDFD', alignItems: "center" } },
                 React.createElement(StyledIcon, { src: giftImg, alt: "gift-icon" }),
                 React.createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Retweet"),
-                React.createElement(Icon$O, { mr: "7px", color: "#fff", width: "20px" }))),
+                React.createElement(Icon$O, { mr: "8px", color: "#fff", width: "20px" }))),
         React.createElement(TelegramShareButton, { style: { width: '35%', marginLeft: "10px", alignItems: "center" }, title: telegramDescription, url: 'https://biswap.org/' },
-            React.createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#26A6E5' } },
+            React.createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#26A6E5', alignItems: "center" } },
                 React.createElement(StyledIcon, { src: giftImg, alt: "gift-icon" }),
                 React.createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Telegram"),
                 React.createElement(Icon$P, { mr: "8px", color: "#fff", width: "20px" })))));
@@ -4074,7 +4074,6 @@ var LinkStyles = styled.a(templateObject_7 || (templateObject_7 = __makeTemplate
 var Toast = function (_a) {
     var _b = _a.removeButtonPosition, removeButtonPosition = _b === void 0 ? 60 : _b, clearAll = _a.clearAll, toast = _a.toast, style = _a.style, handleMouseEnter = _a.handleMouseEnter, handleMouseLeave = _a.handleMouseLeave, handleRemove = _a.handleRemove, progress = _a.progress, props = __rest(_a, ["removeButtonPosition", "clearAll", "toast", "style", "handleMouseEnter", "handleMouseLeave", "handleRemove", "progress"]);
     var description = toast.description, type = toast.type, title = toast.title, telegramDescription = toast.telegramDescription, tweeterDescription = toast.tweeterDescription, hash = toast.hash;
-    // @ts-ignore
     return (React.createElement(CSSTransition, __assign({ timeout: 250, style: style }, props),
         React.createElement(StyledToast, { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave },
             clearAll && (React.createElement(ClearAllButton, { variant: 'text', top: removeButtonPosition, onClick: function () { return clearAll(); } },
@@ -4088,7 +4087,7 @@ var Toast = function (_a) {
                     description ? React.createElement(Text, { fontSize: "12px", as: "p", mb: "8px", dangerouslySetInnerHTML: { __html: description } }) : React.createElement(React.Fragment, null),
                     telegramDescription && tweeterDescription && (React.createElement(React.Fragment, null,
                         React.createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title }),
-                        React.createElement(Button, { variant: 'text', as: 'a', href: 'https://t.me/biswap' },
+                        React.createElement(Button, { scale: "sm", variant: 'text', as: 'a', href: 'https://t.me/biswap' },
                             React.createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official telegram group"))))),
                 React.createElement("div", { style: { width: '100%' } },
                     React.createElement(ProgressWrapper, { style: { width: '100%' } }, progress ? React.createElement(ProgressLine, { style: { width: 100 - progress + "%" } }) : null))))));

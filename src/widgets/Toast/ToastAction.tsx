@@ -34,13 +34,13 @@ const ToastAction: React.FC<ToastActionProps> = ({title, telegramDescription, tw
         <Button scale="sm" width='100%' style={{backgroundColor: '#16CDFD', alignItems: "center"}}>
           <StyledIcon src={giftImg} alt="gift-icon"/>
           <Text color='#fff' fontSize='12px' bold>Retweet</Text>
-          <TwitterIcon mr="7px" color="#fff" width="20px" />
+          <TwitterIcon mr="8px" color="#fff" width="20px" />
         </Button>
       </TwitterShareButton>
       <TelegramShareButton style={{ width:'35%', marginLeft: "10px", alignItems: "center"}} title={telegramDescription}
                           url='https://biswap.org/'
       >
-        <Button scale="sm" width='100%' style={{backgroundColor: '#26A6E5'}}>
+        <Button scale="sm" width='100%' style={{backgroundColor: '#26A6E5', alignItems: "center"}}>
           <StyledIcon src={giftImg} alt="gift-icon"/>
           <Text color='#fff' fontSize='12px' bold>Telegram</Text>
           <TelegramIcon mr="8px" color="#fff" width="20px" />

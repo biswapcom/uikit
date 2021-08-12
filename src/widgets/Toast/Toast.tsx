@@ -94,7 +94,6 @@ const Toast: React.FC<ToastProps> = ({
     hash
   } = toast;
 
-  // @ts-ignore
   return (
     <CSSTransition timeout={250} style={style} {...props}>
       <StyledToast onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -127,7 +126,7 @@ const Toast: React.FC<ToastProps> = ({
                 telegramDescription && tweeterDescription && (
                   <>
                     <ToastAction telegramDescription={telegramDescription} tweeterDescription={tweeterDescription} title={title} />
-                    <Button variant='text' as='a' href='https://t.me/biswap'>
+                    <Button scale="sm" variant='text' as='a' href='https://t.me/biswap'>
                       <Text
                         fontSize='10px'
                         pl='0'
