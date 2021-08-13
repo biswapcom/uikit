@@ -29,8 +29,6 @@ export { default as LoaderIcon } from "./Loader";
 export {default as CupIcon} from './Cup';
 export { default as AuditIcon } from "./AuditIcon";
 export { default as RewardIcon } from "./Reward";
-// export { default as PolygonIcon } from "./Polygon";
-// export { default as BSCIcon } from "./BSC";
 
 export { default as USAIcon } from "./flags/USA";
 export { default as IDIcon } from "./flags/ID";

@@ -13,6 +13,7 @@ export const baseColors = {
 
 export const brandColors = {
   binance: "#F0B90B",
+  polygon: "#8247E5",
 };
 
 export const lightColors: Colors = {
