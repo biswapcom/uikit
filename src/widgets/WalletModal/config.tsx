@@ -5,7 +5,7 @@ import TrustWallet from "./icons/TrustWallet";
 import WalletConnect from "./icons/WalletConnect";
 import BinanceChain from "./icons/BinanceChain";
 import SafePalWallet from "./icons/SafePalWallet";
-import MathWallet from "./icons/MathWallet";
+// import MathWallet from "./icons/MathWallet";
 import Coin98 from "./icons/Coin98";
 
 import { Config, ConnectorNames } from "./types";
