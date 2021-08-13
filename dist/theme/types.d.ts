@@ -57,6 +57,7 @@ export declare type Colors = {
     boost: string;
     gradients: Gradients;
     binance: string;
+    polygon: string;
 };
 export declare type ZIndices = {
     dropdown: number;

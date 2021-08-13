@@ -67,6 +67,7 @@ export type Colors = {
 
   // Brand colors
   binance: string;
+  polygon: string;
 };
 
 export type ZIndices = {
