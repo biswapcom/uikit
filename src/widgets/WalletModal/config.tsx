@@ -5,11 +5,10 @@ import TrustWallet from "./icons/TrustWallet";
 import WalletConnect from "./icons/WalletConnect";
 import BinanceChain from "./icons/BinanceChain";
 import SafePalWallet from "./icons/SafePalWallet";
-import MathWallet from "./icons/MathWallet";
+// import MathWallet from "./icons/MathWallet";
 import Coin98 from "./icons/Coin98";
 
 import { Config, ConnectorNames } from "./types";
-
 
 const connectors: Config[] = [
   {
@@ -35,12 +34,12 @@ const connectors: Config[] = [
   //   icon: TokenPocket,
   //   connectorId: ConnectorNames.Injected,
   // },
-  // {
-  //   title: "Coin98",
-  //   icon: Coin98,
-  //   connectorId: ConnectorNames.Injected,
-  //   priority: 999,
-  // },
+  {
+    title: "Coin98",
+    icon: Coin98,
+    connectorId: ConnectorNames.Injected,
+    priority: 999,
+  },
   {
     title: "WalletConnect",
     icon: WalletConnect,
