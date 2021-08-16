@@ -13,6 +13,7 @@ interface ToastActionProps {
   url?: string;
   telegramDescription: string;
   tweeterDescription: string;
+  thx?: string
 }
 
 const ActionsContainer = styled.div`
@@ -24,12 +25,12 @@ const StyledIcon = styled.img`
   filter: drop-shadow(2px 4px 8px rgba(0, 109, 163, 0.4));
 `
 
-const ToastAction: React.FC<ToastActionProps> = ({title, telegramDescription, tweeterDescription, url}) => {
+const ToastAction: React.FC<ToastActionProps> = ({title, telegramDescription, tweeterDescription, url, thx}) => {
 
   return (
     <ActionsContainer>
       <TwitterShareButton style={{ width:'35%'}}  title={tweeterDescription}
-                           url={url || "https://biswap.org"}
+                           url={url || "https://biswap.org/back/share/1"}
       >
         <Button scale="sm" width='100%' style={{backgroundColor: '#16CDFD', alignItems: "center"}}>
           <StyledIcon src={giftImg} alt="gift-icon"/>

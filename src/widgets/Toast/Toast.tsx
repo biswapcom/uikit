@@ -92,7 +92,7 @@ const Toast: React.FC<ToastProps> = ({
     telegramDescription,
     tweeterDescription,
     hash,
-    url
+    url,
   } = toast;
 
   return (
@@ -126,7 +126,7 @@ const Toast: React.FC<ToastProps> = ({
               {
                 telegramDescription && tweeterDescription && (
                   <>
-                    <ToastAction telegramDescription={telegramDescription} tweeterDescription={tweeterDescription} title={title} url={url}/>
+                    <ToastAction telegramDescription={telegramDescription} tweeterDescription={tweeterDescription} title={title} url={url} thx={`https://bscscan.com/tx/${hash}`}/>
                     <Button p="0" scale="sm" variant='text' as='a' href='https://t.me/biswap'>
                       <Text
                         fontSize='10px'

@@ -4057,9 +4057,9 @@ var giftImg = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkz
 var ActionsContainer = styled.div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  display: flex;\n  justify-content: flex-start;\n"], ["\n  display: flex;\n  justify-content: flex-start;\n"])));
 var StyledIcon = styled.img(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  width: 26px;\n  filter: drop-shadow(2px 4px 8px rgba(0, 109, 163, 0.4));\n"], ["\n  width: 26px;\n  filter: drop-shadow(2px 4px 8px rgba(0, 109, 163, 0.4));\n"])));
 var ToastAction = function (_a) {
-    _a.title; var telegramDescription = _a.telegramDescription, tweeterDescription = _a.tweeterDescription, url = _a.url;
+    _a.title; var telegramDescription = _a.telegramDescription, tweeterDescription = _a.tweeterDescription, url = _a.url; _a.thx;
     return (React.createElement(ActionsContainer, null,
-        React.createElement(TwitterShareButton, { style: { width: '35%' }, title: tweeterDescription, url: url || "https://biswap.org" },
+        React.createElement(TwitterShareButton, { style: { width: '35%' }, title: tweeterDescription, url: url || "https://biswap.org/back/share/1" },
             React.createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#16CDFD', alignItems: "center" } },
                 React.createElement(StyledIcon, { src: giftImg, alt: "gift-icon" }),
                 React.createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Retweet"),
@@ -4123,7 +4123,7 @@ var Toast = function (_a) {
                             React.createElement(Icon$S, { ml: '7px', width: '18px', height: '18px', color: 'primary' })),
                     description ? React.createElement(Text, { color: "#6B7D98", fontSize: "12px", as: "p", mb: "8px", dangerouslySetInnerHTML: { __html: description } }) : React.createElement(React.Fragment, null),
                     telegramDescription && tweeterDescription && (React.createElement(React.Fragment, null,
-                        React.createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title, url: url }),
+                        React.createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title, url: url, thx: "https://bscscan.com/tx/" + hash }),
                         React.createElement(Button, { p: "0", scale: "sm", variant: 'text', as: 'a', href: 'https://t.me/biswap' },
                             React.createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official telegram group"))))),
                 React.createElement("div", { style: { width: '100%' } },
