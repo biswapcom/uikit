@@ -17,6 +17,7 @@ export interface Toast {
   telegramDescription?: string;
   tweeterDescription?: string;
   hash?: string;
+  url?: string
 }
 
 export interface ToastContainerProps {

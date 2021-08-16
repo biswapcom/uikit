@@ -24,12 +24,12 @@ const StyledIcon = styled.img`
   filter: drop-shadow(2px 4px 8px rgba(0, 109, 163, 0.4));
 `
 
-const ToastAction: React.FC<ToastActionProps> = ({title, telegramDescription, tweeterDescription}) => {
+const ToastAction: React.FC<ToastActionProps> = ({title, telegramDescription, tweeterDescription, url}) => {
 
   return (
     <ActionsContainer>
       <TwitterShareButton style={{ width:'35%'}}  title={tweeterDescription}
-                           url='https://biswap.org/'
+                           url={url || "https://biswap.org"}
       >
         <Button scale="sm" width='100%' style={{backgroundColor: '#16CDFD', alignItems: "center"}}>
           <StyledIcon src={giftImg} alt="gift-icon"/>
@@ -38,7 +38,7 @@ const ToastAction: React.FC<ToastActionProps> = ({title, telegramDescription, tw
         </Button>
       </TwitterShareButton>
       <TelegramShareButton style={{ width:'35%', marginLeft: "10px", alignItems: "center"}} title={telegramDescription}
-                          url='https://biswap.org/'
+                           url={url || "https://biswap.org"}
       >
         <Button scale="sm" width='100%' style={{backgroundColor: '#26A6E5', alignItems: "center"}}>
           <StyledIcon src={giftImg} alt="gift-icon"/>
