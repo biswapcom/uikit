@@ -4072,7 +4072,7 @@ var StyledIcon = styled__default['default'].img(templateObject_2$1 || (templateO
 var ToastAction = function (_a) {
     _a.title; var telegramDescription = _a.telegramDescription, tweeterDescription = _a.tweeterDescription, url = _a.url; _a.thx;
     return (React__default['default'].createElement(ActionsContainer, null,
-        React__default['default'].createElement(reactShare.TwitterShareButton, { style: { width: '35%' }, title: tweeterDescription, url: url || "https://biswap.org/back/share/1" },
+        React__default['default'].createElement(reactShare.TwitterShareButton, { style: { width: '35%' }, title: tweeterDescription, url: url || "https://biswap.org" },
             React__default['default'].createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#16CDFD', alignItems: "center" } },
                 React__default['default'].createElement(StyledIcon, { src: giftImg, alt: "gift-icon" }),
                 React__default['default'].createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Retweet"),

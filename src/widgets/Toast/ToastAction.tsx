@@ -30,7 +30,7 @@ const ToastAction: React.FC<ToastActionProps> = ({title, telegramDescription, tw
   return (
     <ActionsContainer>
       <TwitterShareButton style={{ width:'35%'}}  title={tweeterDescription}
-                           url={url || "https://biswap.org/back/share/1"}
+                           url={url || "https://biswap.org"}
       >
         <Button scale="sm" width='100%' style={{backgroundColor: '#16CDFD', alignItems: "center"}}>
           <StyledIcon src={giftImg} alt="gift-icon"/>

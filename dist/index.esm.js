@@ -4059,7 +4059,7 @@ var StyledIcon = styled.img(templateObject_2$1 || (templateObject_2$1 = __makeTe
 var ToastAction = function (_a) {
     _a.title; var telegramDescription = _a.telegramDescription, tweeterDescription = _a.tweeterDescription, url = _a.url; _a.thx;
     return (React.createElement(ActionsContainer, null,
-        React.createElement(TwitterShareButton, { style: { width: '35%' }, title: tweeterDescription, url: url || "https://biswap.org/back/share/1" },
+        React.createElement(TwitterShareButton, { style: { width: '35%' }, title: tweeterDescription, url: url || "https://biswap.org" },
             React.createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#16CDFD', alignItems: "center" } },
                 React.createElement(StyledIcon, { src: giftImg, alt: "gift-icon" }),
                 React.createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Retweet"),
