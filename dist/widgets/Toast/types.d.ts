@@ -5,18 +5,15 @@ export declare const types: {
     INFO: string;
 };
 export declare type Types = typeof types[keyof typeof types];
-export interface ToastAction {
-    text: string;
-    url: string;
-}
 export interface Toast {
     id: string;
     type: Types;
     title: string;
-    description?: string;
+    description?: any;
     telegramDescription?: string;
     tweeterDescription?: string;
     hash?: string;
+    url?: string;
 }
 export interface ToastContainerProps {
     toasts: Toast[];
