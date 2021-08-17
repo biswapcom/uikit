@@ -74,6 +74,15 @@ const LinkStyles = styled.a`
   text-decoration: underline;
 `
 
+const SharingText = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+const ActionContainer = styled.div`
+  margin-bottom: 10px;
+`
+
 const Toast: React.FC<ToastProps> = ({
                                        removeButtonPosition=60,
                                        clearAll,
@@ -125,20 +134,32 @@ const Toast: React.FC<ToastProps> = ({
               {description ? <Text color="#6B7D98" fontSize="12px" as="p" mb="8px" dangerouslySetInnerHTML={{__html: description}}/> : <></>}
               {
                 telegramDescription && tweeterDescription && (
-                  <>
+                  <ActionContainer>
                     <ToastAction telegramDescription={telegramDescription} tweeterDescription={tweeterDescription} title={title} url={url} thx={`https://bscscan.com/tx/${hash}`}/>
-                    <Button p="0" scale="sm" variant='text' as='a' href='https://t.me/biswap'>
-                      <Text
-                        fontSize='10px'
-                        pl='0'
-                        fontWeight='400'
-                        lineHeight='12px'
-                        color='#6b7d98'
-                      >
-                        *Share your earnings in our official telegram group
-                      </Text>
-                    </Button>
-                  </>
+                    {/*<Button p="0" scale="sm" variant='text' as='a' href='https://t.me/biswap'>*/}
+                      {/*<SharingText>*/}
+                      {/*  <Text*/}
+                      {/*    fontSize='10px'*/}
+                      {/*    pl='0'*/}
+                      {/*    fontWeight='400'*/}
+                      {/*    lineHeight='12px'*/}
+                      {/*    color='#6b7d98'*/}
+                      {/*  >*/}
+                      {/*    *Share your earnings in our official*/}
+                      {/*  </Text>*/}
+                      {/*  <Text*/}
+                      {/*    fontSize='10px'*/}
+                      {/*    pl='0'*/}
+                      {/*    fontWeight='400'*/}
+                      {/*    lineHeight='12px'*/}
+                      {/*    color="#1263F1"*/}
+                      {/*    ml="2px"*/}
+                      {/*  >*/}
+                      {/*     telegram group*/}
+                      {/*  </Text>*/}
+                      {/*</SharingText>*/}
+                    {/*</Button>*/}
+                  </ActionContainer>
                 )
               }
             </AlertWrapper>

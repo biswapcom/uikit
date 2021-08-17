@@ -67,7 +67,7 @@ export const WithAction: React.FC = () => {
     const randomToast = {
       id: `id-${now}`,
       title: `Title: ${now}`,
-      description: "Share your earnings and win a part of <strong>$2530 in BSW</strong> Prize Pool for 253 winners every week!",
+      description: "Share your earnings on Twitter and win a part of <strong>$2200 in BSW</strong> Prize Pool for 202 winners every week!",
       hash: "aeafwa",
       telegramDescription: "Share your earnings on Biswap and win a part of $2530 in BSW Prize Pool for 253 winners every week! #biswap_sharing",
       tweeterDescription: "Share your earnings on Biswap and win a part of $2530 in BSW Prize Pool for 253 winners every week! #biswap_earn",
