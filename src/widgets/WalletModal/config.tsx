@@ -26,11 +26,6 @@ const connectors: Config[] = [
     connectorId: ConnectorNames.Injected,
     priority: 2,
   },
-  // {
-  //   title: "Coin98",
-  //   icon: Coin98,
-  //   connectorId: ConnectorNames.Injected,
-  // },
   {
     title: "TokenPocket",
     icon: TokenPocket,
