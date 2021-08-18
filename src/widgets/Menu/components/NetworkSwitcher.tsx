@@ -154,7 +154,6 @@ const NetworkSwitcher: React.FC<SelectProps> = ({ options, onChange, currentNetw
   }, [options, currentNetwork]);
 
   const onOptionClicked = (option: OptionProps) => () => {
-    setSelectedOption(option)
     setIsOpen(false)
 
     if (onChange) {

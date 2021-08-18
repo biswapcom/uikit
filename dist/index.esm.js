@@ -3873,7 +3873,6 @@ var NetworkSwitcher = function (_a) {
         }
     }, [options, currentNetwork]);
     var onOptionClicked = function (option) { return function () {
-        setSelectedOption(option);
         setIsOpen(false);
         if (onChange) {
             onChange(option);
