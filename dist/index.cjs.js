@@ -3877,8 +3877,12 @@ var NetworkSwitcher = function (_a) {
     var _c = React.useState(options[0]), selectedOption = _c[0], setSelectedOption = _c[1];
     var toggling = function () { return setIsOpen(!isOpen); };
     React.useEffect(function () {
+        console.log('network-changed - ', currentNetwork);
         if (currentNetwork === 56) {
             setSelectedOption(options[1]);
+        }
+        if (currentNetwork === 137) {
+            setSelectedOption(options[0]);
         }
     }, [options, currentNetwork]);
     var onOptionClicked = function (option) { return function () {
@@ -4362,15 +4366,6 @@ var Menu = function (_a) {
             networkChangeToBSC();
         }
     };
-    React.useEffect(function () {
-        console.log('network-changed');
-        if (currentNetwork === 137) {
-            networkChangeToMATIC();
-        }
-        if (currentNetwork === 56) {
-            networkChangeToBSC();
-        }
-    }, [currentNetwork, networkChangeToBSC, networkChangeToMATIC]);
     return (React__default['default'].createElement(Wrapper, { className: "" + (isPushed ? "no-scroll" : "") },
         React__default['default'].createElement(BodyWrapper, null,
             React__default['default'].createElement(StyledNav, { showMenu: showMenu, isPushed: isPushed, menuBg: menuBg },

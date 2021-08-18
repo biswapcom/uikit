@@ -144,8 +144,12 @@ const NetworkSwitcher: React.FC<SelectProps> = ({ options, onChange, currentNetw
   const toggling = () => setIsOpen(!isOpen);
 
   useEffect(() => {
+    console.log('network-changed - ', currentNetwork);
     if(currentNetwork === 56) {
       setSelectedOption(options[1])
+    }
+    if(currentNetwork === 137) {
+      setSelectedOption(options[0])
     }
   }, [options, currentNetwork]);
 
