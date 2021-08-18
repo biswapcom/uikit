@@ -4349,6 +4349,15 @@ var Menu = function (_a) {
             networkChangeToBSC();
         }
     };
+    useEffect(function () {
+        console.log('network-changed');
+        if (currentNetwork === 137) {
+            networkChangeToMATIC();
+        }
+        if (currentNetwork === 56) {
+            networkChangeToBSC();
+        }
+    }, [currentNetwork, networkChangeToBSC, networkChangeToMATIC]);
     return (React.createElement(Wrapper, { className: "" + (isPushed ? "no-scroll" : "") },
         React.createElement(BodyWrapper, null,
             React.createElement(StyledNav, { showMenu: showMenu, isPushed: isPushed, menuBg: menuBg },
