@@ -182,6 +182,17 @@ const Menu: React.FC<NavProps> = ({
     }
   }
 
+  useEffect(() => {
+    console.log('network-changed');
+    if (currentNetwork === 137) {
+      networkChangeToMATIC()
+    }
+    if (currentNetwork === 56) {
+      networkChangeToBSC()
+    }
+
+  }, [ currentNetwork, networkChangeToBSC, networkChangeToMATIC ])
+
   return (
     <Wrapper className={`${isPushed ? "no-scroll" : ""}`}>
       <BodyWrapper>

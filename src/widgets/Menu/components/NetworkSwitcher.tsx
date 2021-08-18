@@ -134,7 +134,7 @@ const ItemLabel = styled.span`
   }
 `
 
-const NetworkSwitcher: React.FC<SelectProps> = ({ options, onChange,currentNetwork }) => {
+const NetworkSwitcher: React.FC<SelectProps> = ({ options, onChange, currentNetwork }) => {
 
   const containerRef = useRef(null)
   const dropdownRef = useRef(null)
