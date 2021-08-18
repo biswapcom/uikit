@@ -114,7 +114,7 @@ const Toast: React.FC<ToastProps> = ({
                top={removeButtonPosition}
               onClick={() => clearAll()}
             >
-              <Text fontSize='16px' color='primary' lineHeight='19px'>
+              <Text fontSize='16px' color='#fff' lineHeight='19px'>
                 Clear All
               </Text>
             </ClearAllButton>
