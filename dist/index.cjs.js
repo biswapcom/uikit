@@ -820,7 +820,7 @@ var getIcon = function (variant) {
 //     fill: ${getThemeColor};
 //   }
 // `;
-var Title = styled__default['default'].div(templateObject_1$11 || (templateObject_1$11 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  font-weight: 600;\n  font-size: 16px;\n  margin-bottom: 8px;\n  margin-left: 16px;\n\n  svg {\n    margin-right: 8px;\n    fill: ", ";\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  font-weight: 600;\n  font-size: 16px;\n  margin-bottom: 8px;\n  margin-left: 16px;\n\n  svg {\n    margin-right: 8px;\n    fill: ", ";\n  }\n"])), getThemeColor);
+var Title = styled__default['default'].div(templateObject_1$11 || (templateObject_1$11 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  font-weight: 600;\n  font-size: 16px;\n  margin-bottom: 8px;\n  margin-left: 16px;\n  margin-right: 28px;\n\n  svg {\n    margin-right: 8px;\n    fill: ", ";\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  font-weight: 600;\n  font-size: 16px;\n  margin-bottom: 8px;\n  margin-left: 16px;\n  margin-right: 28px;\n\n  svg {\n    margin-right: 8px;\n    fill: ", ";\n  }\n"])), getThemeColor);
 var withHandlerSpacing = 32 + 12 + 8; // button size + inner spacing + handler position
 var Details = styled__default['default'].div(templateObject_2$y || (templateObject_2$y = __makeTemplateObject(["\n  flex: 1;\n  padding-bottom: 16px;\n  padding-left: 16px;\n  padding-right: ", ";\n  padding-top: 16px;\n"], ["\n  flex: 1;\n  padding-bottom: 16px;\n  padding-left: 16px;\n  padding-right: ", ";\n  padding-top: 16px;\n"])), function (_a) {
     var hasHandler = _a.hasHandler;
@@ -4075,11 +4075,10 @@ var ToastAction = function (_a) {
         React__default['default'].createElement(reactShare.TwitterShareButton, { style: { width: '35%' }, title: tweeterDescription, url: url || "https://biswap.org" },
             React__default['default'].createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#16CDFD', alignItems: "center" } },
                 React__default['default'].createElement(StyledIcon, { src: giftImg, alt: "gift-icon" }),
-                React__default['default'].createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Retweet"),
+                React__default['default'].createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Twitter"),
                 React__default['default'].createElement(Icon$Q, { mr: "8px", color: "#fff", width: "20px" }))),
         React__default['default'].createElement(reactShare.TelegramShareButton, { style: { width: '35%', marginLeft: "10px", alignItems: "center" }, title: telegramDescription, url: url || "https://biswap.org" },
             React__default['default'].createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#26A6E5', alignItems: "center" } },
-                React__default['default'].createElement(StyledIcon, { src: giftImg, alt: "gift-icon" }),
                 React__default['default'].createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Telegram"),
                 React__default['default'].createElement(Icon$R, { mr: "8px", color: "#fff", width: "20px" })))));
 };
@@ -4121,13 +4120,15 @@ var LinkStyles = styled__default['default'].a(templateObject_7 || (templateObjec
     var theme = _a.theme;
     return theme.colors.primary;
 });
+var SharingText = styled__default['default'].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: row;\n"], ["\n  display: flex;\n  flex-direction: row;\n"])));
+var ActionContainer = styled__default['default'].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n"], ["\n"])));
 var Toast = function (_a) {
     var _b = _a.removeButtonPosition, removeButtonPosition = _b === void 0 ? 60 : _b, clearAll = _a.clearAll, toast = _a.toast, style = _a.style, handleMouseEnter = _a.handleMouseEnter, handleMouseLeave = _a.handleMouseLeave, handleRemove = _a.handleRemove, progress = _a.progress, props = __rest(_a, ["removeButtonPosition", "clearAll", "toast", "style", "handleMouseEnter", "handleMouseLeave", "handleRemove", "progress"]);
     var description = toast.description, type = toast.type, title = toast.title, telegramDescription = toast.telegramDescription, tweeterDescription = toast.tweeterDescription, hash = toast.hash, url = toast.url;
     return (React__default['default'].createElement(reactTransitionGroup.CSSTransition, __assign({ timeout: 250, style: style }, props),
         React__default['default'].createElement(StyledToast, { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave },
             clearAll && (React__default['default'].createElement(ClearAllButton, { variant: 'text', top: removeButtonPosition, onClick: function () { return clearAll(); } },
-                React__default['default'].createElement(Text, { fontSize: '16px', color: 'primary', lineHeight: '19px' }, "Clear All"))),
+                React__default['default'].createElement(Text, { fontSize: '16px', color: '#fff', lineHeight: '19px' }, "Clear All"))),
             React__default['default'].createElement(Alert, { style: { padding: '16px 0 0 0' }, title: title, variant: alertTypeMap[type], onClick: handleRemove },
                 React__default['default'].createElement(AlertWrapper, null,
                     hash &&
@@ -4135,14 +4136,16 @@ var Toast = function (_a) {
                             React__default['default'].createElement(LinkStyles, { href: "https://bscscan.com/tx/" + hash }, "View on bscscan"),
                             React__default['default'].createElement(Icon$S, { ml: '7px', width: '18px', height: '18px', color: 'primary' })),
                     description ? React__default['default'].createElement(Text, { color: "#6B7D98", fontSize: "12px", as: "p", mb: "8px", dangerouslySetInnerHTML: { __html: description } }) : React__default['default'].createElement(React__default['default'].Fragment, null),
-                    telegramDescription && tweeterDescription && (React__default['default'].createElement(React__default['default'].Fragment, null,
+                    telegramDescription && tweeterDescription && (React__default['default'].createElement(ActionContainer, null,
                         React__default['default'].createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title, url: url, thx: "https://bscscan.com/tx/" + hash }),
                         React__default['default'].createElement(Button, { p: "0", scale: "sm", variant: 'text', as: 'a', href: 'https://t.me/biswap' },
-                            React__default['default'].createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official telegram group"))))),
+                            React__default['default'].createElement(SharingText, null,
+                                React__default['default'].createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official"),
+                                React__default['default'].createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: "#1263F1", ml: "2px" }, "telegram group")))))),
                 React__default['default'].createElement("div", { style: { width: '100%' } },
                     React__default['default'].createElement(ProgressWrapper, { style: { width: '100%' } }, progress ? React__default['default'].createElement(ProgressLine, { style: { width: 100 - progress + "%" } }) : null))))));
 };
-var templateObject_1$2, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;
+var templateObject_1$2, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
 
 var ZINDEX = 1000;
 var BOTTOM_POSITION = 35; // Initial position from the bottom
