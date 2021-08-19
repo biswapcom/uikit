@@ -4072,12 +4072,12 @@ var StyledIcon = styled__default['default'].img(templateObject_2$1 || (templateO
 var ToastAction = function (_a) {
     _a.title; var telegramDescription = _a.telegramDescription, tweeterDescription = _a.tweeterDescription, url = _a.url; _a.thx;
     return (React__default['default'].createElement(ActionsContainer, null,
-        React__default['default'].createElement(reactShare.TwitterShareButton, { style: { width: '35%' }, title: tweeterDescription, url: url || "https://biswap.org" },
+        React__default['default'].createElement(reactShare.TwitterShareButton, { style: { width: '35%' }, title: tweeterDescription, url: "" + url },
             React__default['default'].createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#16CDFD', alignItems: "center" } },
                 React__default['default'].createElement(StyledIcon, { src: giftImg, alt: "gift-icon" }),
                 React__default['default'].createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Twitter"),
                 React__default['default'].createElement(Icon$Q, { mr: "8px", color: "#fff", width: "20px" }))),
-        React__default['default'].createElement(reactShare.TelegramShareButton, { style: { width: '35%', marginLeft: "10px", alignItems: "center" }, title: telegramDescription, url: url || "https://biswap.org" },
+        React__default['default'].createElement(reactShare.TelegramShareButton, { style: { width: '35%', marginLeft: "10px", alignItems: "center" }, title: telegramDescription, url: "" + url },
             React__default['default'].createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#26A6E5', alignItems: "center" } },
                 React__default['default'].createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Telegram"),
                 React__default['default'].createElement(Icon$R, { mr: "8px", color: "#fff", width: "20px" })))));
@@ -4140,8 +4140,9 @@ var Toast = function (_a) {
                         React__default['default'].createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title, url: url, thx: "https://bscscan.com/tx/" + hash }),
                         React__default['default'].createElement(Button, { p: "0", scale: "sm", variant: 'text', as: 'a', href: 'https://t.me/biswap' },
                             React__default['default'].createElement(SharingText, null,
-                                React__default['default'].createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official"),
-                                React__default['default'].createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: "#1263F1", ml: "2px" }, "telegram group")))))),
+                                React__default['default'].createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Check"),
+                                React__default['default'].createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: "#1263F1", ml: "2px" }, "Sharing Season"),
+                                React__default['default'].createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98', ml: "2px" }, "details")))))),
                 React__default['default'].createElement("div", { style: { width: '100%' } },
                     React__default['default'].createElement(ProgressWrapper, { style: { width: '100%' } }, progress ? React__default['default'].createElement(ProgressLine, { style: { width: 100 - progress + "%" } }) : null))))));
 };

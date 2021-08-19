@@ -4059,12 +4059,12 @@ var StyledIcon = styled.img(templateObject_2$1 || (templateObject_2$1 = __makeTe
 var ToastAction = function (_a) {
     _a.title; var telegramDescription = _a.telegramDescription, tweeterDescription = _a.tweeterDescription, url = _a.url; _a.thx;
     return (React.createElement(ActionsContainer, null,
-        React.createElement(TwitterShareButton, { style: { width: '35%' }, title: tweeterDescription, url: url || "https://biswap.org" },
+        React.createElement(TwitterShareButton, { style: { width: '35%' }, title: tweeterDescription, url: "" + url },
             React.createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#16CDFD', alignItems: "center" } },
                 React.createElement(StyledIcon, { src: giftImg, alt: "gift-icon" }),
                 React.createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Twitter"),
                 React.createElement(Icon$Q, { mr: "8px", color: "#fff", width: "20px" }))),
-        React.createElement(TelegramShareButton, { style: { width: '35%', marginLeft: "10px", alignItems: "center" }, title: telegramDescription, url: url || "https://biswap.org" },
+        React.createElement(TelegramShareButton, { style: { width: '35%', marginLeft: "10px", alignItems: "center" }, title: telegramDescription, url: "" + url },
             React.createElement(Button, { scale: "sm", width: '100%', style: { backgroundColor: '#26A6E5', alignItems: "center" } },
                 React.createElement(Text, { color: '#fff', fontSize: '12px', bold: true }, "Telegram"),
                 React.createElement(Icon$R, { mr: "8px", color: "#fff", width: "20px" })))));
@@ -4127,8 +4127,9 @@ var Toast = function (_a) {
                         React.createElement(ToastAction, { telegramDescription: telegramDescription, tweeterDescription: tweeterDescription, title: title, url: url, thx: "https://bscscan.com/tx/" + hash }),
                         React.createElement(Button, { p: "0", scale: "sm", variant: 'text', as: 'a', href: 'https://t.me/biswap' },
                             React.createElement(SharingText, null,
-                                React.createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Share your earnings in our official"),
-                                React.createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: "#1263F1", ml: "2px" }, "telegram group")))))),
+                                React.createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98' }, "*Check"),
+                                React.createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: "#1263F1", ml: "2px" }, "Sharing Season"),
+                                React.createElement(Text, { fontSize: '10px', pl: '0', fontWeight: '400', lineHeight: '12px', color: '#6b7d98', ml: "2px" }, "details")))))),
                 React.createElement("div", { style: { width: '100%' } },
                     React.createElement(ProgressWrapper, { style: { width: '100%' } }, progress ? React.createElement(ProgressLine, { style: { width: 100 - progress + "%" } }) : null))))));
 };

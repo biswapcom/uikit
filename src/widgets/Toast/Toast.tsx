@@ -144,7 +144,7 @@ const Toast: React.FC<ToastProps> = ({
                           lineHeight='12px'
                           color='#6b7d98'
                         >
-                          *Share your earnings in our official
+                          *Check
                         </Text>
                         <Text
                           fontSize='10px'
@@ -154,7 +154,17 @@ const Toast: React.FC<ToastProps> = ({
                           color="#1263F1"
                           ml="2px"
                         >
-                           telegram group
+                          Sharing Season
+                        </Text>
+                        <Text
+                          fontSize='10px'
+                          pl='0'
+                          fontWeight='400'
+                          lineHeight='12px'
+                          color='#6b7d98'
+                          ml="2px"
+                        >
+                          details
                         </Text>
                       </SharingText>
                     </Button>
