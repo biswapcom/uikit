@@ -80,7 +80,6 @@ const SharingText = styled.div`
 `
 
 const ActionContainer = styled.div`
-  margin-bottom: 10px;
 `
 
 const Toast: React.FC<ToastProps> = ({
@@ -114,7 +113,7 @@ const Toast: React.FC<ToastProps> = ({
                top={removeButtonPosition}
               onClick={() => clearAll()}
             >
-              <Text fontSize='16px' color='primary' lineHeight='19px'>
+              <Text fontSize='16px' color='#fff' lineHeight='19px'>
                 Clear All
               </Text>
             </ClearAllButton>
@@ -136,29 +135,39 @@ const Toast: React.FC<ToastProps> = ({
                 telegramDescription && tweeterDescription && (
                   <ActionContainer>
                     <ToastAction telegramDescription={telegramDescription} tweeterDescription={tweeterDescription} title={title} url={url} thx={`https://bscscan.com/tx/${hash}`}/>
-                    {/*<Button p="0" scale="sm" variant='text' as='a' href='https://t.me/biswap'>*/}
-                      {/*<SharingText>*/}
-                      {/*  <Text*/}
-                      {/*    fontSize='10px'*/}
-                      {/*    pl='0'*/}
-                      {/*    fontWeight='400'*/}
-                      {/*    lineHeight='12px'*/}
-                      {/*    color='#6b7d98'*/}
-                      {/*  >*/}
-                      {/*    *Share your earnings in our official*/}
-                      {/*  </Text>*/}
-                      {/*  <Text*/}
-                      {/*    fontSize='10px'*/}
-                      {/*    pl='0'*/}
-                      {/*    fontWeight='400'*/}
-                      {/*    lineHeight='12px'*/}
-                      {/*    color="#1263F1"*/}
-                      {/*    ml="2px"*/}
-                      {/*  >*/}
-                      {/*     telegram group*/}
-                      {/*  </Text>*/}
-                      {/*</SharingText>*/}
-                    {/*</Button>*/}
+                    <Button p="0" scale="sm" variant='text' as='a' href='https://t.me/biswap'>
+                      <SharingText>
+                        <Text
+                          fontSize='10px'
+                          pl='0'
+                          fontWeight='400'
+                          lineHeight='12px'
+                          color='#6b7d98'
+                        >
+                          *Check
+                        </Text>
+                        <Text
+                          fontSize='10px'
+                          pl='0'
+                          fontWeight='400'
+                          lineHeight='12px'
+                          color="#1263F1"
+                          ml="2px"
+                        >
+                          Sharing Season
+                        </Text>
+                        <Text
+                          fontSize='10px'
+                          pl='0'
+                          fontWeight='400'
+                          lineHeight='12px'
+                          color='#6b7d98'
+                          ml="2px"
+                        >
+                          details
+                        </Text>
+                      </SharingText>
+                    </Button>
                   </ActionContainer>
                 )
               }
