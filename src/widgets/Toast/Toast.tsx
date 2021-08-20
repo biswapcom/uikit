@@ -113,7 +113,7 @@ const Toast: React.FC<ToastProps> = ({
                top={removeButtonPosition}
               onClick={() => clearAll()}
             >
-              <Text fontSize='16px' color='#fff' lineHeight='19px'>
+              <Text fontSize='16px' color='#1263F1' lineHeight='19px'>
                 Clear All
               </Text>
             </ClearAllButton>
@@ -124,7 +124,7 @@ const Toast: React.FC<ToastProps> = ({
               {
                 hash &&
                 <LinkWrapper>
-                  <LinkStyles target={"_blank"} href={`https://bscscan.com/tx/${hash}`}>
+                  <LinkStyles target="_blank" href={`https://bscscan.com/tx/${hash}`}>
                     View on bscscan
                   </LinkStyles>
                   <LinkIcon ml='7px' width='18px' height='18px' color='primary'/>
