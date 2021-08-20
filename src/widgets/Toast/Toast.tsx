@@ -135,7 +135,7 @@ const Toast: React.FC<ToastProps> = ({
                 telegramDescription && tweeterDescription && (
                   <ActionContainer>
                     <ToastAction telegramDescription={telegramDescription} tweeterDescription={tweeterDescription} title={title} url={url} thx={`https://bscscan.com/tx/${hash}`}/>
-                    <Button p="0" scale="sm" variant='text' as='a' href='https://t.me/biswap' target="_blank">
+                    <Button p="0" scale="sm" variant='text' as='a' href='https://docs.biswap.org/sharing-season' target="_blank">
                       <SharingText>
                         <Text
                           fontSize='10px'
