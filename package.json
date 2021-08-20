@@ -78,6 +78,7 @@
     "lodash": "^4.17.20",
     "react-detect-click-outside": "^1.1.1",
     "react-scroll": "^1.8.2",
+    "react-share": "^4.4.0",
     "react-transition-group": "^4.4.1",
     "styled-system": "^5.1.5"
   }
