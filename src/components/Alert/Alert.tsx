@@ -61,6 +61,8 @@ const Title = styled.div<ThemedIconLabel>`
   font-weight: 600;
   font-size: 16px;
   margin-bottom: 8px;
+  margin-left: 16px;
+  margin-right: 28px;
 
   svg {
     margin-right: 8px;
@@ -86,6 +88,7 @@ const CloseHandler = styled.div`
 
 const StyledAlert = styled(Flex)`
   position: relative;
+  overflow: hidden;
   background-color: #fff;
   border-radius: 16px;
   box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);
@@ -100,16 +103,12 @@ const Description = styled.p`
   margin: 0;
 `;
 
-const Alert: React.FC<AlertProps> = ({ title, children, variant, onClick }) => {
+const Alert: React.FC<AlertProps> = ({style, title, children, variant, onClick }) => {
   const Icon = getIcon(variant);
 
-  // const a = getThemeColor({ theme: });
-
-  // console.log('a', a);
-
   return (
-    <StyledAlert>
-      <Details hasHandler={!!onClick}>
+    <StyledAlert >
+      <Details style={style} hasHandler={!!onClick}>
         <Title variant={variant} hasDescription={!!children}>
           <Icon color="currentColor" width="24px" />
 
