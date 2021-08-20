@@ -33,4 +33,3 @@ export { default as PromoIcon } from "./Promo";
 export { default as USAIcon } from "./flags/USA";
 export { default as IDIcon } from "./flags/ID";
 export { default as RUIcon } from "./flags/RU";
-export { default as VNIcon } from "./flags/VN";

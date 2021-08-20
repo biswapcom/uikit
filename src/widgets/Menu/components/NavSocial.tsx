@@ -65,7 +65,6 @@ const DropDownLink = styled.a`
   line-height: 18px;
   color: ${({ theme }) => theme.colors.text};
   user-select: none;
-  white-space: nowrap;
   transition: all 0.4s ease;
 
   &:hover {
