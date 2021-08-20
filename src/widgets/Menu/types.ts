@@ -51,7 +51,6 @@ export interface MenuEntry {
   secondTextLabel?: string,
   secondCalloutClass?: string
   status?: LinkStatus;
-  target?: string
 }
 
 export interface PanelProps {
