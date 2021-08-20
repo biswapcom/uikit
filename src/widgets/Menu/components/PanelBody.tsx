@@ -101,7 +101,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
           //   </MenuLink>
           // </MenuEntry>
           <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass}>
-            <MenuLink target={entry.target ? entry.target : '_self'} href={entry.href} onClick={handleClick}>
+            <MenuLink href={entry.href} onClick={handleClick}>
               {iconElement}
               {entry.secondLabel ? (
                   <LinkLabel isPushed={isPushed}>{entry.label}
