@@ -113,7 +113,7 @@ const Toast: React.FC<ToastProps> = ({
                top={removeButtonPosition}
               onClick={() => clearAll()}
             >
-              <Text fontSize='16px' color='#fff' lineHeight='19px'>
+              <Text fontSize='16px' color='#1263F1' lineHeight='19px'>
                 Clear All
               </Text>
             </ClearAllButton>
@@ -124,7 +124,7 @@ const Toast: React.FC<ToastProps> = ({
               {
                 hash &&
                 <LinkWrapper>
-                  <LinkStyles target={"_blank"} href={`https://bscscan.com/tx/${hash}`}>
+                  <LinkStyles target="_blank" href={`https://bscscan.com/tx/${hash}`}>
                     View on bscscan
                   </LinkStyles>
                   <LinkIcon ml='7px' width='18px' height='18px' color='primary'/>
@@ -135,7 +135,7 @@ const Toast: React.FC<ToastProps> = ({
                 telegramDescription && tweeterDescription && (
                   <ActionContainer>
                     <ToastAction telegramDescription={telegramDescription} tweeterDescription={tweeterDescription} title={title} url={url} thx={`https://bscscan.com/tx/${hash}`}/>
-                    <Button p="0" scale="sm" variant='text' as='a' href='https://t.me/biswap' target="_blank">
+                    <Button p="0" scale="sm" variant='text' as='a' href='https://docs.biswap.org/sharing-season' target="_blank">
                       <SharingText>
                         <Text
                           fontSize='10px'
