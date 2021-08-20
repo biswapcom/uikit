@@ -4129,7 +4129,7 @@ var Toast = function (_a) {
                 React.createElement(AlertWrapper, null,
                     hash &&
                         React.createElement(LinkWrapper, null,
-                            React.createElement(LinkStyles, { href: "https://bscscan.com/tx/" + hash }, "View on bscscan"),
+                            React.createElement(LinkStyles, { target: "_blank", href: "https://bscscan.com/tx/" + hash }, "View on bscscan"),
                             React.createElement(Icon$S, { ml: '7px', width: '18px', height: '18px', color: 'primary' })),
                     description ? React.createElement(Text, { color: "#6B7D98", fontSize: "12px", as: "p", mb: "8px", dangerouslySetInnerHTML: { __html: description } }) : React.createElement(React.Fragment, null),
                     telegramDescription && tweeterDescription && (React.createElement(ActionContainer, null,

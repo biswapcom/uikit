@@ -124,7 +124,7 @@ const Toast: React.FC<ToastProps> = ({
               {
                 hash &&
                 <LinkWrapper>
-                  <LinkStyles href={`https://bscscan.com/tx/${hash}`}>
+                  <LinkStyles target={"_blank"} href={`https://bscscan.com/tx/${hash}`}>
                     View on bscscan
                   </LinkStyles>
                   <LinkIcon ml='7px' width='18px' height='18px' color='primary'/>
