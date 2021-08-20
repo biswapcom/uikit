@@ -149,11 +149,6 @@ export const socials = [
           label: "Русский",
           href: "https://t.me/biswap_rus",
         },
-        {
-          icon: 'VNIcon',
-          label: "Tiếng Việt",
-          href: "https://t.me/biswap_vnm",
-        },
       ]
     },
   },
