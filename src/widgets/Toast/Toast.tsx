@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import styled from "styled-components";
 import { Alert, alertVariants } from "../../components/Alert";
 import { Text } from "../../components/Text";
 import ToastAction from "./ToastAction";
 import { ToastProps, types } from "./types";
-import { Button } from "../../components/Button";
-import { LinkIcon } from "../../components/Svg";
 
 const alertTypeMap = {
   [types.INFO]: alertVariants.INFO,
@@ -15,171 +13,68 @@ const alertTypeMap = {
   [types.WARNING]: alertVariants.WARNING,
 };
 
-interface ClearButtonProps {
-  top: number;
-}
-
-const ClearAllButton = styled(Button)<ClearButtonProps>`
-  position: absolute;
-  right: 0;
-  top: ${({top}) => `${-top}px`};
-`
-
 const StyledToast = styled.div`
-  left: 50%;
-  transform: translate(-50%, 0);
+  right: 16px;
   position: fixed;
-  max-width: calc(100% - 12px);
+  max-width: calc(100% - 32px);
   transition: all 250ms ease-in;
   width: 100%;
 
-  box-shadow: 0px -4px 11px rgba(0, 0, 0, 0.1), 0px 20px 36px -8px rgba(14, 14, 44, 0.32), 0px 1px 1px rgba(0, 0, 0, 0.16);
-  border-radius: 16px;
-
   ${({ theme }) => theme.mediaQueries.sm} {
-    transform: none;
-    left: auto;
-    right: 35px;
-    max-width: 350px;
+    max-width: 400px;
   }
 `;
 
-const ProgressWrapper = styled.div`
-  background-color: ${({theme})=> theme.colors.contrast}
-  bottom: 0;
-  min-height: 5px;
-`
+const Toast: React.FC<ToastProps> = ({ toast, onRemove, style, ttl, ...props }) => {
+  const timer = useRef<number>();
+  const ref = useRef(null);
+  const removeHandler = useRef(onRemove);
+  const { id, title, description, type, action } = toast;
 
-const ProgressLine = styled.div`
-  background-color: ${({theme})=> theme.colors.success};
-  height: 5px;
-  transition: 100ms all;
-  border-radius: 16px;
-`
+  const handleRemove = useCallback(() => removeHandler.current(id), [id, removeHandler]);
 
-const AlertWrapper = styled.div`
-  padding: 0 16px;
-`
-const LinkWrapper = styled.div`
-  margin: 14px 0 11px 0;
-  display: flex;
-  align-items: center;
-`
+  const handleMouseEnter = () => {
+    clearTimeout(timer.current);
+  };
 
-const LinkStyles = styled.a`
- color: ${({theme})=> theme.colors.primary};
- font-size: 14px;
- font-weight: 700;
- line-height: 21px;
-  text-decoration: underline;
-`
+  const handleMouseLeave = () => {
+    if (timer.current) {
+      clearTimeout(timer.current);
+    }
 
-const SharingText = styled.div`
-  display: flex;
-  flex-direction: row;
-`
+    timer.current = window.setTimeout(() => {
+      handleRemove();
+    }, ttl);
+  };
 
-const ActionContainer = styled.div`
-`
+  useEffect(() => {
+    if (timer.current) {
+      clearTimeout(timer.current);
+    }
 
-const Toast: React.FC<ToastProps> = ({
-                                       removeButtonPosition=60,
-                                       clearAll,
-                                       toast,
-                                       style,
-                                       handleMouseEnter,
-                                       handleMouseLeave,
-                                       handleRemove,
-                                       progress,
-                                       ...props
-}) => {
-  const {
-    description,
-    type,
-    title,
-    telegramDescription,
-    tweeterDescription,
-    hash,
-    url,
-  } = toast;
+    timer.current = window.setTimeout(() => {
+      handleRemove();
+    }, ttl);
+
+    return () => {
+      clearTimeout(timer.current);
+    };
+  }, [timer, ttl, handleRemove]);
 
   return (
-    <CSSTransition timeout={250} style={style} {...props}>
-      <StyledToast onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        {
-          clearAll && (
-            <ClearAllButton
-              variant='text'
-               top={removeButtonPosition}
-              onClick={() => clearAll()}
-            >
-              <Text fontSize='16px' color='#1263F1' lineHeight='19px'>
-                Clear All
+    <CSSTransition nodeRef={ref} timeout={250} style={style} {...props}>
+      <StyledToast ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <Alert title={title} variant={alertTypeMap[type]} onClick={handleRemove}>
+          {action ? (
+            <>
+              <Text as="p" mb="8px">
+                {description}
               </Text>
-            </ClearAllButton>
-          )
-        }
-        <Alert style={{padding: '16px 0 0 0'}} title={title} variant={alertTypeMap[type]} onClick={handleRemove}>
-            <AlertWrapper>
-              {
-                hash &&
-                <LinkWrapper>
-                  <LinkStyles target="_blank" href={`https://bscscan.com/tx/${hash}`}>
-                    View on bscscan
-                  </LinkStyles>
-                  <LinkIcon ml='7px' width='18px' height='18px' color='primary'/>
-                </LinkWrapper>
-              }
-              {description ? <Text color="#6B7D98" fontSize="12px" as="p" mb="8px" dangerouslySetInnerHTML={{__html: description}}/> : <></>}
-              {
-                telegramDescription && tweeterDescription && (
-                  <ActionContainer>
-                    <ToastAction telegramDescription={telegramDescription} tweeterDescription={tweeterDescription} title={title} url={url} thx={`https://bscscan.com/tx/${hash}`}/>
-                    <Button p="0" scale="sm" variant='text' as='a' href='https://t.me/biswap' target="_blank">
-                      <SharingText>
-                        <Text
-                          fontSize='10px'
-                          pl='0'
-                          fontWeight='400'
-                          lineHeight='12px'
-                          color='#6b7d98'
-                        >
-                          *Check
-                        </Text>
-                        <Text
-                          fontSize='10px'
-                          pl='0'
-                          fontWeight='400'
-                          lineHeight='12px'
-                          color="#1263F1"
-                          ml="2px"
-                        >
-                          Sharing Season
-                        </Text>
-                        <Text
-                          fontSize='10px'
-                          pl='0'
-                          fontWeight='400'
-                          lineHeight='12px'
-                          color='#6b7d98'
-                          ml="2px"
-                        >
-                          details
-                        </Text>
-                      </SharingText>
-                    </Button>
-                  </ActionContainer>
-                )
-              }
-            </AlertWrapper>
-            <div style={{width: '100%'}}>
-              <ProgressWrapper  style={{width: '100%'}}>
-                {
-                  progress ?  <ProgressLine style={{width: `${100 - progress}%`}}/> : null
-                }
-
-              </ProgressWrapper>
-            </div>
+              <ToastAction action={action} />
+            </>
+          ) : (
+            description
+          )}
         </Alert>
       </StyledToast>
     </CSSTransition>
