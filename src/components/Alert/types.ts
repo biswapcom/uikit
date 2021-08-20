@@ -1,4 +1,4 @@
-import React, { MouseEvent, ReactNode } from "react";
+import { MouseEvent, ReactNode } from "react";
 
 export type AlertTheme = {
   background: string;
@@ -18,5 +18,4 @@ export interface AlertProps {
   title: string;
   children?: ReactNode;
   onClick?: (evt: MouseEvent<HTMLButtonElement>) => void;
-  style?: React.CSSProperties
 }
