@@ -135,7 +135,7 @@ const NavSocial: React.FC<Props> = ({ isPushed, isSidebar }) => {
                     const IconFlag = Icons[item.icon];
                     // console.log(item.icon);
                     return (
-                      <DropDownLink key={item.label} href={item.href} aria-label={social.label}>
+                      <DropDownLink key={item.label} href={item.href} target="_blank" aria-label={social.label}>
                         <IconFlag width="14px" mr="8px"/>
                         {item.label}
                       </DropDownLink>
