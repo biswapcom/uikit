@@ -126,14 +126,13 @@ const NavSocial: React.FC<Props> = ({ isPushed, isSidebar }) => {
               </ItemWrapper>
               {isOpen && (
                 <DropDown className={`${isOpen && "active"}`} isSidebar={isSidebar}>
-                  <DropDownLink key={social.items.channel.label} href={social.items.channel.href} aria-label={social.label}>
+                  <DropDownLink key={social.items.channel.label} href={social.items.channel.href} target="_blank" aria-label={social.label}>
                     <LogoChanel  width="14px" mr="8px"/>
                     {social.items.channel.label}
                   </DropDownLink>
                   <DropDownLabel>Chats:</DropDownLabel>
                   {social.items.chats.map((item) => {
                     const IconFlag = Icons[item.icon];
-                    // console.log(item.icon);
                     return (
                       <DropDownLink key={item.label} href={item.href} target="_blank" aria-label={social.label}>
                         <IconFlag width="14px" mr="8px"/>
