@@ -3086,13 +3086,12 @@ var NavSocial = function (_a) {
                 React.createElement(ItemWrapper, { className: "" + (isOpen && "active"), onClick: openDropdown },
                     React.createElement(Icon, __assign({}, iconProps))),
                 isOpen && (React.createElement(DropDown, { className: "" + (isOpen && "active"), isSidebar: isSidebar },
-                    React.createElement(DropDownLink, { key: social.items.channel.label, href: social.items.channel.href, "aria-label": social.label },
+                    React.createElement(DropDownLink, { key: social.items.channel.label, href: social.items.channel.href, target: "_blank", "aria-label": social.label },
                         React.createElement(Icon$1g, { width: "14px", mr: "8px" }),
                         social.items.channel.label),
                     React.createElement(DropDownLabel, null, "Chats:"),
                     social.items.chats.map(function (item) {
                         var IconFlag = Icons$1[item.icon];
-                        // console.log(item.icon);
                         return (React.createElement(DropDownLink, { key: item.label, href: item.href, target: "_blank", "aria-label": social.label },
                             React.createElement(IconFlag, { width: "14px", mr: "8px" }),
                             item.label));
