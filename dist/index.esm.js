@@ -3093,7 +3093,7 @@ var NavSocial = function (_a) {
                     social.items.chats.map(function (item) {
                         var IconFlag = Icons$1[item.icon];
                         // console.log(item.icon);
-                        return (React.createElement(DropDownLink, { key: item.label, href: item.href, "aria-label": social.label },
+                        return (React.createElement(DropDownLink, { key: item.label, href: item.href, target: "_blank", "aria-label": social.label },
                             React.createElement(IconFlag, { width: "14px", mr: "8px" }),
                             item.label));
                     })))));
