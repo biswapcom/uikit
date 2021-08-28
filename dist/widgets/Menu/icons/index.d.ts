@@ -30,6 +30,7 @@ export { default as CupIcon } from './Cup';
 export { default as AuditIcon } from "./AuditIcon";
 export { default as RewardIcon } from "./Reward";
 export { default as PromoIcon } from "./Promo";
+export { default as TeamIcon } from "./Team";
 export { default as USAIcon } from "./flags/USA";
 export { default as IDIcon } from "./flags/ID";
 export { default as RUIcon } from "./flags/RU";
