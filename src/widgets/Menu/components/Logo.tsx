@@ -83,7 +83,7 @@ const Logo: React.FC<Props> = ({ isPushed, isDark, href }) => {
       {isAbsoluteUrl ? (
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        <StyledLink as="a" to={href} aria-label="Biswap home page">
+        <StyledLink as="a" href={href} aria-label="Biswap home page">
           {innerLogo}
         </StyledLink>
       ) : (
