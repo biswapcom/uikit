@@ -3431,7 +3431,7 @@ var Logo = function (_a) {
     return (React__default['default'].createElement(Wrapper$8, { isPushed: isPushed, isDark: isDark, href: href }, isAbsoluteUrl ? (
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    React__default['default'].createElement(StyledLink$1, { as: "a", to: href, "aria-label": "Biswap home page" }, innerLogo)) : (React__default['default'].createElement(StyledLink$1, { to: href, "aria-label": "Biswap home page" }, innerLogo))));
+    React__default['default'].createElement(StyledLink$1, { as: "a", href: href, "aria-label": "Biswap home page" }, innerLogo)) : (React__default['default'].createElement(StyledLink$1, { to: href, "aria-label": "Biswap home page" }, innerLogo))));
 };
 var Logo$1 = React__default['default'].memo(Logo, function (prev, next) { return prev.isPushed === next.isPushed && prev.isDark === next.isDark; });
 var templateObject_1$i, templateObject_2$e;
