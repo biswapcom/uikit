@@ -199,7 +199,7 @@ const Menu: React.FC<NavProps> = ({
           cakePriceUsd={cakePriceUsd}
           pushNav={setIsPushed}
           links={links}
-          href={homeLink?.href ?? '/'}
+          href={homeLink?.href ?? "/"}
           footerTitle={footerTitle}
           deals={deals}
         />
