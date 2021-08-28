@@ -8,10 +8,11 @@ const ButtonMenu: React.FC<ButtonMenuProps> = ({
   scale = scales.MD,
   variant = variants.PRIMARY,
   onItemClick,
+  autoWidth= false,
   children,
 }) => {
   return (
-    <StyledButtonMenu variant={variant}>
+    <StyledButtonMenu variant={variant} autoWidth={autoWidth}>
       {Children.map(children, (child: ReactElement, index) => {
         return cloneElement(child, {
           isActive: activeIndex === index,

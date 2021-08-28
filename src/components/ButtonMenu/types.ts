@@ -10,4 +10,5 @@ export interface ButtonMenuProps {
   onItemClick?: (index: number) => void;
   scale?: Scale;
   children: React.ReactElement[];
+  autoWidth?: boolean;
 }

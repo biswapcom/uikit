@@ -65,6 +65,7 @@ const DropDownLink = styled.a`
   line-height: 18px;
   color: ${({ theme }) => theme.colors.text};
   user-select: none;
+  white-space: nowrap;
   transition: all 0.4s ease;
 
   &:hover {
@@ -125,7 +126,7 @@ const NavSocial: React.FC<Props> = ({ isPushed, isSidebar }) => {
               </ItemWrapper>
               {isOpen && (
                 <DropDown className={`${isOpen && "active"}`} isSidebar={isSidebar}>
-                  <DropDownLink key={social.items.channel.label} href={social.items.channel.href} aria-label={social.label}>
+                  <DropDownLink key={social.items.channel.label} href={social.items.channel.href} target="_blank" aria-label={social.label}>
                     <LogoChanel  width="14px" mr="8px"/>
                     {social.items.channel.label}
                   </DropDownLink>
@@ -133,7 +134,7 @@ const NavSocial: React.FC<Props> = ({ isPushed, isSidebar }) => {
                   {social.items.chats.map((item) => {
                     const IconFlag = Icons[item.icon];
                     return (
-                      <DropDownLink key={item.label} href={item.href} aria-label={social.label}>
+                      <DropDownLink key={item.label} href={item.href} target="_blank" aria-label={social.label}>
                         <IconFlag width="14px" mr="8px"/>
                         {item.label}
                       </DropDownLink>
